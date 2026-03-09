@@ -35,7 +35,7 @@ description: "Cloud AI services are convenient, but what about privacy, costs, a
             </ul>
 
             <h2 class="text-2xl font-black font-display text-white">DataUnchain: built for this</h2>
-            <p>That's exactly why we built <a href="https://github.com/DataUnchain/DataUnchain" class="text-brand-tealLight hover:underline">DataUnchain</a>. It's open source, runs entirely in Docker, and transforms raw documents into validated, structured data — all on your hardware.</p>
+            <p>That's exactly why we built <a href="https://github.com/DataUnchain/DataUnchain" class="text-brand-tealLight hover:underline">DataUnchain</a>. It's an enterprise solution, runs entirely in Docker, and transforms raw documents into validated, structured data — all on your hardware.</p>
             <p>We believe the future of enterprise AI is local. Not because cloud is bad, but because <em>your data deserves to stay yours</em>.</p>
         </div>
 

@@ -38,4 +38,4 @@ dataunchain.github.io/
 
 ## License
 
-MIT — © Antonio Trento
+© Antonio Trento — All rights reserved.

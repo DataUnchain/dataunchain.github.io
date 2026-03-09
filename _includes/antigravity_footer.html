@@ -64,7 +64,8 @@
                 </ul>
             </div>
             <div>
-                <h4 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">Open Source</h4>
+                <h4 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">{% if page.lang == 'it'
+                    %}Risorse{% else %}Resources{% endif %}</h4>
                 <ul class="space-y-3 text-sm text-gray-500">
                     <li>
                         <a href="https://github.com/dataunchain/dataunchain" target="_blank" rel="noopener"
@@ -109,7 +110,7 @@
         <p>
             © {{ site.time | date: '%Y' }} <a href="https://antoniotrento.net"
                 class="hover:text-brand-teal transition-colors">Antonio Trento</a>.
-            {% if page.lang == 'it' %}Rilasciato sotto licenza MIT.{% else %}Released under MIT License.{% endif %}
+            {% if page.lang == 'it' %}Tutti i diritti riservati.{% else %}All rights reserved.{% endif %}
         </p>
         <p class="text-center md:text-right max-w-lg">
             {% if page.lang == 'it' %}
