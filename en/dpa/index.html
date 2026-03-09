@@ -1,0 +1,69 @@
+﻿---
+layout: default
+title: "Data Processing — DataUnchain"
+lang: en
+locale: en_US
+description: "DataUnchain Data Processing Agreement — no DPA needed because no data ever leaves your machine."
+---
+
+<section class="pt-36 pb-10 px-6 bg-brand-dark">
+    <div class="max-w-3xl mx-auto text-center reveal active">
+        <div
+            class="inline-block px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold tracking-widest uppercase mb-6">
+            📋 Data Processing</div>
+        <h1 class="text-5xl font-black font-display mb-6">Data Processing</h1>
+        <p class="text-gray-400 text-lg">Why DataUnchain doesn't need a DPA</p>
+    </div>
+</section>
+
+<section class="py-16 px-6 bg-brand-surface">
+    <div class="max-w-3xl mx-auto prose prose-invert prose-lg text-gray-300 leading-relaxed space-y-8">
+
+        <div class="bg-green-500/5 border border-green-500/20 rounded-2xl p-6 mb-8">
+            <h3 class="text-green-400 font-black font-display text-lg mb-3">🛡️ No DPA Required</h3>
+            <p class="text-gray-400 text-sm mb-0"><strong class="text-white">DataUnchain is 100% self-hosted.</strong> No
+                data is transmitted to the Author or any third party. There is no data processing relationship — you are
+                both the data controller and processor. A Data Processing Agreement is therefore not applicable.</p>
+        </div>
+
+        <h2 class="text-2xl font-black font-display text-white">How is this different from cloud services?</h2>
+        <p>When you use cloud-based document processing (AWS Textract, Google Doc AI, etc.), your data is sent to their
+            servers. Under GDPR, this creates a data processing relationship requiring a DPA.</p>
+        <p>With DataUnchain:</p>
+        <ul class="space-y-2 text-gray-400">
+            <li>✅ All AI inference runs <strong class="text-white">on your device</strong></li>
+            <li>✅ Your documents stay <strong class="text-white">on your device</strong></li>
+            <li>✅ Extracted data is stored <strong class="text-white">on your device</strong></li>
+            <li>✅ No network connection is required</li>
+            <li>✅ No sub-processors involved</li>
+        </ul>
+
+        <h2 class="text-2xl font-black font-display text-white">GDPR Data Flow</h2>
+        <div class="bg-brand-dark rounded-2xl p-6 border border-white/5 text-sm font-mono text-center space-y-3">
+            <div class="text-gray-400">📄 Your Documents</div>
+            <div class="text-brand-tealLight">↓ <span class="text-xs text-gray-600">(local filesystem)</span></div>
+            <div class="text-gray-400">🐳 DataUnchain (Docker on your machine)</div>
+            <div class="text-brand-tealLight">↓ <span class="text-xs text-gray-600">(internal Docker network)</span>
+            </div>
+            <div class="text-gray-400">💾 PostgreSQL + Excel (local volumes)</div>
+            <div class="mt-4 text-green-400 font-bold text-xs">⛔ Nothing leaves your infrastructure</div>
+        </div>
+
+        <h2 class="text-2xl font-black font-display text-white">For regulated industries</h2>
+        <p>DataUnchain is particularly suited for sectors where data cannot leave the premises:</p>
+        <ul class="space-y-2 text-gray-400">
+            <li><strong class="text-white">Healthcare:</strong> Patient records, lab results — air-gapped deployment
+            </li>
+            <li><strong class="text-white">Legal:</strong> Client-attorney privilege preserved — zero cloud exposure
+            </li>
+            <li><strong class="text-white">Finance:</strong> Trade secrets, compliance documents — full data sovereignty
+            </li>
+            <li><strong class="text-white">Government:</strong> Classified or sensitive documents — deploy on-premise
+            </li>
+        </ul>
+
+        <p>For questions, contact the project maintainer via the <a
+                href="https://github.com/dataunchain/dataunchain/issues"
+                class="text-brand-tealLight hover:underline">GitHub issue tracker</a>.</p>
+    </div>
+</section>

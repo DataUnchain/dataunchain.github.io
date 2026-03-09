@@ -1,0 +1,254 @@
+---
+layout: default
+title: "Come Funziona — DataUnchain"
+lang: it
+locale: it_IT
+description: "Scopri come funziona la pipeline AI di DataUnchain: dall'ingestione all'Apprendimento Progressivo,
+validazione in Python e push al Gestionale."
+---
+
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/3 w-[500px] h-[500px] bg-brand-teal/10 rounded-full blur-[120px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div
+            class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            🏗️ Architettura Applicativa</div>
+        <h1 class="text-5xl lg:text-6xl font-black font-display mb-6">Come Funziona DataUnchain</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Quattro fasi coordinate — Ingestione, Estrazione AI,
+            Validazione Scientifica
+            ed Integrazione — per inviare dati perfetti al tuo ERP.</p>
+    </div>
+</section>
+
+<!-- Pipeline Flow -->
+<section class="py-8 px-6 bg-brand-surface">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm font-bold text-brand-tealLight">
+                <i class="fas fa-folder-open"></i> Ingestione
+            </div>
+            <i class="fas fa-arrow-right text-gray-600"></i>
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-brand-emerald/20 border border-brand-emerald/30 rounded-full text-sm font-bold text-brand-emeraldLight">
+                <i class="fas fa-eye"></i> Visione AI
+            </div>
+            <i class="fas fa-arrow-right text-gray-600"></i>
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-sm font-bold text-yellow-400">
+                <i class="fas fa-calculator"></i> Validazione
+            </div>
+            <i class="fas fa-arrow-right text-gray-600"></i>
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-green-500/20 border border-green-500/30 rounded-full text-sm font-bold text-green-400">
+                <i class="fas fa-database"></i> Integrazione ERP
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fase 1: Ingestione -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">📂</span> Fase 1 — Ingestione Automatica
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Rilascia i file. DataUnchain automatizza.</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">Il motore di ingestione usa librerie di automazione per
+                monitorare caselle email o volumi montati in rete.
+                class="text-white">Watchdog</strong> di Python per monitorare un volume montato (<code
+                    class="text-brand-tealLight">/app/ingest</code>). Nel momento in cui appare un nuovo file — via
+                condivisione di rete, scanner o copia manuale — l'elaborazione inizia automaticamente.</p>
+            <p class="text-gray-400 mb-8 leading-relaxed">I PDF multipagina vengono divisi intelligentemente in immagini
+                singole ad alta risoluzione. Ogni pagina viene messa in coda per l'analisi AI.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-brand-surface rounded-2xl p-4 border border-white/5">
+                    <div class="text-brand-tealLight font-bold mb-1 text-sm">Formati supportati</div>
+                    <p class="text-gray-600 text-xs">PDF, JPG, PNG, TIFF — inclusi PDF multipagina</p>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-4 border border-white/5">
+                    <div class="text-brand-tealLight font-bold mb-1 text-sm">Metodo input</div>
+                    <p class="text-gray-600 text-xs">Condivisione rete, scanner, copia manuale o upload API</p>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute -inset-4 bg-brand-teal/10 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-surface rounded-3xl border border-white/10 p-6 font-mono text-sm">
+                <div class="flex items-center gap-2 mb-4 text-gray-500">
+                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>Watchdog · monitoraggio
+                    /app/ingest
+                </div>
+                <div class="space-y-3 text-xs">
+                    <div class="text-green-400">✓ Nuovo file rilevato: fattura_2026_001.pdf</div>
+                    <div class="text-green-400">✓ PDF diviso: 3 pagine estratte</div>
+                    <div class="text-yellow-400">→ Invio pagina 1/3 a Qwen 3.5 VL...</div>
+                    <div class="text-green-400">✓ Pagina 1 elaborata (0.8s)</div>
+                    <div class="text-yellow-400">→ Invio pagina 2/3 a Qwen 3.5 VL...</div>
+                    <div class="text-green-400">✓ Pagina 2 elaborata (0.6s)</div>
+                    <div class="text-yellow-400">→ Invio pagina 3/3 a Qwen 3.5 VL...</div>
+                    <div class="text-green-400">✓ Pagina 3 elaborata (0.7s)</div>
+                    <div class="text-green-400">✓ Spostato in /app/processed/</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fase 2: Visione AI -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative order-2 lg:order-1">
+            <div class="absolute -inset-4 bg-brand-emerald/10 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-dark rounded-3xl border border-white/10 p-6">
+                <div class="text-xs text-gray-500 font-mono mb-4 flex items-center gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulse"></div>Qwen 3.5 VL · analisi
+                    documento
+                </div>
+                <div
+                    class="bg-gradient-to-br from-teal-950 to-emerald-950 rounded-2xl h-40 flex items-center justify-center border border-white/5 mb-4">
+                    <div class="text-center">
+                        <div class="text-4xl mb-2 animate-float">👁️</div>
+                        <div class="text-xs text-brand-emeraldLight font-bold">Visione Nativa — nessun OCR</div>
+                        <div class="text-xs text-gray-600 mt-1">Lettura diretta del layout fattura</div>
+                    </div>
+                </div>
+                <div class="code-block text-xs rounded-xl">
+                    <span class="comment"># Prompt di estrazione (configurabile):</span>
+                    <span class="str">"Estrai: numero_documento,</span>
+                    <span class="str"> data_emissione, fornitore,</span>
+                    <span class="str"> partita_iva, totale_lordo,</span>
+                    <span class="str"> elenco_prodotti.</span>
+                    <span class="str"> Rispondi solo in JSON."</span>
+                </div>
+            </div>
+        </div>
+        <div class="order-1 lg:order-2">
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">👁️</span> Fase 2 — Visione AI
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Il modello "vede" il documento</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">A differenza dell'OCR tradizionale, <strong
+                    class="text-white">Qwen 3.5 VL è un Vision Language Model nativo</strong>. Non legge solo il testo —
+                comprende layout spaziale, tabelle, scrittura a mano e persino scansioni ruotate o sfocate.</p>
+            <p class="text-gray-400 mb-8 leading-relaxed">Controlli <em>cosa</em> viene estratto con un semplice prompt
+                testuale nel file <code class="text-brand-tealLight">.env</code>. Stesso codice, prompt diverso =
+                settore diverso.</p>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Multimodale: legge immagini nativamente (nessun layer OCR)</span></div>
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Finestra di contesto 1M token per documenti lunghi</span></div>
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Comprende tabelle, scrittura a mano, timbri</span></div>
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Esegue via Ollama — nessun internet necessario</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fase 3: Validazione -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">✅</span> Fase 3 — Validazione Ad Alta Precisione
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Fidati, ma verifica. Automaticamente.</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">Nessuna AI è perfetta al 100%. Per questo DataUnchain esegue
+                <strong class="text-white">tre livelli di validazione automatica</strong> prima di salvare qualsiasi
+                risultato:
+            </p>
+            <div class="space-y-4 mb-8">
+                <div class="bg-brand-surface rounded-2xl p-5 border border-white/5">
+                    <div class="text-yellow-400 font-bold mb-2 text-sm">🧮 Check Matematico</div>
+                    <p class="text-gray-500 text-xs">Python verifica l'aritmetica: Imponibile + IVA = Totale. Se non
+                        torna, il record viene segnalato per revisione umana.</p>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-5 border border-white/5">
+                    <div class="text-yellow-400 font-bold mb-2 text-sm">📊 Score di Confidenza</div>
+                    <p class="text-gray-500 text-xs">Qwen riporta la confidenza per campo. I campi sotto la soglia
+                        dell'85% vengono marcati con ⚠ per verifica manuale.</p>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-5 border border-white/5">
+                    <div class="text-yellow-400 font-bold mb-2 text-sm">🔀 Double-Check (Opzionale)</div>
+                    <p class="text-gray-500 text-xs">Elabora lo stesso documento con due modelli diversi (es. Qwen 4B +
+                        Llama 3.2). Se i risultati divergono, segnala per revisione.</p>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute -inset-4 bg-yellow-500/5 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-surface rounded-3xl border border-white/10 p-6">
+                <div class="text-xs text-gray-500 font-mono mb-4">validation_engine.py</div>
+                <div class="code-block text-xs rounded-xl">
+                    <span class="comment"># Check Matematico — "Il Revisore"</span>
+                    <span class="cmd">def</span> valida_dati(estratti):
+                    imponibile = estratti[<span class="str">'imponibile'</span>]
+                    iva = estratti[<span class="str">'iva'</span>]
+                    totale = estratti[<span class="str">'totale'</span>]
+
+                    <span class="cmd">if</span> abs((imponibile + iva) - totale) > <span class="str">0.02</span>:
+                    estratti[<span class="str">'stato'</span>] = <span class="str">'DA_VERIFICARE'</span>
+                    <span class="cmd">else</span>:
+                    estratti[<span class="str">'stato'</span>] = <span class="str">'VALIDATO'</span>
+
+                    <span class="cmd">return</span> estratti
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fase 4: Esportazione -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto text-center">
+        <div
+            class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-widest mb-8">
+            <span class="text-xl">📊</span> Fase 4 — Integrazione ERP
+        </div>
+        <h2 class="text-4xl font-black font-display mb-6">Dati caricati direttamente nel tuo Gestionale</h2>
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-16">I dati validati vengono scritti direttamente sul
+            database del tuo gestionale, oppure innescano l'API per registrare l'ingresso merce e la contabilità in
+            pochi millisecondi.</p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="text-4xl mb-4">💾</div>
+                <h3 class="font-bold text-white mb-2 font-display">PostgreSQL + JSONB</h3>
+                <p class="text-gray-500 text-sm">Ogni estrazione salvata con dati grezzi, dati validati, percorso file
+                    sorgente e timestamp.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="text-4xl mb-4">📊</div>
+                <h3 class="font-bold text-white mb-2 font-display">Export Excel</h3>
+                <p class="text-gray-500 text-sm">Export in .xlsx con un click — pronto per il commercialista, il
+                    magazziniere o l'ufficio legale.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="text-4xl mb-4">🔗</div>
+                <h3 class="font-bold text-white mb-2 font-display">Integrazione Legacy</h3>
+                <p class="text-gray-500 text-sm">Creazione di middleware per passaggi bidirezionali con SAP, Zucchetti,
+                    TeamSystem, Microsoft Dynamics e gestionali AS400.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-brand-dark text-center reveal">
+    <h2 class="text-4xl font-black font-display mb-6">Pronto per automatizzare?</h2>
+    <p class="text-gray-500 mb-8">Tre passi. Tre minuti. Zero data entry.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+        <a href="/it/"
+            class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform">←
+            Torna alla Home</a>
+        <a href="mailto:info@dataunchain.com?subject=Richiesta%20Demo%20—%20DataUnchain"
+            class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors flex items-center gap-2">Richiedi
+            una Demo Integrata</a>
+    </div>
+</section>

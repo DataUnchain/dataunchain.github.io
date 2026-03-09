@@ -1,0 +1,252 @@
+---
+layout: default
+title: "How it Works — DataUnchain"
+lang: en
+locale: en_US
+description: "Discover how the DataUnchain AI pipeline works: from ingestion to Progressive Learning, Python validation,
+and ERP push."
+---
+
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/3 w-[500px] h-[500px] bg-brand-teal/10 rounded-full blur-[120px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div
+            class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            🏗️ Application Architecture</div>
+        <h1 class="text-5xl lg:text-6xl font-black font-display mb-6">How DataUnchain Works</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Four coordinated phases — Ingestion, AI Extraction,
+            Scientific Validation
+            and Integration — to send perfect data to your ERP.</p>
+    </div>
+</section>
+
+<!-- Pipeline Flow -->
+<section class="py-8 px-6 bg-brand-surface">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm font-bold text-brand-tealLight">
+                <i class="fas fa-folder-open"></i> Ingestion
+            </div>
+            <i class="fas fa-arrow-right text-gray-600"></i>
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-brand-emerald/20 border border-brand-emerald/30 rounded-full text-sm font-bold text-brand-emeraldLight">
+                <i class="fas fa-eye"></i> AI Vision
+            </div>
+            <i class="fas fa-arrow-right text-gray-600"></i>
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-sm font-bold text-yellow-400">
+                <i class="fas fa-calculator"></i> Validation
+            </div>
+            <i class="fas fa-arrow-right text-gray-600"></i>
+            <div
+                class="flex items-center gap-2 px-5 py-3 bg-green-500/20 border border-green-500/30 rounded-full text-sm font-bold text-green-400">
+                <i class="fas fa-database"></i> ERP Integration
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Phase 1: Ingestion -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">📂</span> Phase 1 — Automatic Ingestion
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Drop the files. DataUnchain automates.</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">The ingestion engine uses automation libraries to monitor
+                email inboxes or network-mounted volumes. The moment a new file appears — via network share, scanner or
+                manual copy — processing begins automatically.</p>
+            <p class="text-gray-400 mb-8 leading-relaxed">Multi-page PDFs are intelligently split into single,
+                high-resolution images. Each page is queued for AI analysis.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-brand-surface rounded-2xl p-4 border border-white/5">
+                    <div class="text-brand-tealLight font-bold mb-1 text-sm">Supported Formats</div>
+                    <p class="text-gray-600 text-xs">PDF, JPG, PNG, TIFF — including multi-page PDFs</p>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-4 border border-white/5">
+                    <div class="text-brand-tealLight font-bold mb-1 text-sm">Input Methods</div>
+                    <p class="text-gray-600 text-xs">Network share, scanners, manual drop, or API upload</p>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute -inset-4 bg-brand-teal/10 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-surface rounded-3xl border border-white/10 p-6 font-mono text-sm">
+                <div class="flex items-center gap-2 mb-4 text-gray-500">
+                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>Watchdog · monitoring
+                    /app/ingest
+                </div>
+                <div class="space-y-3 text-xs">
+                    <div class="text-green-400">✓ New file detected: invoice_2026_001.pdf</div>
+                    <div class="text-green-400">✓ PDF split: 3 pages extracted</div>
+                    <div class="text-yellow-400">→ Sending page 1/3 to Model AI...</div>
+                    <div class="text-green-400">✓ Page 1 processed (0.8s)</div>
+                    <div class="text-yellow-400">→ Sending page 2/3 to Model AI...</div>
+                    <div class="text-green-400">✓ Page 2 processed (0.6s)</div>
+                    <div class="text-yellow-400">→ Sending page 3/3 to Model AI...</div>
+                    <div class="text-green-400">✓ Page 3 processed (0.7s)</div>
+                    <div class="text-green-400">✓ Moved to /app/processed/</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Phase 2: AI Vision -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div class="relative order-2 lg:order-1">
+            <div class="absolute -inset-4 bg-brand-emerald/10 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-dark rounded-3xl border border-white/10 p-6">
+                <div class="text-xs text-gray-500 font-mono mb-4 flex items-center gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-emerald animate-pulse"></div>AI Engine · document
+                    analysis
+                </div>
+                <div
+                    class="bg-gradient-to-br from-teal-950 to-emerald-950 rounded-2xl h-40 flex items-center justify-center border border-white/5 mb-4">
+                    <div class="text-center">
+                        <div class="text-4xl mb-2 animate-float">👁️</div>
+                        <div class="text-xs text-brand-emeraldLight font-bold">Native Vision — no OCR</div>
+                        <div class="text-xs text-gray-600 mt-1">Direct reading of the invoice layout</div>
+                    </div>
+                </div>
+                <div class="code-block text-xs rounded-xl">
+                    <span class="comment"># Extraction Prompt (configurable):</span>
+                    <span class="str">"Extract: document_number,</span>
+                    <span class="str"> issue_date, supplier,</span>
+                    <span class="str"> vat_number, gross_total,</span>
+                    <span class="str"> product_list.</span>
+                    <span class="str"> Reply in JSON only."</span>
+                </div>
+            </div>
+        </div>
+        <div class="order-1 lg:order-2">
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">👁️</span> Phase 2 — AI Vision
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">The model "sees" the document</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">Unlike traditional OCR, <strong class="text-white">our Vision
+                    Language Model relies on native vision capability</strong>. It doesn't just read text —
+                it understands spatial layout, tables, handwriting, and even rotated or blurry scans.</p>
+            <p class="text-gray-400 mb-8 leading-relaxed">You control <em>what</em> is extracted using a simple text
+                prompt
+                in the <code class="text-brand-tealLight">.env</code> file. Same code, different prompt =
+                different sector.</p>
+            <div class="space-y-3">
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Multimodal: reads images natively (no OCR layer)</span></div>
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">1M token context window for lengthy documents</span></div>
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Understands tables, handwriting, stamps</span></div>
+                <div class="flex items-center gap-3 text-sm"><i class="fas fa-check text-brand-emerald"></i><span
+                        class="text-gray-300">Runs locally — no internet required</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Phase 3: Validation -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <div
+                class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">✅</span> Phase 3 — High Precision Validation
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Trust, but verify. Automatically.</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">No AI is 100% perfect. That's why DataUnchain executes
+                <strong class="text-white">three levels of automatic validation</strong> before saving any result:
+            </p>
+            <div class="space-y-4 mb-8">
+                <div class="bg-brand-surface rounded-2xl p-5 border border-white/5">
+                    <div class="text-yellow-400 font-bold mb-2 text-sm">🧮 Math Check</div>
+                    <p class="text-gray-500 text-xs">Python verifies arithmetic: Taxable + VAT = Total. If it doesn't
+                        add up, the record gets flagged for human review.</p>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-5 border border-white/5">
+                    <div class="text-yellow-400 font-bold mb-2 text-sm">📊 Confidence Score</div>
+                    <p class="text-gray-500 text-xs">The model reports confidence per field. Fields under the 85%
+                        threshold are flagged with ⚠ for manual check.</p>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-5 border border-white/5">
+                    <div class="text-yellow-400 font-bold mb-2 text-sm">🔀 Double-Check (Optional)</div>
+                    <p class="text-gray-500 text-xs">Process the same document with two different models. If the results
+                        diverge, it flags for review.</p>
+                </div>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute -inset-4 bg-yellow-500/5 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-surface rounded-3xl border border-white/10 p-6">
+                <div class="text-xs text-gray-500 font-mono mb-4">validation_engine.py</div>
+                <div class="code-block text-xs rounded-xl">
+                    <span class="comment"># Math Check — "The Auditor"</span>
+                    <span class="cmd">def</span> validate_data(extracted):
+                    taxable = extracted[<span class="str">'taxable'</span>]
+                    vat = extracted[<span class="str">'vat'</span>]
+                    total = extracted[<span class="str">'total'</span>]
+
+                    <span class="cmd">if</span> abs((taxable + vat) - total) > <span class="str">0.02</span>:
+                    extracted[<span class="str">'status'</span>] = <span class="str">'TO_REVIEW'</span>
+                    <span class="cmd">else</span>:
+                    extracted[<span class="str">'status'</span>] = <span class="str">'VALIDATED'</span>
+
+                    <span class="cmd">return</span> extracted
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Phase 4: Exportation -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto text-center">
+        <div
+            class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-bold uppercase tracking-widest mb-8">
+            <span class="text-xl">📊</span> Phase 4 — ERP Integration
+        </div>
+        <h2 class="text-4xl font-black font-display mb-6">Data loaded straight into your ERP</h2>
+        <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-16">Validated data is written directly into your management
+            system's database, or triggers an API to log goods receipt and accounting in few milliseconds.</p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="text-4xl mb-4">💾</div>
+                <h3 class="font-bold text-white mb-2 font-display">PostgreSQL + JSONB</h3>
+                <p class="text-gray-500 text-sm">Every extraction is saved with raw data, validated data, source file
+                    path, and a timestamp.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="text-4xl mb-4">📊</div>
+                <h3 class="font-bold text-white mb-2 font-display">Excel Export</h3>
+                <p class="text-gray-500 text-sm">Export to .xlsx in one click — ready for the accountant, warehouse
+                    manager, or legal office.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="text-4xl mb-4">🔗</div>
+                <h3 class="font-bold text-white mb-2 font-display">Legacy Integration</h3>
+                <p class="text-gray-500 text-sm">Creation of middleware for bidirectional passes with SAP, Zucchetti,
+                    TeamSystem, Microsoft Dynamics and AS400 ERPs.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 bg-brand-dark text-center reveal">
+    <h2 class="text-4xl font-black font-display mb-6">Ready to automate?</h2>
+    <p class="text-gray-500 mb-8">Three steps. Three minutes. Zero data entry.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+        <a href="/en/"
+            class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform">←
+            Back Home</a>
+        <a href="mailto:info@dataunchain.com?subject=Demo%20Request%20—%20DataUnchain"
+            class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors flex items-center gap-2">Request
+            an Integrated Demo</a>
+    </div>
+</section>

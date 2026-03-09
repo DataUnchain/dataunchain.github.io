@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<article class="py-32 px-6 bg-white dark:bg-neutral-950 transition-colors min-h-screen">
+  <div class="max-w-4xl mx-auto">
+
+    <!-- Header -->
+    <header class="text-center mb-16 reveal">
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">{{ page.title }}</h1>
+      <div class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400">
+        <span class="font-medium">{{ page.date | date: "%-d %B %Y" }}</span>
+        {% if page.author %}
+        <span>•</span>
+        <span class="font-medium">{{ page.author }}</span>
+        {% endif %}
+      </div>
+    </header>
+
+    <!-- Featured Image -->
+    {% if page.image %}
+    <div class="mb-16 rounded-[2.5rem] overflow-hidden shadow-2xl reveal delay-100">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full h-auto object-cover">
+    </div>
+    {% endif %}
+
+    <!-- Content -->
+    <div class="prose prose-lg dark:prose-invert max-w-none">
+      {{ content }}
+    </div>
+
+    <!-- Majestic Bottom CTA -->
+    {% include post-cta.html %}
+
+    <!-- Related Posts -->
+    <div class="mt-20 pt-10 border-t border-gray-200 dark:border-white/10">
+      {% include related-posts.html current=page %}
+    </div>
+
+    <!-- CTA Popup -->
+    {% include popup-down.html %}
+
+  </div>
+</article>

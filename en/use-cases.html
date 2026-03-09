@@ -1,0 +1,199 @@
+---
+layout: default
+title: "Use Cases — DataUnchain"
+lang: en
+locale: en_US
+description: "Who uses DataUnchain? Accounting firms, logistics companies, legal offices, healthcare, restaurants, and
+HR
+departments."
+---
+
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[120px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div
+            class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+            🎯 Use Cases</div>
+        <h1 class="text-5xl lg:text-6xl font-black font-display mb-6">Who is DataUnchain for?</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Any business that loses hours to manual data entry from paper
+            documents.</p>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto space-y-12">
+        <!-- Accounting -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="text-5xl mb-6">📋</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold uppercase tracking-wider mb-4">
+                    Accounting</div>
+                <h2 class="text-3xl font-black font-display mb-4">The Accounting Firm</h2>
+                <p class="text-gray-400 mb-6">Your team spends <strong class="text-white">hours every day</strong>
+                    manually entering data from invoices. DataUnchain reads each invoice, extracts every field, and
+                    validates the math — automatically.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Extract invoice number, date,
+                            VAT ID, line items, totals</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Math Check: Subtotal + VAT =
+                            Total (automatic)</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Export clean Excel for your ERP
+                            system</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Process 1,000 invoices in 5
+                            minutes</span></li>
+                </ul>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="text-xs text-gray-500 font-mono mb-4">extraction prompt — invoices</div>
+                <div class="code-block text-xs">
+                    <span class="str">"Extract: invoice_number, date, supplier,</span><br>
+                    <span class="str"> vat_id, subtotal, vat, total, line_items.</span><br>
+                    <span class="str"> Reply in JSON only."</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logistics -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="text-xs text-gray-500 font-mono mb-4">Processing 500 shipping documents</div>
+                <div class="space-y-3">
+                    <div
+                        class="flex items-center justify-between text-xs text-gray-400 bg-brand-dark rounded-xl px-4 py-3 border border-white/5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>DDT_001.pdf
+                        </div><span class="text-green-400">✓ 3 parcels extracted</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-xs text-gray-400 bg-brand-dark rounded-xl px-4 py-3 border border-white/5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>DDT_002.pdf
+                        </div><span class="text-green-400">✓ 7 parcels extracted</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-xs text-gray-400 bg-brand-dark rounded-xl px-4 py-3 border border-white/5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>DDT_003.pdf
+                        </div><span class="text-yellow-400">⚠ Weight mismatch</span>
+                    </div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="text-5xl mb-6">📦</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold uppercase tracking-wider mb-4">
+                    Logistics</div>
+                <h2 class="text-3xl font-black font-display mb-4">The Logistics Company</h2>
+                <p class="text-gray-400 mb-6">Shipping documents, packing lists, bills of lading — your warehouse
+                    processes <strong class="text-white">hundreds of paper documents daily</strong>. DataUnchain
+                    extracts
+                    tracking codes, weights, and recipients.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-emerald mt-0.5"></i><span>Extract tracking codes,
+                            weights, recipients</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-emerald mt-0.5"></i><span>Works offline — perfect for
+                            warehouses</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-emerald mt-0.5"></i><span>Push directly to WMS via
+                            webhook</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Legal -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="text-5xl mb-6">⚖️</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+                    Legal</div>
+                <h2 class="text-3xl font-black font-display mb-4">The Law Firm</h2>
+                <p class="text-gray-400 mb-6">Thousands of pages of contracts and court rulings. With Qwen's <strong
+                        class="text-white">1M token context window</strong>, DataUnchain processes entire case files
+                    instantly.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-yellow-400 mt-0.5"></i><span>Extract dates, parties, clause
+                            references</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-yellow-400 mt-0.5"></i><span>1M token context = 500+ page
+                            documents</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-yellow-400 mt-0.5"></i><span>Client-attorney privilege: 100%
+                            offline</span></li>
+                </ul>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="text-xs text-gray-500 font-mono mb-4">Extracted from 1,200-page contract bundle</div>
+                <div class="space-y-3 text-xs">
+                    <div class="bg-brand-dark rounded-xl p-3 border border-white/5">
+                        <div class="text-gray-600 mb-1">doc: contract_2024.pdf · page 47</div>
+                        <div class="text-gray-400">"Termination clause: Art. 12.3 — 90 days notice"</div>
+                        <div class="text-gray-600 mt-1">confidence: 97% · VALIDATED</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Healthcare -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="bg-red-500/5 border border-red-500/20 rounded-xl p-4 text-center">
+                    <div class="text-3xl mb-2">🔒</div>
+                    <div class="text-red-400 font-bold text-sm mb-1">Air-Gapped Deployment</div>
+                    <div class="text-gray-500 text-xs">Patient data never touches the internet.</div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="text-5xl mb-6">🏥</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
+                    Healthcare</div>
+                <h2 class="text-3xl font-black font-display mb-4">The Hospital / Clinic</h2>
+                <p class="text-gray-400 mb-6">Medical records, lab results, prescriptions — cloud solutions are often
+                    <strong class="text-white">prohibited by regulation</strong>. DataUnchain runs entirely air-gapped.
+                </p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-red-400 mt-0.5"></i><span>HIPAA / GDPR compliant by
+                            design</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-red-400 mt-0.5"></i><span>Deploy on a single
+                            workstation</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Restaurant -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 text-center">
+            <div class="text-5xl mb-4">🍽️</div>
+            <div
+                class="inline-block px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold uppercase tracking-wider mb-6">
+                Restaurants</div>
+            <h2 class="text-3xl font-black font-display mb-4">Know Your Margins in Real-Time</h2>
+            <p class="text-gray-400 max-w-3xl mx-auto mb-8">DataUnchain scans supplier invoices, extracts ingredient
+                names and prices, and gives you <strong class="text-white">instant margin visibility</strong>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-brand-dark text-center reveal">
+    <h2 class="text-4xl font-black font-display mb-6">Your sector. Your documents. Same tool.</h2>
+    <p class="text-gray-500 mb-8">No rigid templates. No rules to program.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+        <a href="mailto:info@dataunchain.com?subject=Information%20Request%20—%20Use%20Cases"
+            class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform flex items-center gap-2">Discover
+            Sector Benefits</a>
+        <a href="/en/how-it-works/"
+            class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors">How it
+            Works →</a>
+    </div>
+</section>

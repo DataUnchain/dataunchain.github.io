@@ -1,0 +1,238 @@
+---
+layout: default
+title: "Casi d'Uso — DataUnchain"
+lang: it
+locale: it_IT
+description: "Chi usa DataUnchain? Studi commercialisti, aziende logistiche, studi legali, sanità, ristoranti e uffici
+HR
+— qualsiasi attività sommersa dalla carta."
+---
+
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-brand-gold/10 rounded-full blur-[120px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div
+            class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+            🎯 Casi d'Uso</div>
+        <h1 class="text-5xl lg:text-6xl font-black font-display mb-6">Per chi è DataUnchain?</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Qualsiasi azienda che perde ore nell'inserimento manuale di
+            dati da documenti cartacei. Stesso strumento, prompt diverso — ogni settore coperto.</p>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto space-y-12">
+
+        <!-- Contabilità -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="text-5xl mb-6">📋</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold uppercase tracking-wider mb-4">
+                    Contabilità</div>
+                <h2 class="text-3xl font-black font-display mb-4">Lo Studio Commercialista</h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">Il tuo team passa <strong class="text-white">ore ogni
+                        giorno</strong> a inserire manualmente dati dalle fatture nel gestionale. DataUnchain legge ogni
+                    fattura, estrae tutti i campi e valida la matematica — automaticamente. L'operatore umano verifica
+                    solo il 2-3% segnalato.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Estrae numero fattura, data,
+                            P.IVA, righe prodotto, totali</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Check Matematico: Imponibile +
+                            IVA = Totale (automatico)</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Export Excel pulito per il
+                            gestionale</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-teal mt-0.5"></i><span>Elabora 1.000 fatture in 5
+                            minuti</span></li>
+                </ul>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="text-xs text-gray-500 font-mono mb-4">prompt di estrazione — fatture</div>
+                <div class="code-block text-xs">
+                    <span class="str">"Estrai da questa fattura:</span>
+                    <span class="str"> - numero_documento</span>
+                    <span class="str"> - data_emissione</span>
+                    <span class="str"> - fornitore (nome, p.iva)</span>
+                    <span class="str"> - imponibile, iva, totale</span>
+                    <span class="str"> - elenco_prodotti</span>
+                    <span class="str"> Rispondi solo in JSON."</span>
+                </div>
+                <div class="mt-4 text-xs text-gray-600 text-center">→ <code
+                        class="text-brand-tealLight">Appliance Attiva</code> e rilascia i file</div>
+            </div>
+        </div>
+
+        <!-- Logistica -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="text-xs text-gray-500 font-mono mb-4">Elaborazione 500 documenti di trasporto</div>
+                <div class="space-y-3">
+                    <div
+                        class="flex items-center justify-between text-xs text-gray-400 bg-brand-dark rounded-xl px-4 py-3 border border-white/5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>DDT_001.pdf
+                        </div>
+                        <span class="text-green-400">✓ 3 colli estratti</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-xs text-gray-400 bg-brand-dark rounded-xl px-4 py-3 border border-white/5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>DDT_002.pdf
+                        </div>
+                        <span class="text-green-400">✓ 7 colli estratti</span>
+                    </div>
+                    <div
+                        class="flex items-center justify-between text-xs text-gray-400 bg-brand-dark rounded-xl px-4 py-3 border border-white/5">
+                        <div class="flex items-center gap-2">
+                            <div class="w-2 h-2 rounded-full bg-yellow-500"></div>DDT_003.pdf
+                        </div>
+                        <span class="text-yellow-400">⚠ Peso non corrisponde — revisione</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-center text-gray-600">500 documenti · 3 minuti · 2 segnalati per revisione
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="text-5xl mb-6">📦</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold uppercase tracking-wider mb-4">
+                    Logistica</div>
+                <h2 class="text-3xl font-black font-display mb-4">L'Azienda di Logistica</h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">Bolle, packing list, lettere di vettura — il tuo magazzino
+                    gestisce <strong class="text-white">centinaia di documenti cartacei al giorno</strong>. DataUnchain
+                    estrae codici tracking, pesi, destinatari e quantità, alimentando direttamente il WMS.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-emerald mt-0.5"></i><span>Estrae codici tracking,
+                            pesi, destinatari</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-emerald mt-0.5"></i><span>Funziona offline — perfetto
+                            per magazzini con scarsa connettività</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-brand-emerald mt-0.5"></i><span>Push diretto al WMS via
+                            webhook</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Legale -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="text-5xl mb-6">⚖️</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+                    Legale</div>
+                <h2 class="text-3xl font-black font-display mb-4">Lo Studio Legale</h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">Migliaia di pagine di contratti, sentenze e atti
+                    giudiziari. I tuoi collaboratori passano giorni a cercare date specifiche, clausole o nomi delle
+                    parti. Con la <strong class="text-white">finestra di contesto da 1 milione di token</strong> di
+                    Qwen, DataUnchain elabora interi fascicoli istantaneamente.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-yellow-400 mt-0.5"></i><span>Estrae date, parti, riferimenti
+                            clausole, numeri di ruolo</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-yellow-400 mt-0.5"></i><span>Contesto 1M token = elabora
+                            documenti da 500+ pagine</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-yellow-400 mt-0.5"></i><span>Segreto professionale
+                            preservato: 100% offline</span></li>
+                </ul>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="text-xs text-gray-500 font-mono mb-4">Estratto da fascicolo contrattuale 1.200 pagine</div>
+                <div class="space-y-3 text-xs">
+                    <div class="bg-brand-dark rounded-xl p-3 border border-white/5">
+                        <div class="text-gray-600 mb-1">doc: contratto_2024_definitivo.pdf · pagina 47</div>
+                        <div class="text-gray-400">"Clausola di recesso: Art. 12.3 — 90 giorni di preavviso"</div>
+                        <div class="text-gray-600 mt-1">confidenza: 97% · stato: VALIDATO</div>
+                    </div>
+                    <div class="bg-brand-dark rounded-xl p-3 border border-white/5">
+                        <div class="text-gray-600 mb-1">doc: sentenza_2025.pdf · pagina 3</div>
+                        <div class="text-gray-400">"Data sentenza: 2025-09-14 · RG #2024/38291"</div>
+                        <div class="text-gray-600 mt-1">confidenza: 99% · stato: VALIDATO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sanità -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 bg-brand-surface rounded-2xl p-6 border border-white/5">
+                <div class="bg-red-500/5 border border-red-500/20 rounded-xl p-4 text-center">
+                    <div class="text-3xl mb-2">🔒</div>
+                    <div class="text-red-400 font-bold text-sm mb-1">Deploy Air-Gapped</div>
+                    <div class="text-gray-500 text-xs">I dati dei pazienti non toccano mai internet. Il modello gira
+                        dentro la rete ospedaliera — nessun cloud, nessun rischio.</div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="text-5xl mb-6">🏥</div>
+                <div
+                    class="inline-block px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
+                    Sanità</div>
+                <h2 class="text-3xl font-black font-display mb-4">L'Ospedale / Clinica</h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">Cartelle cliniche, referti, prescrizioni — tutti
+                    contenenti i dati personali più sensibili. Le soluzioni cloud sono spesso <strong
+                        class="text-white">vietate dalla normativa</strong>. DataUnchain funziona interamente air-gapped
+                    dentro la tua rete.</p>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-red-400 mt-0.5"></i><span>Estrae dati pazienti, referti,
+                            prescrizioni</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-red-400 mt-0.5"></i><span>Conforme GDPR by design — nessun
+                            dato esce dal dispositivo</span></li>
+                    <li class="flex items-start gap-3"><i
+                            class="fas fa-check-circle text-red-400 mt-0.5"></i><span>Deploy su una singola workstation
+                            nell'ambulatorio</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Ristorazione -->
+        <div class="card-glow bg-brand-dark rounded-3xl p-10 text-center">
+            <div class="text-5xl mb-4">🍽️</div>
+            <div
+                class="inline-block px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold uppercase tracking-wider mb-6">
+                Ristorazione</div>
+            <h2 class="text-3xl font-black font-display mb-4">Conosci i Tuoi Margini in Tempo Reale</h2>
+            <p class="text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">Le fatture dei fornitori si accumulano. I
+                prezzi cambiano ogni settimana. Il tuo chef non ha tempo di controllare manualmente ogni voce.
+                DataUnchain scansiona le fatture dei fornitori, estrae nomi e prezzi degli ingredienti, e ti dà <strong
+                    class="text-white">visibilità istantanea sui margini</strong>.</p>
+            <div class="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                <div class="bg-brand-surface rounded-2xl p-4 border border-brand-gold/10">
+                    <div class="text-yellow-400 font-bold text-2xl mb-1">Lunedì</div>
+                    <div class="text-gray-500 text-xs">Scansiona 20 fatture fornitori. 2 minuti.</div>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-4 border border-brand-gold/20">
+                    <div class="text-yellow-400 font-bold text-2xl mb-1">Martedì</div>
+                    <div class="text-gray-500 text-xs">Confronta prezzi vs. settimana scorsa. Individua aumenti.</div>
+                </div>
+                <div class="bg-brand-surface rounded-2xl p-4 border border-brand-gold/30">
+                    <div class="text-yellow-400 font-bold text-2xl mb-1">Mercoledì</div>
+                    <div class="text-gray-500 text-xs">Aggiusta prezzi del menu. Proteggi i tuoi margini.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-24 px-6 bg-brand-dark text-center reveal">
+    <h2 class="text-4xl font-black font-display mb-6">Il tuo settore. I tuoi documenti. Stesso strumento.</h2>
+    <p class="text-gray-500 mb-8">Nessun template rigido. Nessuna regola da programmare.</p>
+    <div class="flex gap-4 justify-center flex-wrap">
+        <a href="mailto:info@dataunchain.com?subject=Richiesta%20Informazioni%20—%20Casi%20d'uso"
+            class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform flex items-center gap-2">Scopri
+            i Vantaggi nel tuo Settore</a>
+        <a href="/it/how-it-works/"
+            class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors">Come
+            Funziona →</a>
+    </div>
+</section>

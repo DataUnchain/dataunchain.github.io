@@ -1,0 +1,70 @@
+﻿title: "DataUnchain"
+description: "DataUnchain — L’AI privata per documenti e processi. Analizza fatture e contratti, estrae dati strutturati e si collega al tuo gestionale. 100% offline."
+baseurl: ""
+url: "https://dataunchain.com"
+
+author:
+  name: "Antonio Trento"
+  email: "info@antoniotrento.net"
+  bio: "AI Engineer & Developer — Building local-first AI data extraction systems"
+
+og_image: "/assets/images/og-images/default-og-image.jpg"
+
+paginate: 20
+paginate_path: "/blog/page:num"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+
+faq:
+  - question: "Devo avere un cloud per usare DataUnchain?"
+    answer: "No. DataUnchain è una AI Appliance, un ecosistema hardware e software che viene installato direttamente nella tua infrastruttura aziendale."
+  - question: "Ha bisogno di accesso a internet?"
+    answer: "No. DataUnchain funziona 100% offline, ideale per ambienti air-gapped o con severe policy sulla privacy."
+  - question: "Che tipo di documenti gestisce?"
+    answer: "Fatture, contratti, bolle doganali, referti medici in formati PDF, JPG, PNG e TIFF. Può elaborare documenti strutturati, non strutturati o compilati a mano."
+  - question: "I numeri estratti sono affidabili?"
+    answer: "A differenza della normale AI generativa, DataUnchain integra un layer di verifica Python che esegue controlli matematici e di coerenza sui dati prima di procedere all'esportazione verso il gestionale. Segnalando eventuali anomalie per il fallback manuale, minimizza drasticamente il margine di errore."
+  - question: "Come impara a leggere i documenti dei miei fornitori?"
+    answer: "DataUnchain dispone di un sistema di apprendimento progressivo: più documenti elabora, più impara ad identificare i pattern ricorrenti dei tuoi fornitori per specifiche fatture e DDT, personalizzandosi sui processi reali dell'azienda."
+
+social:
+  github: "https://github.com/dataunchain/dataunchain"
+
+cta:
+  github_url: "https://github.com/dataunchain/dataunchain"
+  docs_url: "https://github.com/dataunchain/dataunchain#readme"
+
+popup:
+  url: "mailto:info@dataunchain.com?subject=Richiesta%20Demo%20—%20DataUnchain"
+  en:
+    title: "Automate Your Data Entry"
+    body: "DataUnchain analyzes documents and integrates directly with your enterprise ERP. 100% private, zero cloud costs."
+    button: "Request a Demo"
+  it:
+    title: "Automatizza il tuo Data Entry"
+    body: "DataUnchain analizza i documenti aziendali e li inserisce direttamente nel tuo gestionale ERP. 100% privato, zero cloud."
+    button: "Richiedi una Demo"
+
+permalink: "/:categories/:title/"
+markdown: kramdown
+highlighter: rouge
+
+include:
+  - assets
+  - robots.txt
+
+keywords:
+  - local ai
+  - document extraction
+  - data structuring
+  - qwen 3.5
+  - ollama
+  - offline ai
+  - enterprise ai
+  - docker
+  - open source
+  - ocr alternative
+

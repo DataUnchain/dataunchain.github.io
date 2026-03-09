@@ -1,0 +1,122 @@
+<!-- Footer -->
+<footer class="bg-brand-dark border-t border-white/5 py-20 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-12">
+
+        <div class="max-w-sm">
+            <a href="{{ '/' | relative_url }}{% if page.lang == 'it' %}it/{% else %}en/{% endif %}"
+                class="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity">
+                <img src="{{ '/assets/images/logo/dataunchain-logo.jpg' | relative_url }}" alt="DataUnchain"
+                    class="h-12 w-auto rounded-md object-contain">
+                <span class="text-2xl font-black tracking-tighter gradient-text font-display">DataUnchain</span>
+            </a>
+            <p class="text-gray-500 mb-2 text-sm font-bold uppercase tracking-widest">
+                {% if page.lang == 'it' %}
+                Estrazione Dati AI — 100% Locale
+                {% else %}
+                AI Data Extraction — 100% Local
+                {% endif %}
+            </p>
+            <p class="text-gray-600 text-sm mb-6">
+                {% if page.lang == 'it' %}
+                Trascina documenti. DataUnchain estrae dati strutturati — offline, senza costi cloud, connettendosi
+                direttamente al tuo gestionale. Privacy totale garantita.
+                {% else %}
+                Drop documents. DataUnchain extracts structured data — offline, zero cloud costs, connecting directly to
+                your ERP. Total privacy guaranteed.
+                {% endif %}
+            </p>
+            <div class="flex gap-2">
+                <a href="https://github.com/dataunchain/dataunchain" target="_blank" rel="noopener"
+                    class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-teal hover:border-brand-teal transition-all text-gray-400 hover:text-white"
+                    title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 w-full lg:w-auto">
+            <div>
+                <h4 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">{% if page.lang == 'it'
+                    %}Prodotto{% else %}Product{% endif %}</h4>
+                <ul class="space-y-3 text-sm text-gray-500">
+                    <li>
+                        <a href="{% if page.lang == 'it' %}/it/how-it-works/{% else %}/en/how-it-works/{% endif %}"
+                            class="hover:text-brand-teal transition-colors">
+                            {% if page.lang == 'it' %}Come Funziona{% else %}How it Works{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if page.lang == 'it' %}/it/features/{% else %}/en/features/{% endif %}"
+                            class="hover:text-brand-teal transition-colors">
+                            {% if page.lang == 'it' %}Funzionalità{% else %}Features{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if page.lang == 'it' %}/it/use-cases/{% else %}/en/use-cases/{% endif %}"
+                            class="hover:text-brand-teal transition-colors">
+                            {% if page.lang == 'it' %}Casi d'Uso{% else %}Use Cases{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if page.lang == 'it' %}/it/blog/{% else %}/en/blog/{% endif %}"
+                            class="hover:text-brand-teal transition-colors">Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">Open Source</h4>
+                <ul class="space-y-3 text-sm text-gray-500">
+                    <li>
+                        <a href="https://github.com/dataunchain/dataunchain" target="_blank" rel="noopener"
+                            class="hover:text-brand-teal transition-colors flex items-center gap-2">
+                            <i class="fab fa-github text-xs"></i>
+                            GitHub Repo
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/dataunchain/dataunchain#readme" target="_blank" rel="noopener"
+                            class="hover:text-brand-teal transition-colors">
+                            {% if page.lang == 'it' %}Documentazione{% else %}Documentation{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if page.lang == 'it' %}/it/pricing/{% else %}/en/pricing/{% endif %}"
+                            class="hover:text-brand-teal transition-colors">
+                            {% if page.lang == 'it' %}Costi{% else %}Pricing{% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-white text-sm uppercase tracking-wider">{% if page.lang == 'it'
+                    %}Autore{% else %}Author{% endif %}</h4>
+                <ul class="space-y-3 text-sm text-gray-500">
+                    <li>
+                        <a href="https://antoniotrento.net" target="_blank" rel="noopener"
+                            class="hover:text-brand-teal transition-colors">Antonio Trento</a>
+                    </li>
+                    <li>
+                        <a href="{% if page.lang == 'it' %}/it/privacy/{% else %}/en/privacy/{% endif %}"
+                            class="hover:text-brand-teal transition-colors">Privacy</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div
+        class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-600 text-xs">
+        <p>
+            © {{ site.time | date: '%Y' }} <a href="https://antoniotrento.net"
+                class="hover:text-brand-teal transition-colors">Antonio Trento</a>.
+            {% if page.lang == 'it' %}Rilasciato sotto licenza MIT.{% else %}Released under MIT License.{% endif %}
+        </p>
+        <p class="text-center md:text-right max-w-lg">
+            {% if page.lang == 'it' %}
+            🔒 DataUnchain funziona interamente in locale. I tuoi dati non lasciano mai la tua azienda.
+            {% else %}
+            🔒 DataUnchain runs entirely on your machine. Your enterprise data never leaves your infrastructure.
+            {% endif %}
+        </p>
+    </div>
+</footer>
