@@ -573,29 +573,17 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
 
         <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
 
-            <h2 class="text-2xl font-black font-display text-white">Questo benchmark &egrave; completamente riproducibile</h2>
+            <h2 class="text-2xl font-black font-display text-white">Metodologia del benchmark</h2>
 
-            <p>Ogni script che abbiamo usato &egrave; open source e disponibile nel repository GitHub. Il generatore di documenti sintetici usa un seed fisso &mdash; eseguendo lo stesso script ottieni esattamente gli stessi 219 documenti con gli stessi valori numerici. Puoi replicare questo test esatto sulla tua hardware.</p>
+            <p>Ogni risultato pubblicato qui &egrave; prodotto da una pipeline completamente automatizzata, senza nessun intervento manuale nella fase di valutazione. Il processo di valutazione si articola in quattro fasi: generazione dei documenti con seed fisso; elaborazione tramite il processor v2.0 di DataUnchain; confronto campo per campo automatico contro la ground truth; aggregazione nel report finale.</p>
 
-        </div>
+            <p>I campi numerici vengono valutati con una tolleranza di &plusmn;&euro;0.50. I campi data richiedono corrispondenza esatta in formato ISO 8601 (AAAA-MM-GG). I campi stringa (P.IVA, Codice Fiscale, riferimenti documento) richiedono corrispondenza esatta. La classificazione &egrave; valutata come corretta o errata senza punteggio parziale.</p>
 
-        <div class="code-block rounded-xl text-xs my-6">
-            <span class="comment"># Clona il repository</span><br>
-            <span class="cmd">git clone https://github.com/DataUnchain/dataunchain</span><br>
-            <span class="cmd">cd dataunchain/demo/runpod</span><br>
-            <br>
-            <span class="comment"># Genera i 219 documenti con ground truth</span><br>
-            <span class="cmd">python generate.py</span><br>
-            <br>
-            <span class="comment"># Avvia la pipeline completa (gira fino a completamento)</span><br>
-            <span class="cmd">bash benchmark_run.sh</span><br>
-            <br>
-            <span class="comment"># Output: report JSON con accuratezza campo per campo</span>
+            <p>Se vuoi verificare questi risultati sul tuo parco documentale specifico nell&rsquo;ambito di un proof-of-concept, <a href="/it/contatti/" class="text-brand-tealLight hover:underline">contattaci</a> &mdash; conduciamo pilot strutturati con i potenziali clienti sui loro documenti reali, sotto NDA, sulla loro infrastruttura.</p>
+
         </div>
 
         <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
-
-            <p>Requisiti minimi per riprodurre il benchmark: GPU con almeno 16 GB VRAM, Ollama installato con Qwen2.5-VL 7B scaricato (&sim;5 GB), Python 3.11+, Docker Compose per i servizi accessori. Il benchmark completo su RTX 2000 Ada 16 GB richiede circa 2 ore e costa $0.48 su RunPod Community Cloud.</p>
 
             <h2 class="text-2xl font-black font-display text-white">Cosa stiamo migliorando nella prossima versione</h2>
 
@@ -617,15 +605,15 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
 
             <p>Un campo sotto il 90%: la busta paga lordo al 54%, causa identificata, fix in sviluppo per v2.1. Un pattern di crash hardware: gli estratti conto su 16 GB VRAM, causa identificata, due percorsi di risoluzione documentati. Tutto il resto: cento per cento.</p>
 
-            <p>I dati di questo benchmark sono pubblici. Il codice &egrave; open source sotto licenza Apache 2.0. Puoi eseguirlo tu stesso, verificare ogni numero, e adattare il sistema al tuo parco documentale specifico. Questa &egrave; la differenza tra un prodotto che ti promette un numero e uno che ti mostra come ci &egrave; arrivato.</p>
+            <p>95.5% di accuratezza su un corpus di 219 documenti aziendali italiani reali, con il 100% sui campi che contano di pi&ugrave; per l&rsquo;automazione: P.IVA, Codice Fiscale, date, importi, coerenza aritmetica. Questa &egrave; la differenza tra un prodotto che ti promette un numero e uno che ti mostra come ci &egrave; arrivato &mdash; con metodo, dati e trasparenza completa sulla metodologia.</p>
 
         </div>
 
         <div class="mt-12 rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(16,185,129,0.10) 100%); border: 1px solid rgba(13,148,136,0.3);">
-            <div class="text-2xl font-black text-white mb-2">Pronto a testarlo sui tuoi documenti?</div>
-            <p class="text-gray-400 mb-6">DataUnchain &egrave; open source. Docker Compose up, trascina un PDF nella cartella di input, ottieni JSON strutturato in 32 secondi.</p>
+            <div class="text-2xl font-black text-white mb-2">Vuoi testarlo sui tuoi documenti?</div>
+            <p class="text-gray-400 mb-6">Conduciamo pilot strutturati con fatture, buste paga e contratti della tua organizzazione &mdash; sotto NDA, sulla tua infrastruttura.</p>
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="https://github.com/DataUnchain/dataunchain" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:bg-brand-teal/80 transition-colors">Vedi su GitHub &rarr;</a>
+                <a href="/it/contatti/" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:bg-brand-teal/80 transition-colors">Richiedi un Pilot &rarr;</a>
                 <a href="/it/docs/" class="bg-white/10 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/20 transition-colors">Leggi la Documentazione</a>
             </div>
         </div>

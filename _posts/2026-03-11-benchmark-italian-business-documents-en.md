@@ -55,7 +55,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <p>The Italian business document landscape is notoriously complex. Invoices must comply with specific fiscal formats including 11-digit VAT numbers (Partita IVA) with a proprietary checksum algorithm. Payslips carry a 16-character Codice Fiscale generated from name, birthdate, and municipality using the full ODD/EVEN table algorithm with homocody handling. Delivery notes follow the D.P.R. 14/08/1996 n. 472 format. Bank statements include IBANs, transaction codes, and running balance calculations. These aren't generic documents &mdash; they're heavily localized, and any serious extraction system needs to handle all of it reliably.</p>
 
-        <p>This benchmark is the first systematic scientific test of DataUnchain's processor v2.0 against this document landscape. Every number here is real, every method is documented, and every script used to produce these results is open source and reproducible by anyone.</p>
+        <p>This benchmark is the first systematic scientific test of DataUnchain's processor v2.0 against this document landscape. Every number here is real, every method is fully documented, and every result is verified against ground truth using automated comparison logic.</p>
 
         <h2 class="text-2xl font-black font-display text-white">Why a ground truth benchmark matters</h2>
 
@@ -391,7 +391,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <p><strong class="text-white">Air-gap operation is possible.</strong> Once Qwen2.5-VL 7B is downloaded (approximately 5 GB, a one-time operation), the entire system runs without any internet connectivity. This enables deployment in environments that are genuinely isolated from the internet: manufacturing plant operational technology networks, secure government archives, legal document management systems with strict information barrier requirements, healthcare data systems subject to specific regulatory constraints.</p>
 
-        <p><strong class="text-white">No vendor lock-in, no subscription cliff.</strong> The underlying model is open source under Apache 2.0 license. Ollama is open source. DataUnchain's processor code is open source. If Alibaba discontinues Qwen (unlikely given the investment), you can switch to any other compatible VLM. If you want to run a different model, you change one configuration variable. No SaaS vendor can raise prices on you, discontinue a tier you depend on, or sunset a feature that your workflow relies on.</p>
+        <p><strong class="text-white">No vendor lock-in, no subscription cliff.</strong> The underlying model (Qwen2.5-VL) is open source under Apache 2.0 license. Ollama is open source. DataUnchain is a commercial product built on top of these open foundations &mdash; you pay for the product, not for access to AI infrastructure controlled by someone else. If you want to switch to a different compatible VLM, that's a single configuration change. No SaaS vendor can raise prices on you, discontinue a tier you depend on, or sunset a feature that your workflow relies on.</p>
 
         <h2 class="text-2xl font-black font-display text-white">Why Qwen2.5-VL 7B</h2>
 
@@ -479,22 +479,15 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
         <p class="text-gray-600 text-xs mt-2">&#x2605; 13/20 bank statements crashed with GGML assertion failure (hardware limit on 16 GB VRAM, see Known Limits section). The 7 successfully processed scored 100% on all fields.</p>
     </div>
 
-    <!-- Section: Reproducibility -->
+    <!-- Section: Methodology -->
     <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
-        <h2 class="text-2xl font-black font-display text-white">Reproducibility: run it yourself</h2>
+        <h2 class="text-2xl font-black font-display text-white">Benchmark methodology</h2>
 
-        <p>One of the non-negotiable principles of this project is that every benchmark claim must be verifiable by anyone. All scripts used for this benchmark are in the public DataUnchain repository:</p>
+        <p>Every result published here was produced by a fully automated pipeline with no manual intervention in the evaluation step. The evaluation process consists of four stages: document generation with fixed random seed; processing through DataUnchain's processor v2.0; automated field-by-field comparison against ground truth; and aggregation into the final report.</p>
 
-        <ul class="space-y-2 text-gray-400">
-            <li><code class="text-brand-tealLight text-sm">demo/processor/main.py</code> &mdash; the processor v2.0</li>
-            <li><code class="text-brand-tealLight text-sm">demo/test-generator/generate.py</code> &mdash; the PDF corpus generator with ground truth export</li>
-            <li><code class="text-brand-tealLight text-sm">demo/runpod/benchmark.py</code> &mdash; the ground truth vs. extracted JSON comparison script</li>
-            <li><code class="text-brand-tealLight text-sm">demo/runpod/benchmark_run.sh</code> &mdash; the end-to-end orchestration script</li>
-        </ul>
+        <p>Numeric fields are evaluated with a tolerance of &plusmn;&euro;0.50 to account for rounding conventions. Date fields require exact match in ISO 8601 format (YYYY-MM-DD). String fields (VAT numbers, fiscal codes, document references) require exact match. Classification is evaluated as correct or incorrect with no partial credit.</p>
 
-        <p>To replicate this benchmark exactly: clone the repository, ensure you have a GPU with at least 16 GB VRAM, install Ollama and pull Qwen2.5-VL 7B, install Python dependencies, and run <code class="text-brand-tealLight text-sm">bash benchmark_run.sh</code>. The document generator uses a fixed random seed, so the exact same 219 documents will be produced. The benchmark comparison script produces a JSON report with field-level metrics identical to those published here.</p>
-
-        <p>We chose reproducibility as a core principle because we believe it is the only honest basis for trust in a system that will touch the most sensitive documents in your organization. Claims without reproducibility are marketing. Numbers with reproducibility are evidence.</p>
+        <p>The benchmark methodology is fully documented. If you want to validate these results on your own document corpus as part of a proof-of-concept engagement, <a href="/en/contact/" class="text-brand-tealLight hover:underline">contact us</a> &mdash; we run structured pilots with prospective clients on their own documents under NDA.</p>
 
         <h2 class="text-2xl font-black font-display text-white">What comes next</h2>
 
@@ -512,15 +505,15 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <p>On the fields that matter most for Italian business automation &mdash; VAT numbers, fiscal codes, dates, financial amounts, arithmetic consistency &mdash; the system achieves 100% on every one. Scanned documents perform identically to native digital PDFs. The system communicates its own uncertainty rather than silently inserting bad data into downstream systems. Two identified limits are fully understood and have clear, planned fixes.</p>
 
-        <p>The data is public. The code is open source under Apache 2.0. The benchmark is fully reproducible. We believe these are the minimum requirements for honestly claiming that a system is ready for production on documents as sensitive as business invoices, payslips, and contracts.</p>
+        <p>95.5% accuracy on a corpus of 219 real Italian business documents, with 100% on the fields that matter most for automation: VAT numbers, fiscal codes, dates, amounts, and arithmetic consistency. This is the bar we hold ourselves to before calling a system production-ready.</p>
     </div>
 
     <!-- CTA -->
     <div class="mt-12 rounded-2xl p-8 text-center" style="background: linear-gradient(135deg, rgba(13,148,136,0.15) 0%, rgba(16,185,129,0.10) 100%); border: 1px solid rgba(13,148,136,0.3);">
-        <div class="text-2xl font-black text-white mb-2">Ready to test it on your documents?</div>
-        <p class="text-gray-400 mb-6">DataUnchain is open source. Docker Compose up, drop a PDF, get structured JSON in 32 seconds.</p>
+        <div class="text-2xl font-black text-white mb-2">Want to see it on your documents?</div>
+        <p class="text-gray-400 mb-6">We run structured pilots with invoices, payslips, and contracts from your organization &mdash; under NDA, on your infrastructure.</p>
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="https://github.com/DataUnchain/dataunchain" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity">View on GitHub &rarr;</a>
+            <a href="/en/contact/" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity">Request a Pilot &rarr;</a>
             <a href="/en/docs/" class="text-brand-tealLight font-bold px-6 py-3 rounded-xl border border-brand-teal/30 hover:bg-brand-teal/10 transition-colors">Read the Docs</a>
         </div>
     </div>
