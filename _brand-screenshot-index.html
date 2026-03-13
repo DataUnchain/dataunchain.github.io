@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DataUnchain Brand Index</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Space Grotesk', 'Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0D0D0F;
+      -webkit-font-smoothing: antialiased;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #5EEAD4 0%, #10B981 50%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen">
+
+  <div class="flex flex-col items-center">
+    <img
+      src="./assets/images/logo/dataunchain-logo-1024x1024.png"
+      alt="DataUnchain"
+      style="height: 270px; width: auto; object-fit: contain;"
+    >
+    <span
+      class="gradient-text font-black tracking-tighter"
+      style="font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: clamp(3.5rem, 5.5vw, 6rem); white-space: nowrap; margin-top: -40px;"
+    >DataUnchain</span>
+  </div>
+
+</body>
+</html>
