@@ -1,0 +1,636 @@
+---
+layout: default
+title: "Document AI Glossary: Complete Reference Guide (2026) — DataUnchain"
+lang: en
+locale: en_US
+description: "The complete glossary of Document AI terms: document ingestion, entity extraction, VLM, OCR, confidence scoring, and 60+ more technical definitions."
+---
+
+<article class="pt-36 pb-20 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Reference · 2026</span>
+    <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6">Document AI Glossary: Complete Reference Guide</h1>
+    <p class="text-gray-400 text-lg leading-relaxed">A comprehensive, citeable reference covering 70+ terms used in intelligent document processing, AI extraction, and enterprise automation workflows. Each definition is written to be precise and self-contained. Maintained by the DataUnchain team and updated for 2026 tooling.</p>
+
+    <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+
+      <p class="text-gray-400 text-sm mt-6">This glossary is intended for: software engineers evaluating document AI solutions, finance and operations teams implementing automation, AI researchers studying document understanding, and procurement teams writing RFPs for IDP systems. Terms are listed alphabetically within each letter section.</p>
+
+      <!-- A -->
+      <div id="letter-A">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">A</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Accounts Payable Automation</h3>
+          <p class="text-gray-300 text-sm">The use of software — typically combining OCR, AI extraction, and workflow engines — to automatically capture, validate, and process supplier invoices without manual data entry. In a modern AP automation pipeline, incoming invoices (email attachments, EDI feeds, scanned paper) are ingested, key fields are extracted, amounts are validated against purchase orders, and approved records are posted directly to the accounting system. AP automation is one of the highest-ROI applications of document AI, as invoice processing is high-volume, rule-bound, and error-sensitive.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Air-gapped deployment</h3>
+          <p class="text-gray-300 text-sm">An installation architecture in which the AI system runs on hardware that has no network connection to the public internet or external cloud services. Air-gapped deployments are required in environments with strict data sovereignty rules — defense, healthcare, financial services, and regulated manufacturing. All models, dependencies, and configuration are pre-loaded locally, and inference runs entirely on-premise. This is distinct from a simple on-premise deployment: an air-gapped system cannot reach external update servers, telemetry endpoints, or licensing APIs.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Anchor field (in document extraction)</h3>
+          <p class="text-gray-300 text-sm">A high-confidence, easily identifiable field within a document whose position or value is used to orient the extraction of surrounding fields. For example, on an invoice, the string "Invoice No." or "Fattura N." acts as an anchor: once located, the extraction engine knows to look immediately to its right or below for the actual invoice number value. Template-based extraction systems rely heavily on anchor fields, while modern vision-language models infer anchors implicitly through layout understanding.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Annotation (for ML training)</h3>
+          <p class="text-gray-300 text-sm">The process of labeling documents with ground-truth values so that machine learning models can learn from them. In document AI, annotation involves marking bounding boxes around fields, tagging text spans with entity types, and recording the correct extracted value for each field on each training document. High-quality annotation is the single largest determinant of extraction model quality. Modern AI systems trained on large general corpora (like VLMs) reduce — but do not eliminate — the need for domain-specific annotation.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">API-first architecture</h3>
+          <p class="text-gray-300 text-sm">A design principle where all system functionality is exposed through well-defined, versioned APIs before any user interface or integration is built. In document AI systems, API-first means that document submission, extraction results, status queries, and configuration changes are all accessible programmatically — enabling integration with ERP systems, CRMs, RPA bots, and custom applications without manual exports. DataUnchain exposes a FastAPI-based REST interface for all document operations.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Audit status</h3>
+          <p class="text-gray-300 text-sm">A metadata field attached to a processed document record indicating its current state in the review workflow. Common audit statuses include: VALIDATED (extraction passed all checks and was auto-dispatched), NEEDS_REVIEW (confidence below threshold or a validation rule failed), REVIEWED (a human operator confirmed or corrected the extraction), and DISPATCHED (data sent to the downstream system). Audit status enables filtering, SLA tracking, and compliance reporting across large document volumes.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Audit trail</h3>
+          <p class="text-gray-300 text-sm">An immutable, timestamped log of every action taken on a document from ingestion through dispatch. A complete audit trail records: when the document arrived, which model processed it, what was extracted, what confidence scores were assigned, whether a human reviewed it, what corrections were made, and when data was sent to downstream systems. Audit trails are mandatory in regulated industries and are essential for debugging extraction errors and demonstrating GDPR compliance to supervisory authorities.</p>
+        </div>
+      </div>
+
+      <!-- B -->
+      <div id="letter-B">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">B</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Bounding box</h3>
+          <p class="text-gray-300 text-sm">A rectangular region defined by its coordinates (x, y, width, height) that delimits the spatial location of a field, word, or object on a document page. OCR engines produce bounding boxes for every detected text region; document AI models use these coordinates to understand layout, associate labels with values, and enable visual highlighting in review interfaces. Bounding boxes are a foundational concept in computer vision and are the primary data structure linking pixel coordinates to extracted text.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Business document</h3>
+          <p class="text-gray-300 text-sm">Any structured or semi-structured document generated in the course of commercial activity, including invoices, purchase orders, delivery notes (DDT), contracts, receipts, bank statements, customs declarations, and payslips. Business documents vary enormously in layout, language, and digital quality. Document AI systems are specifically engineered to handle this variability, unlike general-purpose OCR tools that assume consistent formatting.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Bulk processing</h3>
+          <p class="text-gray-300 text-sm">The ingestion and extraction of a large batch of documents submitted simultaneously, as opposed to real-time single-document processing. Bulk processing is common at month-end close, when hundreds or thousands of invoices arrive together, or during document digitization projects. Efficient bulk processing requires queue management, parallelism, and progress monitoring to avoid bottlenecks and enable partial result consumption before the full batch completes.</p>
+        </div>
+      </div>
+
+      <!-- C -->
+      <div id="letter-C">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">C</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Capture rate</h3>
+          <p class="text-gray-300 text-sm">The percentage of incoming documents that are successfully ingested and processed by the system, out of all documents the system was intended to handle. A capture rate below 100% indicates documents that were lost (email not monitored), rejected (unsupported format), or timed out. High capture rate is a prerequisite for reliable automation — a system that misses 5% of invoices causes more harm than one that extracts them at 95% accuracy.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Classification (document)</h3>
+          <p class="text-gray-300 text-sm">The task of assigning an incoming document to a predefined category — invoice, purchase order, delivery note, contract, receipt, etc. — before extraction begins. Classification is typically the first step in a document pipeline, as different document types require different extraction schemas. Modern VLMs can classify documents in the same inference pass as extraction, while dedicated classifiers (lightweight BERT-style models) offer faster throughput for high-volume pipelines.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Confidence score</h3>
+          <p class="text-gray-300 text-sm">A numeric value (typically 0.0–1.0) assigned by the AI model to each extracted field, representing the model's estimated probability that the extraction is correct. Confidence scores drive routing decisions: documents where all fields exceed a threshold (e.g., 0.85) are auto-dispatched as VALIDATED, while documents with low-confidence fields are flagged for NEEDS_REVIEW. Confidence scoring is not infallible — models can be confidently wrong — which is why validation rules (math checks, format checks) complement confidence thresholds.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Context window</h3>
+          <p class="text-gray-300 text-sm">The maximum amount of text (measured in tokens) that a language model can process in a single inference call. In document AI, context window size determines whether an entire multi-page document can be processed in one shot or must be chunked. Modern VLMs used in document processing typically support 8,192 to 128,000+ token windows, which is sufficient for most business documents. Very long contracts or technical manuals may still require chunking strategies.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Contract ingestion</h3>
+          <p class="text-gray-300 text-sm">The process of extracting structured data from contracts — parties, effective dates, termination clauses, payment terms, governing law, and obligations — into a database or CRM. Contract ingestion is more demanding than invoice processing because contracts are text-heavy, use domain-specific legal language, and have highly variable structure. Effective contract ingestion typically combines VLM extraction with post-processing rules and human review of critical clauses.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">CRM enrichment</h3>
+          <p class="text-gray-300 text-sm">The automatic population or update of CRM (Customer Relationship Management) records using data extracted from business documents. For example, supplier VAT numbers, contact addresses, and payment terms extracted from invoices can be used to create or update vendor records in Salesforce, HubSpot, or Odoo. CRM enrichment closes the loop between document processing and business system maintenance, reducing the dual-entry burden on operations teams.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Custom extraction schema</h3>
+          <p class="text-gray-300 text-sm">A user-defined specification of exactly which fields should be extracted from a document type, including field names, data types, and any validation rules. Rather than relying on a fixed built-in model, a system with custom schema support lets operators define domain-specific schemas — for example, a schema for customs declarations that includes tariff codes, country of origin, and net weight. DataUnchain supports custom schemas per document type via JSON configuration.</p>
+        </div>
+      </div>
+
+      <!-- D -->
+      <div id="letter-D">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">D</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Data extraction</h3>
+          <p class="text-gray-300 text-sm">The process of identifying and pulling specific pieces of information from a document and converting them into structured, machine-readable form. Data extraction encompasses OCR (converting pixels to text), entity recognition (identifying which text represents which field), and normalization (converting "15/03/2026" to ISO date "2026-03-15"). It is the central technical task of all document AI systems.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Dead-letter queue</h3>
+          <p class="text-gray-300 text-sm">A secondary queue that holds documents that failed processing after all retry attempts have been exhausted. Rather than silently discarding failed documents, a dead-letter queue preserves them for manual investigation or reprocessing once the root cause (corrupted file, model timeout, format not supported) is resolved. Dead-letter queues are a critical reliability component in production document pipelines where document loss is unacceptable.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document AI</h3>
+          <p class="text-gray-300 text-sm">The application of artificial intelligence — including computer vision, natural language processing, and machine learning — to understand, classify, extract, and act on the content of business documents. Document AI goes beyond simple OCR by understanding document semantics: knowing that a number near the word "Total" on an invoice is the invoice total, not a line item price. Modern Document AI systems use vision-language models (VLMs) to jointly reason about both the visual layout and textual content of documents.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document capture</h3>
+          <p class="text-gray-300 text-sm">The first stage in a document processing pipeline: receiving the raw document from its source (email attachment, file upload, scanner feed, EDI, API call) and converting it to a standard internal format for processing. Document capture includes format detection, file validation, deduplication, and queuing. A robust capture layer handles all common input formats (PDF, JPEG, PNG, TIFF, DOCX, XML) without requiring operator intervention.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document classification</h3>
+          <p class="text-gray-300 text-sm">See <em>Classification (document)</em>. Often used interchangeably; refers specifically to the machine learning task of assigning a document type label to an incoming document before field extraction begins.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document ingestion</h3>
+          <p class="text-gray-300 text-sm">The complete end-to-end process of receiving a raw document, validating it, preprocessing it (converting to images, applying DPI enhancement, deskewing), and preparing it for AI model inference. Ingestion is distinct from extraction: ingestion gets the document ready, extraction pulls the data out. A robust ingestion layer is the foundation of high capture rates and consistent extraction quality across varied input sources.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document parsing</h3>
+          <p class="text-gray-300 text-sm">The structural analysis of a document to identify its components: headers, footers, tables, line items, signatures, and body text. Parsing is a prerequisite for extraction in systems that use layout-aware models: the parser identifies where tables are, how many columns they have, and which cells belong to which rows, before the extractor tries to pull values out. In PDF documents, parsing may operate on the PDF object model directly (for digital PDFs) or on the OCR output (for scanned documents).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document pipeline</h3>
+          <p class="text-gray-300 text-sm">The ordered sequence of processing stages that a document passes through from ingestion to dispatch: capture → classification → preprocessing → extraction → validation → routing → dispatch → archival. Each stage in the pipeline has defined inputs, outputs, error handling, and retry behavior. Pipeline architecture enables observability (you can see where each document is at any moment) and modularity (individual stages can be upgraded independently).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document processing</h3>
+          <p class="text-gray-300 text-sm">The broad category of operations applied to business documents, encompassing ingestion, classification, extraction, validation, routing, and downstream integration. "Document processing" is often used as a business-level term encompassing the entire workflow from document arrival to data in a business system, while "document extraction" refers specifically to the AI inference step.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document type recognition</h3>
+          <p class="text-gray-300 text-sm">The automated determination of what type of business document has been received — invoice, DDT, purchase order, bank statement, etc. — typically performed before extraction so the correct schema is applied. Document type recognition can be done via rule-based heuristics (e.g., detecting "Fattura" or "Invoice" in the document header) or via a trained classifier. Modern VLMs can perform type recognition as part of a unified extraction prompt.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document understanding</h3>
+          <p class="text-gray-300 text-sm">A higher-level capability encompassing not just text recognition but semantic comprehension of a document's meaning, structure, and intent. A system with true document understanding can answer questions about a contract ("What is the notice period for termination?"), summarize an invoice's discrepancies, or identify inconsistencies between a purchase order and delivery note. Document understanding requires large multi-modal models and is an active area of research in 2026.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">DPI (Dots Per Inch, in document scanning)</h3>
+          <p class="text-gray-300 text-sm">A measure of the resolution at which a physical document has been digitized. Higher DPI means more pixels per inch of original document, resulting in sharper images and better OCR accuracy. The minimum viable DPI for reliable OCR of standard business text is 150 DPI; 300 DPI is the recommended standard; 600 DPI is used for fine print or quality-critical legal documents. Documents scanned below 150 DPI may have OCR error rates that are too high for automated processing, requiring image enhancement preprocessing.</p>
+        </div>
+      </div>
+
+      <!-- E -->
+      <div id="letter-E">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">E</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">EDI (Electronic Data Interchange)</h3>
+          <p class="text-gray-300 text-sm">A set of standards for the structured electronic exchange of business documents between organizations, typically using formats like EDIFACT, X12, or XML. EDI predates modern document AI by decades and is still widely used in large-enterprise supply chains. Document AI complements EDI by handling the long tail of suppliers who cannot or do not send EDI, instead sending PDFs or paper — effectively converting unstructured documents into EDI-equivalent structured data.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Entity extraction</h3>
+          <p class="text-gray-300 text-sm">The identification and categorization of named entities — companies, dates, monetary amounts, addresses, product codes, VAT numbers — within unstructured or semi-structured text. Entity extraction is the NLP foundation of document field extraction. In document AI, entity extraction is typically constrained by the document schema: rather than extracting all entities, the system extracts only the entities relevant to the document type (e.g., for invoices: supplier name, invoice date, line items, total).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">ERP integration</h3>
+          <p class="text-gray-300 text-sm">The connection between a document AI system and an Enterprise Resource Planning system (SAP, Oracle, Odoo, TeamSystem, Zucchetti, Mexal) to automatically post extracted document data into ERP modules (accounts payable, inventory, procurement). ERP integration typically occurs via CSV import, direct API calls, or vendor-specific connectors. It is the final step that delivers the business value of document automation — transforming an AI extraction into a posted accounting entry or inventory movement.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Extraction accuracy</h3>
+          <p class="text-gray-300 text-sm">The proportion of extracted field values that exactly match the ground truth value, measured across a test set of documents. Extraction accuracy is typically reported at the field level (e.g., "invoice date: 98.4% accurate") and at the document level (e.g., "all fields correct: 84% of documents"). Field-level accuracy is more informative for comparison purposes. Accuracy benchmarks should specify the document types, quality range, and evaluation methodology to be meaningful.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Extraction schema</h3>
+          <p class="text-gray-300 text-sm">A formal definition of the output structure expected from a document extraction, specifying field names, data types, whether fields are required or optional, and any validation constraints. Extraction schemas are typically expressed as JSON Schema or as structured prompt templates. A well-defined extraction schema enables automatic validation of model outputs, ensures consistent data format for downstream systems, and makes the extraction contract explicit and auditable.</p>
+        </div>
+      </div>
+
+      <!-- F -->
+      <div id="letter-F">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">F</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">FatturaPA (Italian e-invoicing standard)</h3>
+          <p class="text-gray-300 text-sm">The mandatory XML format for electronic invoicing between businesses and the Italian public administration (B2G) and, since 2019, between Italian businesses (B2B). FatturaPA files are transmitted through the SDI (Sistema di Interscambio), the Agenzia delle Entrate's exchange hub. Every FatturaPA document has a standardized XML structure with precisely defined fields for supplier data, line items, VAT breakdowns, and payment terms. Document AI systems operating in Italy must handle FatturaPA alongside traditional PDF invoices from foreign suppliers who use different formats.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Few-shot prompting</h3>
+          <p class="text-gray-300 text-sm">A prompting technique in which the AI model is given a small number of example input-output pairs within the prompt before being asked to process the actual document. In document extraction, few-shot prompting might include 2–3 example documents with their correctly extracted JSON outputs, teaching the model the expected format and field mapping before processing a new document. Few-shot prompting can significantly improve extraction accuracy for unusual document layouts without requiring model fine-tuning.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Field mapping</h3>
+          <p class="text-gray-300 text-sm">The configuration that defines how extracted field names from a document map to field names in a target system. For example, the field "Numero Fattura" extracted from an Italian invoice might map to "invoice_number" in the internal schema, which then maps to "InvoiceID" in the ERP. Field mapping is a necessary integration step whenever source document terminology differs from target system terminology, which is almost always the case in multi-supplier environments.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Form recognition</h3>
+          <p class="text-gray-300 text-sm">The specific task of identifying and extracting data from structured form layouts — tax forms, customs declarations, standardized application forms — where fields are arranged in fixed positions with labeled boxes. Form recognition can be highly accurate when forms are standardized, but degrades when forms are customized per organization. Modern VLMs handle form layouts without template configuration by reasoning about the visual structure directly.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Fuzzy matching</h3>
+          <p class="text-gray-300 text-sm">A technique for comparing strings that are approximately — but not exactly — equal, using distance metrics like Levenshtein distance or Jaro-Winkler similarity. In document AI post-processing, fuzzy matching is used to reconcile extracted supplier names against a vendor master database, or to match extracted product descriptions against a product catalog, tolerating OCR errors, abbreviations, or formatting differences. A fuzzy match threshold (e.g., 85% similarity) determines whether a match is accepted automatically or flagged for review.</p>
+        </div>
+      </div>
+
+      <!-- G -->
+      <div id="letter-G">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">G</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">GDPR compliance (in document AI context)</h3>
+          <p class="text-gray-300 text-sm">The set of technical and organisational measures required when processing personal data contained in business documents under the EU General Data Protection Regulation. Business documents frequently contain personal data: employee names on payslips, customer addresses on invoices, individual signatures on contracts. GDPR-compliant document AI must enforce data minimisation (not storing more than needed), purpose limitation (not using extracted data beyond its processing purpose), and must support the right to erasure. On-premise deployment simplifies GDPR compliance by eliminating the need for data processing agreements with cloud vendors.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Ground truth</h3>
+          <p class="text-gray-300 text-sm">The verified, correct value for each field in a test document, established by human annotation and used as the reference against which model extraction results are measured. Ground truth quality directly determines the validity of any benchmark or accuracy measurement. A ground truth dataset for document AI should cover diverse document types, quality levels, languages, and suppliers to be representative of real-world production conditions.</p>
+        </div>
+      </div>
+
+      <!-- H -->
+      <div id="letter-H">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">H</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Hallucination (in AI extraction)</h3>
+          <p class="text-gray-300 text-sm">An error mode where an AI model generates a plausible-sounding but incorrect or entirely fabricated value for an extracted field, with high confidence. In document extraction, hallucination might manifest as an AI inventing a VAT number that follows the correct format but does not appear anywhere in the document, or generating a line item description from training data rather than the actual document. Hallucination is distinct from misreading (OCR error) and is particularly dangerous because confidence scores do not reliably detect it. Math validation and cross-field consistency checks help catch hallucinated numerical values.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Handwriting recognition</h3>
+          <p class="text-gray-300 text-sm">The OCR sub-task of converting handwritten text in images into machine-readable characters. Handwriting recognition is significantly harder than printed-text OCR due to the infinite variability of individual handwriting styles. In business document contexts, handwriting typically appears as annotations on printed forms, signatures, or notes on delivery notes. Modern VLMs handle simple handwritten annotations reasonably well, but heavily annotated or fully handwritten documents remain a challenge for automated processing.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Human-in-the-loop</h3>
+          <p class="text-gray-300 text-sm">A processing model in which human reviewers are integrated into the automated pipeline as a quality checkpoint, reviewing and correcting AI extractions before data is dispatched to downstream systems. Human-in-the-loop is not a failure of automation — it is a deliberate design choice for handling the tail of low-confidence or anomalous documents that the AI cannot process reliably. Effective HITL systems minimize reviewer burden by pre-filling extracted values, highlighting low-confidence fields, and routing only genuinely uncertain documents to humans.</p>
+        </div>
+      </div>
+
+      <!-- I -->
+      <div id="letter-I">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">I</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">IDP (Intelligent Document Processing)</h3>
+          <p class="text-gray-300 text-sm">A category of software that combines AI, machine learning, OCR, and workflow automation to capture, classify, extract, validate, and route information from business documents without human data entry. IDP is the enterprise analyst term for what practitioners call "document AI." IDC and Gartner both recognize IDP as a distinct market segment. Key differentiators between IDP vendors include model accuracy, supported document types, integration ecosystem, on-premise capability, and handling of unstructured documents.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Image preprocessing</h3>
+          <p class="text-gray-300 text-sm">Transformations applied to raw document images before AI model inference to improve extraction quality. Common preprocessing steps include: deskewing (correcting rotated scans), denoising (removing scan artifacts), contrast enhancement, binarization (converting to black-and-white), DPI upscaling, and shadow removal. Effective preprocessing can improve OCR accuracy by 10–30% on poor-quality scans, making it a high-value engineering investment for production document pipelines.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Ingestion layer</h3>
+          <p class="text-gray-300 text-sm">The system component responsible for receiving documents from all input channels and normalizing them into the internal processing format. A production ingestion layer handles email monitoring (IMAP/Exchange), file system watchers, REST API uploads, SFTP polling, and manual drag-and-drop. It validates file integrity, detects duplicates, applies format conversion (e.g., multi-page TIFF to PDF), and inserts the document into the processing queue with metadata (source channel, arrival timestamp, sender).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Invoice automation</h3>
+          <p class="text-gray-300 text-sm">The end-to-end automation of the accounts payable invoice process: from receiving an invoice (email, EDI, paper scan) to posting a verified entry in the accounting system. Full invoice automation includes capture, classification, field extraction (supplier, date, amounts, line items), three-way matching against PO and GR, approval routing, and ERP posting. Invoice automation is the most widely deployed document AI use case because of its high volume, standardized structure, and direct financial impact.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Invoice processing</h3>
+          <p class="text-gray-300 text-sm">See <em>Invoice automation</em>. Often used specifically to refer to the extraction and validation steps (reading the invoice and verifying its data), as distinct from the broader accounts payable workflow that includes approval and payment execution.</p>
+        </div>
+      </div>
+
+      <!-- J -->
+      <div id="letter-J">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">J</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">JSON extraction</h3>
+          <p class="text-gray-300 text-sm">The output mode in which an AI model returns extracted document data as a JSON object with field names and values. JSON extraction is the standard output format for document AI because JSON is natively parseable by all modern programming languages and directly integrable with REST APIs. The quality of JSON extraction is measured not just by field accuracy but also by JSON validity: does the model consistently produce parseable JSON, or does it sometimes produce malformed output with truncation or syntax errors?</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">JSON schema</h3>
+          <p class="text-gray-300 text-sm">A standard vocabulary (defined at json-schema.org) for describing the structure, types, and constraints of a JSON document. In document AI, JSON Schema is used to define extraction schemas (what fields to extract, their types, which are required), to validate model outputs against expected structure, and to document the API contract between the extraction engine and consuming systems. JSON Schema validation is a lightweight and reliable way to catch model output format errors before data reaches downstream systems.</p>
+        </div>
+      </div>
+
+      <!-- K -->
+      <div id="letter-K">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">K</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Knowledge extraction</h3>
+          <p class="text-gray-300 text-sm">The process of identifying and structuring facts, relationships, and entities from documents to build or enrich a knowledge base. In enterprise contexts, knowledge extraction goes beyond field extraction: it identifies that Company A is a subsidiary of Company B (from a contract), that Product X has price Y with Supplier Z (from an invoice), or that a contract clause imposes a specific obligation (from legal text). Knowledge extraction is an emerging capability beyond standard IDP and requires more powerful models and reasoning.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">KV pair (Key-Value pair extraction)</h3>
+          <p class="text-gray-300 text-sm">The most basic unit of document extraction: a key (field name, label, or header found in the document) paired with its corresponding value. For example, the KV pair "Invoice Date: 15/03/2026" maps the key "Invoice Date" to the value "15/03/2026." Simple KV pair extraction works well for documents with explicit field labels. Complex documents — where values appear in tables, or where labels are implicit in document structure — require layout-aware models that reason about spatial relationships.</p>
+        </div>
+      </div>
+
+      <!-- L -->
+      <div id="letter-L">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">L</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Layout understanding</h3>
+          <p class="text-gray-300 text-sm">The capability of a model to interpret the spatial arrangement of elements on a document page — columns, tables, headers, footers, sidebars, multi-column text — and use that spatial context to improve extraction accuracy. Layout understanding is critical for complex documents where text alone is ambiguous: on an invoice, the number "100.00" could be a unit price or a total — layout context (column position within a table) resolves the ambiguity. VLMs natively incorporate layout understanding by processing document images directly.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Line item extraction</h3>
+          <p class="text-gray-300 text-sm">The extraction of individual rows from a document's table of items — typically each row representing one product or service with associated quantity, unit price, and total. Line item extraction is significantly harder than header field extraction because it requires identifying table boundaries, correctly associating values across columns, handling multi-line item descriptions, and producing a variable-length array of structured objects. It is the primary source of extraction errors in invoice processing and the field where VLMs show the largest quality advantage over rule-based OCR.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">LLM (Large Language Model)</h3>
+          <p class="text-gray-300 text-sm">A neural network model trained on massive text corpora that can generate, classify, and reason over text. In document AI, LLMs are used to extract structured data from document text (after OCR), classify document types, generate summaries, and perform semantic reasoning. The distinction between an LLM and a VLM (Vision-Language Model) is that VLMs also accept images as input, making them applicable to document images directly without a separate OCR step. Examples: GPT-4, LLaMA 3, Mistral, Qwen 2.5.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Local AI</h3>
+          <p class="text-gray-300 text-sm">AI inference performed entirely on hardware owned and controlled by the organization, without transmitting data to external servers. Local AI is synonymous with on-premise AI and is distinguished from cloud AI (where data is sent to a vendor's servers for inference). Local AI is increasingly practical for document processing due to the availability of capable open-weight models (Qwen, LLaMA, Mistral) that run on consumer-grade GPUs. The primary advantages are data privacy, no recurring per-inference costs, and operation without internet connectivity.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Low-confidence extraction</h3>
+          <p class="text-gray-300 text-sm">An extraction result where the model's confidence score for one or more fields falls below the configured threshold, triggering routing to human review rather than automatic dispatch. Low-confidence extractions are not necessarily wrong — they may be correct but from a difficult document (low DPI, unusual layout) — but the system cannot safely auto-dispatch them without human verification. Tracking the frequency and causes of low-confidence extractions is an important quality metric for monitoring system performance and identifying document types that need schema refinement.</p>
+        </div>
+      </div>
+
+      <!-- M -->
+      <div id="letter-M">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">M</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Math validation / Math cross-check</h3>
+          <p class="text-gray-300 text-sm">A post-extraction validation step that verifies the numerical consistency of extracted values against expected mathematical relationships. For invoices, math validation checks that: sum of line item totals equals the subtotal; subtotal × VAT rate equals the VAT amount; subtotal + VAT equals the total. Any discrepancy signals either an extraction error (the model read a number incorrectly) or a genuine document error (the supplier made a calculation mistake). Math validation is one of the most effective automated quality checks because it does not require external reference data — only the numbers already on the document.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Model fine-tuning</h3>
+          <p class="text-gray-300 text-sm">The process of continuing training of a pre-trained model on a domain-specific dataset to improve its performance on a specific task or document type. Fine-tuning a VLM on company-specific invoice formats can improve field extraction accuracy by 5–15% on those specific formats, at the cost of preparing annotated training data and managing model versions. For most enterprise deployments, prompt engineering and schema refinement provide sufficient accuracy without the complexity of fine-tuning.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Multi-modal AI</h3>
+          <p class="text-gray-300 text-sm">AI systems that process and reason over multiple input modalities simultaneously — typically text, images, and sometimes audio or structured data. Document AI systems are inherently multi-modal: they process the visual layout of a document page (image modality) together with the textual content (text modality) to produce structured output. VLMs are the current state-of-the-art multi-modal architecture for document AI tasks.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Multi-page document handling</h3>
+          <p class="text-gray-300 text-sm">The capability to process documents that span multiple pages as a coherent unit, correctly associating header fields (on page 1) with line items (on pages 2–N) and footer totals (on the last page). Multi-page handling is non-trivial because models have limited context windows, and naïve page-by-page processing loses cross-page context. Production systems typically convert multi-page PDFs to image sequences and either process them in a single multi-image inference call or use a merge strategy that combines per-page extractions with a document-level reconciliation pass.</p>
+        </div>
+      </div>
+
+      <!-- N -->
+      <div id="letter-N">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">N</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Named Entity Recognition (NER)</h3>
+          <p class="text-gray-300 text-sm">An NLP task that identifies and classifies named entities — persons, organizations, locations, dates, monetary amounts, product identifiers — within text. In document AI, NER is applied to extracted document text to identify which text spans correspond to which entity types. Modern VLMs perform NER implicitly as part of structured extraction, without requiring a separate NER model. Traditional NER-based document extraction pipelines (OCR → NER → schema mapping) have been largely superseded by end-to-end VLM approaches for business documents.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Normalization (data normalization after extraction)</h3>
+          <p class="text-gray-300 text-sm">The transformation of extracted raw values into a canonical, consistent format suitable for downstream systems. Examples: converting date "15-03-2026" to ISO format "2026-03-15"; converting "€ 1.234,56" (Italian format) to the decimal number 1234.56; uppercasing company names; removing leading zeros from invoice numbers. Normalization is a post-processing step that runs after AI extraction and before validation, ensuring that downstream systems receive clean, consistently formatted data regardless of supplier formatting conventions.</p>
+        </div>
+      </div>
+
+      <!-- O -->
+      <div id="letter-O">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">O</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">OCR (Optical Character Recognition)</h3>
+          <p class="text-gray-300 text-sm">The technology that converts images of text — scanned documents, photographs, digital document renderings — into machine-readable text strings. OCR is a prerequisite for text-based document processing of scanned documents. Modern deep learning OCR engines (Tesseract 5, PaddleOCR, Google Document AI OCR) achieve high accuracy on clean printed text but degrade on low-quality scans, unusual fonts, or mixed-language documents. VLMs increasingly perform OCR implicitly — they read text directly from document images without a separate OCR preprocessing step.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">On-premise AI</h3>
+          <p class="text-gray-300 text-sm">AI model inference executed on hardware physically located within the organization's own data center or offices, with data never leaving the organization's network boundary. On-premise AI for document processing is enabled by open-weight models (Qwen, LLaMA, Mistral) served via local inference servers (Ollama, vLLM, llama.cpp). The primary benefits are data privacy, regulatory compliance, no per-inference cloud costs, and independence from internet connectivity. The primary cost is GPU hardware investment and maintenance.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Orchestration layer</h3>
+          <p class="text-gray-300 text-sm">The system component that coordinates the sequence of operations in a document pipeline: triggering classification after ingestion, invoking the right extraction schema based on document type, calling validation rules, deciding routing (auto-dispatch vs. human review), and calling the appropriate output adapter. The orchestration layer is the "brain" of the pipeline, implementing the business logic that connects all other components. In DataUnchain, the orchestration layer is implemented as a configurable state machine in the core engine.</p>
+        </div>
+      </div>
+
+      <!-- P -->
+      <div id="letter-P">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">P</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">PDF parsing</h3>
+          <p class="text-gray-300 text-sm">The extraction of content from PDF files, which may contain either searchable text (digital PDFs, where text is embedded as characters in the PDF object model) or only images (scanned PDFs, where pages are rasterized images with no embedded text). Digital PDF parsing can extract text directly without OCR, preserving exact character sequences. Scanned PDF parsing requires rendering each page to an image and applying OCR or VLM inference. Hybrid PDFs (partially digital, partially image) are common in document AI and require per-page detection to choose the right extraction path.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Pipeline architecture</h3>
+          <p class="text-gray-300 text-sm">A system design where document processing is decomposed into discrete, ordered stages (capture → classify → preprocess → extract → validate → route → dispatch → archive), each with defined inputs and outputs, error handling, and retry behavior. Pipeline architecture enables observability (every document's position in the pipeline is trackable), modularity (components can be upgraded independently), and scalability (individual stages can be parallelized based on throughput requirements). It is the standard architectural pattern for production document AI systems.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Post-processing</h3>
+          <p class="text-gray-300 text-sm">Any transformation or validation applied to AI extraction results after the model inference completes, before the data is dispatched. Post-processing includes: data type conversion, date normalization, currency normalization, math validation, fuzzy matching against reference data (vendor master, product catalog), deduplication checks, and schema validation. Post-processing is a critical quality layer that catches errors the AI model cannot detect internally and transforms raw extraction output into integration-ready data.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Precision (extraction metric)</h3>
+          <p class="text-gray-300 text-sm">In document extraction evaluation, precision measures the proportion of extracted fields that are correct, out of all fields the model attempted to extract. High precision means few false positives (the model does not invent fields that don't exist or misidentify field types). Precision is paired with recall: a system can have high precision (everything it extracts is correct) but low recall (it skips many fields). The F1 score combines precision and recall into a single metric. For production AP automation, precision is typically prioritized over recall because incorrect posted data is more costly than missing data that triggers human review.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Prompt engineering (for documents)</h3>
+          <p class="text-gray-300 text-sm">The craft of designing prompts (instructions given to an AI model) that reliably produce accurate, consistently formatted extraction results from business documents. Effective document extraction prompts specify: the document type, the exact list of fields to extract, the output format (JSON schema), how to handle missing fields (return null vs. omit the key), date and number formatting conventions, and how to handle ambiguous cases. Prompt engineering is an iterative process: prompts are tested against a representative document sample and refined based on error analysis.</p>
+        </div>
+      </div>
+
+      <!-- Q -->
+      <div id="letter-Q">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">Q</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Quality assurance layer</h3>
+          <p class="text-gray-300 text-sm">The set of automated checks applied after AI extraction to verify that output meets quality standards before dispatch. The QA layer in a document AI system typically includes: JSON schema validation (is the output well-formed?), math cross-checks (do the numbers add up?), format validation (is the date a valid date? is the VAT number the right length?), mandatory field checks (are required fields present?), and business rule checks (is the invoice date in the past?). Documents failing QA are routed to human review rather than dispatched with errors.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Queue management</h3>
+          <p class="text-gray-300 text-sm">The system for organizing, prioritizing, and tracking documents as they await processing in each stage of the pipeline. Queue management handles: FIFO ordering, priority overrides (urgent invoices processed first), backpressure (pausing ingestion when processing is overloaded), retry scheduling for failed documents, and dead-letter handling for permanently failed documents. Reliable queue management is essential for production stability: without it, document spikes (e.g., month-end invoice batches) overwhelm the processing capacity and cause data loss or delays.</p>
+        </div>
+      </div>
+
+      <!-- R -->
+      <div id="letter-R">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">R</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Recall (extraction metric)</h3>
+          <p class="text-gray-300 text-sm">The proportion of fields that the model successfully extracted, out of all fields that were present in the document and expected by the schema. High recall means the model does not miss fields — it extracts everything that should be extracted. Low recall means the model frequently returns null for fields that are present in the document. For line item extraction, recall is often lower than for header fields, as complex table layouts cause models to miss rows. See also: Precision, F1 score.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Retry logic</h3>
+          <p class="text-gray-300 text-sm">The automated behavior of re-attempting a failed processing step after a configurable delay and a specified number of times before giving up and routing the document to a dead-letter queue. Retry logic handles transient failures: a GPU inference timeout that resolves on the second attempt, a temporary database write failure, or a momentary network error to an output adapter. Effective retry logic uses exponential backoff (increasing delay between retries) to avoid hammering a resource that is under stress, and distinguishes between retryable errors (timeouts, resource limits) and permanent errors (corrupted file, unsupported format) that should not be retried.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Routing (document routing)</h3>
+          <p class="text-gray-300 text-sm">The decision logic that determines what happens to a document after extraction and validation: auto-dispatch to a downstream system (VALIDATED status), send to human review queue (NEEDS_REVIEW), escalate to supervisor (specific error conditions), or archive without action (duplicate detected). Routing rules are typically configured as threshold-based policies (confidence threshold, validation pass/fail) and can be customized per document type or per sender. Routing logic is the operational core that determines what percentage of documents require human intervention.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">RPA (Robotic Process Automation)</h3>
+          <p class="text-gray-300 text-sm">A technology that automates repetitive, rule-based interactions with software user interfaces — clicking buttons, filling forms, copying data between systems — by simulating human user actions. RPA is complementary to document AI: document AI extracts data from documents; RPA enters that data into systems that do not have APIs. Together, they enable end-to-end automation of document workflows even for legacy systems. DataUnchain includes an RPA adapter (Playwright-based) that can automatically fill web forms or desktop application fields with extracted document data.</p>
+        </div>
+      </div>
+
+      <!-- S -->
+      <div id="letter-S">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">S</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Schema mapping</h3>
+          <p class="text-gray-300 text-sm">The configuration that transforms extracted field names and values from the document AI internal schema to the field names and formats required by a specific target system. For example, an extracted field "total_amount" (decimal) might need to map to "InvoiceTotal" (string with two decimal places) in one ERP and "fatura_total" (integer in cents) in another. Schema mapping is specific to each output adapter and is maintained separately from the extraction schema, enabling the same extraction output to be routed to multiple downstream systems with different field conventions.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">SDI (Sistema di Interscambio — Italian e-invoicing hub)</h3>
+          <p class="text-gray-300 text-sm">The Agenzia delle Entrate (Italian Revenue Agency) electronic exchange system through which all FatturaPA e-invoices between Italian businesses and public administrations must be transmitted. The SDI receives, validates, and routes FatturaPA XML files, rejecting those that fail format or fiscal checks. Businesses must either use a certified intermediary (intermediario) or connect directly to the SDI API. Document AI systems processing Italian invoices must correctly handle SDI-delivered FatturaPA files alongside non-SDI formats from foreign suppliers.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Semantic extraction</h3>
+          <p class="text-gray-300 text-sm">Extraction that uses the semantic meaning of document content — rather than fixed positional rules or keyword matching — to identify and extract field values. A semantic extraction system can correctly extract the invoice total from a document even when the label reads "Importo Totale," "Totale Fattura," "Grand Total," "Gesamtbetrag," or is entirely absent and the total must be inferred from document context. Semantic extraction is a key capability of VLMs and LLMs, and is the primary reason modern AI-based IDP outperforms template-based extraction systems on diverse document sets.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Structured data</h3>
+          <p class="text-gray-300 text-sm">Data organized in a predefined schema with consistent field names, types, and formats — typically stored in databases, CSV files, or JSON objects. The output of document AI extraction is structured data: a JSON object with named fields and typed values, ready for database insertion or API transmission. The goal of document AI is to convert unstructured business documents into structured data that downstream systems can process automatically.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Structured output</h3>
+          <p class="text-gray-300 text-sm">The AI inference mode in which the model is constrained to produce output that conforms to a specified structure (typically a JSON schema), rather than free-form text. Modern inference frameworks (Ollama, vLLM, llama.cpp) support structured output via grammar-constrained generation or JSON mode, which significantly increases the reliability of parseable JSON output from AI models in production settings. Structured output mode reduces — but does not eliminate — the need for output parsing and error handling code.</p>
+        </div>
+      </div>
+
+      <!-- T -->
+      <div id="letter-T">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">T</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Template-free extraction</h3>
+          <p class="text-gray-300 text-sm">The ability to accurately extract fields from documents without pre-configured per-supplier or per-document-type templates. Traditional document AI systems required a separate template for each supplier's invoice layout; modern VLM-based systems can extract correctly from any document layout using a single general-purpose extraction prompt. Template-free extraction dramatically reduces onboarding time for new suppliers (from days or weeks to zero configuration) and handles one-off document layouts gracefully.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Token (in LLM context)</h3>
+          <p class="text-gray-300 text-sm">The basic unit of text processed by a language model, roughly corresponding to a word or word fragment. In English, one token is approximately 4 characters or 0.75 words on average. Tokens determine inference cost (for cloud APIs, priced per token), context window limits (models have a maximum token count for input + output), and processing speed. Document images converted to tokens via vision encoders typically consume 512–2048 tokens per page depending on resolution and model architecture.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Training data</h3>
+          <p class="text-gray-300 text-sm">The dataset of labeled examples used to train or fine-tune a machine learning model. For document AI, training data consists of document images or PDFs paired with their correct extraction outputs (ground truth). The quality, diversity, and size of training data are the primary determinants of a model's performance in production. Organizations that operate on specialized document types (e.g., laboratory test reports, maritime bills of lading) may need to assemble and annotate custom training data to achieve acceptable accuracy on those document types.</p>
+        </div>
+      </div>
+
+      <!-- U -->
+      <div id="letter-U">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">U</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Unstructured data</h3>
+          <p class="text-gray-300 text-sm">Data that does not have a predefined schema or consistent organization — including emails, PDFs, scanned images, Word documents, and free-form text. Unstructured data represents an estimated 80–90% of all enterprise data (Gartner). Business documents are technically "semi-structured" — they have an expected layout and field set, but layout varies between senders — making document AI the bridge between unstructured input and structured database records.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Upsert (in CRM integration)</h3>
+          <p class="text-gray-300 text-sm">A database operation that creates a new record if it does not exist, or updates the existing record if it does, based on a unique key (e.g., VAT number or supplier code). In CRM enrichment workflows, upsert is the standard write operation: extracted supplier data is upserted against the CRM, creating new vendor records for first-time suppliers and updating existing records with new contact information. Upsert prevents duplicate record creation and ensures CRM data stays current without requiring separate create/update logic.</p>
+        </div>
+      </div>
+
+      <!-- V -->
+      <div id="letter-V">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">V</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Validation layer</h3>
+          <p class="text-gray-300 text-sm">The processing stage that checks extracted data against quality and business rules before routing decisions are made. The validation layer applies math cross-checks, format validation, mandatory field checks, business rule checks (e.g., invoice date must be within 12 months), and external lookups (e.g., VAT number format verification). Documents passing all validation checks are classified VALIDATED and routed for auto-dispatch; documents failing one or more checks are classified NEEDS_REVIEW and routed to a human reviewer with the specific failure highlighted.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">VLM (Vision-Language Model)</h3>
+          <p class="text-gray-300 text-sm">A multi-modal neural network that processes both images and text jointly, enabling it to reason about the visual content of document pages alongside their textual content. VLMs are the state-of-the-art architecture for document AI in 2026, surpassing pipeline approaches (OCR → NER → extraction) by eliminating error propagation between stages and enabling layout-aware extraction. Leading VLMs for on-premise document processing include Qwen 2.5-VL (7B and 72B parameter variants), LLaMA 3.2-Vision, and Mistral Pixtral. DataUnchain uses Qwen 2.5-VL as its primary extraction engine.</p>
+        </div>
+      </div>
+
+      <!-- W -->
+      <div id="letter-W">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">W</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Watchdog service</h3>
+          <p class="text-gray-300 text-sm">A lightweight background process that monitors system health — model availability, queue depth, disk space, processing latency — and triggers alerts or automatic recovery actions when anomalies are detected. In document AI deployments, a watchdog service restarts a crashed Ollama inference process, alerts operations when the review queue exceeds a threshold, or pauses ingestion when disk space is critically low. Without a watchdog service, production document pipelines are brittle: a silent model crash can cause documents to queue indefinitely with no notification.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Webhook</h3>
+          <p class="text-gray-300 text-sm">An HTTP callback mechanism where a system sends an automated POST request to a configured URL when a specific event occurs — such as a document being VALIDATED or NEEDS_REVIEW status being assigned. Webhooks enable real-time integration without polling: rather than a receiving system repeatedly asking "are there new processed documents?", the document AI system pushes notifications as soon as events occur. DataUnchain's webhook adapter supports configurable endpoints, custom headers, retry logic, and payload templates.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Workflow automation</h3>
+          <p class="text-gray-300 text-sm">The orchestration of multi-step business processes across systems, triggered by events (document arrival, status change, human approval) and executed without manual intervention at each step. Document AI is typically embedded within a broader workflow automation system: the AI extracts the data, the workflow engine routes it for approval, the ERP integration posts the approved record, and the notification system alerts the relevant parties. DataUnchain integrates with workflow automation tools via webhooks, API adapters, and direct ERP connectors.</p>
+        </div>
+      </div>
+
+      <!-- Z -->
+      <div id="letter-Z">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">Z</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Zero-shot extraction</h3>
+          <p class="text-gray-300 text-sm">Document extraction performed by an AI model that has never seen a training example of the specific document layout or supplier format, relying entirely on the model's pre-trained knowledge and the extraction prompt. Zero-shot extraction is the default mode for modern VLM-based document AI systems: a new supplier's invoice is processed correctly on the first submission without any template configuration or annotated examples. Zero-shot performance is the primary quality metric that differentiates modern AI-based IDP from legacy template-based extraction systems.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Zero-touch processing</h3>
+          <p class="text-gray-300 text-sm">The ideal state of document automation where 100% of incoming documents are processed, validated, and dispatched to downstream systems without any human intervention. Zero-touch processing is the long-term target for mature document AI deployments but is rarely achieved in practice due to document quality variation, new supplier onboarding, and regulatory requirements for human sign-off on certain document categories. Production systems typically achieve 80–95% zero-touch rates, with the remainder routed to human review. DataUnchain refers to zero-touch documents as having VALIDATED status.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">See Also</h2>
+      <p>For a deeper understanding of how these concepts are applied in practice, see the following DataUnchain resources:</p>
+      <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4">
+        <li><a href="/en/how-it-works.html" class="text-brand-tealLight hover:underline">How DataUnchain Works — Full pipeline walkthrough</a></li>
+        <li><a href="/en/use-cases.html" class="text-brand-tealLight hover:underline">Document AI Use Cases — Invoices, DDTs, contracts, and more</a></li>
+        <li><a href="/en/features.html" class="text-brand-tealLight hover:underline">Features — Adapters, validation, and extraction capabilities</a></li>
+        <li><a href="/en/llm-document-extraction-benchmark.html" class="text-brand-tealLight hover:underline">LLM Document Extraction Benchmark — Qwen vs LLaMA vs Mistral (2026)</a></li>
+        <li><a href="/en/enterprise-document-ai-case-study.html" class="text-brand-tealLight hover:underline">Enterprise Case Study — Processing 50,000 documents per year</a></li>
+      </ul>
+
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-white/10">
+      <div class="bg-gradient-to-r from-brand-teal/20 to-brand-emerald/20 border border-brand-teal/30 rounded-3xl p-8 text-center">
+        <h3 class="text-2xl font-black font-display text-white mb-3">Ready to automate your document workflows?</h3>
+        <p class="text-gray-400 mb-6">DataUnchain processes your documents locally. No cloud, no data exposure, no subscriptions.</p>
+        <a href="mailto:info@dataunchain.com?subject=Demo Request — DataUnchain" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold rounded-full hover:opacity-90 transition-opacity">Request a Demo →</a>
+      </div>
+    </div>
+
+  </div>
+</article>

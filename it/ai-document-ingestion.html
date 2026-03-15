@@ -1,0 +1,733 @@
+---
+layout: default
+title: "Acquisizione Documenti con AI per Sistemi Enterprise — DataUnchain"
+lang: it
+locale: it_IT
+description: "La guida completa sull'acquisizione documenti con AI: architettura, casi d'uso, privacy e integrazione con CRM e ERP. AI locale, zero cloud."
+---
+
+<!-- Hero Section -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 bg-brand-dark"></div>
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-teal/8 rounded-full blur-[140px]"></div>
+  <div class="absolute top-10 right-1/4 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[120px]"></div>
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+      📄 AI Document Ingestion
+    </div>
+    <h1 class="text-5xl lg:text-6xl font-black font-display mb-6 leading-tight">
+      Acquisizione Documenti con AI<br>
+      <span class="gradient-text">per Sistemi Enterprise</span>
+    </h1>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Acquisisci, interpreta e instrada automaticamente i documenti aziendali verso CRM, ERP e workflow interni, usando AI locale. Niente cloud. Nessuna esposizione dei dati. Controllo totale.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#architecture" class="inline-flex items-center gap-2 px-8 py-3 bg-brand-surface border border-brand-teal/30 text-brand-tealLight font-bold rounded-full hover:border-brand-teal/60 transition-all">
+        Scopri l'Architettura ↓
+      </a>
+      <a href="mailto:info@dataunchain.com?subject=Demo Request — DataUnchain" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold rounded-full hover:opacity-90 transition-opacity">
+        Richiedi una Demo →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick nav breadcrumb -->
+<section class="py-4 px-6 bg-brand-surface border-b border-white/5">
+  <div class="max-w-3xl mx-auto">
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-500">
+      <a href="#the-problem" class="hover:text-brand-tealLight transition-colors">Il Problema</a>
+      <span>·</span>
+      <a href="#definition" class="hover:text-brand-tealLight transition-colors">Definizione</a>
+      <span>·</span>
+      <a href="#architecture" class="hover:text-brand-tealLight transition-colors">Architettura</a>
+      <span>·</span>
+      <a href="#comparison" class="hover:text-brand-tealLight transition-colors">AI vs OCR vs RPA</a>
+      <span>·</span>
+      <a href="#use-cases" class="hover:text-brand-tealLight transition-colors">Casi d'Uso</a>
+      <span>·</span>
+      <a href="#privacy" class="hover:text-brand-tealLight transition-colors">Privacy</a>
+      <span>·</span>
+      <a href="#lessons" class="hover:text-brand-tealLight transition-colors">Lezioni Apprese</a>
+      <span>·</span>
+      <a href="#implementation" class="hover:text-brand-tealLight transition-colors">Implementazione</a>
+      <span>·</span>
+      <a href="#faq" class="hover:text-brand-tealLight transition-colors">FAQ</a>
+    </nav>
+  </div>
+</section>
+
+<article class="pt-16 pb-20 px-6">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- IL PROBLEMA -->
+    <section id="the-problem" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Il Problema · Perché È Importante</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Il Costo Nascosto dell'Elaborazione Manuale dei Documenti</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <p>
+          Ogni giorno lavorativo, milioni di documenti arrivano nelle caselle di posta aziendali: ordini d'acquisto dai fornitori, fatture da approvare, bolle di consegna da abbinare, contratti da archiviare, dichiarazioni doganali da conservare. Ognuno richiede attenzione umana. Qualcuno deve aprirlo, leggerlo, inserire i dati in un sistema, verificare i numeri e passare al successivo. Sembra routine. Moltiplicata su un'intera organizzazione, è una delle attività più costose e soggette a errori nelle operations aziendali moderne.
+        </p>
+
+        <p>
+          Le ricerche dimostrano costantemente che un dipendente di concetto medio spende <strong class="text-white">da 4 a 6 ore alla settimana</strong> nell'inserimento manuale di dati e nelle attività amministrative legate ai documenti. In un'azienda di 50 persone, questo corrisponde a fino a 300 ore-uomo ogni settimana spese su attività che, in linea di principio, un sistema ben progettato potrebbe gestire automaticamente. Su base annua, si arriva a oltre 15.000 ore — l'equivalente di 7-8 dipendenti a tempo pieno impegnati esclusivamente a copiare e incollare dati.
+        </p>
+
+        <p>
+          Il costo diretto del lavoro è solo una parte del quadro. Il problema più profondo è la propagazione degli errori. Quando un addetto digita erroneamente il numero di Partita IVA di un fornitore — trasponendo due cifre sotto la pressione di smaltire un arretrato — le conseguenze a valle possono essere gravi. La fattura non supera la validazione fiscale. Il pagamento viene bloccato. Il rapporto con il fornitore si incrina. Il team contabile passa ore a riconciliare l'errore. Un singolo codice IVA errato può bloccare un pagamento da decine di migliaia di euro e innescare un controllo di conformità.
+        </p>
+      </div>
+
+      <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
+        <strong class="text-brand-tealLight">DATO CHIAVE:</strong>
+        <p class="text-gray-300 mt-2">Un'azienda di medie dimensioni che elabora 500 fatture al mese spende circa 200 ore-uomo in inserimento manuale. Sono 2.400 ore all'anno — tempo sufficiente per costruire e lanciare un prodotto completamente nuovo. Il solo costo opportunità giustifica l'automazione.</p>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Il Diluvio Documentale</h3>
+        <p>
+          Le aziende moderne ricevono documenti in ogni formato concepibile e attraverso ogni canale possibile. Le fatture arrivano come allegati PDF via email, come carta scansionata da una stampante multifunzione, come messaggi EDI da grandi partner commerciali enterprise, e sempre più spesso come file XML strutturati tramite canali digitali certificati come il Sistema di Interscambio (SDI) italiano. I contratti arrivano come documenti Word, poi come PDF firmati, e talvolta riscansionati dopo la firma autografa. I Documenti di Trasporto (DDT) vengono consegnati insieme alle merci o inviati separatamente via email. Gli ordini d'acquisto originano nell'ERP aziendale ma devono essere abbinati alle conferme dei fornitori.
+        </p>
+        <p>
+          Ogni tipo di documento ha un layout diverso. Una singola tipologia — ad esempio, una fattura fornitore — può presentarsi in migliaia di formati visivi diversi, uno per fornitore, ciascuno con ragione sociale, data, importi e righe posizionati dove il reparto IT o grafico del fornitore ha deciso di metterli. I software tradizionali affrontano questo problema con i template: un template per ogni layout fornitore. Quando il fornitore aggiorna il proprio layout di fattura, il template si rompe. Il documento va in errore. Qualcuno deve riparare il template.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Rischio di Conformità e Ritardi di Pagamento</h3>
+        <p>
+          Oltre all'efficienza, c'è una dimensione di compliance. Il GDPR impone che i dati personali — presenti in documenti HR, referti medici, contratti — vengano trattati con controlli documentati e accesso limitato. Quando i documenti attendono l'elaborazione manuale in una cartella di rete condivisa, sono di fatto privi di controllo. Chi ha avuto accesso alla fattura contenente dati bancari personali? Nessuno lo sa. Il registro di audit non esiste. Il rischio normativo si accumula silenziosamente.
+        </p>
+        <p>
+          I ritardi di pagamento hanno conseguenze finanziarie dirette. La Direttiva UE sui Ritardi di Pagamento e le normative nazionali equivalenti riconoscono ai creditori interessi sulle fatture scadute. Le aziende che non elaborano le fatture tempestivamente — perché gli esseri umani hanno una capacità di lavoro limitata — accumulano regolarmente costi per interessi di mora e danneggiano rapporti con i fornitori costruiti in anni di lavoro.
+        </p>
+      </div>
+    </section>
+
+    <!-- DEFINIZIONE -->
+    <section id="definition" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Definizione · Concetti Fondamentali</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Cos'è l'Acquisizione Documenti con AI?</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <p>
+          <strong class="text-white">L'acquisizione documenti con AI</strong> è il processo automatizzato con cui un sistema software riceve documenti aziendali non strutturati o semi-strutturati, applica l'intelligenza artificiale per comprenderne il contenuto visivo e semantico, estrae campi dati strutturati, ne valida i risultati rispetto a regole di business e vincoli matematici, e instrada i dati validati verso sistemi a valle come piattaforme ERP, database CRM o strumenti di automazione workflow — senza richiedere intervento umano per i casi ordinari.
+        </p>
+        <p>
+          Questa definizione distingue l'acquisizione documenti con AI da tre concetti correlati ma distinti: il riconoscimento ottico dei caratteri (OCR), la robotic process automation (RPA) e i tradizionali sistemi di gestione documentale (DMS).
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Differenze rispetto all'OCR</h3>
+        <p>
+          L'OCR (optical character recognition) è una tecnologia propedeutica, non una soluzione. L'OCR converte i pixel di un'immagine scansionata in testo leggibile dalla macchina. Non comprende il testo. Non sa che "€ 1.234,56" è un importo totale, o che "IT12345678901" è una Partita IVA, o che il testo nell'angolo in alto a destra è la data della fattura mentre quello in basso a destra è la scadenza di pagamento. L'OCR produce un flusso di caratteri. Un essere umano — o un motore di regole rigido — deve ancora interpretare cosa significhino quei caratteri.
+        </p>
+        <p>
+          L'acquisizione documenti con AI va oltre. Il modello AI ragiona sul documento come artefatto visivo: comprende layout, contesto, posizione relativa e significato semantico simultaneamente. Può analizzare una fattura che non ha mai visto prima e identificare correttamente ragione sociale del fornitore, importo totale, IVA e righe di dettaglio — non perché disponga di un template per quel fornitore specifico, ma perché comprende come appaiono le fatture e come si relazionano le loro componenti.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Differenze rispetto all'RPA</h3>
+        <p>
+          La robotic process automation (RPA) automatizza le interazioni umane con le interfacce software: clicca pulsanti, compila form, copia valori da un'applicazione all'altra. L'RPA è potente per automatizzare processi strutturati e deterministici — ma l'elaborazione documentale è intrinsecamente non strutturata. Quando si punta l'RPA su un documento, occorre comunque qualcosa che estragga prima i dati. E quando si usa l'estrazione basata su template, il workflow RPA si rompe nel momento in cui il layout del documento cambia.
+        </p>
+        <p>
+          L'acquisizione documenti con AI sostituisce il fragile passaggio di template-matching con un modello che generalizza tra layout diversi. L'RPA può poi essere utilizzato per il passaggio finale — trasferire i dati validati nel sistema di destinazione — ma il livello di comprensione è affidato all'AI, non a regole rigide.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">I Cinque Passaggi Fondamentali</h3>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 my-8">
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black text-sm flex-shrink-0">1</div>
+          <div>
+            <div class="font-bold text-white mb-1">Ricezione</div>
+            <p class="text-gray-400 text-sm">Il sistema monitora uno o più canali di input — casella email, folder watchdog, bot Telegram, REST API, feed SDI/PEC — e accetta i nuovi documenti nel momento in cui arrivano, indipendentemente dal formato (PDF, JPG, PNG, TIFF).</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black text-sm flex-shrink-0">2</div>
+          <div>
+            <div class="font-bold text-white mb-1">Parsing</div>
+            <p class="text-gray-400 text-sm">I PDF multipagina vengono suddivisi in immagini per singola pagina ad alta risoluzione. Il tipo di file viene rilevato automaticamente. I file corrotti o illeggibili vengono messi in quarantena e segnalati per la revisione.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-brand-emerald/20 border border-brand-emerald/30 flex items-center justify-center text-brand-emeraldLight font-black text-sm flex-shrink-0">3</div>
+          <div>
+            <div class="font-bold text-white mb-1">Comprensione AI</div>
+            <p class="text-gray-400 text-sm">Un modello vision-language elabora l'immagine di ciascuna pagina e produce una risposta JSON strutturata contenente la classificazione del tipo di documento, tutti i campi identificati con i relativi valori e i punteggi di confidenza per ogni estrazione.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-yellow-500/20 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0">4</div>
+          <div>
+            <div class="font-bold text-white mb-1">Validazione</div>
+            <p class="text-gray-400 text-sm">I valori estratti vengono validati rispetto a regole deterministiche: verifiche matematiche incrociate (imponibile + IVA = totale, tolleranza €0,02), controlli di formato (Partita IVA italiana, Codice Fiscale con supporto omocodia), validazione degli intervalli di data e vincoli di logica aziendale.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0">5</div>
+          <div>
+            <div class="font-bold text-white mb-1">Integrazione</div>
+            <p class="text-gray-400 text-sm">I dati validati vengono inviati all'adapter di output configurato: sistema ERP, CRM, webhook, export CSV, generazione XML o servizio di notifica. L'audit trail completo viene registrato con timestamp e codici di stato.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITETTURA -->
+    <section id="architecture" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Riferimento Tecnico · Architettura</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Architettura del Sistema</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-4 mb-8">
+        <p>La pipeline di acquisizione DataUnchain è organizzata in quattro livelli distinti, ciascuno con confini di responsabilità chiari. Questa separazione consente di monitorare, debuggare e scalare ogni livello in modo indipendente.</p>
+      </div>
+
+      <div class="bg-brand-surface rounded-2xl p-6 my-8 font-mono text-sm text-gray-300 overflow-x-auto border border-white/5">
+        <pre class="text-xs leading-relaxed">
+┌─────────────────────────────────────────────────────────────┐
+│                     DOCUMENT SOURCES                         │
+│  Email/IMAP  │  REST API  │  Telegram Bot  │  Folder Watch  │
+│  SDI / PEC Monitor                                          │
+└──────────────────────────┬──────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                    INGESTION LAYER                            │
+│  File type detection │ PDF rendering │ Multi-page split       │
+│  Deduplication hash  │ Quarantine queue │ Job scheduler       │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                AI UNDERSTANDING LAYER                         │
+│  Vision-Language Model: Qwen 2.5-VL (local Ollama)           │
+│  Document classification │ Entity extraction │ JSON output    │
+│  Confidence scoring per field                                 │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                  VALIDATION LAYER                             │
+│  Math: subtotal + VAT = total (±€0.02 tolerance)             │
+│  Format: IT VAT numbers, fiscal codes, IBAN, dates           │
+│  Confidence threshold routing → VALIDATED / NEEDS_REVIEW     │
+│  Audit log entry creation                                     │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                 INTEGRATION LAYER (18 adapters)               │
+│  CRM:     Salesforce │ HubSpot │ Airtable │ Notion           │
+│  ERP:     SAP B1 │ Odoo │ Zucchetti │ TeamSystem │ Mexal     │
+│  Files:   CSV │ Excel │ FatturaPA XML                        │
+│  Notify:  Email SMTP │ Slack │ Microsoft 365                 │
+│  Custom:  Webhook │ RPA Playwright                           │
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Livello 1: Fonti Documentali e Acquisizione</h3>
+        <p>
+          Il livello di acquisizione ha il compito di accettare documenti da tutti i canali di input configurati e normalizzarli in un formato comune per l'elaborazione a valle. Il monitoraggio email utilizza IMAP IDLE per ricevere gli allegati nel momento esatto in cui arrivano in casella — nessun intervallo di polling, nessun ritardo. Il folder watchdog utilizza gli eventi del filesystem del sistema operativo anziché il polling, ottenendo una latenza di rilevamento inferiore al secondo anche su volumi montati in rete.
+        </p>
+        <p>
+          Una volta ricevuto un file, gli viene assegnato un hash SHA-256 per la deduplicazione: se lo stesso documento arriva due volte (frequente con i forward email), viene elaborata una sola copia. Il rendering PDF converte ogni pagina in un PNG ad alta risoluzione (tipicamente 300 DPI) per preservare i dettagli fini come clausole legali in corpo piccolo, annotazioni manoscritte e filigrane a basso contrasto. I PDF multipagina vengono suddivisi in modo intelligente: una fattura di cinque pagine viene elaborata come cinque immagini separate, poi i risultati vengono ricomposti in un unico documento strutturato.
+        </p>
+        <p>
+          I file che non possono essere analizzati — PDF protetti da password, archivi corrotti, formati binari non supportati — vengono spostati in una coda di quarantena e viene inviata una notifica al team operativo. Il sistema non fallisce mai silenziosamente.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Livello 2: Comprensione AI con Qwen 2.5-VL</h3>
+        <p>
+          Il livello di comprensione AI è il nucleo intellettuale del sistema. DataUnchain utilizza Qwen 2.5-VL, un modello vision-language all'avanguardia che elabora le immagini dei documenti direttamente, senza eseguire prima l'OCR. Il modello gira localmente tramite Ollama — non comunica mai con server esterni. L'inferenza avviene sulla stessa macchina che ha ricevuto il documento.
+        </p>
+        <p>
+          Il modello riceve un prompt accuratamente costruito insieme all'immagine del documento. Il prompt istruisce il modello a identificare il tipo di documento (fattura, contratto, DDT, referto medico, busta paga, ecc.), estrarre tutti i campi rilevanti con i rispettivi valori ed esprimere punteggi di confidenza per ogni estrazione. L'output è un oggetto JSON strutturato che i livelli a valle possono elaborare programmaticamente.
+        </p>
+        <p>
+          La capacità visiva di Qwen 2.5-VL gli consente di gestire documenti che sconfesserebbero un approccio puramente testuale: tabelle le cui colonne sono definite dall'allineamento visivo anziché da delimitatori, annotazioni manoscritte nei margini, intestazioni bilingui, timbri e filigrane che si sovrappongono al testo, e pagine con orientamento misto dove alcune sezioni sono disposte verticalmente.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Livello 3: Validazione</h3>
+        <p>
+          L'estrazione AI è probabilistica. Il livello di validazione applica regole deterministiche per intercettare gli errori che l'AI potrebbe commettere. La validazione matematica verifica che imponibile + IVA = totale entro una tolleranza di €0,02 (per gestire gli arrotondamenti nei software contabili dei fornitori). Se i numeri non quadrano, il documento viene contrassegnato come NEEDS_REVIEW anziché inviato automaticamente.
+        </p>
+        <p>
+          La validazione di formato copre in modo approfondito i requisiti specifici italiani: formato e checksum della Partita IVA, Codice Fiscale con supporto completo dell'omocodia (la codifica alternativa utilizzata quando un codice fiscale standard è già assegnato), validazione del check-digit IBAN e controlli di plausibilità delle date (una fattura datata tre anni nel futuro è un errore di dati, non un documento valido).
+        </p>
+        <p>
+          Il sistema di soglie di confidenza assegna a ogni documento uno dei tre stati di audit: <strong class="text-brand-tealLight">VALIDATED</strong> (tutti i controlli superati, alta confidenza — inviato automaticamente), <strong class="text-yellow-400">PENDING_REVIEW</strong> (confidenza media — in coda per la conferma dell'operatore), o <strong class="text-red-400">NEEDS_REVIEW</strong> (validazione fallita — segnalato per correzione). Questa logica di instradamento garantisce che l'automazione non produca mai silenziosamente dati errati: o li elabora correttamente e li instrada in automatico, o li escalate a un essere umano.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Livello 4: Integrazione e Adapter di Output</h3>
+        <p>
+          Il livello di integrazione invia i dati validati a uno o più adapter di output. Ogni adapter è un modulo indipendente con la propria configurazione di connessione, logica di retry e gestione degli errori. L'adapter webhook può chiamare qualsiasi endpoint REST, rendendolo compatibile con praticamente qualsiasi piattaforma SaaS moderna. L'adapter FatturaPA XML genera fatture elettroniche italiane legalmente conformi. L'adapter RPA Playwright guida un browser per interagire con applicazioni web legacy prive di API.
+        </p>
+        <p>
+          Tutti gli output degli adapter vengono registrati con timestamp, codici di stato HTTP e payload di risposta. Se un adapter fallisce — timeout di rete, errore di autenticazione, indisponibilità del sistema di destinazione — il documento entra in una coda dead-letter. Il sistema esegue nuovi tentativi con backoff esponenziale. Dopo un numero configurabile di tentativi, il documento viene escalato al team operativo tramite notifica. Nessun dato viene perso silenziosamente.
+        </p>
+      </div>
+
+      <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-6 my-8">
+        <strong class="text-yellow-400">NOTA:</strong>
+        <p class="text-gray-300 mt-2">La coda dead-letter è una delle funzionalità operative più importanti di un sistema di acquisizione documenti in produzione. Qualsiasi progetto che scarta silenziosamente i documenti falliti è inaccettabile per l'uso enterprise. Ogni documento che entra nel sistema deve alla fine avere successo oppure essere esplicitamente preso in carico da un operatore.</p>
+      </div>
+    </section>
+
+    <!-- CONFRONTO -->
+    <section id="comparison" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Confronto · Analisi Tecnologica</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">AI vs OCR vs RPA: Confronto Dettagliato</h2>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-sm text-left">
+          <thead>
+            <tr class="border-b border-white/10 text-gray-400">
+              <th class="pb-3 pr-6 font-semibold">Approccio</th>
+              <th class="pb-3 pr-6 font-semibold">Capacità di Lettura</th>
+              <th class="pb-3 pr-6 font-semibold">Output Strutturato</th>
+              <th class="pb-3 pr-6 font-semibold">Adattabilità</th>
+              <th class="pb-3 pr-6 font-semibold">Gestione Errori</th>
+              <th class="pb-3 font-semibold">Modello di Costo</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-white">OCR (Tesseract)</td>
+              <td class="py-3 pr-6">Solo caratteri — nessuna comprensione semantica</td>
+              <td class="py-3 pr-6">Richiede regole manuali per ogni tipo di documento</td>
+              <td class="py-3 pr-6">Nessuna — si rompe al cambio di layout</td>
+              <td class="py-3 pr-6">Nessuna — errori silenziosi</td>
+              <td class="py-3">Gratuito / molto basso</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-white">RPA su Template</td>
+              <td class="py-3 pr-6">Solo coordinate di layout fisse</td>
+              <td class="py-3 pr-6">Rigido — solo i campi mappati</td>
+              <td class="py-3 pr-6">Zero — va in crash al cambio di layout</td>
+              <td class="py-3 pr-6">Crash — richiede intervento manuale</td>
+              <td class="py-3">Medio — alta manutenzione</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-white">AI Cloud (GPT-4V)</td>
+              <td class="py-3 pr-6">Eccellente — comprensione visiva completa</td>
+              <td class="py-3 pr-6">Buono — richiede prompt engineering</td>
+              <td class="py-3 pr-6">Buono — generalizza tra layout</td>
+              <td class="py-3 pr-6">Base — validazione limitata</td>
+              <td class="py-3">Alto — costo per chiamata ricorrente</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-brand-tealLight">AI Locale (DataUnchain)</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Eccellente — modello visivo Qwen 2.5-VL</td>
+              <td class="py-3 pr-6 text-brand-tealLight">JSON validato con punteggi di confidenza</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Buono — generalizza tra layout</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Multilivello: matematica + formato + confidenza</td>
+              <td class="py-3 text-brand-tealLight">Hardware una tantum + supporto annuale</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Perché l'OCR da Solo Fallisce sui Documenti Reali</h3>
+        <p>
+          Il limite fondamentale dell'OCR è che converte pixel in caratteri senza comprendere il contesto. Una tipica fattura fornitore contiene decine di numeri: il numero di fattura, il riferimento dell'ordine, la Partita IVA del fornitore, la Partita IVA dell'acquirente, l'imponibile, l'IVA, il totale, l'importo dovuto a pagamento, le quantità di riga, i prezzi unitari di riga e vari codici di riferimento. L'OCR produce tutto questo come stringhe di testo. Senza un modo per capire quale stringa sia cosa, si ottengono dati privi di significato.
+        </p>
+        <p>
+          La soluzione tradizionale è il template matching: si definiscono le coordinate sulla pagina dove appaiono campi specifici, poi si legge il valore in quelle coordinate. Funziona per un unico fornitore il cui layout non cambia mai. I team di procurement enterprise reali si interfacciano con centinaia di fornitori. Ogni fornitore ha il proprio layout. Un'azienda che acquista da 200 fornitori ha bisogno di 200 template. Quando uno qualsiasi di quei fornitori modifica il proprio layout di fattura — e lo fanno regolarmente — il template deve essere aggiornato manualmente. Il carico di manutenzione cresce più velocemente del business.
+        </p>
+        <p>
+          Al di là dei template, i documenti reali presentano ulteriori difficoltà legate alla qualità di scansione: pagine inclinate, macchie di caffè, inchiostro sbiadito, contenuto misto in bianco e nero e colore, timbri in gomma sovrapposti al testo stampato e correzioni manoscritte su campi digitati. Tesseract e motori simili gestiscono adeguatamente le immagini ideali; degradano significativamente su qualsiasi cosa si discosti da testo pulito, orizzontale e ad alto contrasto.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Perché l'RPA è Fragile nell'Elaborazione Documentale</h3>
+        <p>
+          Gli strumenti RPA eccellono nell'automatizzare workflow deterministici guidati da interfacce UI: "clicca qui, digita questo, salva quello." La fragilità emerge quando l'input è non strutturato. I workflow RPA incentrati sui documenti includono inevitabilmente una fase di estrazione dati, e quella fase è quasi sempre OCR su template o pattern matching. Questo rende l'affidabilità dell'intero workflow completamente dipendente dall'affidabilità della fase di estrazione.
+        </p>
+        <p>
+          Quando arriva un documento con un layout inatteso — un fornitore che ha cambiato il proprio software di fatturazione, un documento scansionato leggermente ruotato, un PDF con immagini incorporate anziché testo nativo — la fase di estrazione fallisce. Il bot RPA o va in errore (esito positivo — almeno è visibile) oppure estrae silenziosamente i valori sbagliati (catastrofico — i dati errati entrano nell'ERP senza alcun alert).
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Perché l'AI Cloud Crea Problemi di Privacy e Conformità</h3>
+        <p>
+          Servizi come GPT-4V, Google Document AI e AWS Textract risolvono bene il problema della comprensione. Sono genuinamente capaci di leggere e interpretare documenti complessi. Il problema è cosa succede al documento dopo averlo inviato. Questi servizi elaborano i dati sulla propria infrastruttura. Per i documenti aziendali di routine, questo può essere accettabile. Per documenti contenenti dati personali — buste paga, contratti HR, cartelle cliniche, accordi legali — inviare il documento a un servizio cloud di terze parti solleva immediati interrogativi di conformità GDPR.
+        </p>
+        <p>
+          Il rapporto titolare-responsabile deve essere documentato in un Data Processing Agreement (DPA). I sub-responsabili devono essere elencati e convalidati. I trasferimenti di dati al di fuori dell'UE richiedono garanzie aggiuntive ai sensi del Capitolo V del GDPR. Qualsiasi violazione dei dati presso il provider cloud deve essere notificata. Per le aziende in settori regolamentati — sanità, finanza, legale, pubblica amministrazione — questi requisiti rendono spesso l'elaborazione cloud di AI su documenti sensibili legalmente insostenibile o operativamente impraticabile. L'elaborazione AI locale elimina completamente questa categoria di rischio.
+        </p>
+      </div>
+    </section>
+
+    <!-- CASI D'USO -->
+    <section id="use-cases" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Casi d'Uso Enterprise · Applicazioni Reali</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Sei Casi d'Uso Enterprise per l'Acquisizione Documenti con AI</h2>
+
+      <div class="space-y-8">
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🧾</span>
+            <h3 class="text-xl font-bold font-display text-white">1. Elaborazione Fatture (Automazione Ciclo Passivo)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>L'elaborazione delle fatture è il caso d'uso più comune e ad alto volume. Un'azienda che riceve 500 fatture al mese da più fornitori, in più formati, può configurare DataUnchain per monitorare la casella contabilità fornitori ed estrarre automaticamente ragione sociale, numero fattura, data, importi, dettagli IVA, condizioni di pagamento e IBAN. Il sistema valida la matematica (imponibile + IVA = totale lordo), verifica la Partita IVA del fornitore nel vendor master aziendale e registra il risultato direttamente nell'ERP.</p>
+            <p>I documenti che superano tutte le validazioni vengono inviati entro pochi secondi dalla ricezione. I documenti con anomalie — importi insolitamente elevati, fornitori non riconosciuti, discrepanze matematiche — vengono instradati alla coda NEEDS_REVIEW con notifica al responsabile contabilità fornitori. Il revisore umano gestisce solo le eccezioni. I tempi di elaborazione scendono da ore a minuti.</p>
+            <p><strong class="text-brand-tealLight">Output supportato:</strong> SAP Business One, Odoo, Zucchetti, TeamSystem, Mexal, Fatture in Cloud, FatturaPA XML, CSV/Excel.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">📋</span>
+            <h3 class="text-xl font-bold font-display text-white">2. Acquisizione Contratti (Arricchimento CRM)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>I team commerciali e legali firmano decine di contratti al mese. Ogni contratto firmato contiene dati commerciali critici — valore contrattuale, date di inizio e fine, clausole di rinnovo, milestone di pagamento, dati della controparte — che devono essere registrati nel CRM per attivare promemoria di rinnovo, registrazioni di ricavi e workflow di customer success.</p>
+            <p>Trascrivere manualmente i dati contrattuali in Salesforce o HubSpot è dispendioso in termini di tempo e soggetto a errori, specialmente per accordi complessi su più pagine. L'acquisizione documenti con AI elabora il PDF firmato nel momento in cui arriva in una cartella o casella designata, estrae i campi commerciali chiave e crea o aggiorna automaticamente il record CRM corrispondente. Il commerciale riceve una notifica di conferma dell'avvenuta elaborazione del contratto, con un link al record CRM arricchito.</p>
+            <p><strong class="text-brand-tealLight">Output supportato:</strong> Salesforce, HubSpot, Airtable, Notion, webhook verso qualsiasi CRM con API.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🚚</span>
+            <h3 class="text-xl font-bold font-display text-white">3. DDT e Instradamento Documenti Logistici</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>Nel commercio italiano, il Documento di Trasporto (DDT) accompagna ogni spedizione fisica. All'arrivo della merce, il magazziniere riceve un DDT cartaceo che deve essere abbinato al corrispondente ordine d'acquisto nell'ERP, per poi registrare l'entrata merce. Questo processo di abbinamento a tre vie (ordine d'acquisto + DDT + fattura) è una delle principali fonti di ritardo ed errore nella contabilità fornitori.</p>
+            <p>L'acquisizione documenti con AI automatizza la fase di lettura del DDT: il documento viene fotografato all'arrivo (tramite app mobile o scanner), elaborato in pochi secondi e i dati strutturati registrati nell'ERP. Il sistema segnala eventuali discrepanze di quantità o articoli tra il DDT e l'ordine d'acquisto, consentendo al responsabile di magazzino di risolvere i problemi prima che la merce venga stoccata — non tre settimane dopo, quando arriva la fattura.</p>
+            <p><strong class="text-brand-tealLight">Tipi di documento supportati:</strong> DDT, CMR (trasporto internazionale su strada), polizza di carico, packing list, documenti di sdoganamento.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🏥</span>
+            <h3 class="text-xl font-bold font-display text-white">4. Cartelle Cliniche e Referti (Sanità)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>I provider sanitari e i servizi di medicina del lavoro gestiscono grandi volumi di documentazione medica: referti specialistici, risultati di laboratorio, referti diagnostici per immagini, prescrizioni e lettere di dimissione. Ogni documento contiene dati clinici strutturati che devono essere registrati nel sistema di gestione del paziente.</p>
+            <p>I requisiti di privacy in ambito sanitario sono tra i più stringenti in qualsiasi settore. I dati sanitari (dati di categoria particolare ai sensi dell'art. 9 del GDPR) non possono essere elaborati da servizi cloud senza un'esplicita base giuridica e un'ampia documentazione. L'elaborazione AI locale non è solo una comodità in sanità — è spesso l'unico approccio architetturalmente conforme. DataUnchain può operare in una rete clinica completamente air-gapped senza connettività internet, elaborando documenti sensibili del paziente interamente all'interno del perimetro dell'organizzazione.</p>
+            <p><strong class="text-brand-tealLight">Nota di conformità:</strong> Il deployment on-premise soddisfa NIS2, ISO 27001 e i requisiti nazionali di protezione dei dati specifici per il settore sanitario, senza richiedere DPA cloud o notifiche ai sub-responsabili.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">👔</span>
+            <h3 class="text-xl font-bold font-display text-white">5. Documenti HR (Buste Paga, Contratti di Lavoro)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>I team HR elaborano centinaia di documenti al mese: contratti di assunzione, variazioni contrattuali, buste paga dai provider paghe, note spese, attestati di formazione e documenti di cessazione. Ogni documento attiva workflow a valle nell'HRIS, nel sistema paghe o nel sistema di gestione documentale.</p>
+            <p>L'elaborazione delle buste paga è un caso d'uso particolarmente ad alto volume e strutturato. Le buste paga seguono formati coerenti per provider paghe. Il sistema estrae retribuzione lorda, netta, trattenute, contributi INPS, ritenute IRPEF e dati bancari, poi li riconcilia con il libro paga. Le discrepanze vengono segnalate immediatamente anziché scoperte durante la chiusura mensile.</p>
+            <p>I contratti di lavoro vengono elaborati per estrarne i termini chiave — data di inizio, ruolo, retribuzione, periodo di prova, preavviso — e popolare automaticamente il record HRIS, riducendo il tempo di amministrazione HR da ore a minuti per ogni nuova assunzione.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🏛️</span>
+            <h3 class="text-xl font-bold font-display text-white">6. Documenti Fiscali e di Conformità (F24, CUD, Dogane)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>I team finance e compliance gestiscono un calendario di adempimenti fiscali che genera grandi volumi di documenti strutturati: modelli F24 (deleghe di pagamento tributario), CUD e CU (Certificazione Unica — certificazioni fiscali annuali per dipendenti e collaboratori), dichiarazioni Intrastat, dichiarazioni doganali (DAU/SAD) e comunicazioni dell'Agenzia delle Entrate.</p>
+            <p>Questi documenti contengono dati altamente strutturati con posizioni di campo ben definite e vincoli di formato stringenti. L'acquisizione documenti con AI estrae importi, codici tributo, periodi di versamento e numeri di riferimento, poi li incrocia con le registrazioni contabili e segnala le discrepanze. L'audit trail — chi ha ricevuto il documento, quando è stato elaborato, quali valori sono stati estratti, se la validazione è passata — fornisce la documentazione richiesta in caso di ispezioni da parte dell'Amministrazione Finanziaria.</p>
+            <p><strong class="text-brand-tealLight">Nota doganale:</strong> Le dichiarazioni doganali di import ed export (MRN, valore in dogana, codici HS, importi daziari) possono essere acquisite e instradate verso sistemi di trade compliance, riducendo significativamente il carico amministrativo della riconciliazione post-sdoganamento.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Privacy · GDPR · Architettura</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">AI Privacy-First: Perché l'Elaborazione Locale è Fondamentale</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Perché le Aziende Attente al GDPR Non Possono Inviare Documenti al Cloud</h3>
+        <p>
+          Il Regolamento Generale sulla Protezione dei Dati stabilisce obblighi specifici ogni volta che i dati personali vengono trasferiti a un responsabile del trattamento (art. 28) o verso un paese terzo (Capo V). La maggior parte dei servizi di elaborazione documenti AI è gestita da aziende con sede negli USA. Inviare la busta paga, il referto medico o il contratto di lavoro di un cittadino europeo a un'API AI con sede negli USA costituisce un trasferimento di dati personali che richiede garanzie legali — Clausole Contrattuali Standard (SCC), Norme Vincolanti d'Impresa (BCR) o una decisione di adeguatezza.
+        </p>
+        <p>
+          Anche con le SCC in vigore, molti Data Protection Officer (DPO) si sentono a disagio di fronte alla realtà pratica: il documento viene elaborato su server al di fuori del controllo dell'organizzazione, da un servizio i cui sub-responsabili possono cambiare, in una giurisdizione dove l'accesso governativo ai dati può avvenire senza notifica. Per le organizzazioni in ambito sanitario, legale, finanziario o della pubblica amministrazione, questo è spesso categoricamente inaccettabile.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Architettura di un Sistema Zero-Egress</h3>
+        <p>
+          DataUnchain è progettato come sistema zero-egress per architettura, non per policy. Nessun pixel di documento, nessun testo estratto, nessun artefatto di elaborazione intermedia lascia mai la macchina (o la rete locale) su cui gira il sistema. Il modello AI (Qwen 2.5-VL tramite Ollama) gira come processo locale. Le chiamate API vengono effettuate solo all'indirizzo loopback del server Ollama locale. Gli adapter di integrazione inviano dati strutturati (valori dei campi, non immagini dei documenti) ai sistemi di output configurati — e anche questi possono essere limitati ai soli sistemi interni.
+        </p>
+        <p>
+          Il sistema può operare in una configurazione completamente air-gapped: nessuna connettività internet. In questa modalità, tutti gli aggiornamenti software vengono applicati tramite supporto fisico e tutti gli output vanno verso sistemi on-premise (ERP, database locale, condivisione di rete). Questa configurazione è adatta ad ambienti classificati, impianti industriali ad alta sicurezza e reti sanitarie operative dietro perimetri di rete rigorosi.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Cosa Significa "LLM Locale" nella Pratica</h3>
+        <p>
+          Far girare un modello linguistico localmente significa che i pesi del modello — i parametri della rete neurale addestrata — sono archiviati nella memoria GPU o CPU della macchina locale. Quando un documento viene elaborato, il modello viene invocato direttamente tramite l'API Ollama su localhost, produce la propria risposta e quella è la fine della fase di inferenza. Non viene effettuata alcuna chiamata di rete. Non viene inviata alcuna telemetria. Il modello non ha alcun meccanismo per esfiltrare dati perché non è connesso a nulla al di fuori della macchina host.
+        </p>
+        <p>
+          Qwen 2.5-VL è un modello open-weights pubblicato da Alibaba Cloud e scaricabile da Hugging Face. I pesi possono essere verificati tramite hash. Lo stack di inferenza (Ollama) è open-source e verificabile. Le organizzazioni con requisiti di sicurezza possono condurre la propria revisione del codice dell'intero stack che tratta i loro documenti.
+        </p>
+      </div>
+
+      <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
+        <strong class="text-brand-tealLight">DATO CHIAVE:</strong>
+        <p class="text-gray-300 mt-2">L'elaborazione AI locale non è un compromesso tra capacità e privacy. I moderni modelli vision-language open-weights come Qwen 2.5-VL raggiungono una qualità di comprensione documentale paragonabile a GPT-4V su documenti aziendali strutturati — garantendo al contempo la piena sovranità sui dati. Il gap tra AI cloud e AI locale si è di fatto chiuso per i casi d'uso enterprise di elaborazione documentale.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+        <div class="bg-brand-surface rounded-2xl p-5 border border-white/5 text-center">
+          <div class="text-3xl mb-3">🔒</div>
+          <div class="font-bold text-white mb-2">GDPR Articolo 28</div>
+          <p class="text-gray-400 text-sm">Nessun rapporto con un responsabile del trattamento — niente DPA, nessun elenco di sub-responsabili, nessuna documentazione di trasferimento transfrontaliero.</p>
+        </div>
+        <div class="bg-brand-surface rounded-2xl p-5 border border-white/5 text-center">
+          <div class="text-3xl mb-3">🏠</div>
+          <div class="font-bold text-white mb-2">Solo On-Premise</div>
+          <p class="text-gray-400 text-sm">I pixel dei documenti e i dati estratti non lasciano mai il perimetro della rete aziendale. Compatibile con configurazioni air-gap.</p>
+        </div>
+        <div class="bg-brand-surface rounded-2xl p-5 border border-white/5 text-center">
+          <div class="text-3xl mb-3">📋</div>
+          <div class="font-bold text-white mb-2">Audit Trail</div>
+          <p class="text-gray-400 text-sm">Log di elaborazione completo: chi ha inviato cosa, quando è stato elaborato, cosa è stato estratto, esito della validazione, dove è stato inviato.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEZIONI APPRESE -->
+    <section id="lessons" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Esperienza sul Campo · Note di Ingegneria</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Cosa Abbiamo Imparato Costruendo un Sistema di Acquisizione Documenti in Produzione</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">I Casi di Fallimento più Frequenti</h3>
+        <p>
+          Costruire un sistema di acquisizione documenti che funziona in laboratorio su PDF puliti e ben formattati è semplice. Renderlo affidabile di fronte al caos reale dei documenti aziendali è un problema completamente diverso. I casi di fallimento che incontriamo più frequentemente:
+        </p>
+      </div>
+
+      <div class="space-y-4 my-6">
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Qualità di scansione scarsa</div>
+            <p class="text-gray-400 text-sm">Documenti scansionati a 72 DPI, inclinati di 15 gradi, stampati con un nastro consumato e poi scansionati di nuovo. L'AI gestisce questi casi meglio dell'OCR, ma esiste una soglia di qualità al di sotto della quale anche un modello visivo non riesce a leggere il testo in modo affidabile. Soluzione: pipeline di pre-elaborazione con raddrizzamento automatico, miglioramento del contrasto e upscaling della risoluzione prima dell'inferenza AI.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Layout misti all'interno di un singolo PDF</div>
+            <p class="text-gray-400 text-sm">Un fornitore che invia una fattura di due pagine dove la pagina 1 è il frontespizio (riepilogo, istruzioni di pagamento) e la pagina 2 è il dettaglio per riga. I totali sono a pagina 1, le righe a pagina 2. L'elaborazione singola pagina perde la relazione tra le due. Soluzione: prompt con finestra di contesto multipagina e aggregazione dei risultati tra le pagine.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Etichette di campo ambigue</div>
+            <p class="text-gray-400 text-sm">Alcuni fornitori etichettano l'importo totale "Importo Totale", altri "Totale Fattura", altri "Totale a Pagare", altri semplicemente "TOTALE". Alcune fatture hanno sia un "Totale" che un "Totale a Pagare" (dopo l'applicazione di sconti per pagamento anticipato). L'AI risolve generalmente correttamente questi casi, ma le situazioni limite richiedono una raffinazione del prompt e logiche di validazione per intercettare le confusioni tra campi importo.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Valori manoscritti su moduli stampati</div>
+            <p class="text-gray-400 text-sm">Particolarmente comune in DDT e note spese: un modulo stampato con i campi vuoti compilati a mano. L'AI gestisce il testo stampato con maggiore affidabilità rispetto alla scrittura manuale. Il riconoscimento dei numeri scritti a mano ha un tasso di errore più alto, motivo per cui il punteggio di confidenza e la revisione umana sono importanti per i tipi di documento dove la scrittura manuale è comune.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Invii duplicati di documenti</div>
+            <p class="text-gray-400 text-sm">La stessa fattura arriva tre volte: una inoltrata dal fornitore via email, una scansionata dall'addetto al ricevimento merce, una caricata manualmente dall'assistente di contabilità fornitori. La deduplicazione SHA-256 in fase di acquisizione intercetta i duplicati esatti. I quasi-duplicati (stesso documento, qualità di scansione diversa) vengono intercettati dai controlli di unicità numero fattura + fornitore + data in fase di validazione.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Perché il Punteggio di Confidenza è Importante</h3>
+        <p>
+          L'estrazione AI non è binaria — non è semplicemente corretta o errata. Il modello produce un risultato insieme a una stima di quanto sia sicuro di quel risultato. Un punteggio di confidenza di 0,98 per l'estrazione di una Partita IVA significa che il modello è altamente certo. Un punteggio di 0,61 significa che il modello ha estratto qualcosa, ma non ne è sicuro. Sono situazioni molto diverse, e trattarle in modo identico — inviando automaticamente entrambe — sarebbe un errore di progettazione.
+        </p>
+        <p>
+          Il sistema di soglie di confidenza instrada i documenti in base al loro profilo di confidenza aggregato. Un documento in cui tutti i campi superano 0,90 viene inviato automaticamente. Un documento con un campo al di sotto di 0,75 viene messo in coda per la revisione umana di quel campo specifico. Ciò significa che il revisore vede solo le estrazioni incerte, già evidenziate, senza dover rileggere l'intero documento. Il tempo di revisione si misura in secondi, non in minuti.
+        </p>
+        <p>
+          Nel tempo, i pattern nelle decisioni di revisione possono essere usati per migliorare il sistema. Se i revisori correggono sistematicamente "Importo Netto" come imponibile anziché totale, quella correzione può essere incorporata nel prompt o nelle regole di post-elaborazione. Il sistema impara dalle eccezioni senza richiedere un riaddestrare completo del modello.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">L'Importanza del Human-in-the-Loop</h3>
+        <p>
+          Un errore comune nei progetti di automazione è progettare per il caso medio e lasciare i casi limite non gestiti. Nell'elaborazione documentale, i casi limite non sono rari — sono una percentuale prevedibile di ogni flusso documentale. Un sistema privo di un workflow di revisione umana ben progettato fallirà silenziosamente (gli errori di elaborazione passano inosservati fino alla riconciliazione di fine mese) oppure richiederà che qualcuno controlli manualmente ogni documento indipendentemente dalla qualità (vanificando lo scopo dell'automazione).
+        </p>
+        <p>
+          La progettazione human-in-the-loop significa: i documenti vengono instradati alla revisione umana quando ne hanno bisogno, l'interfaccia di revisione mostra esattamente cosa richiede attenzione, le correzioni del revisore vengono registrate e l'output corretto prosegue automaticamente. Il revisore è un gate di qualità, non una fase di elaborazione. Questo design consente all'automazione di gestire l'85-95% dei documenti in modo completamente automatico, mantenendo al tempo stesso un'accuratezza del 100% sull'intero flusso.
+        </p>
+      </div>
+    </section>
+
+    <!-- IMPLEMENTAZIONE -->
+    <section id="implementation" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Guida all'Implementazione · Deployment</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Come Implementare l'Acquisizione Documenti con AI</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-4 mb-8">
+        <p>L'implementazione di un sistema di acquisizione documenti AI di livello production è un processo in cinque fasi. Ogni fase ha input, output e criteri di successo ben definiti.</p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black">1</div>
+            <h3 class="text-lg font-bold font-display text-white">Selezione dell'Hardware</h3>
+          </div>
+          <div class="text-gray-300 text-sm leading-relaxed space-y-2">
+            <p>I requisiti hardware scalano con il volume documentale. DataUnchain è disponibile in tre livelli:</p>
+            <div class="overflow-x-auto mt-4">
+              <table class="w-full text-xs text-left">
+                <thead><tr class="border-b border-white/10 text-gray-400"><th class="pb-2 pr-6">Livello</th><th class="pb-2 pr-6">Costo Hardware</th><th class="pb-2 pr-6">Supporto Annuale</th><th class="pb-2 pr-6">Volume</th><th class="pb-2">Ideale per</th></tr></thead>
+                <tbody class="text-gray-300">
+                  <tr class="border-b border-white/5"><td class="py-2 pr-6 text-brand-tealLight font-medium">Mini</td><td class="py-2 pr-6">€3.000–4.000</td><td class="py-2 pr-6">€900–1.500/anno</td><td class="py-2 pr-6">Fino a 2.000 doc/mese</td><td class="py-2">PMI, progetti pilota</td></tr>
+                  <tr class="border-b border-white/5"><td class="py-2 pr-6 text-brand-tealLight font-medium">Pro</td><td class="py-2 pr-6">€6.000–9.000</td><td class="py-2 pr-6">€2.000–3.500/anno</td><td class="py-2 pr-6">Fino a 10.000 doc/mese</td><td class="py-2">Aziende mid-market</td></tr>
+                  <tr><td class="py-2 pr-6 text-brand-tealLight font-medium">Enterprise</td><td class="py-2 pr-6">€15.000+</td><td class="py-2 pr-6">€5.000+/anno</td><td class="py-2 pr-6">Illimitato</td><td class="py-2">Grandi aziende, multi-sede</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black">2</div>
+            <h3 class="text-lg font-bold font-display text-white">Configurazione dei Tipi di Documento</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Definire i tipi di documento che il sistema gestirà e i campi da estrarre per ciascuno. DataUnchain supporta oltre 30 tipi di documento predefiniti con schemi di estrazione già configurati. I tipi di documento personalizzati possono essere configurati definendo i campi target e fornendo documenti di esempio per il tuning del prompt. Non sono necessarie modifiche al codice per configurare nuovi tipi di documento.</p>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black">3</div>
+            <h3 class="text-lg font-bold font-display text-white">Configurazione degli Adapter di Output</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Configurare gli adapter di integrazione che riceveranno i dati validati. Ogni adapter richiede le proprie credenziali e la mappatura dei campi: gli adapter ERP necessitano del piano dei conti di destinazione, gli adapter CRM necessitano della mappatura tra i campi estratti dal documento e le proprietà degli oggetti CRM, gli adapter di notifica necessitano degli ID canale o degli indirizzi email. La configurazione viene gestita tramite un file playbook JSON strutturato — nessuna programmazione richiesta per le integrazioni standard.</p>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/20 border border-brand-emerald/30 flex items-center justify-center text-brand-emeraldLight font-black">4</div>
+            <h3 class="text-lg font-bold font-display text-white">Test e Validazione</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Prima del go-live, eseguire un campione rappresentativo di 100-200 documenti storici attraverso il sistema con gli adapter di output in modalità dry-run (i dati vengono estratti e validati ma non inviati). Esaminare il report di accuratezza: quale percentuale di documenti è stata classificata correttamente, qual era il punteggio di confidenza medio, quanti hanno richiesto revisione umana. Regolare le soglie di confidenza in base ai tassi di auto-invio accettabili per il mix di documenti specifico e la propensione al rischio dell'organizzazione.</p>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/20 border border-brand-emerald/30 flex items-center justify-center text-brand-emeraldLight font-black">5</div>
+            <h3 class="text-lg font-bold font-display text-white">Go-Live e Monitoraggio</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Abilitare l'elaborazione live con gli adapter di output attivi. Monitorare la dashboard di audit per le prime due settimane: tracciare il tasso di auto-invio, la profondità della coda di revisione, i tassi di errore degli adapter e la latenza di elaborazione. Aspettarsi una coda di revisione più ampia nei primi giorni, man mano che emergono casi limite non presenti nel campione di test. Ogni documento revisionato affina la comprensione di dove debbano essere posizionate le soglie. Dopo 30 giorni, la maggior parte dei deployment in produzione si stabilizza all'85-95% di elaborazione completamente automatica con il resto correttamente instradato alla revisione umana.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">FAQ · Domande Frequenti</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Domande Frequenti</h2>
+
+      <div class="space-y-4">
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Quali formati di documento sono supportati?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>DataUnchain supporta PDF (nativi e scansionati), JPEG, PNG e TIFF come formati di input principali. I PDF multipagina sono gestiti nativamente — ogni pagina viene elaborata in modo indipendente e i risultati vengono unificati. Gli allegati email in questi formati vengono accettati direttamente. I formati elettronici strutturati come FatturaPA XML (e-fatture italiane dal sistema SDI) vengono analizzati programmaticamente anziché tramite visione AI, raggiungendo un'accuratezza del 100% per i file conformi. I PDF protetti da password vengono messi in quarantena e segnalati per la gestione manuale.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Quanto è accurata l'estrazione AI?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>L'accuratezza dipende molto dalla qualità e dal tipo di documento. Per i PDF di alta qualità (PDF nativi, non scansionati), l'accuratezza di estrazione dei campi chiave (importi, date, nomi, Partite IVA) supera costantemente il 95% nei deployment in produzione. Per i documenti scansionati con buona qualità di scansione (150+ DPI, ben orientati), l'accuratezza è tipicamente dell'88-94%. Per le scansioni di scarsa qualità, l'accuratezza diminuisce e con essa i punteggi di confidenza — questi documenti vengono correttamente instradati alla revisione umana. Il sistema di punteggio di confidenza fa sì che i documenti "inviati automaticamente" abbiano un'accuratezza sostanzialmente più alta rispetto alla media della popolazione — per progetto, le estrazioni incerte non vengono inviate automaticamente.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Come gestisce i documenti in lingue diverse?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Qwen 2.5-VL è un modello multilingue addestrato su dati in decine di lingue, tra cui italiano, inglese, francese, tedesco, spagnolo e altre. Gestisce nativamente i documenti in lingua italiana, aspetto fondamentale per il nostro mercato principale. I documenti in lingue diverse — una fattura fornitore tedesca in tedesco ricevuta da un'azienda italiana — vengono gestiti correttamente: il modello legge il testo tedesco, comprende la struttura del documento e produce dati strutturati indipendentemente dalla lingua di origine. Il rilevamento della lingua è automatico; non è richiesta alcuna configurazione per lingua.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Cosa succede quando l'estrazione fallisce?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Il sistema dispone di più modalità di fallimento, ciascuna gestita in modo diverso. Se l'AI restituisce un'estrazione a bassa confidenza, il documento viene instradato a NEEDS_REVIEW con i campi incerti evidenziati. Se la validazione fallisce (incongruenza matematica, formato Partita IVA non valido), il documento viene contrassegnato come NEEDS_REVIEW con un messaggio di errore specifico. Se il documento non può essere analizzato (file corrotto, formato non supportato), viene messo in quarantena e viene inviato un alert al team operativo. Se un adapter di output fallisce dopo un'estrazione riuscita, il documento entra in una coda di retry con backoff esponenziale. In ogni caso, il documento viene elaborato correttamente oppure portato esplicitamente all'attenzione di un essere umano. Nulla si perde silenziosamente.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Come si integra con i sistemi esistenti?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>DataUnchain si integra tramite 18 adapter di output predefiniti che coprono le piattaforme CRM, ERP e di notifica più comuni. Per i sistemi non coperti da un adapter predefinito, l'adapter webhook può inviare dati validati come POST JSON a qualsiasi endpoint REST — rendendolo compatibile con praticamente qualsiasi piattaforma moderna. Per i sistemi legacy privi di REST API, l'adapter RPA Playwright può guidare un browser per interagire con le interfacce web. Per le integrazioni basate su file, gli adapter CSV ed Excel producono file strutturati in formati configurabili. Nuovi adapter possono essere sviluppati come moduli Python seguendo la specifica dell'interfaccia adapter.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">È conforme al GDPR?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>DataUnchain è conforme al GDPR per architettura. Poiché tutta l'elaborazione avviene on-premise senza trasferimenti di dati verso l'esterno, il sistema non richiede un Data Processing Agreement con un provider cloud, non comporta trasferimenti transfrontalieri di dati e non crea un rapporto con un sub-responsabile del trattamento. L'organizzazione mantiene la piena titolarità del trattamento. Il registro di audit integrato soddisfa i requisiti di tenuta dei registri dell'art. 30 del GDPR. Le politiche di conservazione dei dati possono essere configurate per eliminare automaticamente le immagini dei documenti elaborati dopo un periodo configurabile, a supporto dei principi di minimizzazione dei dati. Per i dati sanitari e altri dati di categoria particolare (art. 9 GDPR), l'elaborazione on-premise è tipicamente l'unico approccio architetturalmente difendibile.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Quanto tempo richiede l'elaborazione?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Il tempo di elaborazione end-to-end — dalla ricezione del documento alla comparsa dei dati nel sistema di output — è tipicamente da 15 a 45 secondi per pagina sul livello hardware Mini, e da 5 a 15 secondi per pagina sui livelli Pro ed Enterprise (dotati di GPU più potenti). Una fattura standard a pagina singola viene elaborata in meno di 30 secondi nella maggior parte delle configurazioni. I documenti multipagina vengono elaborati pagina per pagina e i risultati unificati; un contratto di cinque pagine richiede da 2 a 3 minuti. L'elaborazione è asincrona — i documenti vengono accodati ed elaborati in parallelo fino al limite di concorrenza dell'hardware. Nei periodi di picco, la profondità della coda aumenta ma nessun documento viene eliminato.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Può gestire documenti che non ha mai visto prima?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Sì. A differenza dei sistemi basati su template, DataUnchain non richiede di aver visto in precedenza un layout documentale per estrarne i dati. Il modello vision-language sottostante generalizza dalla propria fase di addestramento per comprendere nuove strutture documentali. La fattura di un nuovo fornitore — con un layout che il sistema non ha mai incontrato — viene elaborata al primo arrivo, tipicamente con una qualità di estrazione comparabile ai layout già noti. Per i tipi di documento strutturalmente molto diversi dai comuni documenti aziendali, lo schema di estrazione e il prompt possono essere affinati per migliorare i risultati, ma si tratta di un'ottimizzazione, non di un prerequisito per la funzionalità di base.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <div class="mt-16 pt-8 border-t border-white/10">
+      <div class="bg-gradient-to-r from-brand-teal/20 to-brand-emerald/20 border border-brand-teal/30 rounded-3xl p-8 text-center">
+        <h3 class="text-2xl font-black font-display text-white mb-3">Pronto ad automatizzare i workflow documentali?</h3>
+        <p class="text-gray-400 mb-6">DataUnchain elabora i documenti localmente. Niente cloud, nessuna esposizione dei dati, nessun abbonamento.</p>
+        <a href="mailto:info@dataunchain.com?subject=Demo Request — DataUnchain" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold rounded-full hover:opacity-90 transition-opacity">Richiedi una Demo →</a>
+      </div>
+    </div>
+
+  </div>
+</article>

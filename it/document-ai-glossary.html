@@ -1,0 +1,636 @@
+---
+layout: default
+title: "Glossario Document AI: Guida di Riferimento Completa (2026) — DataUnchain"
+lang: it
+locale: it_IT
+description: "Il glossario completo dei termini Document AI: acquisizione documenti, estrazione entità, VLM, OCR, confidence scoring e 60+ definizioni tecniche."
+---
+
+<article class="pt-36 pb-20 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Riferimento · 2026</span>
+    <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6">Glossario Document AI: Guida di Riferimento Completa</h1>
+    <p class="text-gray-400 text-lg leading-relaxed">Un riferimento completo e citabile che copre 70+ termini utilizzati nell'elaborazione intelligente dei documenti, estrazione AI e workflow di automazione enterprise. Ogni definizione è scritta per essere precisa e autosufficiente. Mantenuto dal team DataUnchain e aggiornato per gli strumenti del 2026.</p>
+
+    <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+
+      <p class="text-gray-400 text-sm mt-6">Questo glossario è destinato a: ingegneri software che valutano soluzioni Document AI, team finanziari e operativi che implementano l'automazione, ricercatori AI che studiano la comprensione documentale, e team procurement che redigono RFP per sistemi IDP. I termini sono elencati in ordine alfabetico all'interno di ogni sezione.</p>
+
+      <!-- A -->
+      <div id="letter-A">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">A</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Accounts Payable Automation <span class="text-gray-500 font-normal text-base">(Automazione della Contabilità Fornitori)</span></h3>
+          <p class="text-gray-300 text-sm">L'utilizzo di software — che combina tipicamente OCR, estrazione AI e motori workflow — per acquisire, validare ed elaborare automaticamente le fatture fornitori senza inserimento manuale dei dati. In una moderna pipeline di automazione della contabilità fornitori, le fatture in arrivo (allegati email, feed EDI, documenti cartacei scansionati) vengono acquisite, i campi chiave estratti, gli importi validati rispetto agli ordini di acquisto e i record approvati registrati direttamente nel sistema contabile. L'automazione della contabilità fornitori è una delle applicazioni Document AI con il ROI più elevato, poiché l'elaborazione delle fatture è ad alto volume, regolamentata e sensibile agli errori.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Air-gapped deployment <span class="text-gray-500 font-normal text-base">(Distribuzione Isolata)</span></h3>
+          <p class="text-gray-300 text-sm">Un'architettura di installazione in cui il sistema AI opera su hardware privo di qualsiasi connessione di rete verso internet pubblico o servizi cloud esterni. I deployment air-gapped sono obbligatori in ambienti con regole rigorose di sovranità dei dati — difesa, sanità, servizi finanziari e manifattura regolamentata. Tutti i modelli, le dipendenze e la configurazione sono precaricati localmente; l'inferenza avviene interamente on-premise. Questo è distinto da un semplice deployment on-premise: un sistema air-gapped non può raggiungere server di aggiornamento esterni, endpoint di telemetria o API di licenza.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Anchor field <span class="text-gray-500 font-normal text-base">(Campo Ancora nell'estrazione documentale)</span></h3>
+          <p class="text-gray-300 text-sm">Un campo ad alta affidabilità e facilmente identificabile all'interno di un documento, la cui posizione o valore viene utilizzato per orientare l'estrazione dei campi circostanti. Ad esempio, su una fattura, la stringa "Numero Fattura" o "Invoice No." funge da ancora: una volta localizzata, il motore di estrazione sa di dover cercare immediatamente a destra o sotto di essa il valore effettivo del numero fattura. I sistemi di estrazione basati su template fanno ampio uso degli anchor field, mentre i moderni vision-language model inferiscono le ancore implicitamente attraverso la comprensione del layout.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Annotation <span class="text-gray-500 font-normal text-base">(Annotazione per il training ML)</span></h3>
+          <p class="text-gray-300 text-sm">Il processo di etichettatura dei documenti con valori di ground truth in modo che i modelli di machine learning possano apprendervi. Nel Document AI, l'annotazione comporta il tracciamento di bounding box attorno ai campi, il tagging di porzioni di testo con tipi di entità e la registrazione del valore estratto corretto per ogni campo di ogni documento di training. La qualità dell'annotazione è il singolo fattore determinante più importante per la qualità del modello di estrazione. I moderni sistemi AI addestrati su grandi corpus generali (come i VLM) riducono — ma non eliminano — la necessità di annotazione specifica per dominio.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">API-first architecture <span class="text-gray-500 font-normal text-base">(Architettura API-first)</span></h3>
+          <p class="text-gray-300 text-sm">Un principio di design in cui tutte le funzionalità del sistema vengono esposte tramite API ben definite e versionate prima che venga costruita qualsiasi interfaccia utente o integrazione. Nei sistemi Document AI, API-first significa che l'invio di documenti, i risultati di estrazione, le query sullo stato e le modifiche alla configurazione sono tutti accessibili programmaticamente — abilitando l'integrazione con sistemi ERP, CRM, bot RPA e applicazioni personalizzate senza esportazioni manuali. DataUnchain espone un'interfaccia REST basata su FastAPI per tutte le operazioni documentali.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Audit status <span class="text-gray-500 font-normal text-base">(Stato di Revisione)</span></h3>
+          <p class="text-gray-300 text-sm">Un campo di metadati collegato a un record documento elaborato che indica il suo stato corrente nel workflow di revisione. Gli stati di revisione comuni includono: VALIDATED (l'estrazione ha superato tutti i controlli ed è stata inviata automaticamente), NEEDS_REVIEW (confidenza sotto soglia o fallimento di una regola di validazione), REVIEWED (un operatore umano ha confermato o corretto l'estrazione) e DISPATCHED (dati inviati al sistema downstream). Lo stato di revisione consente il filtraggio, il monitoraggio degli SLA e la reportistica di conformità su grandi volumi documentali.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Audit trail <span class="text-gray-500 font-normal text-base">(Registro di Controllo)</span></h3>
+          <p class="text-gray-300 text-sm">Un log immutabile e con timestamp di ogni azione eseguita su un documento, dall'acquisizione alla spedizione. Un audit trail completo registra: quando il documento è arrivato, quale modello lo ha elaborato, cosa è stato estratto, quali confidence score sono stati assegnati, se un essere umano lo ha revisionato, quali correzioni sono state apportate e quando i dati sono stati inviati ai sistemi downstream. Gli audit trail sono obbligatori nei settori regolamentati e sono essenziali per il debug degli errori di estrazione e per dimostrare la conformità GDPR alle autorità di vigilanza.</p>
+        </div>
+      </div>
+
+      <!-- B -->
+      <div id="letter-B">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">B</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Bounding box <span class="text-gray-500 font-normal text-base">(Riquadro di Delimitazione)</span></h3>
+          <p class="text-gray-300 text-sm">Una regione rettangolare definita dalle sue coordinate (x, y, larghezza, altezza) che delimita la posizione spaziale di un campo, parola o oggetto su una pagina di documento. I motori OCR producono bounding box per ogni regione di testo rilevata; i modelli Document AI utilizzano queste coordinate per comprendere il layout, associare etichette ai valori e consentire l'evidenziazione visiva nelle interfacce di revisione. I bounding box sono un concetto fondamentale nella computer vision e la struttura dati primaria che collega le coordinate pixel al testo estratto.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Business document <span class="text-gray-500 font-normal text-base">(Documento Commerciale)</span></h3>
+          <p class="text-gray-300 text-sm">Qualsiasi documento strutturato o semi-strutturato generato nel corso di un'attività commerciale, tra cui fatture, ordini di acquisto, documenti di trasporto (DDT), contratti, ricevute, estratti conto, dichiarazioni doganali e cedolini paga. I documenti commerciali variano enormemente per layout, lingua e qualità digitale. I sistemi Document AI sono progettati specificamente per gestire questa variabilità, a differenza degli strumenti OCR general-purpose che assumono una formattazione consistente.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Bulk processing <span class="text-gray-500 font-normal text-base">(Elaborazione in Batch)</span></h3>
+          <p class="text-gray-300 text-sm">L'acquisizione e l'estrazione di un grande lotto di documenti inviati contemporaneamente, in contrapposizione all'elaborazione in tempo reale di singoli documenti. L'elaborazione in batch è comune a fine mese, quando centinaia o migliaia di fatture arrivano insieme, o durante i progetti di digitalizzazione documentale. Un'elaborazione in batch efficiente richiede gestione delle code, parallelismo e monitoraggio dei progressi per evitare colli di bottiglia e consentire il consumo parziale dei risultati prima che l'intero batch sia completato.</p>
+        </div>
+      </div>
+
+      <!-- C -->
+      <div id="letter-C">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">C</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Capture rate <span class="text-gray-500 font-normal text-base">(Tasso di Acquisizione)</span></h3>
+          <p class="text-gray-300 text-sm">La percentuale di documenti in arrivo che vengono acquisiti ed elaborati correttamente dal sistema, rispetto a tutti i documenti che il sistema era destinato a gestire. Un tasso di acquisizione inferiore al 100% indica documenti persi (email non monitorata), rifiutati (formato non supportato) o scaduti. Un alto tasso di acquisizione è un prerequisito per un'automazione affidabile: un sistema che perde il 5% delle fatture causa più danni di uno che le estrae con il 95% di accuratezza.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Classification <span class="text-gray-500 font-normal text-base">(Classificazione documentale)</span></h3>
+          <p class="text-gray-300 text-sm">Il compito di assegnare un documento in arrivo a una categoria predefinita — fattura, ordine di acquisto, DDT, contratto, ricevuta, ecc. — prima che inizi l'estrazione. La classificazione è tipicamente il primo passo in una pipeline documentale, poiché diversi tipi di documento richiedono diversi schemi di estrazione. I VLM moderni possono classificare i documenti nella stessa inferenza dell'estrazione, mentre i classificatori dedicati (modelli leggeri in stile BERT) offrono throughput più elevato per le pipeline ad alto volume.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Confidence score <span class="text-gray-500 font-normal text-base">(Punteggio di Confidenza)</span></h3>
+          <p class="text-gray-300 text-sm">Un valore numerico (tipicamente da 0,0 a 1,0) assegnato dal modello AI a ogni campo estratto, che rappresenta la probabilità stimata dal modello che l'estrazione sia corretta. I confidence score guidano le decisioni di routing: i documenti in cui tutti i campi superano una soglia (es. 0,85) vengono inviati automaticamente come VALIDATED, mentre i documenti con campi a bassa confidenza vengono contrassegnati come NEEDS_REVIEW. Il confidence scoring non è infallibile — i modelli possono sbagliare con alta confidenza — ecco perché le regole di validazione (controlli matematici, controlli di formato) integrano le soglie di confidenza.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Context window <span class="text-gray-500 font-normal text-base">(Finestra di Contesto)</span></h3>
+          <p class="text-gray-300 text-sm">La quantità massima di testo (misurata in token) che un language model può elaborare in una singola chiamata di inferenza. Nel Document AI, la dimensione della finestra di contesto determina se un intero documento multipagina può essere elaborato in una sola volta o deve essere suddiviso in segmenti. I VLM moderni utilizzati nell'elaborazione documentale supportano tipicamente finestre di 8.192 fino a 128.000+ token, sufficienti per la maggior parte dei documenti aziendali. I contratti molto lunghi o i manuali tecnici potrebbero comunque richiedere strategie di chunking.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Contract ingestion <span class="text-gray-500 font-normal text-base">(Acquisizione di Contratti)</span></h3>
+          <p class="text-gray-300 text-sm">Il processo di estrazione di dati strutturati dai contratti — parti, date di efficacia, clausole di risoluzione, condizioni di pagamento, legge applicabile e obbligazioni — in un database o CRM. L'acquisizione di contratti è più impegnativa dell'elaborazione delle fatture perché i contratti sono ricchi di testo, utilizzano linguaggio legale specifico del dominio e hanno struttura altamente variabile. Un'efficace acquisizione di contratti combina tipicamente l'estrazione VLM con regole di post-elaborazione e revisione umana delle clausole critiche.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">CRM enrichment <span class="text-gray-500 font-normal text-base">(Arricchimento CRM)</span></h3>
+          <p class="text-gray-300 text-sm">La popolazione o aggiornamento automatico dei record CRM (Customer Relationship Management) utilizzando dati estratti da documenti aziendali. Ad esempio, le Partite IVA dei fornitori, gli indirizzi di contatto e le condizioni di pagamento estratte dalle fatture possono essere utilizzati per creare o aggiornare i record fornitore in Salesforce, HubSpot o Odoo. L'arricchimento CRM chiude il ciclo tra l'elaborazione documentale e la manutenzione dei sistemi aziendali, riducendo il carico di doppio inserimento sui team operativi.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Custom extraction schema <span class="text-gray-500 font-normal text-base">(Schema di Estrazione Personalizzato)</span></h3>
+          <p class="text-gray-300 text-sm">Una specifica definita dall'utente di esattamente quali campi devono essere estratti da un tipo di documento, inclusi nomi dei campi, tipi di dati e qualsiasi regola di validazione. Invece di affidarsi a un modello integrato fisso, un sistema con supporto agli schemi personalizzati consente agli operatori di definire schemi specifici per dominio — ad esempio, uno schema per le dichiarazioni doganali che include codici tariffari, paese di origine e peso netto. DataUnchain supporta schemi personalizzati per tipo di documento tramite configurazione JSON.</p>
+        </div>
+      </div>
+
+      <!-- D -->
+      <div id="letter-D">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">D</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Data extraction <span class="text-gray-500 font-normal text-base">(Estrazione Dati)</span></h3>
+          <p class="text-gray-300 text-sm">Il processo di identificazione ed estrazione di informazioni specifiche da un documento, convertendole in forma strutturata e leggibile dalla macchina. L'estrazione dati comprende OCR (conversione di pixel in testo), riconoscimento delle entità (identificazione di quale testo rappresenta quale campo) e normalizzazione (conversione di "15/03/2026" nella data ISO "2026-03-15"). È il compito tecnico centrale di tutti i sistemi Document AI.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Dead-letter queue <span class="text-gray-500 font-normal text-base">(Coda di Documenti Non Elaborabili)</span></h3>
+          <p class="text-gray-300 text-sm">Una coda secondaria che contiene i documenti che hanno fallito l'elaborazione dopo l'esaurimento di tutti i tentativi di ripetizione. Invece di scartare silenziosamente i documenti falliti, una dead-letter queue li preserva per un'indagine manuale o rielaborazione una volta risolsa la causa radice (file corrotto, timeout del modello, formato non supportato). Le dead-letter queue sono un componente critico di affidabilità nelle pipeline documentali in produzione dove la perdita di documenti è inaccettabile.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document AI</h3>
+          <p class="text-gray-300 text-sm">L'applicazione dell'intelligenza artificiale — inclusi computer vision, natural language processing e machine learning — per comprendere, classificare, estrarre e agire sul contenuto dei documenti aziendali. Il Document AI va oltre il semplice OCR comprendendo la semantica documentale: sa che un numero vicino alla parola "Totale" su una fattura è il totale della fattura, non il prezzo di una singola riga. I moderni sistemi Document AI utilizzano vision-language model (VLM) per ragionare congiuntamente sia sul layout visivo che sul contenuto testuale dei documenti.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document capture <span class="text-gray-500 font-normal text-base">(Acquisizione Documentale)</span></h3>
+          <p class="text-gray-300 text-sm">Il primo stadio in una pipeline di elaborazione documentale: ricezione del documento grezzo dalla sua fonte (allegato email, caricamento file, feed scanner, EDI, chiamata API) e conversione in un formato interno standard per l'elaborazione. L'acquisizione documentale include il rilevamento del formato, la validazione del file, la deduplicazione e l'accodamento. Un layer di acquisizione robusto gestisce tutti i formati di input comuni (PDF, JPEG, PNG, TIFF, DOCX, XML) senza richiedere intervento dell'operatore.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document classification <span class="text-gray-500 font-normal text-base">(Classificazione Documentale)</span></h3>
+          <p class="text-gray-300 text-sm">Vedi <em>Classification</em>. Utilizzato spesso in modo intercambiabile; si riferisce specificamente al compito di machine learning di assegnare un'etichetta di tipo documento a un documento in arrivo prima che inizi l'estrazione dei campi.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document ingestion <span class="text-gray-500 font-normal text-base">(Acquisizione ed Elaborazione Documentale)</span></h3>
+          <p class="text-gray-300 text-sm">L'intero processo end-to-end di ricezione di un documento grezzo, sua validazione, preprocessing (conversione in immagini, applicazione di miglioramento DPI, raddrizzamento) e preparazione per l'inferenza del modello AI. L'ingestion è distinta dall'estrazione: l'ingestion prepara il documento, l'estrazione ne estrae i dati. Un layer di ingestion robusto è la base di alti tassi di acquisizione e qualità di estrazione consistente su fonti di input variate.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document parsing <span class="text-gray-500 font-normal text-base">(Analisi Strutturale del Documento)</span></h3>
+          <p class="text-gray-300 text-sm">L'analisi strutturale di un documento per identificarne i componenti: intestazioni, piè di pagina, tabelle, righe, firme e testo principale. Il parsing è un prerequisito per l'estrazione nei sistemi che utilizzano modelli layout-aware: il parser identifica dove si trovano le tabelle, quante colonne hanno e quali celle appartengono a quali righe, prima che l'estrattore tenti di estrarne i valori. Nei documenti PDF, il parsing può operare direttamente sul modello di oggetti PDF (per PDF digitali) o sull'output OCR (per documenti scansionati).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document pipeline <span class="text-gray-500 font-normal text-base">(Pipeline Documentale)</span></h3>
+          <p class="text-gray-300 text-sm">La sequenza ordinata di stadi di elaborazione che un documento attraversa dall'acquisizione alla spedizione: cattura → classificazione → preprocessing → estrazione → validazione → routing → spedizione → archiviazione. Ogni stadio della pipeline ha input, output, gestione degli errori e comportamento di ripetizione definiti. L'architettura a pipeline consente l'osservabilità (si può vedere dove si trova ogni documento in qualsiasi momento) e la modularità (i singoli stadi possono essere aggiornati indipendentemente).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document processing <span class="text-gray-500 font-normal text-base">(Elaborazione Documentale)</span></h3>
+          <p class="text-gray-300 text-sm">L'ampia categoria di operazioni applicate ai documenti aziendali, che comprende acquisizione, classificazione, estrazione, validazione, routing e integrazione downstream. "Document processing" è spesso usato come termine a livello aziendale che abbraccia l'intero workflow dall'arrivo del documento ai dati in un sistema gestionale, mentre "document extraction" si riferisce specificamente alla fase di inferenza AI.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document type recognition <span class="text-gray-500 font-normal text-base">(Riconoscimento del Tipo di Documento)</span></h3>
+          <p class="text-gray-300 text-sm">La determinazione automatica del tipo di documento aziendale ricevuto — fattura, DDT, ordine di acquisto, estratto conto, ecc. — tipicamente eseguita prima dell'estrazione affinché venga applicato lo schema corretto. Il riconoscimento del tipo di documento può avvenire tramite euristiche rule-based (es. rilevamento di "Fattura" o "Invoice" nell'intestazione del documento) o tramite un classificatore addestrato. I VLM moderni possono eseguire il riconoscimento del tipo come parte di un prompt di estrazione unificato.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Document understanding <span class="text-gray-500 font-normal text-base">(Comprensione Documentale)</span></h3>
+          <p class="text-gray-300 text-sm">Una capacità di livello superiore che comprende non solo il riconoscimento del testo ma la comprensione semantica del significato, della struttura e dell'intento di un documento. Un sistema con vera comprensione documentale può rispondere a domande su un contratto ("Qual è il periodo di preavviso per la risoluzione?"), riassumere le discrepanze di una fattura o identificare incoerenze tra un ordine di acquisto e un DDT. La comprensione documentale richiede grandi modelli multi-modali ed è un'area di ricerca attiva nel 2026.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">DPI (Dots Per Inch — Punti per Pollice nella scansione documentale)</h3>
+          <p class="text-gray-300 text-sm">Una misura della risoluzione alla quale un documento fisico è stato digitalizzato. Un DPI più alto significa più pixel per pollice del documento originale, risultando in immagini più nitide e migliore accuratezza OCR. Il DPI minimo accettabile per un OCR affidabile di testo aziendale standard è 150 DPI; 300 DPI è lo standard raccomandato; 600 DPI viene utilizzato per testo fine o documenti legali di qualità critica. I documenti scansionati a meno di 150 DPI possono avere tassi di errore OCR troppo elevati per l'elaborazione automatizzata, richiedendo un preprocessing di miglioramento dell'immagine.</p>
+        </div>
+      </div>
+
+      <!-- E -->
+      <div id="letter-E">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">E</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">EDI (Electronic Data Interchange — Scambio Elettronico di Dati)</h3>
+          <p class="text-gray-300 text-sm">Un insieme di standard per lo scambio elettronico strutturato di documenti aziendali tra organizzazioni, tipicamente utilizzando formati come EDIFACT, X12 o XML. L'EDI precede di decenni il moderno Document AI ed è ancora ampiamente utilizzato nelle supply chain delle grandi imprese. Il Document AI integra l'EDI gestendo la coda lunga dei fornitori che non possono o non inviano EDI, inviando invece PDF o carta — convertendo efficacemente documenti non strutturati in dati strutturati equivalenti all'EDI.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Entity extraction <span class="text-gray-500 font-normal text-base">(Estrazione di Entità)</span></h3>
+          <p class="text-gray-300 text-sm">L'identificazione e categorizzazione di entità nominate — aziende, date, importi monetari, indirizzi, codici prodotto, Partite IVA — all'interno di testo non strutturato o semi-strutturato. L'estrazione di entità è il fondamento NLP dell'estrazione dei campi documentali. Nel Document AI, l'estrazione di entità è tipicamente vincolata dallo schema del documento: invece di estrarre tutte le entità, il sistema estrae solo quelle rilevanti per il tipo di documento (es. per le fatture: nome del fornitore, data fattura, righe, totale).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">ERP integration <span class="text-gray-500 font-normal text-base">(Integrazione ERP)</span></h3>
+          <p class="text-gray-300 text-sm">Il collegamento tra un sistema Document AI e un sistema ERP (SAP, Oracle, Odoo, TeamSystem, Zucchetti, Mexal) per registrare automaticamente i dati documentali estratti nei moduli ERP (contabilità fornitori, magazzino, approvvigionamenti). L'integrazione ERP avviene tipicamente tramite importazione CSV, chiamate API dirette o connettori specifici del fornitore. È il passaggio finale che genera il valore aziendale dell'automazione documentale — trasformando un'estrazione AI in una registrazione contabile o un movimento di magazzino.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Extraction accuracy <span class="text-gray-500 font-normal text-base">(Accuratezza di Estrazione)</span></h3>
+          <p class="text-gray-300 text-sm">La proporzione di valori di campo estratti che corrispondono esattamente al valore di ground truth, misurata su un set di documenti di test. L'accuratezza di estrazione viene tipicamente riportata a livello di campo (es. "data fattura: 98,4% accurata") e a livello di documento (es. "tutti i campi corretti: 84% dei documenti"). L'accuratezza a livello di campo è più informativa per i confronti. I benchmark di accuratezza devono specificare i tipi di documento, la gamma di qualità e la metodologia di valutazione per essere significativi.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Extraction schema <span class="text-gray-500 font-normal text-base">(Schema di Estrazione)</span></h3>
+          <p class="text-gray-300 text-sm">Una definizione formale della struttura di output attesa da un'estrazione documentale, che specifica nomi dei campi, tipi di dati, se i campi sono obbligatori o opzionali e qualsiasi vincolo di validazione. Gli schemi di estrazione sono tipicamente espressi come JSON Schema o come template di prompt strutturati. Uno schema di estrazione ben definito consente la validazione automatica degli output del modello, garantisce un formato dati consistente per i sistemi downstream e rende il contratto di estrazione esplicito e verificabile.</p>
+        </div>
+      </div>
+
+      <!-- F -->
+      <div id="letter-F">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">F</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">FatturaPA <span class="text-gray-500 font-normal text-base">(Standard italiano per la fatturazione elettronica)</span></h3>
+          <p class="text-gray-300 text-sm">Il formato XML obbligatorio per la fatturazione elettronica tra imprese e pubblica amministrazione italiana (B2G) e, dal 2019, tra imprese italiane (B2B). I file FatturaPA vengono trasmessi tramite l'SDI (Sistema di Interscambio), il sistema di interscambio dell'Agenzia delle Entrate. Ogni documento FatturaPA ha una struttura XML standardizzata con campi precisamente definiti per i dati del fornitore, le righe, i riepiloghi IVA e le condizioni di pagamento. I sistemi Document AI operanti in Italia devono gestire la FatturaPA insieme alle fatture PDF tradizionali dei fornitori esteri che utilizzano formati diversi.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Few-shot prompting <span class="text-gray-500 font-normal text-base">(Prompting con Esempi)</span></h3>
+          <p class="text-gray-300 text-sm">Una tecnica di prompting in cui al modello AI vengono forniti un piccolo numero di coppie input-output di esempio all'interno del prompt prima di chiedergli di elaborare il documento effettivo. Nell'estrazione documentale, il few-shot prompting potrebbe includere 2-3 documenti di esempio con i loro output JSON estratti correttamente, insegnando al modello il formato atteso e la mappatura dei campi prima di elaborare un nuovo documento. Il few-shot prompting può migliorare significativamente l'accuratezza di estrazione per layout documentali insoliti senza richiedere il fine-tuning del modello.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Field mapping <span class="text-gray-500 font-normal text-base">(Mappatura dei Campi)</span></h3>
+          <p class="text-gray-300 text-sm">La configurazione che definisce come i nomi dei campi estratti da un documento si mappano ai nomi dei campi in un sistema target. Ad esempio, il campo "Numero Fattura" estratto da una fattura italiana potrebbe mapparsi a "invoice_number" nello schema interno, che poi si mappa a "InvoiceID" nell'ERP. La mappatura dei campi è un passo di integrazione necessario ogni volta che la terminologia del documento sorgente differisce da quella del sistema target, il che accade quasi sempre negli ambienti multi-fornitore.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Form recognition <span class="text-gray-500 font-normal text-base">(Riconoscimento di Moduli)</span></h3>
+          <p class="text-gray-300 text-sm">Il compito specifico di identificare ed estrarre dati da layout di moduli strutturati — moduli fiscali, dichiarazioni doganali, moduli di domanda standardizzati — dove i campi sono disposti in posizioni fisse con caselle etichettate. Il riconoscimento di moduli può essere molto accurato quando i moduli sono standardizzati, ma degrada quando i moduli sono personalizzati per organizzazione. I VLM moderni gestiscono i layout di moduli senza configurazione di template ragionando direttamente sulla struttura visiva.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Fuzzy matching <span class="text-gray-500 font-normal text-base">(Corrispondenza Approssimativa)</span></h3>
+          <p class="text-gray-300 text-sm">Una tecnica per confrontare stringhe che sono approssimativamente — ma non esattamente — uguali, utilizzando metriche di distanza come la distanza di Levenshtein o la similarità Jaro-Winkler. Nel post-processing del Document AI, il fuzzy matching viene utilizzato per riconciliare i nomi dei fornitori estratti rispetto a un database di anagrafiche fornitori, o per confrontare le descrizioni dei prodotti estratti rispetto a un catalogo prodotti, tollerando errori OCR, abbreviazioni o differenze di formattazione. Una soglia di fuzzy match (es. 85% di similarità) determina se una corrispondenza viene accettata automaticamente o contrassegnata per revisione.</p>
+        </div>
+      </div>
+
+      <!-- G -->
+      <div id="letter-G">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">G</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">GDPR compliance <span class="text-gray-500 font-normal text-base">(Conformità GDPR nel contesto Document AI)</span></h3>
+          <p class="text-gray-300 text-sm">L'insieme di misure tecniche e organizzative richieste per il trattamento dei dati personali contenuti nei documenti aziendali ai sensi del Regolamento Generale sulla Protezione dei Dati dell'UE. I documenti aziendali contengono frequentemente dati personali: nomi dei dipendenti sui cedolini, indirizzi dei clienti sulle fatture, firme individuali sui contratti. Il Document AI conforme al GDPR deve applicare la minimizzazione dei dati (non archiviare più del necessario), la limitazione delle finalità (non utilizzare i dati estratti oltre il loro scopo di elaborazione) e deve supportare il diritto alla cancellazione. Il deployment on-premise semplifica la conformità GDPR eliminando la necessità di accordi per il trattamento dei dati con i fornitori cloud.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Ground truth <span class="text-gray-500 font-normal text-base">(Valore di Riferimento)</span></h3>
+          <p class="text-gray-300 text-sm">Il valore verificato e corretto per ogni campo in un documento di test, stabilito tramite annotazione umana e utilizzato come riferimento rispetto al quale vengono misurati i risultati di estrazione del modello. La qualità del ground truth determina direttamente la validità di qualsiasi benchmark o misurazione dell'accuratezza. Un dataset di ground truth per il Document AI dovrebbe coprire tipi di documento diversi, livelli di qualità, lingue e fornitori per essere rappresentativo delle condizioni di produzione reali.</p>
+        </div>
+      </div>
+
+      <!-- H -->
+      <div id="letter-H">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">H</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Hallucination <span class="text-gray-500 font-normal text-base">(Allucinazione nell'estrazione AI)</span></h3>
+          <p class="text-gray-300 text-sm">Una modalità di errore in cui un modello AI genera un valore plausibile ma errato o completamente inventato per un campo estratto, con alta confidenza. Nell'estrazione documentale, l'allucinazione potrebbe manifestarsi come un'AI che inventa una Partita IVA che segue il formato corretto ma non appare da nessuna parte nel documento, o che genera la descrizione di una riga di articolo dai dati di training invece che dal documento effettivo. L'allucinazione è distinta dal misreading (errore OCR) ed è particolarmente pericolosa perché i confidence score non la rilevano in modo affidabile. La validazione matematica e i controlli di coerenza tra i campi aiutano a identificare i valori numerici allucinati.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Handwriting recognition <span class="text-gray-500 font-normal text-base">(Riconoscimento della Scrittura a Mano)</span></h3>
+          <p class="text-gray-300 text-sm">Il sotto-compito OCR di conversione del testo scritto a mano nelle immagini in caratteri leggibili dalla macchina. Il riconoscimento della scrittura a mano è significativamente più difficile dell'OCR per testo stampato a causa della variabilità infinita degli stili di scrittura individuali. In contesti di documenti aziendali, la scrittura a mano appare tipicamente come annotazioni su moduli stampati, firme o note su DDT. I VLM moderni gestiscono ragionevolmente bene le semplici annotazioni scritte a mano, ma i documenti pesantemente annotati o interamente scritti a mano rimangono una sfida per l'elaborazione automatizzata.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Human-in-the-loop <span class="text-gray-500 font-normal text-base">(Supervisione Umana nel Processo)</span></h3>
+          <p class="text-gray-300 text-sm">Un modello di elaborazione in cui i revisori umani sono integrati nella pipeline automatizzata come punto di controllo qualità, rivedendo e correggendo le estrazioni AI prima che i dati vengano inviati ai sistemi downstream. Il human-in-the-loop non è un fallimento dell'automazione — è una scelta di progettazione deliberata per gestire la coda dei documenti a bassa confidenza o anomali che l'AI non può elaborare in modo affidabile. I sistemi HITL efficaci minimizzano il carico del revisore pre-compilando i valori estratti, evidenziando i campi a bassa confidenza e instradando verso gli esseri umani solo i documenti genuinamente incerti.</p>
+        </div>
+      </div>
+
+      <!-- I -->
+      <div id="letter-I">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">I</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">IDP (Intelligent Document Processing — Elaborazione Intelligente dei Documenti)</h3>
+          <p class="text-gray-300 text-sm">Una categoria di software che combina AI, machine learning, OCR e automazione del workflow per acquisire, classificare, estrarre, validare e instradare informazioni da documenti aziendali senza inserimento manuale dei dati. L'IDP è il termine degli analisti enterprise per ciò che i professionisti chiamano "Document AI". IDC e Gartner riconoscono entrambi l'IDP come un segmento di mercato distinto. I principali differenziatori tra i fornitori IDP includono accuratezza del modello, tipi di documento supportati, ecosistema di integrazione, capacità on-premise e gestione dei documenti non strutturati.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Image preprocessing <span class="text-gray-500 font-normal text-base">(Pre-elaborazione delle Immagini)</span></h3>
+          <p class="text-gray-300 text-sm">Trasformazioni applicate alle immagini di documenti grezze prima dell'inferenza del modello AI per migliorare la qualità dell'estrazione. I passaggi di preprocessing comuni includono: deskewing (correzione di scansioni ruotate), denoising (rimozione di artefatti di scansione), miglioramento del contrasto, binarizzazione (conversione in bianco e nero), upscaling DPI e rimozione delle ombre. Un preprocessing efficace può migliorare l'accuratezza OCR del 10-30% su scansioni di scarsa qualità, rendendolo un investimento tecnico ad alto valore per le pipeline documentali in produzione.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Ingestion layer <span class="text-gray-500 font-normal text-base">(Layer di Acquisizione)</span></h3>
+          <p class="text-gray-300 text-sm">Il componente di sistema responsabile della ricezione dei documenti da tutti i canali di input e della loro normalizzazione nel formato di elaborazione interno. Un layer di acquisizione in produzione gestisce il monitoraggio email (IMAP/Exchange), i file system watcher, i caricamenti tramite API REST, il polling SFTP e il drag-and-drop manuale. Valida l'integrità dei file, rileva i duplicati, applica la conversione del formato (es. TIFF multipagina in PDF) e inserisce il documento nella coda di elaborazione con metadati (canale sorgente, timestamp di arrivo, mittente).</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Invoice automation <span class="text-gray-500 font-normal text-base">(Automazione delle Fatture)</span></h3>
+          <p class="text-gray-300 text-sm">L'automazione end-to-end del processo di fatturazione della contabilità fornitori: dalla ricezione di una fattura (email, EDI, scansione cartacea) alla registrazione di una voce verificata nel sistema contabile. L'automazione completa delle fatture include acquisizione, classificazione, estrazione dei campi (fornitore, data, importi, righe), abbinamento a tre vie rispetto all'ordine di acquisto e alla bolla di consegna, instradamento per approvazione e registrazione ERP. L'automazione delle fatture è il caso d'uso Document AI più diffuso grazie all'alto volume, alla struttura standardizzata e all'impatto finanziario diretto.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Invoice processing <span class="text-gray-500 font-normal text-base">(Elaborazione delle Fatture)</span></h3>
+          <p class="text-gray-300 text-sm">Vedi <em>Invoice automation</em>. Utilizzato spesso specificamente per riferirsi ai passaggi di estrazione e validazione (lettura della fattura e verifica dei suoi dati), distinto dal più ampio workflow della contabilità fornitori che include l'approvazione e l'esecuzione del pagamento.</p>
+        </div>
+      </div>
+
+      <!-- J -->
+      <div id="letter-J">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">J</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">JSON extraction <span class="text-gray-500 font-normal text-base">(Estrazione JSON)</span></h3>
+          <p class="text-gray-300 text-sm">La modalità di output in cui un modello AI restituisce i dati documentali estratti come oggetto JSON con nomi e valori dei campi. L'estrazione JSON è il formato di output standard per il Document AI perché il JSON è nativamente analizzabile da tutti i moderni linguaggi di programmazione e direttamente integrabile con le API REST. La qualità dell'estrazione JSON viene misurata non solo dall'accuratezza dei campi ma anche dalla validità JSON: il modello produce consistentemente JSON analizzabile, o a volte produce output malformato con troncamenti o errori di sintassi?</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">JSON schema</h3>
+          <p class="text-gray-300 text-sm">Un vocabolario standard (definito su json-schema.org) per descrivere la struttura, i tipi e i vincoli di un documento JSON. Nel Document AI, il JSON Schema viene utilizzato per definire gli schemi di estrazione (quali campi estrarre, i loro tipi, quali sono obbligatori), per validare gli output del modello rispetto alla struttura attesa e per documentare il contratto API tra il motore di estrazione e i sistemi consumatori. La validazione JSON Schema è un modo leggero e affidabile per rilevare gli errori di formato dell'output del modello prima che i dati raggiungano i sistemi downstream.</p>
+        </div>
+      </div>
+
+      <!-- K -->
+      <div id="letter-K">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">K</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Knowledge extraction <span class="text-gray-500 font-normal text-base">(Estrazione della Conoscenza)</span></h3>
+          <p class="text-gray-300 text-sm">Il processo di identificazione e strutturazione di fatti, relazioni ed entità dai documenti per costruire o arricchire una base di conoscenza. In contesti enterprise, l'estrazione della conoscenza va oltre l'estrazione dei campi: identifica che l'Azienda A è una sussidiaria dell'Azienda B (da un contratto), che il Prodotto X ha il prezzo Y con il Fornitore Z (da una fattura), o che una clausola contrattuale impone un obbligo specifico (da un testo legale). L'estrazione della conoscenza è una capacità emergente che va oltre l'IDP standard e richiede modelli più potenti e capacità di ragionamento.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">KV pair <span class="text-gray-500 font-normal text-base">(Coppia Chiave-Valore)</span></h3>
+          <p class="text-gray-300 text-sm">L'unità più elementare dell'estrazione documentale: una chiave (nome del campo, etichetta o intestazione trovata nel documento) accoppiata al suo valore corrispondente. Ad esempio, la coppia KV "Data Fattura: 15/03/2026" mappa la chiave "Data Fattura" al valore "15/03/2026". La semplice estrazione di coppie KV funziona bene per i documenti con etichette di campo esplicite. I documenti complessi — dove i valori appaiono in tabelle o dove le etichette sono implicite nella struttura del documento — richiedono modelli layout-aware che ragionino sulle relazioni spaziali.</p>
+        </div>
+      </div>
+
+      <!-- L -->
+      <div id="letter-L">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">L</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Layout understanding <span class="text-gray-500 font-normal text-base">(Comprensione del Layout)</span></h3>
+          <p class="text-gray-300 text-sm">La capacità di un modello di interpretare la disposizione spaziale degli elementi su una pagina di documento — colonne, tabelle, intestazioni, piè di pagina, barre laterali, testo multicolonna — e di utilizzare quel contesto spaziale per migliorare l'accuratezza dell'estrazione. La comprensione del layout è fondamentale per i documenti complessi dove il solo testo è ambiguo: su una fattura, il numero "100,00" potrebbe essere un prezzo unitario o un totale — il contesto del layout (posizione della colonna all'interno di una tabella) risolve l'ambiguità. I VLM incorporano nativamente la comprensione del layout elaborando direttamente le immagini dei documenti.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Line item extraction <span class="text-gray-500 font-normal text-base">(Estrazione delle Righe Articolo)</span></h3>
+          <p class="text-gray-300 text-sm">L'estrazione delle singole righe dalla tabella degli articoli di un documento — tipicamente ogni riga rappresenta un prodotto o servizio con quantità, prezzo unitario e totale associati. L'estrazione delle righe è significativamente più difficile dell'estrazione dei campi di intestazione perché richiede l'identificazione dei confini delle tabelle, la corretta associazione dei valori tra le colonne, la gestione delle descrizioni degli articoli su più righe e la produzione di un array di lunghezza variabile di oggetti strutturati. È la principale fonte di errori di estrazione nell'elaborazione delle fatture e il campo in cui i VLM mostrano il maggiore vantaggio qualitativo rispetto all'OCR rule-based.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">LLM (Large Language Model — Grande Modello Linguistico)</h3>
+          <p class="text-gray-300 text-sm">Un modello di rete neurale addestrato su massivi corpus di testo in grado di generare, classificare e ragionare sul testo. Nel Document AI, gli LLM vengono utilizzati per estrarre dati strutturati dal testo dei documenti (dopo OCR), classificare tipi di documenti, generare riepilogi ed eseguire ragionamenti semantici. La distinzione tra un LLM e un VLM (Vision-Language Model) è che i VLM accettano anche immagini come input, rendendoli applicabili direttamente alle immagini di documenti senza un passo OCR separato. Esempi: GPT-4, LLaMA 3, Mistral, Qwen 2.5.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Local AI <span class="text-gray-500 font-normal text-base">(AI Locale)</span></h3>
+          <p class="text-gray-300 text-sm">L'inferenza AI eseguita interamente su hardware di proprietà e controllato dall'organizzazione, senza trasmettere dati a server esterni. L'AI locale è sinonimo di AI on-premise e si distingue dall'AI cloud (dove i dati vengono inviati ai server di un fornitore per l'inferenza). L'AI locale è sempre più pratica per l'elaborazione documentale grazie alla disponibilità di modelli open-weight capaci (Qwen, LLaMA, Mistral) che girano su GPU consumer. I principali vantaggi sono la privacy dei dati, l'assenza di costi ricorrenti per inferenza e il funzionamento senza connettività internet.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Low-confidence extraction <span class="text-gray-500 font-normal text-base">(Estrazione a Bassa Confidenza)</span></h3>
+          <p class="text-gray-300 text-sm">Un risultato di estrazione in cui il confidence score del modello per uno o più campi scende sotto la soglia configurata, attivando l'instradamento verso la revisione umana invece della spedizione automatica. Le estrazioni a bassa confidenza non sono necessariamente errate — potrebbero essere corrette ma da un documento difficile (DPI basso, layout insolito) — ma il sistema non può spedirle automaticamente in modo sicuro senza verifica umana. Monitorare la frequenza e le cause delle estrazioni a bassa confidenza è una metrica qualitativa importante per il monitoraggio delle prestazioni del sistema e l'identificazione dei tipi di documento che necessitano di perfezionamento dello schema.</p>
+        </div>
+      </div>
+
+      <!-- M -->
+      <div id="letter-M">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">M</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Math validation <span class="text-gray-500 font-normal text-base">(Controllo Matematico di Coerenza)</span></h3>
+          <p class="text-gray-300 text-sm">Un passo di validazione post-estrazione che verifica la coerenza numerica dei valori estratti rispetto alle relazioni matematiche attese. Per le fatture, la validazione matematica verifica che: la somma dei totali delle righe sia uguale all'imponibile; l'imponibile × l'aliquota IVA sia uguale all'importo IVA; l'imponibile + IVA sia uguale al totale. Qualsiasi discrepanza segnala un errore di estrazione (il modello ha letto un numero in modo errato) o un errore genuino nel documento (il fornitore ha commesso un errore di calcolo). La validazione matematica è uno dei controlli qualità automatici più efficaci perché non richiede dati di riferimento esterni — solo i numeri già presenti nel documento.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Model fine-tuning <span class="text-gray-500 font-normal text-base">(Fine-Tuning del Modello)</span></h3>
+          <p class="text-gray-300 text-sm">Il processo di continuazione del training di un modello pre-addestrato su un dataset specifico per il dominio per migliorarne le prestazioni su un compito o tipo di documento specifico. Il fine-tuning di un VLM sui formati di fattura specifici dell'azienda può migliorare l'accuratezza di estrazione dei campi del 5-15% su quei formati specifici, al costo della preparazione di dati di training annotati e della gestione delle versioni del modello. Per la maggior parte dei deployment enterprise, la prompt engineering e il perfezionamento dello schema forniscono un'accuratezza sufficiente senza la complessità del fine-tuning.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Multi-modal AI <span class="text-gray-500 font-normal text-base">(AI Multi-modale)</span></h3>
+          <p class="text-gray-300 text-sm">Sistemi AI che elaborano e ragionano su più modalità di input contemporaneamente — tipicamente testo, immagini e talvolta audio o dati strutturati. I sistemi Document AI sono intrinsecamente multi-modali: elaborano il layout visivo di una pagina di documento (modalità immagine) insieme al contenuto testuale (modalità testo) per produrre output strutturato. I VLM sono l'architettura multi-modale all'avanguardia per i compiti di Document AI.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Multi-page document handling <span class="text-gray-500 font-normal text-base">(Gestione di Documenti Multipagina)</span></h3>
+          <p class="text-gray-300 text-sm">La capacità di elaborare documenti che si estendono su più pagine come un'unità coerente, associando correttamente i campi di intestazione (a pagina 1) con le righe (alle pagine 2-N) e i totali a piè di pagina (all'ultima pagina). La gestione multipagina non è banale perché i modelli hanno finestre di contesto limitate e l'elaborazione pagina per pagina perde il contesto cross-pagina. I sistemi in produzione convertono tipicamente i PDF multipagina in sequenze di immagini e li elaborano in una singola chiamata di inferenza multi-immagine o usano una strategia di fusione che combina estrazioni per pagina con un passaggio di riconciliazione a livello di documento.</p>
+        </div>
+      </div>
+
+      <!-- N -->
+      <div id="letter-N">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">N</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Named Entity Recognition (NER) <span class="text-gray-500 font-normal text-base">(Riconoscimento delle Entità Nominate)</span></h3>
+          <p class="text-gray-300 text-sm">Un compito NLP che identifica e classifica entità nominate — persone, organizzazioni, luoghi, date, importi monetari, identificatori di prodotti — all'interno del testo. Nel Document AI, il NER viene applicato al testo estratto dal documento per identificare quali porzioni di testo corrispondono a quali tipi di entità. I VLM moderni eseguono il NER implicitamente come parte dell'estrazione strutturata, senza richiedere un modello NER separato. Le pipeline di estrazione documentale tradizionali basate su NER (OCR → NER → mappatura schema) sono state in gran parte superate dagli approcci VLM end-to-end per i documenti aziendali.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Normalization <span class="text-gray-500 font-normal text-base">(Normalizzazione dei dati dopo l'estrazione)</span></h3>
+          <p class="text-gray-300 text-sm">La trasformazione dei valori grezzi estratti in un formato canonico e consistente adatto ai sistemi downstream. Esempi: conversione della data "15-03-2026" nel formato ISO "2026-03-15"; conversione di "€ 1.234,56" (formato italiano) nel numero decimale 1234.56; maiuscolizzazione delle ragioni sociali; rimozione degli zeri iniziali dai numeri di fattura. La normalizzazione è un passo di post-elaborazione che viene eseguito dopo l'estrazione AI e prima della validazione, garantendo che i sistemi downstream ricevano dati puliti e formattati in modo consistente indipendentemente dalle convenzioni di formattazione del fornitore.</p>
+        </div>
+      </div>
+
+      <!-- O -->
+      <div id="letter-O">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">O</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">OCR (Optical Character Recognition — Riconoscimento Ottico dei Caratteri)</h3>
+          <p class="text-gray-300 text-sm">La tecnologia che converte immagini di testo — documenti scansionati, fotografie, rendering digitali di documenti — in stringhe di testo leggibili dalla macchina. L'OCR è un prerequisito per l'elaborazione documentale basata sul testo di documenti scansionati. I moderni motori OCR basati su deep learning (Tesseract 5, PaddleOCR, Google Document AI OCR) raggiungono un'alta accuratezza su testo stampato pulito ma degradano su scansioni di scarsa qualità, font insoliti o documenti multilingua. I VLM eseguono sempre più spesso l'OCR implicitamente — leggono il testo direttamente dalle immagini dei documenti senza un passo OCR di preprocessing separato.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">On-premise AI <span class="text-gray-500 font-normal text-base">(AI On-Premise)</span></h3>
+          <p class="text-gray-300 text-sm">L'inferenza del modello AI eseguita su hardware fisicamente localizzato nel proprio data center o uffici dell'organizzazione, con dati che non lasciano mai il perimetro della rete dell'organizzazione. L'AI on-premise per l'elaborazione documentale è abilitata da modelli open-weight (Qwen, LLaMA, Mistral) serviti tramite server di inferenza locali (Ollama, vLLM, llama.cpp). I principali vantaggi sono la privacy dei dati, la conformità normativa, l'assenza di costi cloud per inferenza e l'indipendenza dalla connettività internet. Il costo principale è l'investimento hardware GPU e la manutenzione.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Orchestration layer <span class="text-gray-500 font-normal text-base">(Layer di Orchestrazione)</span></h3>
+          <p class="text-gray-300 text-sm">Il componente di sistema che coordina la sequenza di operazioni in una pipeline documentale: attivazione della classificazione dopo l'acquisizione, invocazione dello schema di estrazione corretto in base al tipo di documento, chiamata delle regole di validazione, decisione di routing (spedizione automatica vs. revisione umana) e chiamata dell'adapter di output appropriato. Il layer di orchestrazione è il "cervello" della pipeline, implementando la logica di business che connette tutti gli altri componenti. In DataUnchain, il layer di orchestrazione è implementato come una state machine configurabile nel motore core.</p>
+        </div>
+      </div>
+
+      <!-- P -->
+      <div id="letter-P">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">P</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">PDF parsing <span class="text-gray-500 font-normal text-base">(Analisi di File PDF)</span></h3>
+          <p class="text-gray-300 text-sm">L'estrazione di contenuto da file PDF, che possono contenere testo ricercabile (PDF digitali, dove il testo è incorporato come caratteri nel modello di oggetti PDF) o solo immagini (PDF scansionati, dove le pagine sono immagini rasterizzate senza testo incorporato). L'analisi dei PDF digitali può estrarre il testo direttamente senza OCR, preservando le sequenze di caratteri esatte. L'analisi dei PDF scansionati richiede il rendering di ogni pagina in un'immagine e l'applicazione dell'OCR o dell'inferenza VLM. I PDF ibridi (parzialmente digitali, parzialmente immagine) sono comuni nel Document AI e richiedono il rilevamento per pagina per scegliere il percorso di estrazione corretto.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Pipeline architecture <span class="text-gray-500 font-normal text-base">(Architettura a Pipeline)</span></h3>
+          <p class="text-gray-300 text-sm">Un design di sistema in cui l'elaborazione documentale è decomposta in stadi discreti e ordinati (cattura → classificazione → preprocessing → estrazione → validazione → routing → spedizione → archiviazione), ognuno con input e output definiti, gestione degli errori e comportamento di ripetizione. L'architettura a pipeline consente l'osservabilità (la posizione di ogni documento nella pipeline è tracciabile), la modularità (i componenti possono essere aggiornati indipendentemente) e la scalabilità (i singoli stadi possono essere parallelizzati in base ai requisiti di throughput). È il pattern architetturale standard per i sistemi Document AI in produzione.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Post-processing <span class="text-gray-500 font-normal text-base">(Post-elaborazione)</span></h3>
+          <p class="text-gray-300 text-sm">Qualsiasi trasformazione o validazione applicata ai risultati di estrazione AI dopo il completamento dell'inferenza del modello, prima che i dati vengano spediti. La post-elaborazione include: conversione del tipo di dato, normalizzazione delle date, normalizzazione delle valute, validazione matematica, fuzzy matching rispetto a dati di riferimento (anagrafica fornitori, catalogo prodotti), controlli di deduplicazione e validazione dello schema. La post-elaborazione è un layer qualitativo critico che individua errori che il modello AI non può rilevare internamente e trasforma l'output grezzo dell'estrazione in dati pronti per l'integrazione.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Precision <span class="text-gray-500 font-normal text-base">(Precisione — metrica di estrazione)</span></h3>
+          <p class="text-gray-300 text-sm">Nella valutazione dell'estrazione documentale, la precisione misura la proporzione di campi estratti che sono corretti, rispetto a tutti i campi che il modello ha tentato di estrarre. Alta precisione significa pochi falsi positivi (il modello non inventa campi che non esistono o identifica erroneamente i tipi di campo). La precisione è accoppiata al recall: un sistema può avere alta precisione (tutto ciò che estrae è corretto) ma basso recall (salta molti campi). Il punteggio F1 combina precisione e recall in una singola metrica. Per l'automazione AP in produzione, la precisione è tipicamente prioritaria rispetto al recall perché i dati registrati incorrettamente sono più costosi dei dati mancanti che attivano la revisione umana.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Prompt engineering <span class="text-gray-500 font-normal text-base">(Ingegneria dei Prompt per documenti)</span></h3>
+          <p class="text-gray-300 text-sm">L'arte di progettare prompt (istruzioni fornite a un modello AI) che producono risultati di estrazione accurati e formattati in modo consistente dai documenti aziendali. I prompt efficaci per l'estrazione documentale specificano: il tipo di documento, l'elenco esatto dei campi da estrarre, il formato di output (JSON schema), come gestire i campi mancanti (restituire null vs. omettere la chiave), le convenzioni di formattazione di date e numeri e come gestire i casi ambigui. La prompt engineering è un processo iterativo: i prompt vengono testati su un campione di documenti rappresentativo e perfezionati sulla base dell'analisi degli errori.</p>
+        </div>
+      </div>
+
+      <!-- Q -->
+      <div id="letter-Q">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">Q</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Quality assurance layer <span class="text-gray-500 font-normal text-base">(Layer di Controllo Qualità)</span></h3>
+          <p class="text-gray-300 text-sm">L'insieme di controlli automatici applicati dopo l'estrazione AI per verificare che l'output soddisfi gli standard di qualità prima della spedizione. Il layer QA in un sistema Document AI include tipicamente: validazione dello schema JSON (l'output è ben formato?), controlli matematici incrociati (i numeri tornano?), validazione del formato (la data è una data valida? La Partita IVA ha la lunghezza corretta?), controlli dei campi obbligatori (sono presenti i campi richiesti?) e controlli delle regole aziendali (la data della fattura è nel passato?). I documenti che non superano il QA vengono instradati verso la revisione umana invece di essere spediti con errori.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Queue management <span class="text-gray-500 font-normal text-base">(Gestione delle Code)</span></h3>
+          <p class="text-gray-300 text-sm">Il sistema per organizzare, priorizzare e tracciare i documenti in attesa di elaborazione in ogni stadio della pipeline. La gestione delle code gestisce: ordinamento FIFO, override di priorità (fatture urgenti elaborate per prime), backpressure (sospensione dell'acquisizione quando l'elaborazione è sovraccarica), pianificazione dei retry per i documenti falliti e gestione della dead-letter per i documenti permanentemente falliti. Una gestione affidabile delle code è essenziale per la stabilità in produzione: senza di essa, i picchi documentali (es. batch di fatture di fine mese) sopraffanno la capacità di elaborazione e causano perdita di dati o ritardi.</p>
+        </div>
+      </div>
+
+      <!-- R -->
+      <div id="letter-R">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">R</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Recall <span class="text-gray-500 font-normal text-base">(Copertura — metrica di estrazione)</span></h3>
+          <p class="text-gray-300 text-sm">La proporzione di campi che il modello ha estratto con successo, rispetto a tutti i campi presenti nel documento e attesi dallo schema. Alto recall significa che il modello non manca campi — estrae tutto ciò che dovrebbe essere estratto. Basso recall significa che il modello restituisce frequentemente null per campi presenti nel documento. Per l'estrazione delle righe articolo, il recall è spesso inferiore rispetto ai campi di intestazione, poiché i layout di tabelle complessi causano ai modelli di perdere righe. Vedi anche: Precisione, punteggio F1.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Retry logic <span class="text-gray-500 font-normal text-base">(Logica di Ripetizione)</span></h3>
+          <p class="text-gray-300 text-sm">Il comportamento automatico di ri-tentare un passo di elaborazione fallito dopo un ritardo configurabile e un numero specificato di volte prima di arrendersi e instradare il documento verso una dead-letter queue. La logica di ripetizione gestisce i fallimenti transitori: un timeout di inferenza GPU che si risolve al secondo tentativo, un errore temporaneo di scrittura nel database o un errore di rete momentaneo verso un adapter di output. Una logica di ripetizione efficace utilizza l'exponential backoff (ritardo crescente tra i tentativi) per evitare di sovraccaricare una risorsa sotto stress e distingue tra errori ripetibili (timeout, limiti di risorse) ed errori permanenti (file corrotto, formato non supportato) che non dovrebbero essere ripetuti.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Routing <span class="text-gray-500 font-normal text-base">(Instradamento documentale)</span></h3>
+          <p class="text-gray-300 text-sm">La logica di decisione che determina cosa accade a un documento dopo l'estrazione e la validazione: spedizione automatica a un sistema downstream (stato VALIDATED), invio alla coda di revisione umana (NEEDS_REVIEW), escalation al supervisore (condizioni di errore specifiche) o archiviazione senza azione (duplicato rilevato). Le regole di routing sono tipicamente configurate come policy basate su soglie (soglia di confidenza, pass/fail della validazione) e possono essere personalizzate per tipo di documento o per mittente. La logica di routing è il nucleo operativo che determina quale percentuale di documenti richiede intervento umano.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">RPA (Robotic Process Automation — Automazione Robotica dei Processi)</h3>
+          <p class="text-gray-300 text-sm">Una tecnologia che automatizza interazioni ripetitive e rule-based con interfacce utente software — clic su pulsanti, compilazione di moduli, copia di dati tra sistemi — simulando le azioni di un utente umano. L'RPA è complementare al Document AI: il Document AI estrae dati dai documenti; l'RPA inserisce quei dati in sistemi privi di API. Insieme, consentono l'automazione end-to-end dei workflow documentali anche per i sistemi legacy. DataUnchain include un adapter RPA (basato su Playwright) che può compilare automaticamente moduli web o campi di applicazioni desktop con i dati documentali estratti.</p>
+        </div>
+      </div>
+
+      <!-- S -->
+      <div id="letter-S">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">S</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Schema mapping <span class="text-gray-500 font-normal text-base">(Mappatura dello Schema)</span></h3>
+          <p class="text-gray-300 text-sm">La configurazione che trasforma i nomi e i valori dei campi estratti dallo schema interno Document AI nei nomi e formati dei campi richiesti da un sistema target specifico. Ad esempio, un campo estratto "total_amount" (decimale) potrebbe dover mappare a "InvoiceTotal" (stringa con due cifre decimali) in un ERP e a "fatura_total" (intero in centesimi) in un altro. La mappatura dello schema è specifica per ogni adapter di output ed è mantenuta separatamente dallo schema di estrazione, consentendo lo stesso output di estrazione di essere instradato verso più sistemi downstream con diverse convenzioni di campo.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">SDI (Sistema di Interscambio — Hub per la fatturazione elettronica italiana)</h3>
+          <p class="text-gray-300 text-sm">Il sistema di interscambio dell'Agenzia delle Entrate attraverso il quale tutte le fatture elettroniche FatturaPA tra imprese italiane e pubbliche amministrazioni devono essere trasmesse. L'SDI riceve, valida e instrada i file XML FatturaPA, rifiutando quelli che non superano i controlli di formato o fiscali. Le imprese devono utilizzare un intermediario certificato oppure connettersi direttamente all'API SDI. I sistemi Document AI che elaborano fatture italiane devono gestire correttamente i file FatturaPA consegnati dall'SDI insieme ai formati non-SDI dei fornitori esteri.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Semantic extraction <span class="text-gray-500 font-normal text-base">(Estrazione Semantica)</span></h3>
+          <p class="text-gray-300 text-sm">Estrazione che utilizza il significato semantico del contenuto del documento — piuttosto che regole posizionali fisse o corrispondenza di parole chiave — per identificare ed estrarre i valori dei campi. Un sistema di estrazione semantica può estrarre correttamente il totale della fattura da un documento anche quando l'etichetta recita "Importo Totale", "Totale Fattura", "Grand Total", "Gesamtbetrag", o è del tutto assente e il totale deve essere inferito dal contesto del documento. L'estrazione semantica è una capacità chiave dei VLM e degli LLM, ed è la ragione principale per cui l'IDP moderno basato su AI supera i sistemi di estrazione basati su template su set di documenti diversificati.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Structured data <span class="text-gray-500 font-normal text-base">(Dati Strutturati)</span></h3>
+          <p class="text-gray-300 text-sm">Dati organizzati in uno schema predefinito con nomi di campo, tipi e formati consistenti — tipicamente archiviati in database, file CSV o oggetti JSON. L'output dell'estrazione Document AI è dati strutturati: un oggetto JSON con campi nominati e valori tipizzati, pronti per l'inserimento nel database o la trasmissione API. L'obiettivo del Document AI è convertire i documenti aziendali non strutturati in dati strutturati che i sistemi downstream possono elaborare automaticamente.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Structured output <span class="text-gray-500 font-normal text-base">(Output Strutturato)</span></h3>
+          <p class="text-gray-300 text-sm">La modalità di inferenza AI in cui il modello è vincolato a produrre output conforme a una struttura specificata (tipicamente un JSON schema), piuttosto che testo in formato libero. I moderni framework di inferenza (Ollama, vLLM, llama.cpp) supportano l'output strutturato tramite generazione vincolata da grammatica o modalità JSON, che aumenta significativamente l'affidabilità dell'output JSON analizzabile dai modelli AI in ambienti di produzione. La modalità output strutturato riduce — ma non elimina — la necessità di codice di parsing e gestione degli errori.</p>
+        </div>
+      </div>
+
+      <!-- T -->
+      <div id="letter-T">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">T</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Template-free extraction <span class="text-gray-500 font-normal text-base">(Estrazione Senza Template)</span></h3>
+          <p class="text-gray-300 text-sm">La capacità di estrarre accuratamente i campi dai documenti senza template pre-configurati per fornitore o per tipo di documento. I sistemi Document AI tradizionali richiedevano un template separato per il layout delle fatture di ogni fornitore; i moderni sistemi basati su VLM possono estrarre correttamente da qualsiasi layout di documento usando un singolo prompt di estrazione general-purpose. L'estrazione senza template riduce drasticamente i tempi di onboarding per i nuovi fornitori (da giorni o settimane a zero configurazione) e gestisce agevolmente i layout documentali occasionali.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Token <span class="text-gray-500 font-normal text-base">(nel contesto degli LLM)</span></h3>
+          <p class="text-gray-300 text-sm">L'unità elementare di testo elaborata da un language model, che corrisponde approssimativamente a una parola o un frammento di parola. In italiano, un token corrisponde a circa 4 caratteri o 0,75 parole in media. I token determinano il costo di inferenza (per le API cloud, prezzate per token), i limiti della finestra di contesto (i modelli hanno un contesto massimo di token per input + output) e la velocità di elaborazione. Le immagini dei documenti convertite in token tramite encoder visivi consumano tipicamente 512-2.048 token per pagina in base alla risoluzione e all'architettura del modello.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Training data <span class="text-gray-500 font-normal text-base">(Dati di Addestramento)</span></h3>
+          <p class="text-gray-300 text-sm">Il dataset di esempi etichettati utilizzati per addestrare o fare il fine-tuning di un modello di machine learning. Per il Document AI, i dati di addestramento consistono in immagini o PDF di documenti abbinati ai loro output di estrazione corretti (ground truth). La qualità, la diversità e la dimensione dei dati di addestramento sono i principali determinanti delle prestazioni di un modello in produzione. Le organizzazioni che operano su tipi di documenti specializzati (es. referti di laboratorio, polizze di carico marittime) potrebbero dover assemblare e annotare dati di addestramento personalizzati per raggiungere un'accuratezza accettabile su quei tipi di documento.</p>
+        </div>
+      </div>
+
+      <!-- U -->
+      <div id="letter-U">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">U</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Unstructured data <span class="text-gray-500 font-normal text-base">(Dati Non Strutturati)</span></h3>
+          <p class="text-gray-300 text-sm">Dati che non hanno uno schema predefinito o un'organizzazione consistente — inclusi email, PDF, immagini scansionate, documenti Word e testo libero. I dati non strutturati rappresentano una stima dell'80-90% di tutti i dati enterprise (Gartner). I documenti aziendali sono tecnicamente "semi-strutturati" — hanno un layout atteso e un insieme di campi, ma il layout varia tra mittenti — rendendo il Document AI il ponte tra l'input non strutturato e i record del database strutturato.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Upsert <span class="text-gray-500 font-normal text-base">(nell'integrazione CRM)</span></h3>
+          <p class="text-gray-300 text-sm">Un'operazione di database che crea un nuovo record se non esiste, oppure aggiorna il record esistente se esiste, basandosi su una chiave univoca (es. Partita IVA o codice fornitore). Nei workflow di arricchimento CRM, l'upsert è l'operazione di scrittura standard: i dati del fornitore estratti vengono inseriti nel CRM tramite upsert, creando nuovi record fornitore per i fornitori che compaiono per la prima volta e aggiornando i record esistenti con nuove informazioni di contatto. L'upsert previene la creazione di record duplicati e garantisce che i dati CRM rimangano aggiornati senza richiedere logiche separate di creazione/aggiornamento.</p>
+        </div>
+      </div>
+
+      <!-- V -->
+      <div id="letter-V">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">V</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Validation layer <span class="text-gray-500 font-normal text-base">(Layer di Validazione)</span></h3>
+          <p class="text-gray-300 text-sm">Lo stadio di elaborazione che controlla i dati estratti rispetto alle regole qualitative e aziendali prima che vengano prese le decisioni di routing. Il layer di validazione applica controlli matematici incrociati, validazione del formato, controlli dei campi obbligatori, controlli delle regole aziendali (es. la data della fattura deve essere entro 12 mesi) e ricerche esterne (es. verifica del formato della Partita IVA). I documenti che superano tutti i controlli di validazione vengono classificati VALIDATED e instradati per la spedizione automatica; i documenti che non superano uno o più controlli vengono classificati NEEDS_REVIEW e instradati verso un revisore umano con il fallimento specifico evidenziato.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">VLM (Vision-Language Model — Modello Visione-Linguaggio)</h3>
+          <p class="text-gray-300 text-sm">Una rete neurale multi-modale che elabora immagini e testo congiuntamente, permettendole di ragionare sul contenuto visivo delle pagine dei documenti insieme al loro contenuto testuale. I VLM sono l'architettura all'avanguardia per il Document AI nel 2026, superando gli approcci a pipeline (OCR → NER → estrazione) eliminando la propagazione degli errori tra gli stadi e consentendo l'estrazione layout-aware. I principali VLM per l'elaborazione documentale on-premise includono Qwen 2.5-VL (varianti da 7B e 72B parametri), LLaMA 3.2-Vision e Mistral Pixtral. DataUnchain utilizza Qwen 2.5-VL come motore di estrazione principale.</p>
+        </div>
+      </div>
+
+      <!-- W -->
+      <div id="letter-W">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">W</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Watchdog service <span class="text-gray-500 font-normal text-base">(Servizio di Monitoraggio)</span></h3>
+          <p class="text-gray-300 text-sm">Un processo in background leggero che monitora la salute del sistema — disponibilità del modello, profondità della coda, spazio su disco, latenza di elaborazione — e attiva alert o azioni di recovery automatiche quando vengono rilevate anomalie. Nei deployment Document AI, un watchdog service riavvia un processo di inferenza Ollama crashato, avvisa le operazioni quando la coda di revisione supera una soglia o sospende l'acquisizione quando lo spazio su disco è criticamente basso. Senza un watchdog service, le pipeline documentali in produzione sono fragili: un crash silenzioso del modello può causare l'accodamento indefinito dei documenti senza notifica.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Webhook</h3>
+          <p class="text-gray-300 text-sm">Un meccanismo di callback HTTP in cui un sistema invia una richiesta POST automatizzata a un URL configurato quando si verifica un evento specifico — ad esempio quando a un documento viene assegnato lo stato VALIDATED o NEEDS_REVIEW. I webhook consentono l'integrazione in tempo reale senza polling: invece che un sistema ricevente chieda ripetutamente "ci sono nuovi documenti elaborati?", il sistema Document AI invia le notifiche non appena si verificano gli eventi. L'adapter webhook di DataUnchain supporta endpoint configurabili, header personalizzati, logica di retry e template di payload.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Workflow automation <span class="text-gray-500 font-normal text-base">(Automazione del Workflow)</span></h3>
+          <p class="text-gray-300 text-sm">L'orchestrazione di processi aziendali multi-step tra sistemi, attivati da eventi (arrivo di un documento, cambio di stato, approvazione umana) ed eseguiti senza intervento manuale in ogni passo. Il Document AI è tipicamente incorporato all'interno di un più ampio sistema di automazione del workflow: l'AI estrae i dati, il motore workflow li instrada per l'approvazione, l'integrazione ERP registra il record approvato e il sistema di notifica avvisa le parti rilevanti. DataUnchain si integra con gli strumenti di automazione del workflow tramite webhook, adapter API e connettori ERP diretti.</p>
+        </div>
+      </div>
+
+      <!-- Z -->
+      <div id="letter-Z">
+        <h2 class="text-xl font-black font-display text-brand-tealLight border-b border-brand-teal/30 pb-2 mb-6 mt-12">Z</h2>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Zero-shot extraction <span class="text-gray-500 font-normal text-base">(Estrazione Zero-Shot)</span></h3>
+          <p class="text-gray-300 text-sm">L'estrazione documentale eseguita da un modello AI che non ha mai visto un esempio di addestramento del layout del documento o del formato del fornitore specifico, affidandosi interamente alla conoscenza pre-addestrata del modello e al prompt di estrazione. L'estrazione zero-shot è la modalità predefinita per i moderni sistemi Document AI basati su VLM: la fattura di un nuovo fornitore viene elaborata correttamente alla prima presentazione senza alcuna configurazione di template o esempi annotati. Le prestazioni zero-shot sono la principale metrica qualitativa che differenzia l'IDP moderno basato su AI dai sistemi di estrazione legacy basati su template.</p>
+        </div>
+
+        <div class="border-l-4 border-brand-teal pl-6 my-6">
+          <h3 class="text-lg font-bold text-white mb-1">Zero-touch processing <span class="text-gray-500 font-normal text-base">(Elaborazione Completamente Automatica)</span></h3>
+          <p class="text-gray-300 text-sm">Lo stato ideale dell'automazione documentale in cui il 100% dei documenti in arrivo viene elaborato, validato e inviato ai sistemi downstream senza alcun intervento umano. L'elaborazione zero-touch è l'obiettivo a lungo termine per i deployment Document AI maturi, ma raramente viene raggiunta in pratica a causa della variabilità della qualità dei documenti, dell'onboarding di nuovi fornitori e dei requisiti normativi per la firma umana su determinate categorie di documenti. I sistemi in produzione raggiungono tipicamente tassi zero-touch dell'80-95%, con il resto instradato verso la revisione umana. DataUnchain si riferisce ai documenti zero-touch come aventi stato VALIDATED.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Risorse Correlate</h2>
+      <p>Per una comprensione più approfondita di come questi concetti vengono applicati in pratica, consulta le seguenti risorse DataUnchain:</p>
+      <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4">
+        <li><a href="/it/how-it-works.html" class="text-brand-tealLight hover:underline">Come Funziona DataUnchain — Panoramica completa della pipeline</a></li>
+        <li><a href="/it/use-cases.html" class="text-brand-tealLight hover:underline">Casi d'Uso Document AI — Fatture, DDT, contratti e altro</a></li>
+        <li><a href="/it/features.html" class="text-brand-tealLight hover:underline">Funzionalità — Adapter, validazione e capacità di estrazione</a></li>
+        <li><a href="/it/llm-document-extraction-benchmark.html" class="text-brand-tealLight hover:underline">Benchmark LLM per l'Estrazione Documenti — Qwen vs LLaMA vs Mistral (2026)</a></li>
+        <li><a href="/it/enterprise-document-ai-case-study.html" class="text-brand-tealLight hover:underline">Case Study Enterprise — Elaborazione di 50.000 documenti l'anno</a></li>
+      </ul>
+
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-white/10">
+      <div class="bg-gradient-to-r from-brand-teal/20 to-brand-emerald/20 border border-brand-teal/30 rounded-3xl p-8 text-center">
+        <h3 class="text-2xl font-black font-display text-white mb-3">Pronto ad automatizzare i tuoi flussi documentali?</h3>
+        <p class="text-gray-400 mb-6">DataUnchain elabora i tuoi documenti localmente. Nessun cloud, nessuna esposizione dati, nessun abbonamento.</p>
+        <a href="mailto:info@dataunchain.com?subject=Richiesta Demo — DataUnchain" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold rounded-full hover:opacity-90 transition-opacity">Richiedi una Demo →</a>
+      </div>
+    </div>
+
+  </div>
+</article>

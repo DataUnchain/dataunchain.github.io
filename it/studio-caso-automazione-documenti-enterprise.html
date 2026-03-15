@@ -1,0 +1,196 @@
+---
+layout: default
+title: "Case Study: Automazione Documenti con AI in una PMI Italiana — DataUnchain"
+lang: it
+locale: it_IT
+description: "Come una PMI manifatturiera italiana ha automatizzato 50.000 documenti/anno con AI locale. Risultati reali: risparmio €72.000/anno, break-even in 5 mesi, tasso errore &lt;0.3%."
+---
+
+<section class="pt-36 pb-20 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="mb-12">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Case Study</span>
+      <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6">Automazione Documenti con AI: Il Caso Meridian Components S.r.l.</h1>
+      <p class="text-gray-400 text-xl leading-relaxed max-w-3xl">Come un'azienda manifatturiera veneta con 150 dipendenti ha automatizzato l'elaborazione di 50.000 documenti/anno risparmiando €72.000 all'anno con un break-even in 5 mesi.</p>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="bg-gray-900/60 border border-white/10 rounded-2xl p-8 mb-12">
+      <h2 class="text-2xl font-black font-display text-white mb-6">Executive Summary</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-3xl font-black text-brand-tealLight">50.000</p>
+          <p class="text-gray-400 text-sm">documenti/anno elaborati</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-green-400">€72.115</p>
+          <p class="text-gray-400 text-sm">risparmio annuo</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-brand-tealLight">5 mesi</p>
+          <p class="text-gray-400 text-sm">break-even</p>
+        </div>
+        <div>
+          <p class="text-3xl font-black text-green-400">91%</p>
+          <p class="text-gray-400 text-sm">automazione completa</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-8">
+
+      <h2 class="text-2xl font-black font-display text-white">L'azienda</h2>
+      <p>Meridian Components S.r.l. è un'azienda manifatturiera specializzata nella produzione di componenti in plastica tecnica per il settore automotive e industriale. Con sede nel Veneto, conta 150 dipendenti, 280 fornitori attivi e un fatturato annuo di €18 milioni.</p>
+      <p>Il volume documentale era cresciuto costantemente negli ultimi anni: oltre 4.000 fatture passive/anno, 12.000 DDT in entrata, 8.000 ordini di acquisto, più note di credito, preventivi e documenti di trasporto internazionale.</p>
+
+      <h2 class="text-2xl font-black font-display text-white">La sfida</h2>
+      <p>Prima dell'implementazione, l'ufficio amministrativo dedicava in media:</p>
+      <ul class="space-y-2 text-gray-400">
+        <li>2,5 FTE (Full Time Equivalent) all'inserimento manuale di fatture, DDT e ordini</li>
+        <li>~8 minuti per fattura (apertura PDF, verifica, inserimento in TeamSystem, archiviazione)</li>
+        <li>~5 minuti per DDT (inserimento in WMS, associazione ordine)</li>
+        <li>~6 minuti per ordine di acquisto (confronto con offerta, inserimento, invio conferma)</li>
+      </ul>
+      <p>Oltre al costo del personale, c'erano problemi qualitativi: tasso di errore di digitazione del 2,1%, ritardi medi di 3 giorni nel pagamento fatture (perdita sconti cassa), DDT non registrati causavano discrepanze inventariali mensili.</p>
+
+      <h2 class="text-2xl font-black font-display text-white">Requisiti del progetto</h2>
+      <ul class="space-y-2 text-gray-400">
+        <li>✅ Elaborazione automatica di fatture, DDT e ordini di acquisto</li>
+        <li>✅ Integrazione con TeamSystem (gestionale contabile) e WMS interno</li>
+        <li>✅ Privacy totale: nessun dato verso cloud di terzi (dati clienti e prezzi sensibili)</li>
+        <li>✅ Conformità FatturaPA SDI per le fatture passive digitali</li>
+        <li>✅ Revisione umana con dashboard per i casi dubbi</li>
+        <li>✅ ROI positivo entro 12 mesi</li>
+      </ul>
+
+      <h2 class="text-2xl font-black font-display text-white">Architettura della soluzione</h2>
+
+      <pre class="bg-gray-900 border border-white/10 rounded-xl p-6 text-sm text-gray-300 overflow-x-auto"><code>INPUT                    PROCESSO                OUTPUT
+─────────────────────────────────────────────────────────
+Email fatture  ──→  Monitor IMAP  ──→  Processor AI
+Portale SDI    ──→  Download XML  ──→  Parser XML
+Bot Telegram   ──→  Bot handler   ──→  Processor AI
+                            │
+                     Validazione
+                     Math check
+                     P.IVA check
+                     Confidence score
+                            │
+              ┌─────────────┴─────────────┐
+              ▼                           ▼
+         VALIDATED                  NEEDS_REVIEW
+        (score ≥ 85)               (score 60-84)
+              │                           │
+              ▼                           ▼
+    Dispatch automatico:          Dashboard operatore:
+    - TeamSystem (contabilità)    - Anteprima PDF
+    - WMS (movimenti)             - Campi estratti
+    - Email conferma              - Highlights errori
+                                  - Correzione rapida</code></pre>
+
+      <h2 class="text-2xl font-black font-display text-white">Timeline di implementazione (12 settimane)</h2>
+
+      <div class="space-y-3">
+        <div class="flex gap-4 items-start">
+          <span class="text-brand-tealLight font-black whitespace-nowrap">Sett. 1-2</span>
+          <p class="text-gray-400 text-sm">Raccolta dataset reale (500 documenti per tipo), analisi requisiti, mappatura campi TeamSystem, configurazione infrastruttura (server con RTX 4080).</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="text-brand-tealLight font-black whitespace-nowrap">Sett. 3-4</span>
+          <p class="text-gray-400 text-sm">Deploy DataUnchain, configurazione Qwen 2.5-VL 7B via Ollama, sviluppo connettore TeamSystem (tracciato import), test su dataset.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="text-brand-tealLight font-black whitespace-nowrap">Sett. 5-6</span>
+          <p class="text-gray-400 text-sm">Ottimizzazione prompt per layout fatture Meridian, configurazione math check con tolleranza 0.10€, integrazione email IMAP casella dedicata, test integrazione TeamSystem in staging.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="text-brand-tealLight font-black whitespace-nowrap">Sett. 7-8</span>
+          <p class="text-gray-400 text-sm">Go-live fatture (20% del volume), monitoring intensivo, raccolta feedback operatori, correzione 3 edge case su layout fornitori specifici.</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="text-brand-tealLight font-black whitespace-nowrap">Sett. 9-10</span>
+          <p class="text-gray-400 text-sm">Estensione a DDT e ordini, integrazione WMS, go-live al 100% del volume fatture, training team amministrativo (4 ore).</p>
+        </div>
+        <div class="flex gap-4 items-start">
+          <span class="text-brand-tealLight font-black whitespace-nowrap">Sett. 11-12</span>
+          <p class="text-gray-400 text-sm">Go-live completo su tutti i tipi documento, stabilizzazione, documentazione, handover al team interno.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Risultati a 6 mesi</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-white/20">
+              <th class="text-left py-3 px-4 text-white font-bold">Metrica</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Prima</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Dopo</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Miglioramento</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-400">
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Automazione elaborazione</td><td class="py-3 px-4">0%</td><td class="py-3 px-4 text-green-400">91%</td><td class="py-3 px-4 text-green-400">+91%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Tasso errore dati</td><td class="py-3 px-4">2.1%</td><td class="py-3 px-4 text-green-400">0.3%</td><td class="py-3 px-4 text-green-400">-86%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Tempo medio per fattura</td><td class="py-3 px-4">8 min</td><td class="py-3 px-4 text-green-400">45 sec</td><td class="py-3 px-4 text-green-400">-91%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Ritardo pagamento fatture</td><td class="py-3 px-4">3 giorni</td><td class="py-3 px-4 text-green-400">0 giorni</td><td class="py-3 px-4 text-green-400">-100%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Discrepanze inventariali/mese</td><td class="py-3 px-4">47</td><td class="py-3 px-4 text-green-400">4</td><td class="py-3 px-4 text-green-400">-91%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">FTE dedicati a data entry</td><td class="py-3 px-4">2.5</td><td class="py-3 px-4 text-green-400">0.3</td><td class="py-3 px-4 text-green-400">-88%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Analisi finanziaria</h2>
+
+      <div class="bg-gray-900/60 border border-white/10 rounded-2xl p-8">
+        <h3 class="text-white font-bold mb-4">Costi</h3>
+        <div class="space-y-2 text-sm text-gray-400 mb-6">
+          <div class="flex justify-between"><span>Hardware (RTX 4080 + server)</span><span class="text-white">€2.800</span></div>
+          <div class="flex justify-between"><span>Implementazione e configurazione</span><span class="text-white">€8.500</span></div>
+          <div class="flex justify-between"><span>Training personale</span><span class="text-white">€600</span></div>
+          <div class="flex justify-between font-bold border-t border-white/10 pt-2"><span class="text-white">Investimento totale</span><span class="text-white">€11.900</span></div>
+        </div>
+        <h3 class="text-white font-bold mb-4">Risparmio annuo</h3>
+        <div class="space-y-2 text-sm text-gray-400 mb-6">
+          <div class="flex justify-between"><span>Riduzione personale data entry (2.2 FTE × €28k)</span><span class="text-green-400">€61.600</span></div>
+          <div class="flex justify-between"><span>Sconti cassa recuperati (pagamento puntuale)</span><span class="text-green-400">€7.200</span></div>
+          <div class="flex justify-between"><span>Riduzione rettifiche contabili</span><span class="text-green-400">€3.315</span></div>
+          <div class="flex justify-between font-bold border-t border-white/10 pt-2"><span class="text-white">Risparmio totale annuo</span><span class="text-green-400 text-base">€72.115</span></div>
+        </div>
+        <div class="bg-brand-teal/10 border border-brand-teal/30 rounded-xl p-4">
+          <div class="grid grid-cols-2 gap-4 text-center">
+            <div><p class="text-2xl font-black text-green-400">5 mesi</p><p class="text-gray-400 text-xs">Break-even</p></div>
+            <div><p class="text-2xl font-black text-green-400">506%</p><p class="text-gray-400 text-xs">ROI a 3 anni</p></div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Sfide incontrate e soluzioni</h2>
+      <div class="space-y-4">
+        <div class="border border-white/10 rounded-lg p-4">
+          <p class="text-white font-bold mb-1">Sfida: 3 fornitori con layout fattura completamente insolito</p>
+          <p class="text-gray-400 text-sm">Soluzione: prompt personalizzati per quei fornitori specifici, riconoscimento automatico del fornitore dalla P.IVA prima dell'estrazione.</p>
+        </div>
+        <div class="border border-white/10 rounded-lg p-4">
+          <p class="text-white font-bold mb-1">Sfida: DDT da fax con qualità molto bassa</p>
+          <p class="text-gray-400 text-sm">Soluzione: preprocessing avanzato (deskewing, contrast boost), abbassamento soglia di confidence a 70 per DDT (rischio più basso rispetto a fatture), revisione rapida con foto originale sempre visibile.</p>
+        </div>
+        <div class="border border-white/10 rounded-lg p-4">
+          <p class="text-white font-bold mb-1">Sfida: Resistenza del team amministrativo</p>
+          <p class="text-gray-400 text-sm">Soluzione: dimostrazione pratica con dati reali dell'azienda, riassegnazione del personale liberato a compiti a maggiore valore aggiunto (controllo fornitori, riconciliazione strategica), coinvolgimento attivo nel miglioramento del sistema.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Conclusioni</h2>
+      <p>Il progetto ha superato le aspettative iniziali in termini di ROI e qualità. Il fattore critico di successo è stato il mantenimento di un layer di revisione umana robusto: l'obiettivo non era eliminare il personale amministrativo, ma liberarlo da lavoro ripetitivo per concentrarsi su attività a maggiore valore.</p>
+      <p>Dopo 6 mesi, il responsabile amministrativo ha dichiarato: <em>"Il sistema si è pagato in 5 mesi. Ma il vero vantaggio non è il risparmio economico — è che ora i nostri dati contabili sono sempre aggiornati in tempo reale, e il team può finalmente concentrarsi su analisi e controllo invece che su inserimento dati."</em></p>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 text-center">
+      <p class="text-gray-400 mb-4">Vuoi replicare questi risultati nella tua azienda?</p>
+      <a href="/it/" class="inline-block bg-brand-teal text-white font-bold px-8 py-3 rounded-xl hover:bg-brand-tealLight transition-colors mr-4">Scopri DataUnchain →</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,116 @@
+---
+layout: default
+title: "Parsing di Documenti con AI: Da PDF a Dati Strutturati — DataUnchain"
+lang: it
+locale: it_IT
+description: "Cos'è il document parsing con AI, come funziona con i VLM, differenze con OCR tradizionale, sfide specifiche dei documenti italiani (FatturaPA, DDT) e benchmark di accuratezza."
+---
+
+<section class="pt-36 pb-20 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="mb-12">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Guida Tecnica</span>
+      <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6">Parsing di Documenti con AI: Da PDF a Dati Strutturati</h1>
+      <p class="text-gray-400 text-xl leading-relaxed max-w-3xl">Il document parsing è il processo che trasforma documenti non strutturati (PDF, scansioni, immagini) in dati strutturati (JSON, CSV, database). Ecco come funziona con l'AI moderna e perché è diverso dall'OCR tradizionale.</p>
+    </div>
+
+    <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-8">
+
+      <h2 class="text-2xl font-black font-display text-white">Definizione: cos'è il document parsing?</h2>
+      <p>Il <strong class="text-white">document parsing</strong> (o data extraction from documents) è il processo automatizzato di lettura di un documento in formato non strutturato e conversione delle informazioni in un formato strutturato e machine-readable.</p>
+
+      <div class="bg-brand-teal/10 border border-brand-teal/30 rounded-xl p-6">
+        <p class="text-brand-tealLight font-bold text-sm uppercase tracking-wider mb-3">Definizione formale</p>
+        <p class="text-gray-300 text-sm">Il document parsing è il processo di estrazione automatizzata di entità strutturate da documenti non strutturati o semi-strutturati, utilizzando tecnologie di computer vision, riconoscimento ottico dei caratteri e/o modelli linguistici, al fine di produrre dati machine-readable che possono essere integrati in sistemi informativi aziendali.</p>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Come funziona il parsing con Vision Language Model</h2>
+      <p>I VLM moderni (Qwen 2.5-VL, LLaMA 3.2-Vision, Mistral Pixtral) rivoluzionano il document parsing perché non "leggono" il documento carattere per carattere — lo <em>vedono</em> come lo vede un umano.</p>
+
+      <p>Il pipeline tecnico:</p>
+      <ol class="space-y-3 text-gray-400 list-decimal list-inside">
+        <li><strong class="text-white">Conversione:</strong> PDF → immagini PNG (200-300 DPI per documenti standard). Una pagina = un'immagine.</li>
+        <li><strong class="text-white">Encoding visivo:</strong> L'immagine viene divisa in patch (pezzi) di 14×14 pixel e codificata come sequenza di token visivi comprensibili al modello.</li>
+        <li><strong class="text-white">Prompt strutturato:</strong> Il modello riceve immagine + istruzioni: "Estrai i seguenti campi in formato JSON: fornitore, P.IVA, numero fattura, data, importo..."</li>
+        <li><strong class="text-white">Comprensione contestuale:</strong> Il modello integra la comprensione visiva (posizione dei campi, struttura della tabella) con la conoscenza linguistica (semantica dei campi finanziari italiani).</li>
+        <li><strong class="text-white">Output JSON:</strong> Il modello produce un oggetto JSON strutturato con tutti i campi richiesti.</li>
+      </ol>
+
+      <h2 class="text-2xl font-black font-display text-white">Approcci tradizionali vs AI: il confronto</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-white/20">
+              <th class="text-left py-3 px-4 text-white font-bold">Approccio</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Come funziona</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Limite principale</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-400">
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Regex + OCR</td><td class="py-3 px-4">Pattern matching su testo estratto</td><td class="py-3 px-4 text-red-400">Fragile: un cambio di layout rompe tutto</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Template positioning</td><td class="py-3 px-4">Estrae testo da coordinate fisse</td><td class="py-3 px-4 text-red-400">Un template per fornitore, manutenzione costante</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Form recognizer ML</td><td class="py-3 px-4">Modello addestrato su documenti simili</td><td class="py-3 px-4 text-yellow-400">Richiede training, scarso su nuovi layout</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4 text-brand-tealLight">VLM (AI moderna)</td><td class="py-3 px-4">Comprensione visiva + semantica</td><td class="py-3 px-4 text-green-400">GPU richiesta, ma zero template</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Sfide specifiche dei documenti italiani</h2>
+
+      <div class="space-y-4">
+        <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
+          <h3 class="text-yellow-400 font-bold mb-1">Formato degli importi</h3>
+          <p class="text-gray-400 text-sm">In Italia il separatore decimale è la virgola (€1.234,56). Molti sistemi stranieri usano il punto. Il parser deve gestire entrambi i formati e non confondere mai il separatore delle migliaia con quello decimale. Un errore qui produce importi 1000x sbagliati.</p>
+        </div>
+        <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
+          <h3 class="text-yellow-400 font-bold mb-1">Aliquote IVA multiple</h3>
+          <p class="text-gray-400 text-sm">Una singola fattura italiana può avere righe con aliquote diverse: 22% (standard), 10% (alimentari, ristrutturazioni), 4% (beni di prima necessità), 0% (esenti). Il parser deve estrarre l'imponibile e l'IVA per ogni aliquota separatamente.</p>
+        </div>
+        <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
+          <h3 class="text-yellow-400 font-bold mb-1">FatturaPA XML vs PDF</h3>
+          <p class="text-gray-400 text-sm">Le fatture passive digitali arrivano dall'SDI in formato XML strutturato. Per queste, non serve il VLM: si fa parsing diretto dell'XML. Solo per le fatture in PDF (ancora molte, specialmente da fornitori esteri o piccoli artigiani) serve il VLM.</p>
+        </div>
+        <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
+          <h3 class="text-yellow-400 font-bold mb-1">DDT con tabelle complesse</h3>
+          <p class="text-gray-400 text-sm">I DDT possono avere tabelle con 50+ righe, colonne variabili (a volte peso netto, a volte no), e unità di misura non standardizzate. L'estrazione corretta delle righe è la sfida più difficile per qualsiasi sistema di parsing.</p>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">Campi estraibili per tipo documento</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-white/20">
+              <th class="text-left py-3 px-4 text-white font-bold">Documento</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Campi principali</th>
+              <th class="text-left py-3 px-4 text-white font-bold">Accuratezza Qwen 7B</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-400">
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Fattura PDF nativa</td><td class="py-3 px-4">Fornitore, P.IVA, numero, data, scadenza, imponibile, IVA, totale, IBAN</td><td class="py-3 px-4 text-green-400">96%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">DDT</td><td class="py-3 px-4">Mittente, destinatario, numero, data, righe articoli (codice, q.tà, UM)</td><td class="py-3 px-4 text-green-400">91%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Ordine acquisto</td><td class="py-3 px-4">Acquirente, fornitore, numero, data, condizioni, righe prodotto</td><td class="py-3 px-4 text-green-400">95%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Contratto</td><td class="py-3 px-4">Parti, oggetto, valore, durata, rinnovo, recesso</td><td class="py-3 px-4 text-yellow-400">88%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">Nota spese</td><td class="py-3 px-4">Dipendente, data, categoria, importo, ricevute allegate</td><td class="py-3 px-4 text-yellow-400">82%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-black font-display text-white">JSON Schema enforcement: output sempre strutturato</h2>
+      <p>Uno dei problemi dei VLM è che a volte producono output non valido. Per garantire affidabilità in produzione:</p>
+      <ul class="space-y-2 text-gray-400">
+        <li><strong class="text-white">Schema validation:</strong> Ogni output JSON viene validato contro uno schema predefinito. Campi mancanti o tipi errati → retry con prompt rafforzato.</li>
+        <li><strong class="text-white">Valori null espliciti:</strong> Se un campo non è presente, il modello restituisce <code>null</code> — non omette il campo, non inventa valori.</li>
+        <li><strong class="text-white">Type coercion:</strong> Importi sempre come <code>float</code>, date sempre ISO 8601, booleani sempre <code>true/false</code>. Nessuna stringa ambigua.</li>
+        <li><strong class="text-white">Hallucination detection:</strong> Confronto cross-field: se l'IVA estratta non corrisponde al 22% dell'imponibile, è probabile un errore. Il documento va in revisione.</li>
+      </ul>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-white/10 text-center">
+      <p class="text-gray-400 mb-4">DataUnchain implementa document parsing con VLM, schema enforcement e validazione per tutti i tipi di documento italiani.</p>
+      <a href="/it/" class="inline-block bg-brand-teal text-white font-bold px-8 py-3 rounded-xl hover:bg-brand-tealLight transition-colors">Scopri DataUnchain →</a>
+    </div>
+  </div>
+</section>

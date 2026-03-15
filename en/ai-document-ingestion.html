@@ -1,0 +1,733 @@
+---
+layout: default
+title: "AI Document Ingestion for Enterprise Systems — DataUnchain"
+lang: en
+locale: en_US
+description: "The complete reference on AI document ingestion: architecture, use cases, privacy, and integration with CRM and ERP systems. Local AI, zero cloud."
+---
+
+<!-- Hero Section -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 bg-brand-dark"></div>
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-teal/8 rounded-full blur-[140px]"></div>
+  <div class="absolute top-10 right-1/4 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[120px]"></div>
+  <div class="max-w-4xl mx-auto text-center relative z-10">
+    <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+      📄 AI Document Ingestion
+    </div>
+    <h1 class="text-5xl lg:text-6xl font-black font-display mb-6 leading-tight">
+      AI Document Ingestion<br>
+      <span class="gradient-text">for Enterprise Systems</span>
+    </h1>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Automatically ingest, understand, and route business documents into CRM, ERP, and internal workflows using local AI. No cloud. No data exposure. Full control.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#architecture" class="inline-flex items-center gap-2 px-8 py-3 bg-brand-surface border border-brand-teal/30 text-brand-tealLight font-bold rounded-full hover:border-brand-teal/60 transition-all">
+        See the Architecture ↓
+      </a>
+      <a href="mailto:info@dataunchain.com?subject=Demo Request — DataUnchain" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold rounded-full hover:opacity-90 transition-opacity">
+        Request a Demo →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick nav breadcrumb -->
+<section class="py-4 px-6 bg-brand-surface border-b border-white/5">
+  <div class="max-w-3xl mx-auto">
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-500">
+      <a href="#the-problem" class="hover:text-brand-tealLight transition-colors">The Problem</a>
+      <span>·</span>
+      <a href="#definition" class="hover:text-brand-tealLight transition-colors">Definition</a>
+      <span>·</span>
+      <a href="#architecture" class="hover:text-brand-tealLight transition-colors">Architecture</a>
+      <span>·</span>
+      <a href="#comparison" class="hover:text-brand-tealLight transition-colors">AI vs OCR vs RPA</a>
+      <span>·</span>
+      <a href="#use-cases" class="hover:text-brand-tealLight transition-colors">Use Cases</a>
+      <span>·</span>
+      <a href="#privacy" class="hover:text-brand-tealLight transition-colors">Privacy</a>
+      <span>·</span>
+      <a href="#lessons" class="hover:text-brand-tealLight transition-colors">Lessons Learned</a>
+      <span>·</span>
+      <a href="#implementation" class="hover:text-brand-tealLight transition-colors">Implementation</a>
+      <span>·</span>
+      <a href="#faq" class="hover:text-brand-tealLight transition-colors">FAQ</a>
+    </nav>
+  </div>
+</section>
+
+<article class="pt-16 pb-20 px-6">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- THE PROBLEM -->
+    <section id="the-problem" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">The Problem · Why This Matters</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">The Hidden Cost of Manual Document Processing</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <p>
+          Every business day, millions of documents land in corporate inboxes: purchase orders from suppliers, invoices to be approved, delivery notes to be matched, contracts to be filed, customs declarations to be archived. Each one demands human attention. Someone must open it, read it, type data into a system, verify the numbers, and move on to the next. It sounds routine. Multiplied across an organisation, it is one of the most expensive and error-prone activities in modern business operations.
+        </p>
+
+        <p>
+          Research consistently shows that the average enterprise knowledge worker spends <strong class="text-white">4 to 6 hours per week</strong> on manual data entry and document-related administrative tasks. In a company of 50 people, that is up to 300 person-hours every week spent on work that, in principle, a well-designed system could handle automatically. Annually, that scales to over 15,000 hours — the equivalent of 7 to 8 full-time employees working on nothing but copy-pasting data.
+        </p>
+
+        <p>
+          The direct labour cost is only part of the picture. The deeper issue is error propagation. When a human types a supplier's VAT number incorrectly — transposing two digits under pressure to clear a backlog — the downstream consequences can be severe. The invoice fails fiscal validation. The payment is blocked. The supplier relationship is strained. The accounting team spends hours reconciling what went wrong. A single mistyped VAT number can hold up a payment worth tens of thousands of euros and trigger a compliance audit.
+        </p>
+      </div>
+
+      <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
+        <strong class="text-brand-tealLight">KEY INSIGHT:</strong>
+        <p class="text-gray-300 mt-2">A mid-size company processing 500 invoices per month spends approximately 200 person-hours on manual data entry. That's 2,400 hours per year — enough time to build and deploy an entirely new product. The opportunity cost alone justifies automation.</p>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">The Document Flood</h3>
+        <p>
+          Modern businesses receive documents in every conceivable format and through every conceivable channel. Invoices arrive as PDF email attachments, scanned paper pushed through a multifunction printer, EDI messages from large-enterprise trading partners, and increasingly as structured XML files via certified digital channels like Italy's Sistema di Interscambio (SDI). Contracts arrive as Word documents, then as signed PDFs, then sometimes re-scanned after wet signatures. Delivery notes (DDTs in Italy) come bundled with shipments or emailed separately. Purchase orders originate in the company's own ERP but need to be matched against supplier confirmations.
+        </p>
+        <p>
+          Each document type has a different layout. A single document type — say, a supplier invoice — can appear in thousands of different visual formats, one per supplier, each with vendor name, date, amounts, and line items placed wherever the supplier's ERP or design team decided to put them. Traditional software approaches this problem with templates: one template per supplier layout. When the supplier updates their invoice design, the template breaks. The document fails. Someone has to fix the template.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Compliance Risk and Late Payments</h3>
+        <p>
+          Beyond efficiency, there is a compliance dimension. GDPR mandates that personal data — present in HR documents, medical reports, contracts — be handled with documented controls and limited access. When documents sit in a shared network folder waiting for manual processing, they are effectively uncontrolled. Who accessed the invoice containing personal bank details? Nobody knows. The audit trail does not exist. Regulatory risk accumulates silently.
+        </p>
+        <p>
+          Late payments have direct financial consequences. The EU Late Payment Directive and equivalent national legislation entitle creditors to interest on overdue invoices. Companies that fail to process invoices promptly — because humans can only work so fast — routinely incur penalty interest costs and damage supplier relationships that took years to build.
+        </p>
+      </div>
+    </section>
+
+    <!-- DEFINITION -->
+    <section id="definition" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Definition · Core Concepts</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">What is AI Document Ingestion?</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <p>
+          <strong class="text-white">AI document ingestion</strong> is the automated process by which a software system receives unstructured or semi-structured business documents, applies artificial intelligence to understand their visual and semantic content, extracts structured data fields, validates the results against business rules and mathematical constraints, and routes the validated data to downstream systems such as ERP platforms, CRM databases, or workflow automation tools — without requiring human intervention for routine cases.
+        </p>
+        <p>
+          This definition distinguishes AI document ingestion from three related but distinct concepts: optical character recognition (OCR), robotic process automation (RPA), and traditional document management systems (DMS).
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">How it Differs from OCR</h3>
+        <p>
+          OCR (optical character recognition) is a prerequisite technology, not a solution. OCR converts the pixels in a scanned image into machine-readable text. It does not understand the text. It does not know that "€ 1.234,56" is a total amount, or that "IT12345678901" is a VAT number, or that the text in the upper right corner is the invoice date while the text in the lower right is the payment due date. OCR hands you a stream of characters. A human — or a rigid rules engine — still has to interpret what those characters mean.
+        </p>
+        <p>
+          AI document ingestion goes further. The AI model reasons about the document as a visual artefact: it understands layout, context, relative position, and semantic meaning simultaneously. It can look at an invoice it has never seen before and correctly identify the supplier name, total amount, VAT amount, and line items — not because it has a template for that specific supplier, but because it understands what invoices look like and how their components relate to each other.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">How it Differs from RPA</h3>
+        <p>
+          Robotic process automation (RPA) automates human interactions with software interfaces: it clicks buttons, fills forms, copies values from one application to another. RPA is powerful for automating structured, deterministic processes — but document processing is inherently unstructured. When you point RPA at a document, you still need something to extract the data first. And when you use template-based extraction, the RPA workflow breaks the moment the document layout changes.
+        </p>
+        <p>
+          AI document ingestion replaces the fragile template-matching step with a model that generalises across layouts. RPA can then be used for the final step — pushing validated data into a target system — but the understanding layer is AI, not rigid rules.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">The Five Core Steps</h3>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 my-8">
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black text-sm flex-shrink-0">1</div>
+          <div>
+            <div class="font-bold text-white mb-1">Reception</div>
+            <p class="text-gray-400 text-sm">The system monitors one or more input channels — email inbox, folder watchdog, Telegram bot, REST API, SDI/PEC feed — and accepts new documents as they arrive, regardless of format (PDF, JPG, PNG, TIFF).</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black text-sm flex-shrink-0">2</div>
+          <div>
+            <div class="font-bold text-white mb-1">Parsing</div>
+            <p class="text-gray-400 text-sm">Multi-page PDFs are split into individual page images at high resolution. File type is detected. Corrupt or unreadable files are quarantined and flagged for review.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-brand-emerald/20 border border-brand-emerald/30 flex items-center justify-center text-brand-emeraldLight font-black text-sm flex-shrink-0">3</div>
+          <div>
+            <div class="font-bold text-white mb-1">AI Understanding</div>
+            <p class="text-gray-400 text-sm">A vision-language model processes each page image and produces a structured JSON response containing document type classification, all identified fields, their values, and confidence scores for each extraction.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-yellow-500/20 border border-yellow-500/30 flex items-center justify-center text-yellow-400 font-black text-sm flex-shrink-0">4</div>
+          <div>
+            <div class="font-bold text-white mb-1">Validation</div>
+            <p class="text-gray-400 text-sm">Extracted values are validated against deterministic rules: mathematical cross-checks (subtotal + VAT = total, tolerance €0.02), format checks (Italian VAT numbers, fiscal codes with omocodia support), date range validation, and business logic constraints.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start bg-brand-surface rounded-2xl p-5 border border-white/5">
+          <div class="w-8 h-8 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center text-green-400 font-black text-sm flex-shrink-0">5</div>
+          <div>
+            <div class="font-bold text-white mb-1">Integration</div>
+            <p class="text-gray-400 text-sm">Validated data is dispatched to the configured output adapter: ERP system, CRM, webhook, CSV export, XML generation, or notification service. The full audit trail is recorded with timestamps and status codes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section id="architecture" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Technical Reference · Architecture</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">System Architecture</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-4 mb-8">
+        <p>The DataUnchain ingestion pipeline is organised into four distinct layers, each with a clear responsibility boundary. This separation allows each layer to be monitored, debugged, and scaled independently.</p>
+      </div>
+
+      <div class="bg-brand-surface rounded-2xl p-6 my-8 font-mono text-sm text-gray-300 overflow-x-auto border border-white/5">
+        <pre class="text-xs leading-relaxed">
+┌─────────────────────────────────────────────────────────────┐
+│                     DOCUMENT SOURCES                         │
+│  Email/IMAP  │  REST API  │  Telegram Bot  │  Folder Watch  │
+│  SDI / PEC Monitor                                          │
+└──────────────────────────┬──────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                    INGESTION LAYER                            │
+│  File type detection │ PDF rendering │ Multi-page split       │
+│  Deduplication hash  │ Quarantine queue │ Job scheduler       │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                AI UNDERSTANDING LAYER                         │
+│  Vision-Language Model: Qwen 2.5-VL (local Ollama)           │
+│  Document classification │ Entity extraction │ JSON output    │
+│  Confidence scoring per field                                 │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                  VALIDATION LAYER                             │
+│  Math: subtotal + VAT = total (±€0.02 tolerance)             │
+│  Format: IT VAT numbers, fiscal codes, IBAN, dates           │
+│  Confidence threshold routing → VALIDATED / NEEDS_REVIEW     │
+│  Audit log entry creation                                     │
+└──────────────────────────┬───────────────────────────────────┘
+                           ↓
+┌──────────────────────────────────────────────────────────────┐
+│                 INTEGRATION LAYER (18 adapters)               │
+│  CRM:     Salesforce │ HubSpot │ Airtable │ Notion           │
+│  ERP:     SAP B1 │ Odoo │ Zucchetti │ TeamSystem │ Mexal     │
+│  Files:   CSV │ Excel │ FatturaPA XML                        │
+│  Notify:  Email SMTP │ Slack │ Microsoft 365                 │
+│  Custom:  Webhook │ RPA Playwright                           │
+└──────────────────────────────────────────────────────────────┘
+        </pre>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Layer 1: Document Sources and Ingestion</h3>
+        <p>
+          The ingestion layer is responsible for accepting documents from all configured input channels and normalising them into a common format for downstream processing. Email monitoring uses IMAP IDLE to receive attachments the moment they land in the inbox — no polling interval, no delay. The folder watchdog uses operating system file system events rather than polling, achieving sub-second detection latency even on network-mounted volumes.
+        </p>
+        <p>
+          Once a file is received, it is assigned a SHA-256 hash for deduplication: if the same document arrives twice (common with email forwards), only one copy is processed. PDF rendering converts each page to a high-resolution PNG (typically 300 DPI) to preserve fine detail such as small-print legal clauses, handwritten annotations, and low-contrast watermarks. Multi-page PDFs are split intelligently: a five-page invoice is processed as five separate images, then the results are merged back into a single structured document.
+        </p>
+        <p>
+          Files that cannot be parsed — password-protected PDFs, corrupted archives, unsupported binary formats — are moved to a quarantine queue and a notification is sent to the operations team. Processing never silently fails.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Layer 2: AI Understanding with Qwen 2.5-VL</h3>
+        <p>
+          The AI understanding layer is the core intellectual component of the system. DataUnchain uses Qwen 2.5-VL, a state-of-the-art vision-language model that processes document images directly, without first running OCR. The model runs locally via Ollama — it never communicates with external servers. Inference happens on the same machine that received the document.
+        </p>
+        <p>
+          The model receives a carefully engineered prompt alongside the document image. The prompt instructs the model to identify the document type (invoice, contract, DDT, medical report, pay slip, etc.), extract all relevant fields with their values, and express confidence scores for each extraction. The output is a structured JSON object that downstream layers can process programmatically.
+        </p>
+        <p>
+          Qwen 2.5-VL's vision capability means it can handle documents that would defeat a pure-text approach: tables whose columns are defined by visual alignment rather than delimiters, handwritten annotations in the margins, dual-language headers, stamps and watermarks overlapping text, and mixed-orientation pages where some sections run vertically.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Layer 3: Validation</h3>
+        <p>
+          AI extraction is probabilistic. The validation layer applies deterministic rules to catch the errors that the AI might make. Mathematical validation checks that subtotal + VAT = total within a tolerance of €0.02 (to account for rounding artefacts in supplier accounting software). If the numbers do not reconcile, the document is flagged NEEDS_REVIEW rather than auto-dispatched.
+        </p>
+        <p>
+          Format validation covers Italian-specific requirements extensively: VAT number (Partita IVA) format and checksum, fiscal code (Codice Fiscale) with full omocodia support (the alternative encoding used when a standard fiscal code is already taken), IBAN check-digit validation, and date range plausibility checks (an invoice dated three years in the future is a data error, not a valid document).
+        </p>
+        <p>
+          The confidence threshold system assigns each document to one of three audit statuses: <strong class="text-brand-tealLight">VALIDATED</strong> (all checks pass, high confidence — auto-dispatched), <strong class="text-yellow-400">PENDING_REVIEW</strong> (medium confidence — queued for operator confirmation), or <strong class="text-red-400">NEEDS_REVIEW</strong> (failed validation — flagged for correction). This routing logic ensures that automation never silently produces wrong data: it either gets it right and routes automatically, or escalates to a human.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Layer 4: Integration and Output Adapters</h3>
+        <p>
+          The integration layer dispatches validated data to one or more output adapters. Each adapter is an independent module with its own connection configuration, retry logic, and error handling. The webhook adapter can call any REST endpoint, making it compatible with virtually any modern SaaS platform. The FatturaPA XML adapter generates legally compliant Italian electronic invoices. The RPA Playwright adapter drives a browser to interact with legacy web applications that have no API.
+        </p>
+        <p>
+          All adapter outputs are logged with timestamps, HTTP status codes, and response payloads. If an adapter fails — network timeout, authentication error, target system downtime — the document enters a dead-letter queue. The system retries with exponential backoff. After a configurable number of retries, the document is escalated to the operations team via notification. No data is silently lost.
+        </p>
+      </div>
+
+      <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-6 my-8">
+        <strong class="text-yellow-400">NOTE:</strong>
+        <p class="text-gray-300 mt-2">The dead-letter queue is one of the most important operational features of a production document ingestion system. Any design that silently discards failed documents is unacceptable for enterprise use. Every document that enters the system must eventually either succeed or be explicitly acknowledged by an operator.</p>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section id="comparison" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Comparison · Technology Analysis</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">AI vs OCR vs RPA: A Detailed Comparison</h2>
+
+      <div class="overflow-x-auto my-8">
+        <table class="w-full text-sm text-left">
+          <thead>
+            <tr class="border-b border-white/10 text-gray-400">
+              <th class="pb-3 pr-6 font-semibold">Approach</th>
+              <th class="pb-3 pr-6 font-semibold">Reading Capability</th>
+              <th class="pb-3 pr-6 font-semibold">Structured Output</th>
+              <th class="pb-3 pr-6 font-semibold">Adaptability</th>
+              <th class="pb-3 pr-6 font-semibold">Error Handling</th>
+              <th class="pb-3 font-semibold">Cost Model</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-300">
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-white">OCR (Tesseract)</td>
+              <td class="py-3 pr-6">Text characters only — no semantic understanding</td>
+              <td class="py-3 pr-6">Requires manual rules per document type</td>
+              <td class="py-3 pr-6">None — breaks on layout change</td>
+              <td class="py-3 pr-6">None — silent errors</td>
+              <td class="py-3">Free / very low</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-white">Template RPA</td>
+              <td class="py-3 pr-6">Fixed layout coordinates only</td>
+              <td class="py-3 pr-6">Rigid — mapped fields only</td>
+              <td class="py-3 pr-6">Zero — crashes on layout change</td>
+              <td class="py-3 pr-6">Crashes — requires manual fix</td>
+              <td class="py-3">Medium — high maintenance</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-white">Cloud AI (GPT-4V)</td>
+              <td class="py-3 pr-6">Excellent — full vision understanding</td>
+              <td class="py-3 pr-6">Good — needs prompt engineering</td>
+              <td class="py-3 pr-6">Good — generalises across layouts</td>
+              <td class="py-3 pr-6">Basic — limited validation</td>
+              <td class="py-3">High — recurring per-call</td>
+            </tr>
+            <tr class="border-b border-white/5">
+              <td class="py-3 pr-6 font-medium text-brand-tealLight">Local AI (DataUnchain)</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Excellent — Qwen 2.5-VL vision model</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Validated JSON with confidence scores</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Good — generalises across layouts</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Multi-layer: math + format + confidence</td>
+              <td class="py-3 text-brand-tealLight">One-time hardware + annual support</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Why OCR Alone Fails on Real-World Documents</h3>
+        <p>
+          The fundamental limitation of OCR is that it converts pixels to characters without understanding context. A typical supplier invoice contains dozens of numbers: the invoice number, the order reference, the supplier's VAT number, the buyer's VAT number, the net amount, the VAT amount, the total amount, the payment due amount, line item quantities, line item unit prices, and various reference codes. OCR produces all of these as text strings. Without a way to understand which string is which, you have meaningless data.
+        </p>
+        <p>
+          The traditional solution is template matching: define the coordinates on the page where specific fields appear, then read the value at those coordinates. This works for a single supplier whose invoice layout never changes. Real enterprise procurement teams deal with hundreds of suppliers. Each supplier has their own layout. A company that buys from 200 suppliers needs 200 templates. When any of those suppliers changes their invoice design — and they do, regularly — the template must be updated manually. The maintenance burden grows faster than the business.
+        </p>
+        <p>
+          Beyond templates, real-world documents are additionally challenging because of scan quality: skewed pages, coffee stains, faded ink, mixed black-and-white and colour content, rubber stamps overlapping printed text, and handwritten corrections to typed fields. Tesseract and similar engines handle ideal images adequately; they degrade badly on anything that deviates from clean, horizontal, high-contrast text.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Why RPA is Fragile for Document Processing</h3>
+        <p>
+          RPA tools excel at automating deterministic, UI-driven workflows: "click here, type this, save that." The fragility emerges when the input is unstructured. Document-centric RPA workflows inevitably include a data extraction step, and that step is almost always template-based OCR or pattern matching. This makes the workflow's reliability entirely dependent on the reliability of the extraction step.
+        </p>
+        <p>
+          When a document arrives with an unexpected layout — a supplier who changed their invoicing software, a scanned document that is slightly rotated, a PDF with embedded images rather than native text — the extraction step fails. The RPA bot either throws an error (good outcome — at least it is visible) or silently extracts the wrong values (catastrophic — the wrong data enters your ERP without any alert).
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Why Cloud AI Creates Privacy and Compliance Problems</h3>
+        <p>
+          Services like GPT-4V, Google Document AI, and AWS Textract solve the understanding problem well. They are genuinely capable of reading and interpreting complex documents. The problem is what happens to the document after you send it. These services process your data on their infrastructure. For routine business documents, this may be acceptable. For documents containing personal data — pay slips, HR contracts, medical records, legal agreements — sending the document to a third-party cloud service raises immediate GDPR compliance questions.
+        </p>
+        <p>
+          The controller-processor relationship must be documented in a Data Processing Agreement (DPA). Sub-processors must be listed and consented to. Data transfers outside the EU require additional safeguards under Chapter V of the GDPR. Any data breach at the cloud provider must be reported. For companies in regulated sectors — healthcare, finance, legal, government — these requirements often make cloud AI processing of sensitive documents legally untenable or operationally impractical. Local AI processing eliminates this category of risk entirely.
+        </p>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section id="use-cases" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Enterprise Use Cases · Real-World Applications</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Six Enterprise Use Cases for AI Document Ingestion</h2>
+
+      <div class="space-y-8">
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🧾</span>
+            <h3 class="text-xl font-bold font-display text-white">1. Invoice Processing (Accounts Payable Automation)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>Invoice processing is the most common and highest-volume use case. A company receiving 500 invoices per month from multiple suppliers, in multiple formats, can configure DataUnchain to monitor the accounts payable inbox and automatically extract supplier name, invoice number, date, amounts, VAT details, payment terms, and IBAN. The system validates the mathematics (net + VAT = gross), checks the supplier's VAT number against the company's vendor master, and posts the result directly to the ERP.</p>
+            <p>Documents that pass all validation are dispatched within seconds of receipt. Documents with anomalies — unusually high amounts, unrecognised suppliers, mathematical discrepancies — are routed to the NEEDS_REVIEW queue with a notification to the accounts payable manager. The human reviews only the exceptions. Processing time drops from hours to minutes.</p>
+            <p><strong class="text-brand-tealLight">Supported output:</strong> SAP Business One, Odoo, Zucchetti, TeamSystem, Mexal, Fatture in Cloud, FatturaPA XML, CSV/Excel.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">📋</span>
+            <h3 class="text-xl font-bold font-display text-white">2. Contract Ingestion (CRM Enrichment)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>Sales and legal teams sign dozens of contracts per month. Each signed contract contains critical commercial data — contract value, term start and end dates, renewal clauses, payment milestones, counterparty details — that needs to be recorded in the CRM to trigger renewal reminders, revenue recognition entries, and customer success workflows.</p>
+            <p>Manually transcribing contract data into Salesforce or HubSpot is time-consuming and error-prone, especially for complex multi-page agreements. AI document ingestion processes the signed PDF the moment it arrives in a designated folder or inbox, extracts the key commercial fields, and creates or updates the corresponding CRM record automatically. The sales rep gets a notification confirming the contract has been processed, with a link to the enriched CRM entry.</p>
+            <p><strong class="text-brand-tealLight">Supported output:</strong> Salesforce, HubSpot, Airtable, Notion, webhook to any CRM with API.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🚚</span>
+            <h3 class="text-xl font-bold font-display text-white">3. DDT and Logistics Document Routing</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>In Italian commerce, the Documento di Trasporto (DDT — delivery note) accompanies every physical shipment. When goods arrive, the warehouse team receives a paper DDT that must be matched against the corresponding purchase order in the ERP, and then the goods receipt must be posted. This three-way matching process (purchase order + DDT + invoice) is a major source of delay and error in accounts payable.</p>
+            <p>AI document ingestion automates the DDT reading step: the document is photographed on arrival (via mobile app or scanner), processed within seconds, and the structured data is posted to the ERP. The system flags any quantity or item discrepancies between the DDT and the purchase order, enabling the warehouse manager to resolve issues before the goods are put away — not three weeks later when the invoice arrives.</p>
+            <p><strong class="text-brand-tealLight">Supported document types:</strong> DDT, CMR (international road transport), Bill of Lading, packing lists, customs clearance documents.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🏥</span>
+            <h3 class="text-xl font-bold font-display text-white">4. Medical Records and Reports (Healthcare)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>Healthcare providers and occupational health services deal with large volumes of medical documentation: specialist reports, laboratory results, diagnostic imaging reports, prescriptions, and discharge summaries. Each document contains structured clinical data that needs to be recorded in the patient management system.</p>
+            <p>The privacy requirements in healthcare are among the most stringent in any sector. Health data (special category data under GDPR Article 9) cannot be processed by cloud services without explicit lawful basis and extensive documentation. Local AI processing is not just a convenience for healthcare — it is often the only architecturally compliant approach. DataUnchain can run in a fully air-gapped clinical network with no internet connectivity, processing sensitive patient documents entirely within the organisation's perimeter.</p>
+            <p><strong class="text-brand-tealLight">Compliance note:</strong> On-premise deployment satisfies NIS2, ISO 27001, and healthcare-specific national data protection requirements without requiring cloud DPAs or sub-processor notifications.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">👔</span>
+            <h3 class="text-xl font-bold font-display text-white">5. HR Documents (Pay Slips, Employment Contracts)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>HR teams process hundreds of documents per month: new hire contracts, employment amendments, pay slips from payroll providers, expense claims, training certifications, and termination documents. Each document triggers downstream workflows in the HRIS, payroll system, or document management system.</p>
+            <p>Pay slip processing is a particularly high-volume, structured use case. Pay slips follow consistent formats per payroll provider. The system extracts gross pay, net pay, deductions, INPS contributions, IRPEF withholding, and banking details, then reconciles against the payroll journal. Discrepancies are flagged immediately rather than discovered during the monthly close.</p>
+            <p>Employment contracts are processed to extract key terms — start date, role, salary, probation period, notice period — and populate the HRIS record automatically, reducing HR administration time from hours to minutes per new hire.</p>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 card-glow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="text-2xl">🏛️</span>
+            <h3 class="text-xl font-bold font-display text-white">6. Tax and Compliance Documents (F24, CUD, Customs)</h3>
+          </div>
+          <div class="text-gray-300 leading-relaxed space-y-3">
+            <p>Finance and compliance teams manage a calendar of tax obligations that generate large volumes of structured documents: F24 payment forms (Italian tax payment slips), CUD and CU (Certificazione Unica — annual tax certifications for employees and contractors), Intrastat declarations, customs declarations (DAU/SAD forms), and Agenzia delle Entrate communications.</p>
+            <p>These documents contain highly structured data with well-defined field locations and strong format constraints. AI document ingestion extracts amounts, tax codes, payment periods, and reference numbers, then cross-checks against the accounting records and flags discrepancies. The audit trail — who received the document, when it was processed, what values were extracted, whether validation passed — provides the documentation required for tax authority inspections.</p>
+            <p><strong class="text-brand-tealLight">Customs note:</strong> Import and export customs declarations (MRN, customs value, HS codes, duty amounts) can be ingested and routed to trade compliance systems, significantly reducing the administrative burden of post-clearance reconciliation.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Privacy · GDPR · Architecture</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Privacy-First AI: Why Local Processing Matters</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Why GDPR-Conscious Companies Can't Send Documents to the Cloud</h3>
+        <p>
+          The General Data Protection Regulation establishes specific obligations whenever personal data is transferred to a processor (Article 28) or to a third country (Chapter V). Most AI document processing services are operated by US-based companies. Sending a European citizen's pay slip, medical report, or employment contract to a US-based AI API constitutes a personal data transfer that requires legal safeguards — Standard Contractual Clauses (SCCs), Binding Corporate Rules (BCRs), or an adequacy decision.
+        </p>
+        <p>
+          Even with SCCs in place, many data protection officers (DPOs) are uncomfortable with the practical reality: the document is processed on servers outside the organisation's control, by a service whose sub-processors may change, in a jurisdiction where government access to data may occur without notification. For organisations in healthcare, legal, financial services, or government, this is often categorically unacceptable.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">Architecture of a Zero-Egress System</h3>
+        <p>
+          DataUnchain is designed as a zero-egress system by architecture, not by policy. No document pixels, no extracted text, no intermediate processing artifacts ever leave the machine (or the local network) on which the system runs. The AI model (Qwen 2.5-VL via Ollama) runs as a local process. API calls are made only to the local Ollama server's loopback address. The integration adapters send structured data (field values, not document images) to the configured output systems — and even these can be restricted to internal systems only.
+        </p>
+        <p>
+          The system can operate in a fully air-gapped configuration: no internet connectivity at all. In this mode, all software updates are applied via physical media, and all output goes to on-premise systems (ERP, local database, network share). This configuration is suitable for classified environments, high-security industrial settings, and healthcare networks that operate behind strict network perimeters.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">What "Local LLM" Means in Practice</h3>
+        <p>
+          Running a large language model locally means that the model weights — the trained neural network parameters — are stored on the local machine's GPU or CPU memory. When a document is processed, the model is invoked directly via the Ollama API on localhost, produces its response, and that is the end of the inference step. No network call is made. No telemetry is sent. The model has no mechanism to exfiltrate data because it is not connected to anything outside the host machine.
+        </p>
+        <p>
+          Qwen 2.5-VL is an open-weights model published by Alibaba Cloud and downloadable from Hugging Face. The weights can be verified by hash. The inference stack (Ollama) is open-source and auditable. Organisations with security requirements can conduct their own code review of the entire stack that touches their documents.
+        </p>
+      </div>
+
+      <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
+        <strong class="text-brand-tealLight">KEY INSIGHT:</strong>
+        <p class="text-gray-300 mt-2">Local AI processing is not a trade-off of capability for privacy. Modern open-weights vision-language models such as Qwen 2.5-VL achieve document understanding quality comparable to GPT-4V on structured business documents — while providing absolute data sovereignty. The gap between cloud and local AI quality has effectively closed for enterprise document processing use cases.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+        <div class="bg-brand-surface rounded-2xl p-5 border border-white/5 text-center">
+          <div class="text-3xl mb-3">🔒</div>
+          <div class="font-bold text-white mb-2">GDPR Article 28</div>
+          <p class="text-gray-400 text-sm">No processor relationship required — no DPA, no sub-processor list, no cross-border transfer documentation.</p>
+        </div>
+        <div class="bg-brand-surface rounded-2xl p-5 border border-white/5 text-center">
+          <div class="text-3xl mb-3">🏠</div>
+          <div class="font-bold text-white mb-2">On-Premise Only</div>
+          <p class="text-gray-400 text-sm">Document pixels and extracted data never leave your network perimeter. Air-gap compatible.</p>
+        </div>
+        <div class="bg-brand-surface rounded-2xl p-5 border border-white/5 text-center">
+          <div class="text-3xl mb-3">📋</div>
+          <div class="font-bold text-white mb-2">Audit Trail</div>
+          <p class="text-gray-400 text-sm">Full processing log: who sent what, when it was processed, what was extracted, validation result, where it was dispatched.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LESSONS LEARNED -->
+    <section id="lessons" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Real-World Experience · Engineering Notes</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">What We Learned Building a Production Document Ingestion System</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">The Most Common Failure Modes</h3>
+        <p>
+          Building a document ingestion system that works in a laboratory against clean, well-formatted PDFs is straightforward. Making it reliable against the full chaos of real enterprise documents is a different problem. The failure modes we encounter most frequently:
+        </p>
+      </div>
+
+      <div class="space-y-4 my-6">
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Poor scan quality</div>
+            <p class="text-gray-400 text-sm">Documents scanned at 72 DPI, skewed 15 degrees, printed on a faded ribbon printer, and then scanned again. The AI handles these better than OCR, but there is a quality floor below which even a vision model cannot reliably read text. Solution: pre-processing pipeline with automatic deskewing, contrast enhancement, and resolution upscaling before AI inference.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Mixed layouts within a single PDF</div>
+            <p class="text-gray-400 text-sm">A supplier who sends a two-page invoice where page 1 is the cover sheet (summary, payment instructions) and page 2 is the itemised detail. The totals are on page 1, the line items are on page 2. Single-page processing misses the relationship. Solution: multi-page context window prompting and result aggregation across pages.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Ambiguous field labels</div>
+            <p class="text-gray-400 text-sm">Some suppliers label the total amount "Importo Totale," others "Totale Fattura," others "Totale a Pagare," others simply "TOTALE." Some invoices have both a "Total" and a "Total Due" (after applying early payment discounts). The AI generally resolves this correctly, but edge cases require prompt refinement and validation logic to catch amount-field confusion.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Handwritten values on printed forms</div>
+            <p class="text-gray-400 text-sm">Particularly common in DDTs and expense claims: a printed form with blank fields filled in by hand. The AI handles printed text more reliably than handwriting. Handwritten number recognition has a higher error rate, which is why confidence scoring and human-in-the-loop review are important for document types where handwriting is common.</p>
+          </div>
+        </div>
+        <div class="flex gap-4 items-start">
+          <div class="w-2 h-2 rounded-full bg-green-400 mt-2 flex-shrink-0"></div>
+          <div>
+            <div class="font-bold text-white text-sm mb-1">Duplicate document submissions</div>
+            <p class="text-gray-400 text-sm">The same invoice arrives three times: once forwarded by the supplier via email, once scanned by the receiving clerk, once uploaded manually by the accounts payable assistant. SHA-256 deduplication at ingestion catches exact duplicates. Near-duplicates (same document, different scan quality) are caught by invoice number + supplier + date uniqueness checks at validation time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
+        <h3 class="text-xl font-bold font-display text-white">Why Confidence Scoring Matters</h3>
+        <p>
+          AI extraction is not binary — it is not either correct or incorrect. The model produces a result along with an estimate of how confident it is in that result. A confidence score of 0.98 for a VAT number extraction means the model is highly certain. A score of 0.61 means the model extracted something, but it is not sure. These are very different situations, and treating them identically — auto-dispatching both — would be a design error.
+        </p>
+        <p>
+          The confidence threshold system routes documents based on their aggregate confidence profile. A document where all fields score above 0.90 is auto-dispatched. A document with one field scoring below 0.75 is queued for human review of that specific field. This means the human reviewer sees only the uncertain extractions, pre-highlighted, rather than having to re-read the entire document. Review time is measured in seconds, not minutes.
+        </p>
+        <p>
+          Over time, patterns in review decisions can be used to improve the system. If reviewers consistently correct "Importo Netto" to be treated as the subtotal rather than the total, that correction can be fed back into the prompt or post-processing rules. The system learns from exceptions without requiring full model retraining.
+        </p>
+
+        <h3 class="text-xl font-bold font-display text-white">The Importance of Human-in-the-Loop</h3>
+        <p>
+          A common mistake in automation projects is designing for the average case and leaving edge cases unhandled. In document processing, edge cases are not rare — they are a predictable percentage of every document stream. A system without a well-designed human review workflow will either fail silently (processing errors go unnoticed until month-end reconciliation) or require someone to manually check every document regardless of quality (defeating the purpose of automation).
+        </p>
+        <p>
+          Human-in-the-loop design means: documents are routed to human review when they need it, the review interface shows exactly what needs attention, the reviewer's corrections are recorded, and the corrected output proceeds automatically. The human is a quality gate, not a processing step. This design allows automation to handle 85-95% of documents fully automatically while maintaining 100% accuracy across the board.
+        </p>
+      </div>
+    </section>
+
+    <!-- IMPLEMENTATION -->
+    <section id="implementation" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Implementation Guide · Deployment</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">How to Deploy AI Document Ingestion</h2>
+
+      <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-4 mb-8">
+        <p>Deploying a production-grade AI document ingestion system is a five-step process. Each step has well-defined inputs, outputs, and success criteria.</p>
+      </div>
+
+      <div class="space-y-6">
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black">1</div>
+            <h3 class="text-lg font-bold font-display text-white">Hardware Selection</h3>
+          </div>
+          <div class="text-gray-300 text-sm leading-relaxed space-y-2">
+            <p>Hardware requirements scale with document volume. DataUnchain is available in three tiers:</p>
+            <div class="overflow-x-auto mt-4">
+              <table class="w-full text-xs text-left">
+                <thead><tr class="border-b border-white/10 text-gray-400"><th class="pb-2 pr-6">Tier</th><th class="pb-2 pr-6">Hardware Cost</th><th class="pb-2 pr-6">Annual Support</th><th class="pb-2 pr-6">Volume</th><th class="pb-2">Best for</th></tr></thead>
+                <tbody class="text-gray-300">
+                  <tr class="border-b border-white/5"><td class="py-2 pr-6 text-brand-tealLight font-medium">Mini</td><td class="py-2 pr-6">€3,000–4,000</td><td class="py-2 pr-6">€900–1,500/yr</td><td class="py-2 pr-6">Up to 2,000 docs/mo</td><td class="py-2">SMBs, pilot projects</td></tr>
+                  <tr class="border-b border-white/5"><td class="py-2 pr-6 text-brand-tealLight font-medium">Pro</td><td class="py-2 pr-6">€6,000–9,000</td><td class="py-2 pr-6">€2,000–3,500/yr</td><td class="py-2 pr-6">Up to 10,000 docs/mo</td><td class="py-2">Mid-market companies</td></tr>
+                  <tr><td class="py-2 pr-6 text-brand-tealLight font-medium">Enterprise</td><td class="py-2 pr-6">€15,000+</td><td class="py-2 pr-6">€5,000+/yr</td><td class="py-2 pr-6">Unlimited</td><td class="py-2">Large enterprises, multi-site</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black">2</div>
+            <h3 class="text-lg font-bold font-display text-white">Document Type Configuration</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Define which document types the system will handle and what fields to extract for each. DataUnchain supports 30+ document types out of the box with pre-built extraction schemas. Custom document types can be configured by defining the target fields and providing example documents for prompt tuning. No code changes are required for new document type configuration.</p>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-teal/20 border border-brand-teal/30 flex items-center justify-center text-brand-tealLight font-black">3</div>
+            <h3 class="text-lg font-bold font-display text-white">Output Adapter Setup</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Configure the integration adapters that will receive validated data. Each adapter requires its own credentials and field mapping: ERP adapters need the target chart of accounts, CRM adapters need field mapping between extracted document fields and CRM object properties, notification adapters need channel IDs or email addresses. Configuration is managed via a structured JSON playbook file — no programming required for standard integrations.</p>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/20 border border-brand-emerald/30 flex items-center justify-center text-brand-emeraldLight font-black">4</div>
+            <h3 class="text-lg font-bold font-display text-white">Testing and Validation</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Before go-live, run a representative sample of 100–200 historical documents through the system with output adapters in dry-run mode (data is extracted and validated but not dispatched). Review the accuracy report: what percentage of documents were classified correctly, what was the average confidence score, how many required human review. Adjust confidence thresholds based on acceptable auto-dispatch rates for your specific document mix and risk tolerance.</p>
+        </div>
+
+        <div class="bg-brand-surface rounded-2xl p-6 border border-brand-teal/10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 rounded-full bg-brand-emerald/20 border border-brand-emerald/30 flex items-center justify-center text-brand-emeraldLight font-black">5</div>
+            <h3 class="text-lg font-bold font-display text-white">Go-Live and Monitoring</h3>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">Enable live processing with output adapters active. Monitor the audit dashboard for the first two weeks: track auto-dispatch rate, review queue depth, adapter error rates, and processing latency. Expect the review queue to be larger in the first days as edge cases that did not appear in the test sample emerge. Each reviewed document refines your understanding of where thresholds should sit. After 30 days, most production deployments stabilise at 85–95% fully automatic processing with the remainder correctly routed to human review.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mb-20 reveal">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">FAQ · Common Questions</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Frequently Asked Questions</h2>
+
+      <div class="space-y-4">
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">What document formats are supported?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>DataUnchain supports PDF (native and scanned), JPEG, PNG, and TIFF as primary input formats. Multi-page PDFs are handled natively — each page is processed independently and results are merged. Email attachments in these formats are accepted directly. Structured electronic formats such as FatturaPA XML (Italian e-invoices from SDI) are parsed programmatically rather than through AI vision, achieving 100% accuracy for compliant files. Password-protected PDFs are quarantined and flagged for manual handling.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">How accurate is AI document extraction?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Accuracy depends heavily on document quality and type. For high-quality PDFs (native PDF, not scanned), extraction accuracy for key fields (amounts, dates, names, VAT numbers) consistently exceeds 95% in production deployments. For scanned documents with good scan quality (150+ DPI, well-oriented), accuracy is typically 88–94%. For poor-quality scans, accuracy drops and confidence scores drop with it — these documents are correctly routed to human review. The confidence scoring system means that "auto-dispatched" documents have substantially higher accuracy than the population average — by design, uncertain extractions are not auto-dispatched.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">How does it handle documents in different languages?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Qwen 2.5-VL is a multilingual model trained on data in dozens of languages including Italian, English, French, German, Spanish, and others. It handles Italian-language documents natively, which is important for our primary market. Cross-language documents — a German supplier invoice in German received by an Italian company — are handled correctly: the model reads the German text, understands the document structure, and outputs structured data regardless of the source language. Language detection is automatic; no configuration is required per language.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">What happens when extraction fails?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>The system has multiple failure modes, each handled differently. If the AI returns a low-confidence extraction, the document is routed to NEEDS_REVIEW with the uncertain fields highlighted. If validation fails (mathematical inconsistency, invalid VAT number format), the document is flagged NEEDS_REVIEW with a specific error message. If the document cannot be parsed at all (corrupted file, unsupported format), it is quarantined and an alert is sent to the operations team. If an output adapter fails after successful extraction, the document enters a retry queue with exponential backoff. In every case, the document is either processed correctly or explicitly surfaced to a human. Nothing is silently lost.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">How does it integrate with existing systems?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>DataUnchain integrates via 18 pre-built output adapters covering the most common CRM, ERP, and notification platforms. For systems not covered by a pre-built adapter, the webhook adapter can send validated data as a JSON POST to any REST endpoint — making it compatible with virtually any modern platform. For legacy systems without REST APIs, the RPA Playwright adapter can drive a browser to interact with web interfaces. For file-based integrations, CSV and Excel export adapters produce structured files in configurable formats. New adapters can be developed as Python modules following the adapter interface specification.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Is it compliant with GDPR?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>DataUnchain is GDPR-compliant by architecture. Because all processing occurs on-premise with no external data transfers, the system does not require a Data Processing Agreement with a cloud provider, does not involve cross-border data transfers, and does not create a sub-processor relationship. The organisation retains full data controllership. The built-in audit log satisfies Article 30 record-keeping requirements. Data retention policies can be configured to automatically delete processed document images after a configurable period, supporting data minimisation principles. For healthcare and other special-category data (GDPR Article 9), on-premise processing is typically the only architecturally defensible approach.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">How long does processing take?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>End-to-end processing time — from document reception to data appearing in the output system — is typically 15 to 45 seconds per page on the Mini hardware tier, and 5 to 15 seconds per page on Pro and Enterprise tiers (which have more powerful GPUs). A standard single-page invoice is processed in under 30 seconds in most configurations. Multi-page documents are processed page by page and results merged; a five-page contract takes 2 to 3 minutes. Processing is asynchronous — documents are queued and processed in parallel up to the hardware's concurrency limit. During peak periods, queue depth increases but no documents are dropped.</p>
+          </div>
+        </details>
+
+        <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+          <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+            <span class="font-bold text-white">Can it handle documents it has never seen before?</span>
+            <span class="text-brand-tealLight text-xl font-light">+</span>
+          </summary>
+          <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+            <p>Yes. Unlike template-based systems, DataUnchain does not require prior exposure to a document layout to extract from it. The underlying vision-language model generalises from its training to understand new document structures. A new supplier's invoice — with a layout the system has never encountered — is processed on first receipt, typically with extraction quality comparable to familiar layouts. For document types that are structurally very different from common business documents, the extraction schema and prompt can be tuned to improve results, but this is an optimisation step, not a prerequisite for basic functionality.</p>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <div class="mt-16 pt-8 border-t border-white/10">
+      <div class="bg-gradient-to-r from-brand-teal/20 to-brand-emerald/20 border border-brand-teal/30 rounded-3xl p-8 text-center">
+        <h3 class="text-2xl font-black font-display text-white mb-3">Ready to automate your document workflows?</h3>
+        <p class="text-gray-400 mb-6">DataUnchain processes your documents locally. No cloud, no data exposure, no subscriptions.</p>
+        <a href="mailto:info@dataunchain.com?subject=Demo Request — DataUnchain" class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold rounded-full hover:opacity-90 transition-opacity">Request a Demo →</a>
+      </div>
+    </div>
+
+  </div>
+</article>
