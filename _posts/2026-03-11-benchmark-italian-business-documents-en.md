@@ -487,7 +487,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <p>Numeric fields are evaluated with a tolerance of &plusmn;&euro;0.50 to account for rounding conventions. Date fields require exact match in ISO 8601 format (YYYY-MM-DD). String fields (VAT numbers, fiscal codes, document references) require exact match. Classification is evaluated as correct or incorrect with no partial credit.</p>
 
-        <p>The benchmark methodology is fully documented. If you want to validate these results on your own document corpus as part of a proof-of-concept engagement, <a href="mailto:info@dataunchain.com?subject=Pilot Request — DataUnchain" class="text-brand-tealLight hover:underline">contact us</a> &mdash; we run structured pilots with prospective clients on their own documents under NDA.</p>
+        <p>The benchmark methodology is fully documented. If you want to validate these results on your own document corpus as part of a proof-of-concept engagement, <a href="/en/pricing/" class="text-brand-tealLight hover:underline">contact us</a> &mdash; we run structured pilots with prospective clients on their own documents under NDA.</p>
 
         <h2 class="text-2xl font-black font-display text-white">What comes next</h2>
 
@@ -513,7 +513,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
         <div class="text-2xl font-black text-white mb-2">Want to see it on your documents?</div>
         <p class="text-gray-400 mb-6">We run structured pilots with invoices, payslips, and contracts from your organization &mdash; under NDA, on your infrastructure.</p>
         <div class="flex flex-wrap justify-center gap-3">
-            <a href="mailto:info@dataunchain.com?subject=Pilot Request — DataUnchain" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity">Request a Pilot &rarr;</a>
+            <a href="/en/pricing/" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:opacity-90 transition-opacity">Request a Pilot &rarr;</a>
             <a href="/en/docs/" class="text-brand-tealLight font-bold px-6 py-3 rounded-xl border border-brand-teal/30 hover:bg-brand-teal/10 transition-colors">Read the Docs</a>
         </div>
     </div>
