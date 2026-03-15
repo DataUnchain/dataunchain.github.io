@@ -579,7 +579,7 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
 
             <p>I campi numerici vengono valutati con una tolleranza di &plusmn;&euro;0.50. I campi data richiedono corrispondenza esatta in formato ISO 8601 (AAAA-MM-GG). I campi stringa (P.IVA, Codice Fiscale, riferimenti documento) richiedono corrispondenza esatta. La classificazione &egrave; valutata come corretta o errata senza punteggio parziale.</p>
 
-            <p>Se vuoi verificare questi risultati sul tuo parco documentale specifico nell&rsquo;ambito di un proof-of-concept, <a href="/it/contatti/" class="text-brand-tealLight hover:underline">contattaci</a> &mdash; conduciamo pilot strutturati con i potenziali clienti sui loro documenti reali, sotto NDA, sulla loro infrastruttura.</p>
+            <p>Se vuoi verificare questi risultati sul tuo parco documentale specifico nell&rsquo;ambito di un proof-of-concept, <a href="mailto:info@dataunchain.com?subject=Richiesta Pilot — DataUnchain" class="text-brand-tealLight hover:underline">contattaci</a> &mdash; conduciamo pilot strutturati con i potenziali clienti sui loro documenti reali, sotto NDA, sulla loro infrastruttura.</p>
 
         </div>
 
@@ -613,7 +613,7 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
             <div class="text-2xl font-black text-white mb-2">Vuoi testarlo sui tuoi documenti?</div>
             <p class="text-gray-400 mb-6">Conduciamo pilot strutturati con fatture, buste paga e contratti della tua organizzazione &mdash; sotto NDA, sulla tua infrastruttura.</p>
             <div class="flex flex-wrap justify-center gap-3">
-                <a href="/it/contatti/" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:bg-brand-teal/80 transition-colors">Richiedi un Pilot &rarr;</a>
+                <a href="mailto:info@dataunchain.com?subject=Richiesta Pilot — DataUnchain" class="bg-brand-teal text-white font-bold px-6 py-3 rounded-xl hover:bg-brand-teal/80 transition-colors">Richiedi un Pilot &rarr;</a>
                 <a href="/it/docs/" class="bg-white/10 text-white font-bold px-6 py-3 rounded-xl hover:bg-white/20 transition-colors">Leggi la Documentazione</a>
             </div>
         </div>
