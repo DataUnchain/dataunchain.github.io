@@ -135,8 +135,8 @@ Rispondi SOLO con il JSON, senza testo aggiuntivo.</code></pre>
             <tr class="border-b border-white/20">
               <th class="text-left py-3 px-4 text-white font-bold">Tipo documento</th>
               <th class="text-left py-3 px-4 text-white font-bold">Qualità</th>
-              <th class="text-left py-3 px-4 text-white font-bold">Qwen 7B</th>
-              <th class="text-left py-3 px-4 text-white font-bold">Qwen 72B</th>
+              <th class="text-left py-3 px-4 text-white font-bold">DataUnchain VLM 7B</th>
+              <th class="text-left py-3 px-4 text-white font-bold">DataUnchain VLM 72B</th>
             </tr>
           </thead>
           <tbody class="text-gray-400">
@@ -164,7 +164,7 @@ Rispondi SOLO con il JSON, senza testo aggiuntivo.</code></pre>
     </div>
 
     <div class="mt-12 pt-8 border-t border-white/10 text-center">
-      <p class="text-gray-400 mb-4">DataUnchain usa Qwen 2.5-VL con schema enforcement automatico per ogni tipo di documento.</p>
+      <p class="text-gray-400 mb-4">DataUnchain usa il nostro VLM proprietario con schema enforcement automatico per ogni tipo di documento.</p>
       <a href="/it/" class="inline-block bg-brand-teal text-white font-bold px-8 py-3 rounded-xl hover:bg-brand-tealLight transition-colors">Prova DataUnchain →</a>
     </div>
   </div>

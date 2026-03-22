@@ -49,7 +49,7 @@ author: Antonio Trento
                      │
 ┌────────────────────▼────────────────────────┐
 │  LAYER 3 — ESTRAZIONE AI (Vision LLM)       │
-│  Qwen 2.5-VL / LLaMA 3.2-Vision / Mistral  │
+│  il nostro VLM proprietario / LLaMA 3.2-Vision / Mistral  │
 │  Output: JSON strutturato con tutti i campi │
 └────────────────────┬────────────────────────┘
                      │
@@ -102,14 +102,14 @@ author: Antonio Trento
           </thead>
           <tbody class="text-gray-400">
             <tr class="border-b border-white/10">
-              <td class="py-3 px-4 font-mono">Qwen 2.5-VL 7B</td>
+              <td class="py-3 px-4 font-mono">DataUnchain VLM 7B</td>
               <td class="py-3 px-4">7B</td>
               <td class="py-3 px-4 text-green-400">94-96%</td>
               <td class="py-3 px-4">8 GB</td>
               <td class="py-3 px-4">~8s/doc</td>
             </tr>
             <tr class="border-b border-white/10">
-              <td class="py-3 px-4 font-mono">Qwen 2.5-VL 72B</td>
+              <td class="py-3 px-4 font-mono">DataUnchain VLM 72B</td>
               <td class="py-3 px-4">72B</td>
               <td class="py-3 px-4 text-green-400">97-98%</td>
               <td class="py-3 px-4">48 GB</td>
@@ -133,7 +133,7 @@ author: Antonio Trento
         </table>
       </div>
 
-      <p>Per la maggior parte delle PMI italiane, <strong class="text-white">Qwen 2.5-VL 7B</strong> è il punto di equilibrio ottimale: alta accuratezza, gira su una GPU RTX 4080 da €800, produce risultati in ~8 secondi per documento.</p>
+      <p>Per la maggior parte delle PMI italiane, <strong class="text-white">DataUnchain VLM 7B</strong> è il punto di equilibrio ottimale: alta accuratezza, gira su una GPU RTX 4080 da €800, produce risultati in ~8 secondi per documento.</p>
 
       <h2 class="text-2xl font-black font-display text-white">Layer 4: Validazione e confidence scoring</h2>
       <p>L'AI può sbagliare. Un sistema robusto non si fida ciecamente dell'output dell'AI, ma lo verifica con regole deterministiche:</p>
@@ -219,7 +219,7 @@ author: Antonio Trento
             <span class="text-brand-tealLight font-black text-lg">03</span>
             <h3 class="text-white font-bold">Deploy infrastruttura</h3>
           </div>
-          <p class="text-gray-400 text-sm">Server con GPU (RTX 4080 16GB per Qwen 7B), Docker + Ollama per il modello AI, Docker per il sistema DataUnchain. Per ambienti cloud-privato: VM AWS/Azure con GPU instance.</p>
+          <p class="text-gray-400 text-sm">Server con GPU (RTX 4080 16GB per DataUnchain VLM 7B), Docker + Ollama per il modello AI, Docker per il sistema DataUnchain. Per ambienti cloud-privato: VM AWS/Azure con GPU instance.</p>
         </div>
         <div class="bg-gray-900/60 border border-white/10 rounded-lg p-5">
           <div class="flex items-center gap-3 mb-2">
@@ -252,7 +252,7 @@ author: Antonio Trento
       </div>
 
       <h2 class="text-2xl font-black font-display text-white">Performance e ROI atteso</h2>
-      <p>Benchmark reali su documenti italiani con Qwen 2.5-VL 7B (RTX 4080):</p>
+      <p>Benchmark reali su documenti italiani con DataUnchain VLM 7B (RTX 4080):</p>
       <ul class="space-y-2 text-gray-400">
         <li>⏱️ <strong class="text-white">Tempo medio elaborazione:</strong> 8-12 secondi per documento (PDF nativo), 15-20 secondi (scansione)</li>
         <li>🎯 <strong class="text-white">Accuratezza fatture digitali:</strong> 96-98% sui campi principali</li>
@@ -282,7 +282,7 @@ author: Antonio Trento
 
       <details class="border border-white/10 rounded-lg p-4">
         <summary class="text-white font-bold cursor-pointer">L'AI può gestire fatture di fornitori esteri (in lingua diversa dall'italiano)?</summary>
-        <p class="text-gray-400 mt-3 text-sm">Sì. I Vision Language Model moderni gestiscono nativamente più lingue. Qwen 2.5-VL 7B è particolarmente forte su documenti in inglese, tedesco, francese e spagnolo oltre all'italiano. Per lingue più rare o formati molto diversi (caratteri cinesi, arabi), l'accuratezza può scendere al 85-90%.</p>
+        <p class="text-gray-400 mt-3 text-sm">Sì. I Vision Language Model moderni gestiscono nativamente più lingue. DataUnchain VLM 7B è particolarmente forte su documenti in inglese, tedesco, francese e spagnolo oltre all'italiano. Per lingue più rare o formati molto diversi (caratteri cinesi, arabi), l'accuratezza può scendere al 85-90%.</p>
       </details>
 
       <details class="border border-white/10 rounded-lg p-4 mt-3">
@@ -297,7 +297,7 @@ author: Antonio Trento
 
       <details class="border border-white/10 rounded-lg p-4 mt-3">
         <summary class="text-white font-bold cursor-pointer">Quante GPU servono per elaborare 5.000 documenti al giorno?</summary>
-        <p class="text-gray-400 mt-3 text-sm">Con Qwen 7B su RTX 4080: ~8s/documento. 5.000 doc/giorno = 5.000 × 8s = 40.000 secondi = ~11 ore. Una singola GPU riesce a gestire questo volume elaborando in sequenza durante le ore lavorative. Per picchi più alti, è possibile parallelizzare su 2-3 GPU o usare il modello in parallelo con batch processing.</p>
+        <p class="text-gray-400 mt-3 text-sm">Con DataUnchain VLM 7B su RTX 4080: ~8s/documento. 5.000 doc/giorno = 5.000 × 8s = 40.000 secondi = ~11 ore. Una singola GPU riesce a gestire questo volume elaborando in sequenza durante le ore lavorative. Per picchi più alti, è possibile parallelizzare su 2-3 GPU o usare il modello in parallelo con batch processing.</p>
       </details>
 
     </div>

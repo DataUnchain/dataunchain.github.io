@@ -73,7 +73,7 @@ LAYER 2: PARSING
 
 LAYER 3: AI UNDERSTANDING
 ─────────────────────────────────────────────────────────
-  Images  →  Qwen 2.5-VL  →  Raw JSON extraction
+  Images  →  our proprietary VLM  →  Raw JSON extraction
   (Ollama local, vision-language model, structured prompt)
 
 LAYER 4: VALIDATION
@@ -101,7 +101,7 @@ LAYER 5: INTEGRATION
 
       <p>The parsing layer converts received documents into a format the AI model can consume. For vision-language models, this means images — specifically, rendering each page of a PDF as a high-resolution image.</p>
 
-      <p>The key parameters that matter here: DPI (dots per inch) for PDF rendering, color space (RGB vs grayscale), and image format. For Qwen 2.5-VL, 200 DPI renders sufficient detail for most documents while keeping image sizes manageable. 150 DPI saves compute but loses detail on small text and stamps. 300 DPI captures everything but increases processing time significantly.</p>
+      <p>The key parameters that matter here: DPI (dots per inch) for PDF rendering, color space (RGB vs grayscale), and image format. For our proprietary VLM, 200 DPI renders sufficient detail for most documents while keeping image sizes manageable. 150 DPI saves compute but loses detail on small text and stamps. 300 DPI captures everything but increases processing time significantly.</p>
 
       <p>The parsing layer must also handle: password-protected PDFs (reject with appropriate status), corrupted files (catch exceptions, route to dead-letter), zero-byte files (reject immediately), non-PDF inputs (images, DOCX — convert or reject depending on capability), and multi-page documents (produce an ordered array of images).</p>
 
@@ -172,13 +172,13 @@ LAYER 5: INTEGRATION
 
       <p>This distinction is why vision-language models can generalize across document formats while template OCR cannot. The model is not memorizing coordinates — it is learning visual patterns that generalize.</p>
 
-      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Qwen 2.5-VL</h3>
+      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">our proprietary VLM</h3>
 
-      <p>Qwen 2.5-VL from Alibaba is the current leading open-weight vision-language model for document understanding tasks. It runs locally via Ollama, meaning no document ever leaves the machine. On document extraction benchmarks it performs comparably to GPT-4V on structured document tasks (invoices, forms, tables) while being significantly faster in local deployment than sending documents to a cloud API with round-trip latency.</p>
+      <p>our proprietary VLM from Alibaba is the current leading open-weight vision-language model for document understanding tasks. It runs locally via Ollama, meaning no document ever leaves the machine. On document extraction benchmarks it performs comparably to GPT-4V on structured document tasks (invoices, forms, tables) while being significantly faster in local deployment than sending documents to a cloud API with round-trip latency.</p>
 
       <p>Hardware requirements: 7B parameter version requires approximately 8 GB VRAM and runs comfortably on a modern NVIDIA GPU (RTX 3080 or better). CPU-only inference is possible but slow — roughly 45–90 seconds per page versus 3–8 seconds with GPU. The 72B version offers higher accuracy on complex documents but requires 48+ GB VRAM, putting it in the data center GPU territory.</p>
 
-      <p>Performance on real invoice datasets: in DataUnchain's production deployments, Qwen 2.5-VL achieves over 96% field-level accuracy on standard commercial invoices with clear print quality. Accuracy drops to 87–92% on scanned documents with compression artifacts, and further on handwritten documents (70–80% depending on handwriting quality). These numbers are for correctly printed field values — the validation layer then catches most of the remaining errors mathematically.</p>
+      <p>Performance on real invoice datasets: in DataUnchain's production deployments, our proprietary VLM achieves over 96% field-level accuracy on standard commercial invoices with clear print quality. Accuracy drops to 87–92% on scanned documents with compression artifacts, and further on handwritten documents (70–80% depending on handwriting quality). These numbers are for correctly printed field values — the validation layer then catches most of the remaining errors mathematically.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">GPT-4V and Gemini Vision</h3>
 
@@ -334,7 +334,7 @@ def validate_invoice_math(extracted: dict) -> ValidationResult:
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Mixed Languages</h3>
 
-      <p>A German supplier invoicing an Italian customer might produce an invoice in German with some Italian translations. An import/export business receives invoices in Chinese, Japanese, Arabic, and English in the same week. Qwen 2.5-VL handles this well — it is multilingual by training. But the extraction prompt needs to specify what language to return extracted values in (typically the system language, not the document language), and format validation must account for locale-specific number formats (1.000,00 in Italian/German vs 1,000.00 in English).</p>
+      <p>A German supplier invoicing an Italian customer might produce an invoice in German with some Italian translations. An import/export business receives invoices in Chinese, Japanese, Arabic, and English in the same week. our proprietary VLM handles this well — it is multilingual by training. But the extraction prompt needs to specify what language to return extracted values in (typically the system language, not the document language), and format validation must account for locale-specific number formats (1.000,00 in Italian/German vs 1,000.00 in English).</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Handwriting</h3>
 
@@ -352,7 +352,7 @@ def validate_invoice_math(extracted: dict) -> ValidationResult:
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Throughput Benchmarks</h3>
 
-      <p>On a server with an NVIDIA RTX 3090 (24 GB VRAM) running Qwen 2.5-VL 7B via Ollama, and a single-page invoice:</p>
+      <p>On a server with an NVIDIA RTX 3090 (24 GB VRAM) running DataUnchain VLM 7B via Ollama, and a single-page invoice:</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-sm text-left">
@@ -446,7 +446,7 @@ def validate_invoice_math(extracted: dict) -> ValidationResult:
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Phase 3: Set Up the AI Infrastructure (Week 2)</h3>
 
-      <p>Install Ollama and pull the Qwen 2.5-VL model. Verify GPU is recognized and used. Write a simple test script that passes one of your test documents to the model and returns a JSON extraction. Measure the time. Adjust the prompt. This is the proof of concept phase — you're verifying that the AI can extract the fields you need from your documents before building the surrounding infrastructure.</p>
+      <p>Install Ollama and pull the our proprietary VLM model. Verify GPU is recognized and used. Write a simple test script that passes one of your test documents to the model and returns a JSON extraction. Measure the time. Adjust the prompt. This is the proof of concept phase — you're verifying that the AI can extract the fields you need from your documents before building the surrounding infrastructure.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Phase 4: Build the Pipeline (Weeks 3–5)</h3>
 
@@ -493,7 +493,7 @@ def validate_invoice_math(extracted: dict) -> ValidationResult:
       <p>They go to the NEEDS_REVIEW queue, where a human reviews them using the same interface used to check AI-extracted documents. The human can correct extraction errors and approve the document for dispatch. No document is ever silently dropped — every document either passes through the system or enters the human review queue.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Can the system handle documents in multiple languages?</h3>
-      <p>Yes. Qwen 2.5-VL is multilingual and can extract data from documents in European languages, Chinese, Japanese, Arabic, and others. The extraction prompt specifies the output language (typically English or the local language of the deployment), so extracted field values are consistently formatted regardless of document language.</p>
+      <p>Yes. our proprietary VLM is multilingual and can extract data from documents in European languages, Chinese, Japanese, Arabic, and others. The extraction prompt specifies the output language (typically English or the local language of the deployment), so extracted field values are consistently formatted regardless of document language.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How long does implementation take?</h3>
       <p>For a focused deployment (single document type, single integration target, well-understood validation rules), 6–8 weeks from start to production. For broader deployments with multiple document types and multiple integration targets, 3–6 months. The critical path is usually integration with the ERP, not the AI extraction — API integration with enterprise systems is always slower than expected.</p>

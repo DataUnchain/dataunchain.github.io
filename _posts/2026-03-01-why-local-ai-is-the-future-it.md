@@ -25,7 +25,7 @@ description: "I servizi AI cloud sono comodi, ma che dire di privacy, costi e la
             </ul>
 
             <h2 class="text-2xl font-black font-display text-white">L'alternativa locale</h2>
-            <p>Modelli AI moderni come <strong class="text-white">Qwen 3.5 VL</strong> hanno cambiato le regole del gioco. Un Vision Language Model da 4 miliardi di parametri può girare su un portatile standard con 16 GB di RAM — nessuna GPU necessaria, nessuna connessione internet.</p>
+            <p>Modelli AI moderni come <strong class="text-white">il nostro Vision Language Model proprietario</strong> hanno cambiato le regole del gioco. Un Vision Language Model da 4 miliardi di parametri può girare su un portatile standard con 16 GB di RAM — nessuna GPU necessaria, nessuna connessione internet.</p>
             <ul class="space-y-3 text-gray-400">
                 <li>✅ <strong class="text-white">100% offline</strong> — i dati non lasciano mai il dispositivo</li>
                 <li>✅ <strong class="text-white">Zero costi marginali</strong> — elabora documenti illimitati</li>

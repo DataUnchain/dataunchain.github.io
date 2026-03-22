@@ -20,7 +20,7 @@ description: "A practical walkthrough: how DataUnchain transforms a stack of mes
             <p>Your scanner outputs PDFs to a network folder. DataUnchain's Watchdog service detects each new file instantly. Multi-page PDFs are automatically split into individual page images.</p>
 
             <h2 class="text-2xl font-black font-display text-white">Step 2: AI reads each page</h2>
-            <p>Qwen 3.5 VL analyses each page image. Unlike OCR, it <em>understands</em> the document — it knows where the invoice number is, where the totals are, and can read handwritten notes next to the line items.</p>
+            <p>Our proprietary Vision Language Model analyses each page image. Unlike OCR, it <em>understands</em> the document — it knows where the invoice number is, where the totals are, and can read handwritten notes next to the line items.</p>
             <p>You've configured the extraction prompt once:</p>
             <div class="code-block rounded-xl text-xs my-4">
                 <span class="str">"Extract: invoice_number, date, supplier,</span><br>

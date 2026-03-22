@@ -353,12 +353,12 @@ description: "The complete glossary of Document AI terms: document ingestion, en
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">LLM (Large Language Model)</h3>
-          <p class="text-gray-300 text-sm">A neural network model trained on massive text corpora that can generate, classify, and reason over text. In document AI, LLMs are used to extract structured data from document text (after OCR), classify document types, generate summaries, and perform semantic reasoning. The distinction between an LLM and a VLM (Vision-Language Model) is that VLMs also accept images as input, making them applicable to document images directly without a separate OCR step. Examples: GPT-4, LLaMA 3, Mistral, Qwen 2.5.</p>
+          <p class="text-gray-300 text-sm">A neural network model trained on massive text corpora that can generate, classify, and reason over text. In document AI, LLMs are used to extract structured data from document text (after OCR), classify document types, generate summaries, and perform semantic reasoning. The distinction between an LLM and a VLM (Vision-Language Model) is that VLMs also accept images as input, making them applicable to document images directly without a separate OCR step. Examples: GPT-4, LLaMA 3, Mistral.</p>
         </div>
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">Local AI</h3>
-          <p class="text-gray-300 text-sm">AI inference performed entirely on hardware owned and controlled by the organization, without transmitting data to external servers. Local AI is synonymous with on-premise AI and is distinguished from cloud AI (where data is sent to a vendor's servers for inference). Local AI is increasingly practical for document processing due to the availability of capable open-weight models (Qwen, LLaMA, Mistral) that run on consumer-grade GPUs. The primary advantages are data privacy, no recurring per-inference costs, and operation without internet connectivity.</p>
+          <p class="text-gray-300 text-sm">AI inference performed entirely on hardware owned and controlled by the organization, without transmitting data to external servers. Local AI is synonymous with on-premise AI and is distinguished from cloud AI (where data is sent to a vendor's servers for inference). Local AI is increasingly practical for document processing due to the availability of capable open-weight models (LLaMA, Mistral, and others) that run on consumer-grade GPUs. The primary advantages are data privacy, no recurring per-inference costs, and operation without internet connectivity.</p>
         </div>
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
@@ -418,7 +418,7 @@ description: "The complete glossary of Document AI terms: document ingestion, en
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">On-premise AI</h3>
-          <p class="text-gray-300 text-sm">AI model inference executed on hardware physically located within the organization's own data center or offices, with data never leaving the organization's network boundary. On-premise AI for document processing is enabled by open-weight models (Qwen, LLaMA, Mistral) served via local inference servers (Ollama, vLLM, llama.cpp). The primary benefits are data privacy, regulatory compliance, no per-inference cloud costs, and independence from internet connectivity. The primary cost is GPU hardware investment and maintenance.</p>
+          <p class="text-gray-300 text-sm">AI model inference executed on hardware physically located within the organization's own data center or offices, with data never leaving the organization's network boundary. On-premise AI for document processing is enabled by open-weight models (LLaMA, Mistral, and others) served via local inference servers (Ollama, vLLM, llama.cpp). The primary benefits are data privacy, regulatory compliance, no per-inference cloud costs, and independence from internet connectivity. The primary cost is GPU hardware investment and maintenance.</p>
         </div>
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
@@ -573,7 +573,7 @@ description: "The complete glossary of Document AI terms: document ingestion, en
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">VLM (Vision-Language Model)</h3>
-          <p class="text-gray-300 text-sm">A multi-modal neural network that processes both images and text jointly, enabling it to reason about the visual content of document pages alongside their textual content. VLMs are the state-of-the-art architecture for document AI in 2026, surpassing pipeline approaches (OCR → NER → extraction) by eliminating error propagation between stages and enabling layout-aware extraction. Leading VLMs for on-premise document processing include Qwen 2.5-VL (7B and 72B parameter variants), LLaMA 3.2-Vision, and Mistral Pixtral. DataUnchain uses Qwen 2.5-VL as its primary extraction engine.</p>
+          <p class="text-gray-300 text-sm">A multi-modal neural network that processes both images and text jointly, enabling it to reason about the visual content of document pages alongside their textual content. VLMs are the state-of-the-art architecture for document AI in 2026, surpassing pipeline approaches (OCR → NER → extraction) by eliminating error propagation between stages and enabling layout-aware extraction. Leading VLMs for on-premise document processing include LLaMA 3.2-Vision, Mistral Pixtral, and other specialized models. DataUnchain uses a proprietary VLM as its primary extraction engine.</p>
         </div>
       </div>
 
@@ -618,7 +618,7 @@ description: "The complete glossary of Document AI terms: document ingestion, en
         <li><a href="/en/how-it-works/" class="text-brand-tealLight hover:underline">How DataUnchain Works — Full pipeline walkthrough</a></li>
         <li><a href="/en/use-cases/" class="text-brand-tealLight hover:underline">Document AI Use Cases — Invoices, DDTs, contracts, and more</a></li>
         <li><a href="/en/features/" class="text-brand-tealLight hover:underline">Features — Adapters, validation, and extraction capabilities</a></li>
-        <li><a href="/en/llm-document-extraction-benchmark/" class="text-brand-tealLight hover:underline">LLM Document Extraction Benchmark — Qwen vs LLaMA vs Mistral (2026)</a></li>
+        <li><a href="/en/llm-document-extraction-benchmark/" class="text-brand-tealLight hover:underline">LLM Document Extraction Benchmark — VLMs Compared (2026)</a></li>
         <li><a href="/en/enterprise-document-ai-case-study/" class="text-brand-tealLight hover:underline">Enterprise Case Study — Processing 50,000 documents per year</a></li>
       </ul>
 

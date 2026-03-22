@@ -33,7 +33,7 @@ author: Antonio Trento
       <p>Per estrarre dati strutturati con l'OCR, serve uno strato aggiuntivo di regole: "il campo totale si trova sempre in basso a destra", "l'IVA è sempre preceduta dalla parola 'IVA'". Queste regole funzionano bene per template fissi, ma si rompono non appena cambia il layout.</p>
 
       <h2 class="text-2xl font-black font-display text-white">Come funziona un Vision Language Model</h2>
-      <p>Un VLM come Qwen 2.5-VL non "legge" il documento carattere per carattere. Lo <em>vede</em> come lo vede un umano: come un'immagine con struttura visiva, colori, disposizione degli elementi, relazioni spaziali tra i campi.</p>
+      <p>Un VLM come il nostro VLM proprietario non "legge" il documento carattere per carattere. Lo <em>vede</em> come lo vede un umano: come un'immagine con struttura visiva, colori, disposizione degli elementi, relazioni spaziali tra i campi.</p>
 
       <p>Il processo:</p>
       <ol class="space-y-2 text-gray-400 list-decimal list-inside">
@@ -87,7 +87,7 @@ author: Antonio Trento
             <tr class="border-b border-white/20">
               <th class="text-left py-3 px-4 text-white font-bold">Scenario documento</th>
               <th class="text-left py-3 px-4 text-white font-bold">Tesseract OCR + Regex</th>
-              <th class="text-left py-3 px-4 text-white font-bold">Qwen 2.5-VL 7B</th>
+              <th class="text-left py-3 px-4 text-white font-bold">DataUnchain VLM 7B</th>
             </tr>
           </thead>
           <tbody class="text-gray-400">

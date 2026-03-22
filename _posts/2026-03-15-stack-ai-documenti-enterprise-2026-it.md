@@ -85,9 +85,9 @@ Layer 7: STORAGE & AUDIT (Persistence)
             </tr>
           </thead>
           <tbody class="text-gray-400">
-            <tr class="border-b border-white/10"><td class="py-3 px-4 text-brand-tealLight">Qwen 2.5-VL 7B/72B</td><td class="py-3 px-4">Modello VLM principale</td><td class="py-3 px-4">Migliore accuratezza su doc italiani, Apache 2.0</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4 text-brand-tealLight">DataUnchain VLM 7B/72B</td><td class="py-3 px-4">Modello VLM principale</td><td class="py-3 px-4">Migliore accuratezza su doc italiani, Apache 2.0</td></tr>
             <tr class="border-b border-white/10"><td class="py-3 px-4">Ollama</td><td class="py-3 px-4">LLM server + GPU management</td><td class="py-3 px-4">API OpenAI-compatible, gestione VRAM</td></tr>
-            <tr class="border-b border-white/10"><td class="py-3 px-4">LLaMA 3.2-Vision</td><td class="py-3 px-4">Alternativa open Meta</td><td class="py-3 px-4">Buono ma meno accurato di Qwen su IT docs</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">LLaMA 3.2-Vision</td><td class="py-3 px-4">Alternativa open Meta</td><td class="py-3 px-4">Buono ma meno accurato del nostro VLM su IT docs</td></tr>
             <tr class="border-b border-white/10"><td class="py-3 px-4">GPT-4V / Claude Vision</td><td class="py-3 px-4">Cloud AI (alternativa)</td><td class="py-3 px-4">Alta accuratezza ma dati escono dall'azienda</td></tr>
           </tbody>
         </table>

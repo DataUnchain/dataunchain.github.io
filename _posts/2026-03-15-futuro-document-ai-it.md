@@ -34,7 +34,7 @@ author: Antonio Trento
             <tr class="border-b border-white/10"><td class="py-3 px-4">2000-2010</td><td class="py-3 px-4">OCR + template fissi</td><td class="py-3 px-4 text-yellow-400">30-50% (solo template fissi)</td></tr>
             <tr class="border-b border-white/10"><td class="py-3 px-4">2010-2018</td><td class="py-3 px-4">ML + form recognizer</td><td class="py-3 px-4 text-yellow-400">50-70% (layout simili)</td></tr>
             <tr class="border-b border-white/10"><td class="py-3 px-4">2018-2022</td><td class="py-3 px-4">Transformer NLP (BERT, LayoutLM)</td><td class="py-3 px-4 text-green-400">70-85%</td></tr>
-            <tr class="border-b border-white/10"><td class="py-3 px-4">2022-2025</td><td class="py-3 px-4">Vision LLM (GPT-4V, Qwen-VL)</td><td class="py-3 px-4 text-green-400">88-96%</td></tr>
+            <tr class="border-b border-white/10"><td class="py-3 px-4">2022-2025</td><td class="py-3 px-4">Vision LLM (GPT-4V, VLM locali)</td><td class="py-3 px-4 text-green-400">88-96%</td></tr>
             <tr class="border-b border-white/10"><td class="py-3 px-4">2025-oggi</td><td class="py-3 px-4">Agenti AI + pipeline autonome</td><td class="py-3 px-4 text-brand-tealLight">Verso 99%+</td></tr>
           </tbody>
         </table>

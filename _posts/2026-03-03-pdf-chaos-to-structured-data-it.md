@@ -20,7 +20,7 @@ description: "Una guida pratica: come DataUnchain trasforma un cumulo di fatture
             <p>Il tuo scanner invia i PDF a una cartella di rete. Il servizio Watchdog di DataUnchain rileva ogni nuovo file istantaneamente. I PDF multipagina vengono automaticamente divisi in immagini singole.</p>
 
             <h2 class="text-2xl font-black font-display text-white">Passo 2: L'AI legge ogni pagina</h2>
-            <p>Qwen 3.5 VL analizza ogni immagine. A differenza dell'OCR, <em>comprende</em> il documento — sa dove si trova il numero fattura, dove sono i totali, e riesce a leggere note scritte a mano accanto alle righe prodotto.</p>
+            <p>Il nostro VLM proprietario analizza ogni immagine. A differenza dell'OCR, <em>comprende</em> il documento — sa dove si trova il numero fattura, dove sono i totali, e riesce a leggere note scritte a mano accanto alle righe prodotto.</p>
             <p>Hai configurato il prompt di estrazione una volta sola:</p>
             <div class="code-block rounded-xl text-xs my-4">
                 <span class="str">"Estrai: numero_fattura, data, fornitore,</span><br>

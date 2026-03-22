@@ -1,29 +1,29 @@
 ---
 layout: default
-title: "LLM Benchmark for Document Extraction: Qwen vs LLaMA vs Mistral (2026) — DataUnchain"
+title: "LLM Benchmark for Document Extraction: VLMs Compared (2026) — DataUnchain"
 lang: en
 locale: en_US
-description: "Independent benchmark comparing LLMs for enterprise document extraction: Qwen 2.5-VL, LLaMA 3.2-Vision, Mistral Pixtral on invoices, contracts, and forms."
+description: "Independent benchmark comparing LLMs for enterprise document extraction: DataUnchain VLM, LLaMA 3.2-Vision, Mistral Pixtral on invoices, contracts, and forms."
 ---
 
 <article class="pt-36 pb-20 px-6">
   <div class="max-w-4xl mx-auto">
 
     <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Benchmark Report · 2026</span>
-    <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6">LLM Benchmark for Document Extraction: Qwen vs LLaMA vs Mistral (2026)</h1>
-    <p class="text-gray-400 text-lg leading-relaxed">A detailed benchmark of Vision-Language Models for enterprise document field extraction, conducted by the DataUnchain team. We tested Qwen 2.5-VL, LLaMA 3.2-Vision, Mistral Pixtral, and GPT-4V on 500 real European business documents across 5 document categories. All models were run on identical hardware under identical conditions.</p>
+    <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6">LLM Benchmark for Document Extraction: VLMs Compared (2026)</h1>
+    <p class="text-gray-400 text-lg leading-relaxed">A detailed benchmark of Vision-Language Models for enterprise document field extraction, conducted by the DataUnchain team. We tested DataUnchain VLM, LLaMA 3.2-Vision, Mistral Pixtral, and GPT-4V on 500 real European business documents across 5 document categories. All models were run on identical hardware under identical conditions.</p>
 
     <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
 
       <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
         <strong class="text-brand-tealLight">DISCLOSURE:</strong>
-        <p class="text-gray-300 mt-2">This benchmark was conducted by DataUnchain's engineering team using documents from our production customer base (anonymized). We are not neutral parties — Qwen 2.5-VL is the model DataUnchain uses in production. We have published methodology details and acknowledge limitations so that readers can assess the results critically. We believe the data is accurate but encourage readers to run their own evaluations on their specific document types.</p>
+        <p class="text-gray-300 mt-2">This benchmark was conducted by DataUnchain's engineering team using documents from our production customer base (anonymized). We are not neutral parties — DataUnchain VLM is the model DataUnchain uses in production. We have published methodology details and acknowledge limitations so that readers can assess the results critically. We believe the data is accurate but encourage readers to run their own evaluations on their specific document types.</p>
       </div>
 
       <!-- Introduction and Methodology -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Why We Ran This Benchmark</h2>
 
-      <p>When we built DataUnchain, we evaluated multiple Vision-Language Models for document extraction and chose Qwen 2.5-VL as our primary engine. Since then, customers consistently ask us the same questions: "Why Qwen and not LLaMA?" "How much worse is a smaller model?" "Is GPT-4V worth the cloud cost for the accuracy gain?" "What happens with low-quality scans?"</p>
+      <p>When we built DataUnchain, we evaluated multiple Vision-Language Models for document extraction and chose our proprietary VLM as our primary engine. Since then, customers consistently ask us the same questions: "Why this model and not LLaMA?" "How much worse is a smaller model?" "Is GPT-4V worth the cloud cost for the accuracy gain?" "What happens with low-quality scans?"</p>
 
       <p>We decided to run a structured benchmark to answer these questions with real data rather than intuition. The evaluation took 6 weeks, covered 500 documents, and produced the results reported here. We believe this is the most detailed publicly available comparison of current open-weight VLMs specifically for business document extraction — as opposed to general image understanding or academic OCR benchmarks that don't reflect enterprise document AI conditions.</p>
 
@@ -80,14 +80,14 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           </thead>
           <tbody class="text-gray-300">
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 7B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 7B</td>
               <td class="py-3 pr-8">7.6B</td>
               <td class="py-3 pr-8">Native</td>
               <td class="py-3 pr-8">Q4_K_M</td>
               <td class="py-3">DataUnchain primary model</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 72B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 72B</td>
               <td class="py-3 pr-8">72.7B</td>
               <td class="py-3 pr-8">Native</td>
               <td class="py-3 pr-8">Q4_K_M</td>
@@ -148,7 +148,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           <thead>
             <tr class="border-b border-white/10 text-gray-400">
               <th class="pb-3 pr-8 font-medium">Field</th>
-              <th class="pb-3 pr-8 font-medium">Qwen 2.5-VL 7B</th>
+              <th class="pb-3 pr-8 font-medium">DataUnchain VLM 7B</th>
               <th class="pb-3 pr-8 font-medium">LLaMA 3.2-Vision</th>
               <th class="pb-3 pr-8 font-medium">Mistral Pixtral</th>
               <th class="pb-3 font-medium">GPT-4V</th>
@@ -229,7 +229,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         </table>
       </div>
 
-      <p><strong class="text-white">Analysis:</strong> Qwen 2.5-VL 7B is a clear leader among open-weight models, approaching GPT-4V on most fields. The gap is most pronounced on line item extraction (87.4% vs 91.2%) and VAT number recognition (95.6% vs 97.2%). LLaMA 3.2-Vision and Mistral Pixtral perform similarly to each other, with Mistral showing slightly lower accuracy across all fields. The 5–8 percentage point gap between Qwen and LLaMA/Mistral is significant in production: on 50,000 documents per year, it translates to hundreds of additional errors requiring human review.</p>
+      <p><strong class="text-white">Analysis:</strong> DataUnchain VLM 7B is a clear leader among open-weight models, approaching GPT-4V on most fields. The gap is most pronounced on line item extraction (87.4% vs 91.2%) and VAT number recognition (95.6% vs 97.2%). LLaMA 3.2-Vision and Mistral Pixtral perform similarly to each other, with Mistral showing slightly lower accuracy across all fields. The 5–8 percentage point gap between DataUnchain VLM and LLaMA/Mistral is significant in production: on 50,000 documents per year, it translates to hundreds of additional errors requiring human review.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Results: Scanned Paper Invoices</h2>
 
@@ -238,7 +238,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           <thead>
             <tr class="border-b border-white/10 text-gray-400">
               <th class="pb-3 pr-8 font-medium">Field</th>
-              <th class="pb-3 pr-8 font-medium">Qwen 2.5-VL 7B</th>
+              <th class="pb-3 pr-8 font-medium">DataUnchain VLM 7B</th>
               <th class="pb-3 pr-8 font-medium">LLaMA 3.2-Vision</th>
               <th class="pb-3 pr-8 font-medium">Mistral Pixtral</th>
               <th class="pb-3 font-medium">GPT-4V</th>
@@ -291,7 +291,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         </table>
       </div>
 
-      <p><strong class="text-white">Analysis:</strong> All models degrade on scanned documents, as expected. Qwen 2.5-VL 7B maintains the smallest accuracy drop from digital to scanned (94.8% → 88.2%, a 6.6 point drop), suggesting better OCR robustness. LLaMA drops 9.1 points and Mistral drops 9.5 points. GPT-4V's drop is only 5.0 points, suggesting the larger model size (and possibly better OCR training data) provides more scan robustness. Line item extraction on scanned documents is notably harder for all models: complex table structures in low-quality scans push line item accuracy below 80% for LLaMA and Mistral.</p>
+      <p><strong class="text-white">Analysis:</strong> All models degrade on scanned documents, as expected. DataUnchain VLM 7B maintains the smallest accuracy drop from digital to scanned (94.8% → 88.2%, a 6.6 point drop), suggesting better OCR robustness. LLaMA drops 9.1 points and Mistral drops 9.5 points. GPT-4V's drop is only 5.0 points, suggesting the larger model size (and possibly better OCR training data) provides more scan robustness. Line item extraction on scanned documents is notably harder for all models: complex table structures in low-quality scans push line item accuracy below 80% for LLaMA and Mistral.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Results: Complex Multi-Line Invoices</h2>
 
@@ -300,7 +300,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           <thead>
             <tr class="border-b border-white/10 text-gray-400">
               <th class="pb-3 pr-8 font-medium">Metric</th>
-              <th class="pb-3 pr-8 font-medium">Qwen 2.5-VL 7B</th>
+              <th class="pb-3 pr-8 font-medium">DataUnchain VLM 7B</th>
               <th class="pb-3 pr-8 font-medium">LLaMA 3.2-Vision</th>
               <th class="pb-3 pr-8 font-medium">Mistral Pixtral</th>
               <th class="pb-3 font-medium">GPT-4V</th>
@@ -346,7 +346,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         </table>
       </div>
 
-      <p><strong class="text-white">Analysis:</strong> Multi-page, multi-line invoices are the hardest category. LLaMA and Mistral show a significant drop in line item row recall — they miss an average of 20–22% of all line item rows on complex invoices. This is primarily due to page boundary handling: models that process page 1 and 2 as separate images miss rows that span pages or appear only on page 2. Qwen 2.5-VL handles multi-image context better due to architectural differences in its visual encoder. GPT-4V performs best overall, with 94.6% row recall.</p>
+      <p><strong class="text-white">Analysis:</strong> Multi-page, multi-line invoices are the hardest category. LLaMA and Mistral show a significant drop in line item row recall — they miss an average of 20–22% of all line item rows on complex invoices. This is primarily due to page boundary handling: models that process page 1 and 2 as separate images miss rows that span pages or appear only on page 2. DataUnchain VLM handles multi-image context better due to architectural differences in its visual encoder. GPT-4V performs best overall, with 94.6% row recall.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Results: Commercial Contracts</h2>
 
@@ -355,7 +355,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           <thead>
             <tr class="border-b border-white/10 text-gray-400">
               <th class="pb-3 pr-8 font-medium">Field</th>
-              <th class="pb-3 pr-8 font-medium">Qwen 2.5-VL 7B</th>
+              <th class="pb-3 pr-8 font-medium">DataUnchain VLM 7B</th>
               <th class="pb-3 pr-8 font-medium">LLaMA 3.2-Vision</th>
               <th class="pb-3 pr-8 font-medium">Mistral Pixtral</th>
               <th class="pb-3 font-medium">GPT-4V</th>
@@ -415,7 +415,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         </table>
       </div>
 
-      <p><strong class="text-white">Analysis:</strong> Contract extraction is harder than invoice extraction for all models, because contracts require semantic reasoning rather than field-label matching. Notice period extraction is particularly challenging — the information may appear in any of several clauses, expressed in varied legal language. GPT-4V's larger parameter count provides the most benefit here, where semantic understanding of legal text is critical. The gap between Qwen and GPT-4V is narrower (3.9 points) on contracts than on scanned invoices (3.2 points), suggesting Qwen's semantic capabilities are competitive.</p>
+      <p><strong class="text-white">Analysis:</strong> Contract extraction is harder than invoice extraction for all models, because contracts require semantic reasoning rather than field-label matching. Notice period extraction is particularly challenging — the information may appear in any of several clauses, expressed in varied legal language. GPT-4V's larger parameter count provides the most benefit here, where semantic understanding of legal text is critical. The gap between DataUnchain VLM and GPT-4V is narrower (3.9 points) on contracts than on scanned invoices (3.2 points), suggesting DataUnchain VLM's semantic capabilities are competitive.</p>
 
       <!-- Performance Results -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Performance Results</h2>
@@ -433,14 +433,14 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           </thead>
           <tbody class="text-gray-300">
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 7B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 7B</td>
               <td class="py-3 pr-8 text-brand-tealLight">8.2s</td>
               <td class="py-3 pr-8 text-brand-tealLight">~440</td>
               <td class="py-3 pr-8">~9GB (Q4_K_M)</td>
               <td class="py-3">RTX 3080+ (10GB+)</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 72B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 72B</td>
               <td class="py-3 pr-8">42s</td>
               <td class="py-3 pr-8">~85</td>
               <td class="py-3 pr-8">~44GB (Q4_K_M)</td>
@@ -473,7 +473,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
 
       <p><strong class="text-white">Note on GPT-4V throughput:</strong> The 4.1s API latency does not include queue wait time during high demand periods. The OpenAI Tier 4 API rate limit for GPT-4V is 800 requests/minute (RPM), which theoretically allows ~48,000 documents/hour. In practice, rate limiting is hit much sooner during burst processing. Sustained throughput at high volume is constrained by API rate limits and pricing, not raw inference speed.</p>
 
-      <p><strong class="text-white">Note on Qwen 2.5-VL 7B throughput:</strong> The 440 docs/hour figure uses batch size 1 (sequential processing). With parallel inference workers (2–4 workers on RTX 4090), throughput increases to 800–1,400 docs/hour with proportionally increased VRAM usage. Sequential processing is sufficient for most enterprise deployments where invoice arrival rate is 50–200 documents/hour.</p>
+      <p><strong class="text-white">Note on DataUnchain VLM 7B throughput:</strong> The 440 docs/hour figure uses batch size 1 (sequential processing). With parallel inference workers (2–4 workers on RTX 4090), throughput increases to 800–1,400 docs/hour with proportionally increased VRAM usage. Sequential processing is sufficient for most enterprise deployments where invoice arrival rate is 50–200 documents/hour.</p>
 
       <!-- Structured Output Reliability -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Structured Output Reliability</h2>
@@ -493,14 +493,14 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           </thead>
           <tbody class="text-gray-300">
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 7B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 7B</td>
               <td class="py-3 pr-8 text-brand-tealLight">99.2%</td>
               <td class="py-3 pr-8 text-brand-tealLight">97.8%</td>
               <td class="py-3 pr-8 text-brand-tealLight">1.4%</td>
               <td class="py-3 text-brand-tealLight">0.4%</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 72B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 72B</td>
               <td class="py-3 pr-8">99.6%</td>
               <td class="py-3 pr-8">98.8%</td>
               <td class="py-3 pr-8">0.9%</td>
@@ -533,7 +533,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
 
       <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
         <strong class="text-brand-tealLight">KEY FINDING:</strong>
-        <p class="text-gray-300 mt-2">The hallucination rate differences between models are significant in practice. LLaMA's 3.8% hallucination rate means that in approximately 1 in 26 documents, at least one field value is invented by the model rather than read from the document. For invoice processing where financial accuracy is critical, hallucinated values must be caught by the validation layer. Qwen 2.5-VL's 1.4% hallucination rate represents less than half the hallucination risk of LLaMA and Mistral.</p>
+        <p class="text-gray-300 mt-2">The hallucination rate differences between models are significant in practice. LLaMA's 3.8% hallucination rate means that in approximately 1 in 26 documents, at least one field value is invented by the model rather than read from the document. For invoice processing where financial accuracy is critical, hallucinated values must be caught by the validation layer. DataUnchain VLM's 1.4% hallucination rate represents less than half the hallucination risk of LLaMA and Mistral.</p>
       </div>
 
       <p><strong class="text-white">On JSON parse failures:</strong> LLaMA and Mistral fail to produce valid JSON in 3.6% and 4.9% of cases respectively. These failures typically occur on very long documents where the model truncates its output mid-JSON, or when the model breaks character and outputs reasoning text before the JSON object. In production, JSON parse failures require fallback handling and typically result in a NEEDS_REVIEW routing. Using Ollama's JSON mode (grammar-constrained generation) reduces parse failures for all models but does not eliminate them.</p>
@@ -555,7 +555,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           </thead>
           <tbody class="text-gray-300">
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 font-medium text-white">Qwen 2.5-VL 7B</td>
+              <td class="py-3 pr-8 font-medium text-white">DataUnchain VLM 7B</td>
               <td class="py-3 pr-8 text-brand-tealLight">86.4%</td>
               <td class="py-3 pr-8 text-brand-tealLight">79.2%</td>
               <td class="py-3 text-brand-tealLight">68.1%</td>
@@ -582,13 +582,13 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         </table>
       </div>
 
-      <p>For heavily degraded documents (skewed, stamped, yellowed), all models show substantial accuracy drops. The practical recommendation for documents at this quality level is to implement image preprocessing (deskewing, contrast enhancement, denoising) before AI inference. Our testing showed that preprocessing improved accuracy by 8–15 percentage points across all models on the worst-quality documents. With preprocessing, the degraded scan accuracy for Qwen 2.5-VL improved from 68.1% to 79.3% on the worst-quality subset.</p>
+      <p>For heavily degraded documents (skewed, stamped, yellowed), all models show substantial accuracy drops. The practical recommendation for documents at this quality level is to implement image preprocessing (deskewing, contrast enhancement, denoising) before AI inference. Our testing showed that preprocessing improved accuracy by 8–15 percentage points across all models on the worst-quality documents. With preprocessing, the degraded scan accuracy for DataUnchain VLM improved from 68.1% to 79.3% on the worst-quality subset.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Handwritten Annotations</h3>
       <p>Documents with handwritten annotations on top of printed text presented an interesting challenge. All models handled simple handwritten annotations (a date or quantity written in the margin) with reasonable accuracy (75–85% on the annotation itself). Annotations that overlap or cross out printed text caused more significant problems, reducing accuracy on the underlying printed field by 12–18% across all models.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Documents with Missing Fields</h3>
-      <p>We tested with 30 documents that were missing at least one expected field (e.g., no explicit VAT number, no stated due date). The desired behavior is for the model to return null for missing fields rather than hallucinating a value. Qwen hallucinated on 8.2% of missing fields, LLaMA on 22.4%, Mistral on 24.1%, and GPT-4V on 5.1%. This is one of the starkest behavioral differences between models: LLaMA and Mistral are significantly more likely to invent a plausible-looking value when a field is absent from the document.</p>
+      <p>We tested with 30 documents that were missing at least one expected field (e.g., no explicit VAT number, no stated due date). The desired behavior is for the model to return null for missing fields rather than hallucinating a value. DataUnchain VLM hallucinated on 8.2% of missing fields, LLaMA on 22.4%, Mistral on 24.1%, and GPT-4V on 5.1%. This is one of the starkest behavioral differences between models: LLaMA and Mistral are significantly more likely to invent a plausible-looking value when a field is absent from the document.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Multi-Language Documents</h3>
       <div class="overflow-x-auto my-8">
@@ -596,7 +596,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           <thead>
             <tr class="border-b border-white/10 text-gray-400">
               <th class="pb-3 pr-8 font-medium">Language</th>
-              <th class="pb-3 pr-8 font-medium">Qwen 2.5-VL 7B</th>
+              <th class="pb-3 pr-8 font-medium">DataUnchain VLM 7B</th>
               <th class="pb-3 pr-8 font-medium">LLaMA 3.2-Vision</th>
               <th class="pb-3 pr-8 font-medium">Mistral Pixtral</th>
               <th class="pb-3 font-medium">GPT-4V</th>
@@ -640,7 +640,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
       <!-- Cost Analysis -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Cost Analysis: Local vs. Cloud</h2>
 
-      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Qwen 2.5-VL 7B on RTX 4090: Cost Per Document</h3>
+      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">DataUnchain VLM 7B on RTX 4090: Cost Per Document</h3>
       <p>Electricity cost calculation for on-premise processing:</p>
       <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4 ml-4">
         <li>RTX 4090 TDP: 450W (under full GPU load during inference)</li>
@@ -670,7 +670,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
             <tr class="border-b border-white/10 text-gray-400">
               <th class="pb-3 pr-8 font-medium">Annual Document Volume</th>
               <th class="pb-3 pr-8 font-medium">GPT-4V API Annual Cost</th>
-              <th class="pb-3 pr-8 font-medium">Local (Qwen 7B) Annual Cost*</th>
+              <th class="pb-3 pr-8 font-medium">Local (DataUnchain VLM) Annual Cost*</th>
               <th class="pb-3 font-medium">Local saves vs. API</th>
             </tr>
           </thead>
@@ -733,11 +733,11 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
           <tbody class="text-gray-300">
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">Most enterprise deployments (invoices, DDTs, standard docs)</td>
-              <td class="py-3 text-brand-tealLight font-medium">Qwen 2.5-VL 7B</td>
+              <td class="py-3 text-brand-tealLight font-medium">DataUnchain VLM 7B</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">Highest accuracy requirements (contracts, complex legal docs)</td>
-              <td class="py-3 text-brand-tealLight font-medium">Qwen 2.5-VL 72B or GPT-4V</td>
+              <td class="py-3 text-brand-tealLight font-medium">DataUnchain VLM 72B or GPT-4V</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">Budget-constrained, acceptable accuracy trade-off</td>
@@ -745,7 +745,7 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">Privacy + accuracy (air-gapped, high accuracy)</td>
-              <td class="py-3 text-brand-tealLight font-medium">Qwen 2.5-VL 72B on-premise</td>
+              <td class="py-3 text-brand-tealLight font-medium">DataUnchain VLM 72B on-premise</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">Low volume, no privacy constraint, max accuracy</td>
@@ -755,16 +755,16 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         </table>
       </div>
 
-      <p><strong class="text-white">Why we choose Qwen 2.5-VL 7B for DataUnchain:</strong> The combination of leading open-weight accuracy, low VRAM requirements (runs on a 10GB consumer GPU), fast inference (440 docs/hour), excellent JSON reliability (99.2% parse success), low hallucination rate (1.4%), and strong multilingual performance makes it the optimal choice for enterprise document processing where data cannot leave the building. The 1.3–2 percentage point accuracy gap versus GPT-4V is a reasonable trade for complete data sovereignty and zero recurring cloud cost.</p>
+      <p><strong class="text-white">Why we choose DataUnchain VLM 7B for DataUnchain:</strong> The combination of leading open-weight accuracy, low VRAM requirements (runs on a 10GB consumer GPU), fast inference (440 docs/hour), excellent JSON reliability (99.2% parse success), low hallucination rate (1.4%), and strong multilingual performance makes it the optimal choice for enterprise document processing where data cannot leave the building. The 1.3–2 percentage point accuracy gap versus GPT-4V is a reasonable trade for complete data sovereignty and zero recurring cloud cost.</p>
 
       <!-- Limitations -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Limitations of This Benchmark</h2>
 
       <ul class="list-disc list-inside text-gray-300 space-y-3 mt-4 ml-4">
-        <li><strong class="text-white">Not neutral:</strong> This benchmark was conducted by DataUnchain, which uses and sells a system built on Qwen 2.5-VL. Despite our best efforts at objective methodology, readers should be aware of this conflict of interest.</li>
+        <li><strong class="text-white">Not neutral:</strong> This benchmark was conducted by DataUnchain, which uses and sells a system built on a proprietary VLM. Despite our best efforts at objective methodology, readers should be aware of this conflict of interest.</li>
         <li><strong class="text-white">Document set is biased toward Italian business documents:</strong> 68% of the test set is Italian-language documents from Italian suppliers. Performance on documents from other countries or in other languages may differ from reported results.</li>
         <li><strong class="text-white">Single prompt for all models:</strong> Models may perform significantly differently with prompts specifically engineered for each model. Our results represent a realistic "one prompt, multiple models" scenario, not the theoretical best-case for each model.</li>
-        <li><strong class="text-white">Models are updated frequently:</strong> LLaMA, Qwen, and Mistral release updated versions regularly. By the time you read this, newer model versions may have been released with significantly different accuracy profiles. Always benchmark on your specific document types before committing to a model.</li>
+        <li><strong class="text-white">Models are updated frequently:</strong> LLaMA, and Mistral release updated versions regularly. By the time you read this, newer model versions may have been released with significantly different accuracy profiles. Always benchmark on your specific document types before committing to a model.</li>
         <li><strong class="text-white">Ground truth ambiguity:</strong> 1.8% of field instances had ambiguous ground truth where human annotators disagreed. These were excluded from accuracy calculations, which may slightly inflate all model accuracy figures.</li>
         <li><strong class="text-white">GPT-4V tested in separate environment:</strong> API latency, rate limits, and throughput figures for GPT-4V are not directly comparable to local inference results.</li>
       </ul>
@@ -777,21 +777,21 @@ description: "Independent benchmark comparing LLMs for enterprise document extra
         <li>Exact match scoring was used for all fields. A value was scored as correct only if it matched ground truth exactly after normalization (date format standardization, decimal separator standardization, leading/trailing whitespace removal). Partial credit was not given.</li>
         <li>For line item extraction, a row was scored as correctly extracted if all required line item fields (description, quantity, unit price, total) matched ground truth. A row missing one field was scored as incorrect.</li>
         <li>The temperature parameter was set to 0 for all models to maximize output determinism. Results may differ with higher temperature settings.</li>
-        <li>Models were tested with Ollama's JSON mode enabled where supported (Qwen 2.5-VL, LLaMA 3.2-Vision). Mistral Pixtral was tested without JSON mode as it showed worse performance in JSON mode in our preliminary testing.</li>
+        <li>Models were tested with Ollama's JSON mode enabled where supported (DataUnchain VLM, LLaMA 3.2-Vision). Mistral Pixtral was tested without JSON mode as it showed worse performance in JSON mode in our preliminary testing.</li>
         <li>All 500 documents were processed 3 times per model; results are averaged across runs to account for non-determinism at temperature 0.</li>
       </ul>
 
       <!-- FAQ -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Frequently Asked Questions</h2>
 
-      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Can I run Qwen 2.5-VL 7B on an older NVIDIA GPU?</h3>
-      <p>Qwen 2.5-VL 7B in Q4_K_M quantization requires approximately 9GB VRAM. It will run on any NVIDIA GPU with 10GB+ VRAM: RTX 3080 (10GB), RTX 4070, RTX 4080, RTX 4090. It will not fit on an RTX 3080 (8GB version) or RTX 3070. CPU-only inference is possible but extremely slow (~3-5 minutes per document), which is not practical for production use.</p>
+      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Can I run DataUnchain VLM 7B on an older NVIDIA GPU?</h3>
+      <p>DataUnchain VLM 7B in Q4_K_M quantization requires approximately 9GB VRAM. It will run on any NVIDIA GPU with 10GB+ VRAM: RTX 3080 (10GB), RTX 4070, RTX 4080, RTX 4090. It will not fit on an RTX 3080 (8GB version) or RTX 3070. CPU-only inference is possible but extremely slow (~3-5 minutes per document), which is not practical for production use.</p>
 
-      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How does Qwen 2.5-VL 7B compare to commercial IDP platforms?</h3>
+      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How does DataUnchain VLM 7B compare to commercial IDP platforms?</h3>
       <p>We do not have benchmark data comparing to commercial IDP platforms (ABBYY, Hyperscience, AWS Textract, Google Document AI) because we do not have access to comparable test sets across those platforms. In our customer deployments, we observe accuracy competitive with commercial platforms on standard invoice extraction, with the advantage of zero cloud data transmission and no per-document pricing.</p>
 
-      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Is Qwen 2.5-VL 7B fine-tuned for document extraction?</h3>
-      <p>No. DataUnchain uses the base Qwen 2.5-VL 7B model without fine-tuning. Performance improvements come from prompt engineering, extraction schema design, and post-processing validation — not from model fine-tuning. This means customers benefit from any general improvements to Qwen 2.5-VL when they upgrade model versions, without needing to re-run fine-tuning pipelines.</p>
+      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Is DataUnchain VLM 7B fine-tuned for document extraction?</h3>
+      <p>No. DataUnchain uses the base DataUnchain VLM 7B model without fine-tuning. Performance improvements come from prompt engineering, extraction schema design, and post-processing validation — not from model fine-tuning. This means customers benefit from any general improvements to the base model when they upgrade model versions, without needing to re-run fine-tuning pipelines.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">What happens when the model returns invalid JSON?</h3>
       <p>DataUnchain's post-processing layer applies JSON repair heuristics (fixing trailing commas, missing brackets, escaped quotes) that successfully recover approximately 60% of malformed JSON outputs. The remaining 40% of parse failures result in the document being routed to NEEDS_REVIEW status with a "parse failure" error flag, where a human reviewer enters the data manually from the original document.</p>

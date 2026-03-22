@@ -165,7 +165,7 @@ description: "Real-world case study: how a mid-size enterprise automated process
                     │                                 │
            ┌────────▼────────┐             ┌─────────▼────────┐
            │  FatturaPA      │             │  AI EXTRACTION   │
-           │  XML Parser     │             │  Qwen 2.5-VL     │
+           │  XML Parser     │             │  Proprietary VLM  │
            │  (structured)   │             │  via Ollama      │
            └────────┬────────┘             └─────────┬────────┘
                     │                               │
@@ -205,7 +205,7 @@ description: "Real-world case study: how a mid-size enterprise automated process
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Hardware</h3>
       <p>DataUnchain was deployed on a dedicated on-premise server with the following specifications:</p>
       <ul class="list-disc list-inside text-gray-300 space-y-2 mt-4 ml-4">
-        <li><strong class="text-white">GPU:</strong> NVIDIA RTX 4070 (12GB VRAM) — sufficient for Qwen 2.5-VL 7B at full speed</li>
+        <li><strong class="text-white">GPU:</strong> NVIDIA RTX 4070 (12GB VRAM) — sufficient for our proprietary VLM at full speed</li>
         <li><strong class="text-white">CPU:</strong> Intel Core i7-13700K (16 cores)</li>
         <li><strong class="text-white">RAM:</strong> 32GB DDR5</li>
         <li><strong class="text-white">Storage:</strong> 2TB NVMe SSD (document archive + model storage)</li>
@@ -224,13 +224,13 @@ description: "Real-world case study: how a mid-size enterprise automated process
       </ol>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">AI Model</h3>
-      <p>The primary extraction model is <strong class="text-white">Qwen 2.5-VL 7B</strong>, served via Ollama on the local GPU. The model processes document images directly — no separate OCR preprocessing step for digital PDFs — using a structured extraction prompt that specifies the exact JSON schema for invoice fields. For FatturaPA XML documents, a dedicated XML parser extracts fields deterministically without AI inference, since FatturaPA has a fixed XML schema.</p>
+      <p>The primary extraction model is <strong class="text-white">our proprietary VLM</strong>, served via Ollama on the local GPU. The model processes document images directly — no separate OCR preprocessing step for digital PDFs — using a structured extraction prompt that specifies the exact JSON schema for invoice fields. For FatturaPA XML documents, a dedicated XML parser extracts fields deterministically without AI inference, since FatturaPA has a fixed XML schema.</p>
 
       <!-- Implementation Timeline -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Implementation Timeline: 12 Weeks</h2>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Weeks 1–2: Hardware Setup and Document Inventory</h3>
-      <p>The server was procured, assembled, and configured. Ubuntu was installed, NVIDIA drivers configured, Docker and Ollama installed, and Qwen 2.5-VL 7B downloaded locally. Simultaneously, the DataUnchain team conducted a document inventory with Meridian's accounting team: 200 supplier invoices were collected (covering the top 50 suppliers by volume) to create a representative test set for accuracy validation before go-live.</p>
+      <p>The server was procured, assembled, and configured. Ubuntu was installed, NVIDIA drivers configured, Docker and Ollama installed, and the proprietary VLM downloaded locally. Simultaneously, the DataUnchain team conducted a document inventory with Meridian's accounting team: 200 supplier invoices were collected (covering the top 50 suppliers by volume) to create a representative test set for accuracy validation before go-live.</p>
       <p>The document inventory revealed an important insight: 12 suppliers together accounted for 58% of invoice volume. Ensuring high extraction accuracy for those 12 suppliers was the priority for initial configuration.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Weeks 3–4: AI Configuration and Initial Testing</h3>
@@ -258,7 +258,7 @@ description: "Real-world case study: how a mid-size enterprise automated process
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Results After 6 Months</h2>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Processing Volume and Throughput</h3>
-      <p>In the first 6 months of production operation, DataUnchain processed 22,847 invoices for Meridian Components. The average throughput was 3,808 invoices per month, consistent with pre-deployment volumes. Processing time averaged 45 seconds per invoice on the RTX 4070 hardware — including image preprocessing, Qwen inference, math validation, and TeamSystem CSV generation.</p>
+      <p>In the first 6 months of production operation, DataUnchain processed 22,847 invoices for Meridian Components. The average throughput was 3,808 invoices per month, consistent with pre-deployment volumes. Processing time averaged 45 seconds per invoice on the RTX 4070 hardware — including image preprocessing, VLM inference, math validation, and TeamSystem CSV generation.</p>
       <p>The invoice queue was consistently empty within 4 minutes of each email batch arriving. Month-end peaks (historically causing multi-day backlogs) were processed within 3 hours — the only human bottleneck was the NEEDS_REVIEW queue, which was cleared within the same business day during peak periods.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Accuracy Metrics: Before and After</h3>
@@ -326,7 +326,7 @@ description: "Real-world case study: how a mid-size enterprise automated process
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Challenge 2: Multi-Page Invoices with Line Items on Page 2</h3>
       <p><strong class="text-white">What happened:</strong> Several of Meridian's larger suppliers send invoices where the header fields (supplier, invoice number, date) appear on page 1, but the line item table spans onto page 2. Early extraction runs missed line items from page 2, producing incomplete records that failed math validation (line item sum did not match the stated total).</p>
-      <p><strong class="text-white">How it was handled:</strong> DataUnchain was configured to always process all pages of a multi-page PDF as a single inference call, passing all page images to Qwen 2.5-VL in sequence. This resolved the page 2 line item issue for all but the longest invoices (20+ pages), which occur rarely. For those, a chunked extraction approach was implemented: pages are processed in groups of 5, and line items from all chunks are merged before math validation. After this configuration change, multi-page invoice accuracy improved from 79% to 94% on the affected supplier set.</p>
+      <p><strong class="text-white">How it was handled:</strong> DataUnchain was configured to always process all pages of a multi-page PDF as a single inference call, passing all page images to the VLM in sequence. This resolved the page 2 line item issue for all but the longest invoices (20+ pages), which occur rarely. For those, a chunked extraction approach was implemented: pages are processed in groups of 5, and line items from all chunks are merged before math validation. After this configuration change, multi-page invoice accuracy improved from 79% to 94% on the affected supplier set.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Challenge 3: Duplicate Invoices (Same Document Sent Twice)</h3>
       <p><strong class="text-white">What happened:</strong> In the first month of production, 7 invoices were submitted twice — a supplier resending an invoice they believed had not been received, or an internal forwarding that created a second copy in the monitored mailbox. Without deduplication, both copies would have been processed and posted to TeamSystem.</p>
@@ -334,7 +334,7 @@ description: "Real-world case study: how a mid-size enterprise automated process
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Challenge 4: German-Language Invoices from Austrian Suppliers</h3>
       <p><strong class="text-white">What happened:</strong> Meridian has 8 Austrian suppliers who send invoices entirely in German. Field labels like "Rechnungsnummer" (invoice number), "Rechnungsdatum" (invoice date), "Gesamtbetrag" (total amount), and "Mehrwertsteuer" (VAT) are not familiar to Meridian's Italian accounting staff, causing occasional manual entry errors before automation. The question was whether the AI model would handle German correctly.</p>
-      <p><strong class="text-white">How it was handled:</strong> Qwen 2.5-VL handled German-language invoices correctly without any language-specific configuration — the model's multilingual training enabled it to recognize German field labels and extract values accurately. German invoice accuracy in testing was 95.8% field-level, marginally lower than Italian (97.2%) due to less common formatting conventions for Austrian VAT numbers. No special configuration was required; the model's multilingual capability handled this automatically.</p>
+      <p><strong class="text-white">How it was handled:</strong> Our proprietary VLM handled German-language invoices correctly without any language-specific configuration — the model's multilingual training enabled it to recognize German field labels and extract values accurately. German invoice accuracy in testing was 95.8% field-level, marginally lower than Italian (97.2%) due to less common formatting conventions for Austrian VAT numbers. No special configuration was required; the model's multilingual capability handled this automatically.</p>
 
       <!-- Financial Analysis -->
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Financial Analysis</h2>
@@ -474,7 +474,7 @@ description: "Real-world case study: how a mid-size enterprise automated process
       <p>The Meridian Components deployment illustrates several principles that apply broadly to enterprise document AI projects:</p>
 
       <ol class="list-decimal list-inside text-gray-300 space-y-4 mt-4 ml-4">
-        <li><strong class="text-white">On-premise is viable at enterprise scale.</strong> The concern that "local AI can't match cloud quality" did not hold. Qwen 2.5-VL 7B on an RTX 4070 achieved accuracy comparable to commercial cloud services for standard business documents, at a fraction of the ongoing cost.</li>
+        <li><strong class="text-white">On-premise is viable at enterprise scale.</strong> The concern that "local AI can't match cloud quality" did not hold. Our proprietary VLM on an RTX 4070 achieved accuracy comparable to commercial cloud services for standard business documents, at a fraction of the ongoing cost.</li>
         <li><strong class="text-white">Parallel running is essential for trust, not just QA.</strong> The 4-week parallel period was critical not just for validating extraction accuracy but for building confidence among the accounting staff who would ultimately own the system.</li>
         <li><strong class="text-white">Data quality in downstream systems is the hidden integration challenge.</strong> The AI extraction was not the bottleneck — mapping clean extracted data to a messy supplier master database required as much effort as the extraction configuration itself.</li>
         <li><strong class="text-white">Human-in-the-loop is a feature, not a fallback.</strong> The 12% NEEDS_REVIEW rate represents genuinely ambiguous documents that benefit from human judgment. The system routes exactly the right documents to humans, not all documents.</li>

@@ -76,7 +76,7 @@ description: "The real reasons AI document automation projects fail: PDF quality
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">The Fix</h3>
 
-      <p>Use a vision-language model. Not OCR + LLM. Pass the document as images, not as extracted text. The model sees what a human sees and understands what a human understands. For local deployment, Qwen 2.5-VL is the state-of-the-art open-weight option. For cloud deployment where data privacy is not a constraint, GPT-4V or Gemini Vision. But do not use OCR as a preprocessing step before a language model if accuracy matters.</p>
+      <p>Use a vision-language model. Not OCR + LLM. Pass the document as images, not as extracted text. The model sees what a human sees and understands what a human understands. For local deployment, our proprietary VLM is the state-of-the-art open-weight option. For cloud deployment where data privacy is not a constraint, GPT-4V or Gemini Vision. But do not use OCR as a preprocessing step before a language model if accuracy matters.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Failure #3: No Validation Layer</h2>
 
@@ -221,7 +221,7 @@ description: "The real reasons AI document automation projects fail: PDF quality
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">The Fix</h3>
 
-      <p>Involve the DPO and legal counsel before choosing an AI architecture, not after building a system. For any document containing personal data or confidential business information, on-premise AI processing is the defensible choice. Local vision-language models (Qwen 2.5-VL via Ollama) provide accuracy comparable to cloud APIs for document extraction tasks. The incremental infrastructure cost of a GPU server is modest compared to the legal and business risk of a GDPR enforcement action or a contract dispute over confidential information exposure.</p>
+      <p>Involve the DPO and legal counsel before choosing an AI architecture, not after building a system. For any document containing personal data or confidential business information, on-premise AI processing is the defensible choice. Local vision-language models (our proprietary VLM via Ollama) provide accuracy comparable to cloud APIs for document extraction tasks. The incremental infrastructure cost of a GPU server is modest compared to the legal and business risk of a GDPR enforcement action or a contract dispute over confidential information exposure.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Failure #8: Not Monitoring the System Post-Launch</h2>
 
@@ -261,7 +261,7 @@ description: "The real reasons AI document automation projects fail: PDF quality
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">They Deploy On-Premise for Documents with PII</h3>
 
-      <p>Successful projects with sensitive documents deploy on-premise AI from day one. They do not start with a cloud API and plan to migrate later — migration is more disruptive than starting correctly. The on-premise architecture with a local vision-language model (Qwen 2.5-VL via Ollama) is production-ready and requires no ongoing API costs.</p>
+      <p>Successful projects with sensitive documents deploy on-premise AI from day one. They do not start with a cloud API and plan to migrate later — migration is more disruptive than starting correctly. The on-premise architecture with a local vision-language model (our proprietary VLM via Ollama) is production-ready and requires no ongoing API costs.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">They Pilot in Parallel Before Replacing the Existing Process</h3>
 
@@ -350,7 +350,7 @@ DEPLOYMENT
       <p>With a vision-language model, format changes usually do not cause complete extraction failure — the model adapts its understanding to the new layout. What typically happens is a reduction in VALIDATED rate for that supplier as some fields are extracted less reliably in the new layout. Per-supplier accuracy monitoring catches this quickly. The response is usually a prompt update to be more specific about the new layout, sometimes additional labeled examples for that supplier added to the test set for ongoing monitoring.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Do I need a GPU to run this on-premise?</h3>
-      <p>For meaningful production volumes (more than 20–30 documents per day), yes. CPU inference with Qwen 2.5-VL takes 45–90 seconds per page — manageable for very low volumes but impractical for anything resembling enterprise document throughput. An NVIDIA RTX 3080 (12 GB VRAM, approximately €700) provides GPU inference at 3–8 seconds per page and is the practical minimum for a production deployment.</p>
+      <p>For meaningful production volumes (more than 20–30 documents per day), yes. CPU inference with our proprietary VLM takes 45–90 seconds per page — manageable for very low volumes but impractical for anything resembling enterprise document throughput. An NVIDIA RTX 3080 (12 GB VRAM, approximately €700) provides GPU inference at 3–8 seconds per page and is the practical minimum for a production deployment.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How do I know if my validation layer is tight enough?</h3>
       <p>Calibrate it against your labeled test set. For each document in your test set, run the full pipeline including validation, then compare what would have auto-dispatched (VALIDATED) with the known correct answers. If any document in the VALIDATED set has an extraction error that would have caused a problem in the ERP, your validation layer is not tight enough — tighten the confidence threshold or add the specific check that would have caught that error.</p>

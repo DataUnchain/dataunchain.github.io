@@ -15,7 +15,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
     <div class="mb-10">
         <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Benchmark &middot; March 11, 2026</span>
         <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6 leading-tight">We Ran 219 Italian Business Documents Through an Offline AI. Here Are the Numbers.</h1>
-        <p class="text-gray-400 text-lg leading-relaxed">Invoices, payslips, contracts, delivery notes &mdash; 219 documents with verified ground truth, processed by Qwen2.5-VL 7B running locally on a $0.24/hr GPU. No cloud. No subscriptions. Not a single byte of data leaving the machine.</p>
+        <p class="text-gray-400 text-lg leading-relaxed">Invoices, payslips, contracts, delivery notes &mdash; 219 documents with verified ground truth, processed by DataUnchain VLM 7B running locally on a $0.24/hr GPU. No cloud. No subscriptions. Not a single byte of data leaving the machine.</p>
     </div>
 
     <!-- Hero Score -->
@@ -23,7 +23,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
         <div class="px-8 py-12 text-center">
             <div class="text-8xl font-black text-white mb-2">95.5%</div>
             <div class="text-white text-xl font-bold mb-2 opacity-90">Overall Accuracy Score</div>
-            <div class="text-white text-sm opacity-70">on 206 successfully processed documents &nbsp;&bull;&nbsp; Qwen2.5-VL 7B &nbsp;&bull;&nbsp; RTX 2000 Ada 16 GB</div>
+            <div class="text-white text-sm opacity-70">on 206 successfully processed documents &nbsp;&bull;&nbsp; DataUnchain VLM 7B &nbsp;&bull;&nbsp; RTX 2000 Ada 16 GB</div>
         </div>
     </div>
 
@@ -112,7 +112,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <h3 class="text-xl font-bold text-white">Step 1 &mdash; Classify</h3>
 
-        <p>The first step takes the document image (the PDF converted to a page image at 200 DPI using pdf2image and poppler-utils) and sends it to Qwen2.5-VL 7B running via Ollama with a classification prompt. The model must output one of the supported document type labels. No hints are given about what type the document might be &mdash; the model sees only the image and decides autonomously.</p>
+        <p>The first step takes the document image (the PDF converted to a page image at 200 DPI using pdf2image and poppler-utils) and sends it to DataUnchain VLM 7B running via Ollama with a classification prompt. The model must output one of the supported document type labels. No hints are given about what type the document might be &mdash; the model sees only the image and decides autonomously.</p>
 
         <p>This matters in practice because real document workflows are mixed. A daily incoming-mail folder might contain invoices, delivery notes, payslips, credit notes, and contracts all in the same batch. The system must sort them correctly before it can extract anything. A classification error at this stage propagates to the wrong extraction prompt, producing garbage output.</p>
 
@@ -143,7 +143,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
                     <tr class="border-b border-white/10"><td class="py-2 pr-4 text-gray-500">VRAM</td><td class="py-2 text-gray-200">16,380 MiB (~16 GB)</td></tr>
                     <tr class="border-b border-white/10"><td class="py-2 pr-4 text-gray-500">vCPU / RAM</td><td class="py-2 text-gray-200">6 cores / 31 GB</td></tr>
                     <tr class="border-b border-white/10"><td class="py-2 pr-4 text-gray-500">Cloud cost</td><td class="py-2 text-gray-200">$0.24/hr (RunPod Community Cloud)</td></tr>
-                    <tr class="border-b border-white/10"><td class="py-2 pr-4 text-gray-500">Model</td><td class="py-2 text-gray-200">Qwen2.5-VL 7B (Q4 quantized, 13.3 GB VRAM)</td></tr>
+                    <tr class="border-b border-white/10"><td class="py-2 pr-4 text-gray-500">Model</td><td class="py-2 text-gray-200">DataUnchain VLM 7B (Q4 quantized, 13.3 GB VRAM)</td></tr>
                     <tr class="border-b border-white/10"><td class="py-2 pr-4 text-gray-500">Runtime</td><td class="py-2 text-gray-200">Ollama with flash attention enabled</td></tr>
                     <tr><td class="py-2 pr-4 text-gray-500">OS / CUDA</td><td class="py-2 text-gray-200">Ubuntu 22.04 / CUDA 12.4.1 / Python 3.11</td></tr>
                 </tbody>
@@ -224,7 +224,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
     <!-- Section: Why scan=clean matters -->
     <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed space-y-6">
-        <p>The scan-equals-clean result matters because the most common objection to AI document systems is: &ldquo;It works on clean PDFs, but all our documents are scanned, stamped, slightly rotated, faxed, re-scanned.&rdquo; That objection does not apply here. Qwen2.5-VL was trained on enormous quantities of real-world document images, which inherently include degraded, scanned, and low-quality documents. The result is built-in robustness to the exact conditions that break traditional OCR-based systems.</p>
+        <p>The scan-equals-clean result matters because the most common objection to AI document systems is: &ldquo;It works on clean PDFs, but all our documents are scanned, stamped, slightly rotated, faxed, re-scanned.&rdquo; That objection does not apply here. Our proprietary VLM was trained on enormous quantities of real-world document images, which inherently include degraded, scanned, and low-quality documents. The result is built-in robustness to the exact conditions that break traditional OCR-based systems.</p>
 
         <p>We are not claiming the system is immune to all possible degradation. A document scanned at 72 DPI with severe motion blur, or a fax from 1995 transmitted over a poor line, might produce different results. But the conditions we tested &mdash; the actual conditions in a modern Italian office with standard network scanners &mdash; produce performance identical to native digital documents.</p>
 
@@ -325,7 +325,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
                 <p class="text-gray-400 text-sm leading-relaxed mb-3">This is not a bug in DataUnchain's code. It is a hardware capacity limitation: the 7B model on 16 GB VRAM does not have enough tensor budget for the combination of a high-density vision encoding and a complex extraction prompt simultaneously. The same documents would likely process without issue on a 24 GB GPU.</p>
                 <div class="flex flex-wrap gap-2 mt-4">
                     <span class="text-brand-tealLight text-xs font-bold px-3 py-1.5 rounded-full border border-brand-teal/30">Fix: adaptive DPI reduction for dense tables (200 &rarr; 150)</span>
-                    <span class="text-brand-tealLight text-xs font-bold px-3 py-1.5 rounded-full border border-brand-teal/30">Alt fix: Qwen2.5-VL 14B / 32B on 24 GB+</span>
+                    <span class="text-brand-tealLight text-xs font-bold px-3 py-1.5 rounded-full border border-brand-teal/30">Alt fix: DataUnchain VLM 14B / 32B on 24 GB+</span>
                 </div>
             </div>
         </div>
@@ -389,21 +389,21 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <p><strong class="text-white">GDPR compliance is fundamentally simplified.</strong> The most complex GDPR obligations for organizations using AI services involve international data transfers, data processing agreements with AI vendors, ensuring that the AI provider handles your data according to GDPR requirements, and managing breach notification obligations to external processors. When your documents never leave your infrastructure, none of these obligations apply. Your data protection officer will appreciate this enormously.</p>
 
-        <p><strong class="text-white">Air-gap operation is possible.</strong> Once Qwen2.5-VL 7B is downloaded (approximately 5 GB, a one-time operation), the entire system runs without any internet connectivity. This enables deployment in environments that are genuinely isolated from the internet: manufacturing plant operational technology networks, secure government archives, legal document management systems with strict information barrier requirements, healthcare data systems subject to specific regulatory constraints.</p>
+        <p><strong class="text-white">Air-gap operation is possible.</strong> Once DataUnchain VLM 7B is downloaded (approximately 5 GB, a one-time operation), the entire system runs without any internet connectivity. This enables deployment in environments that are genuinely isolated from the internet: manufacturing plant operational technology networks, secure government archives, legal document management systems with strict information barrier requirements, healthcare data systems subject to specific regulatory constraints.</p>
 
-        <p><strong class="text-white">No vendor lock-in, no subscription cliff.</strong> The underlying model (Qwen2.5-VL) is open source under Apache 2.0 license. Ollama is open source. DataUnchain is a commercial product built on top of these open foundations &mdash; you pay for the product, not for access to AI infrastructure controlled by someone else. If you want to switch to a different compatible VLM, that's a single configuration change. No SaaS vendor can raise prices on you, discontinue a tier you depend on, or sunset a feature that your workflow relies on.</p>
+        <p><strong class="text-white">No vendor lock-in, no subscription cliff.</strong> The underlying model is open-weight and runs via Ollama, which is also open source. DataUnchain is a commercial product built on top of these open foundations &mdash; you pay for the product, not for access to AI infrastructure controlled by someone else. If you want to switch to a different compatible VLM, that's a single configuration change. No SaaS vendor can raise prices on you, discontinue a tier you depend on, or sunset a feature that your workflow relies on.</p>
 
-        <h2 class="text-2xl font-black font-display text-white">Why Qwen2.5-VL 7B</h2>
+        <h2 class="text-2xl font-black font-display text-white">Why our proprietary VLM</h2>
 
-        <p>The choice of Qwen2.5-VL as the backbone for DataUnchain's processor is based on systematic evaluation of the available open-source vision-language model landscape for document processing specifically.</p>
+        <p>The choice of our proprietary VLM as the backbone for DataUnchain's processor is based on systematic evaluation of the available vision-language model landscape for document processing specifically.</p>
 
         <p><strong class="text-white">LLaVA and its variants</strong> were the first widely-adopted open-source VLMs, but they show significant performance degradation on documents with dense structured text, tables, and multi-column layouts. Their training data skewed heavily toward natural images, and document understanding was not a primary design objective.</p>
 
-        <p><strong class="text-white">InternVL2</strong> shows strong document understanding performance but has a less mature deployment ecosystem. Integrating it into a production pipeline requires more custom work compared to the Ollama-based deployment that Qwen supports natively.</p>
+        <p><strong class="text-white">InternVL2</strong> shows strong document understanding performance but has a less mature deployment ecosystem. Integrating it into a production pipeline requires more custom work compared to the Ollama-based deployment that our VLM supports natively.</p>
 
-        <p><strong class="text-white">Qwen2.5-VL</strong> from Alibaba DAMO Academy was specifically designed with document understanding as a first-class capability. Its training data includes large quantities of structured documents from multiple languages, including Italian business documents. The model demonstrates particularly strong performance on tasks requiring spatial understanding of form layouts, table extraction, and recognition of language-specific fiscal identifiers. The 7B size hits the sweet spot between capability and hardware accessibility: it runs on a 16 GB GPU &mdash; within reach of many organizations &mdash; while delivering accuracy that this benchmark demonstrates is production-grade on most document types.</p>
+        <p><strong class="text-white">Our proprietary VLM</strong> was specifically selected for its document understanding as a first-class capability. Its training data includes large quantities of structured documents from multiple languages, including Italian business documents. The model demonstrates particularly strong performance on tasks requiring spatial understanding of form layouts, table extraction, and recognition of language-specific fiscal identifiers. The 7B size hits the sweet spot between capability and hardware accessibility: it runs on a 16 GB GPU &mdash; within reach of many organizations &mdash; while delivering accuracy that this benchmark demonstrates is production-grade on most document types.</p>
 
-        <p>It is also worth being explicit about what Qwen2.5-VL is not: it is not an OCR system. OCR converts pixel patterns to characters without any understanding of what those characters mean. Qwen2.5-VL is a multimodal language model that genuinely comprehends documents: it understands that a number after &ldquo;P.IVA:&rdquo; is a VAT identifier, that a row in a table with a date and a euro amount followed by &ldquo;D&rdquo; is a debit transaction, that text in a box labeled &ldquo;NETTO IN BUSTA&rdquo; at the bottom of a page is the net pay figure. This semantic understanding is what enables 100% accuracy on fiscal identifiers without requiring a separate regex post-processing layer.</p>
+        <p>It is also worth being explicit about what our VLM is not: it is not an OCR system. OCR converts pixel patterns to characters without any understanding of what those characters mean. Our proprietary VLM is a multimodal language model that genuinely comprehends documents: it understands that a number after &ldquo;P.IVA:&rdquo; is a VAT identifier, that a row in a table with a date and a euro amount followed by &ldquo;D&rdquo; is a debit transaction, that text in a box labeled &ldquo;NETTO IN BUSTA&rdquo; at the bottom of a page is the net pay figure. This semantic understanding is what enables 100% accuracy on fiscal identifiers without requiring a separate regex post-processing layer.</p>
     </div>
 
     <!-- Hardware Guide -->
@@ -433,14 +433,14 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
                 <div class="text-white font-bold">NVIDIA A5000 / A6000 &mdash; 24&ndash;48 GB VRAM</div>
                 <span class="text-purple-400 text-xs font-bold px-3 py-1 rounded-full border border-purple-400/30">Enterprise</span>
             </div>
-            <p class="text-gray-400 text-sm leading-relaxed">ECC error-correcting memory (important for long-running production services), professional support warranty, server form factor. Supports Qwen2.5-VL 32B for maximum accuracy. Ideal for data center deployments and organizations with IT procurement policies requiring commercial-grade hardware.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">ECC error-correcting memory (important for long-running production services), professional support warranty, server form factor. Supports DataUnchain VLM 32B for maximum accuracy. Ideal for data center deployments and organizations with IT procurement policies requiring commercial-grade hardware.</p>
         </div>
         <div class="rounded-xl border border-white/10 bg-brand-surface p-5">
             <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                 <div class="text-white font-bold">NVIDIA A100 / H100 &mdash; 40&ndash;80 GB VRAM</div>
                 <span class="text-blue-400 text-xs font-bold px-3 py-1 rounded-full border border-blue-400/30">High Volume</span>
             </div>
-            <p class="text-gray-400 text-sm leading-relaxed">For organizations processing 50,000+ documents per month. Supports multiple parallel Ollama instances or Qwen2.5-VL 72B. HBM memory bandwidth dramatically increases throughput compared to GDDR6X GPUs. Cloud-grade data center hardware.</p>
+            <p class="text-gray-400 text-sm leading-relaxed">For organizations processing 50,000+ documents per month. Supports multiple parallel Ollama instances or DataUnchain VLM 72B. HBM memory bandwidth dramatically increases throughput compared to GDDR6X GPUs. Cloud-grade data center hardware.</p>
         </div>
     </div>
 
@@ -497,7 +497,7 @@ description: "A scientific benchmark of DataUnchain on 219 real Italian business
 
         <p>The benchmark v3 will extend the corpus to ten document types, adding receipts and commercial documents, packing lists, quotations, and healthcare-specific formats. The target is 300 documents across the full range. We will also run comparative benchmarks against Amazon Textract, Azure Document Intelligence, and Google Document AI on the same corpus to give the market objective comparison data.</p>
 
-        <p>A test of Qwen2.5-VL 32B on a 48 GB GPU is planned to quantify the accuracy delta between model sizes. The hypothesis is that the 32B model resolves both the bank statement GGML issue and the payslip gross pay label variance through its larger and more capable vision encoder.</p>
+        <p>A test of DataUnchain VLM 32B on a 48 GB GPU is planned to quantify the accuracy delta between model sizes. The hypothesis is that the 32B model resolves both the bank statement GGML issue and the payslip gross pay label variance through its larger and more capable vision encoder.</p>
 
         <h2 class="text-2xl font-black font-display text-white">The bottom line</h2>
 

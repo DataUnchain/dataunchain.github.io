@@ -105,7 +105,7 @@ description: "Definitive comparison of AI document understanding vs traditional 
 
       <p>Prompting a VLM for document extraction is significantly different from prompting a text LLM. The prompt must specify the extraction schema (which fields to extract and in what format), the document type context (invoice, contract, HR form, etc.), handling instructions for edge cases (what to return when a field is not present, how to handle multiple currencies, how to represent line items), and output format requirements (strict JSON, specific date formats, etc.).</p>
 
-      <p>DataUnchain maintains extraction prompts for 30+ document types, each tuned for the specific characteristics of that document category. The prompts are engineered to work specifically with Qwen 2.5-VL's output characteristics and validated against thousands of real-world documents.</p>
+      <p>DataUnchain maintains extraction prompts for 30+ document types, each tuned for the specific characteristics of that document category. The prompts are engineered to work specifically with our proprietary VLM's output characteristics and validated against thousands of real-world documents.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Head-to-Head Comparison</h2>
 
@@ -117,7 +117,7 @@ description: "Definitive comparison of AI document understanding vs traditional 
               <th class="pb-3 pr-6 font-medium">Tesseract OCR</th>
               <th class="pb-3 pr-6 font-medium">Commercial OCR</th>
               <th class="pb-3 pr-6 font-medium">Cloud AI (GPT-4V)</th>
-              <th class="pb-3 font-medium">Local AI (Qwen 2.5-VL)</th>
+              <th class="pb-3 font-medium">Local AI (our proprietary VLM)</th>
             </tr>
           </thead>
           <tbody class="text-gray-300">
@@ -273,7 +273,7 @@ description: "Definitive comparison of AI document understanding vs traditional 
 
       <p>A document in Italian with a French supplier address and EUR amounts is a standard scenario for European enterprises. OCR requires language hints to perform well — using a single-language model on a multi-language document produces character errors at language boundaries and poor hyphenation handling. Configuring multi-language OCR adds complexity and reduces speed.</p>
 
-      <p>Qwen 2.5-VL handles multilingual documents automatically. The model detects languages at the sentence or even word level and applies appropriate language models throughout. No configuration is required.</p>
+      <p>our proprietary VLM handles multilingual documents automatically. The model detects languages at the sentence or even word level and applies appropriate language models throughout. No configuration is required.</p>
 
       <p>Winner: AI, with substantial simplicity advantage.</p>
 
@@ -384,10 +384,10 @@ description: "Definitive comparison of AI document understanding vs traditional 
       <p>For on-premise local AI, the ongoing cost (electricity) is comparable to running OCR at the same scale. The difference is the one-time hardware investment. For small volumes, Tesseract OCR on a CPU server is cheaper to start with. For anything beyond a few thousand documents per month, local AI hardware pays for itself within a year through better accuracy and reduced rules-maintenance overhead.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How does AI handle fax documents or very old scans?</h3>
-      <p>VLMs are substantially more robust to degraded images than OCR. Fax quality documents (200 DPI, grainy, with compression artifacts) are difficult for OCR but handled reasonably well by Qwen 2.5-VL. Very poor quality images (under 100 DPI, heavily skewed, coffee stains) will challenge both approaches, but AI degrades more gracefully and can often extract key fields even when the image quality is severe.</p>
+      <p>VLMs are substantially more robust to degraded images than OCR. Fax quality documents (200 DPI, grainy, with compression artifacts) are difficult for OCR but handled reasonably well by our proprietary VLM. Very poor quality images (under 100 DPI, heavily skewed, coffee stains) will challenge both approaches, but AI degrades more gracefully and can often extract key fields even when the image quality is severe.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Does AI require labeled training data for my specific documents?</h3>
-      <p>No. This is a key advantage of VLMs over traditional ML approaches. Qwen 2.5-VL is a pretrained model — you do not need to label training examples of your specific invoices or contracts. You provide a prompt describing what to extract, and the model generalizes from its training. DataUnchain's prompt engineering handles this for 30+ document types out of the box.</p>
+      <p>No. This is a key advantage of VLMs over traditional ML approaches. our proprietary VLM is a pretrained model — you do not need to label training examples of your specific invoices or contracts. You provide a prompt describing what to extract, and the model generalizes from its training. DataUnchain's prompt engineering handles this for 30+ document types out of the box.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How accurate is AI extraction in practice?</h3>
       <p>For well-printed invoices, DataUnchain achieves over 97% field-level accuracy out of the box, rising above 99% with math validation and the human review queue for edge cases. For complex or degraded documents, accuracy is lower but substantially higher than OCR + rules approaches. Every extraction receives a VALIDATED or NEEDS_REVIEW status — uncertain extractions are flagged rather than silently written to your systems.</p>

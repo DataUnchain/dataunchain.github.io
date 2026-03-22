@@ -14,14 +14,14 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
         <div class="mb-10">
             <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Benchmark &middot; 11 Marzo 2026</span>
             <h1 class="text-4xl lg:text-5xl font-black font-display mt-4 mb-6 leading-tight">Abbiamo testato 219 documenti aziendali italiani su un&rsquo;AI offline. Ecco i numeri.</h1>
-            <p class="text-gray-400 text-lg leading-relaxed">Fatture, buste paga, contratti, DDT &mdash; 219 documenti con ground truth verificata, elaborati da Qwen2.5-VL 7B che gira in locale su una GPU da $0.24/ora. Nessun cloud. Nessun abbonamento. Nessun dato che lascia la macchina.</p>
+            <p class="text-gray-400 text-lg leading-relaxed">Fatture, buste paga, contratti, DDT &mdash; 219 documenti con ground truth verificata, elaborati da DataUnchain VLM 7B che gira in locale su una GPU da $0.24/ora. Nessun cloud. Nessun abbonamento. Nessun dato che lascia la macchina.</p>
         </div>
 
         <div class="relative rounded-2xl overflow-hidden mb-12" style="background: linear-gradient(135deg, #0D9488 0%, #10B981 50%, #F59E0B 100%);">
             <div class="relative px-6 py-10 text-center">
                 <div class="text-7xl lg:text-8xl font-black text-white mb-2">95.5%</div>
                 <div class="text-white/80 text-xl font-bold mb-1">Punteggio di Accuratezza Complessivo</div>
-                <div class="text-white/60 text-sm">su 206 documenti elaborati con successo &middot; Qwen2.5-VL 7B &middot; RTX 2000 Ada 16 GB</div>
+                <div class="text-white/60 text-sm">su 206 documenti elaborati con successo &middot; DataUnchain VLM 7B &middot; RTX 2000 Ada 16 GB</div>
             </div>
         </div>
 
@@ -134,7 +134,7 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
 
             <p>DataUnchain processor v2.0 lavora in tre fasi ben distinte, ognuna con responsabilit&agrave; chiare. Non c&rsquo;&egrave; un unico modello che fa tutto &mdash; c&rsquo;&egrave; una pipeline ingegneristica che usa l&rsquo;AI dove serve e il codice deterministico dove il codice deterministico &egrave; pi&ugrave; affidabile.</p>
 
-            <p><strong class="text-white">Step 1 &mdash; Classify:</strong> Il modello Qwen2.5-VL riceve l&rsquo;immagine del documento e produce una sola stringa: il tipo di documento. Nessun hint fornito, nessuna lista di tipi possibili suggerita al modello. Decide autonomamente. Il risultato viene validato contro la lista dei tipi noti; se non corrisponde, il documento finisce in una coda di revisione umana invece di procedere con un tipo errato.</p>
+            <p><strong class="text-white">Step 1 &mdash; Classify:</strong> Il nostro VLM proprietario riceve l&rsquo;immagine del documento e produce una sola stringa: il tipo di documento. Nessun hint fornito, nessuna lista di tipi possibili suggerita al modello. Decide autonomamente. Il risultato viene validato contro la lista dei tipi noti; se non corrisponde, il documento finisce in una coda di revisione umana invece di procedere con un tipo errato.</p>
 
             <p><strong class="text-white">Step 2 &mdash; Extract:</strong> Sulla base del tipo classificato nello step precedente, viene selezionato il prompt specifico per quel tipo di documento. Il modello riceve immagine pi&ugrave; prompt e produce JSON strutturato. Ogni tipo documentale ha il proprio prompt ottimizzato con i campi esatti da estrarre, il formato atteso dei valori, e istruzioni su come gestire campi mancanti o ambigui. Il JSON viene parsato e validato strutturalmente &mdash; se non &egrave; JSON valido, viene ritentato una volta con prompt leggermente modificato.</p>
 
@@ -162,7 +162,7 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
                     <tr class="border-b border-white/10"><td class="py-2.5 pr-4 text-white">RAM</td><td class="py-2.5">46 GB DDR4</td></tr>
                     <tr class="border-b border-white/10"><td class="py-2.5 pr-4 text-white">Storage</td><td class="py-2.5">SSD NVMe 50 GB</td></tr>
                     <tr class="border-b border-white/10"><td class="py-2.5 pr-4 text-white">OS</td><td class="py-2.5">Ubuntu 22.04.3 LTS</td></tr>
-                    <tr class="border-b border-white/10"><td class="py-2.5 pr-4 text-white">Modello AI</td><td class="py-2.5">Qwen2.5-VL 7B via Ollama 0.6.x</td></tr>
+                    <tr class="border-b border-white/10"><td class="py-2.5 pr-4 text-white">Modello AI</td><td class="py-2.5">DataUnchain VLM 7B via Ollama 0.6.x</td></tr>
                     <tr class="border-b border-white/10"><td class="py-2.5 pr-4 text-white">Costo cloud</td><td class="py-2.5">$0.24/ora (RunPod Community Cloud)</td></tr>
                     <tr><td class="py-2.5 pr-4 text-white">Costo totale benchmark</td><td class="py-2.5">~$0.80 per 219 documenti (circa 3.3 ore totali)</td></tr>
                 </tbody>
@@ -365,7 +365,7 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
                     <p class="text-gray-400 text-sm leading-relaxed mb-3">La classificazione funziona sempre correttamente &mdash; il crash avviene solo nello step di estrazione. La causa &egrave; la combinazione di un&rsquo;immagine ad alta risoluzione con molti dettagli visivi (la tabella dei movimenti) pi&ugrave; un prompt di estrazione lungo, che insieme superano un limite dimensionale dei tensori nel modello 7B su 16 GB VRAM. Non &egrave; un bug del codice &mdash; &egrave; un limite fisico dell&rsquo;hardware attuale. I 7 estratti conto elaborati correttamente (con meno righe di movimenti) ottengono il 100% su tutti i campi incluso il saldo finale.</p>
                     <div class="flex flex-wrap gap-2 mt-3">
                         <span class="bg-black/30 text-brand-tealLight text-xs px-3 py-1 rounded-full font-bold">Fix v2.1: ridurre DPI per tabelle dense (200 &rarr; 150)</span>
-                        <span class="bg-black/30 text-brand-tealLight text-xs px-3 py-1 rounded-full font-bold">Alternativa: Qwen2.5-VL 14B su GPU 24GB+</span>
+                        <span class="bg-black/30 text-brand-tealLight text-xs px-3 py-1 rounded-full font-bold">Alternativa: DataUnchain VLM 14B su GPU 24GB+</span>
                     </div>
                 </div>
             </div>
@@ -424,7 +424,7 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
 
             <p>L&rsquo;operativit&agrave; offline non &egrave; un&rsquo;opzione aggiuntiva o un claim marketing &mdash; &egrave; una scelta architetturale con conseguenze concrete e verificabili sulla sicurezza, sulla conformit&agrave; e sui costi.</p>
 
-            <p><strong class="text-white">Nessun dato lascia la tua infrastruttura.</strong> I PDF vengono convertiti in immagini in locale. Il modello Qwen2.5-VL viene eseguito localmente tramite Ollama. Il JSON strutturato viene scritto nel database PostgreSQL locale. Non un singolo byte dei tuoi documenti aziendali arriva ai server di Anthropic, OpenAI, Microsoft Azure, Google Cloud, o qualsiasi altro fornitore cloud. La fattura del tuo cliente pi&ugrave; importante, la busta paga del tuo dipendente, il contratto riservato: niente di tutto questo lascia il tuo perimetro.</p>
+            <p><strong class="text-white">Nessun dato lascia la tua infrastruttura.</strong> I PDF vengono convertiti in immagini in locale. Il nostro VLM proprietario viene eseguito localmente tramite Ollama. Il JSON strutturato viene scritto nel database PostgreSQL locale. Non un singolo byte dei tuoi documenti aziendali arriva ai server di Anthropic, OpenAI, Microsoft Azure, Google Cloud, o qualsiasi altro fornitore cloud. La fattura del tuo cliente pi&ugrave; importante, la busta paga del tuo dipendente, il contratto riservato: niente di tutto questo lascia il tuo perimetro.</p>
 
             <p><strong class="text-white">GDPR concreto, non teorico.</strong> Quando i dati non escono mai dal tuo edificio, decadono automaticamente una serie di obblighi: non serve valutare il trasferimento internazionale verso i server USA dei provider cloud, non servono DPA (Data Processing Agreements) con l&rsquo;AI provider, non &egrave; necessario notificare il data breach a un processore esterno perch&eacute; il processore esterno non esiste. Il DPO del tuo cliente pu&ograve; verificare il perimetro del trattamento senza eccezioni da spiegare.</p>
 
@@ -432,9 +432,9 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
 
             <p><strong class="text-white">Zero abbonamenti e zero costi variabili.</strong> Nessun costo per token. Nessun piano tariffario da monitorare. Nessuna sorpresa in fattura a fine mese perch&eacute; un batch di documenti era pi&ugrave; grande del previsto. Il costo ricorrente &egrave; solo l&rsquo;hardware e l&rsquo;energia, con una prevedibilit&agrave; totale che nessun servizio cloud pu&ograve; offrire.</p>
 
-            <h2 class="text-2xl font-black font-display text-white">Perch&eacute; Qwen2.5-VL e non un&rsquo;altra alternativa</h2>
+            <h2 class="text-2xl font-black font-display text-white">Perch&eacute; il nostro VLM proprietario e non un&rsquo;altra alternativa</h2>
 
-            <p>Qwen2.5-VL &egrave; il risultato del programma di ricerca di Alibaba sui modelli vision-language. La versione 7B &egrave; il punto ottimale del rapporto qualit&agrave;/dimensione per l&rsquo;estrazione di documenti: abbastanza piccola da girare comodamente su 16 GB VRAM, abbastanza capace da capire layout complessi, tabelle, numeri scritti a mano e caratteri con font insoliti.</p>
+            <p>Il nostro VLM proprietario &egrave; stato selezionato dopo una valutazione sistematica del panorama dei modelli vision-language disponibili. La versione 7B &egrave; il punto ottimale del rapporto qualit&agrave;/dimensione per l&rsquo;estrazione di documenti: abbastanza piccola da girare comodamente su 16 GB VRAM, abbastanza capace da capire layout complessi, tabelle, numeri scritti a mano e caratteri con font insoliti.</p>
 
             <p>Tre caratteristiche tecniche la rendono particolarmente adatta ai documenti aziendali italiani. Prima: <strong class="text-white">visione nativa senza OCR</strong>. Il modello non fa OCR separato e poi legge il testo &mdash; vede l&rsquo;immagine direttamente come un essere umano. Questo significa che capisce il contesto visivo: sa che un numero in alto a destra in una fattura italiana &egrave; probabilmente il numero fattura, non il codice prodotto. Secondo: <strong class="text-white">comprensione dello spatial layout</strong>. Una tabella con colonne non perfettamente allineate, un campo che continua sulla riga successiva, una nota scritta in verticale a margine &mdash; il modello li gestisce senza regole esplicite perch&eacute; ha visto milioni di documenti reali durante il pre-addestramento. Terzo: <strong class="text-white">resistenza alla degradazione visiva</strong> dimostrata empiricamente da questo benchmark: SCAN = CLEAN su ogni metrica.</p>
 
@@ -466,14 +466,14 @@ description: "Benchmark scientifico di DataUnchain su 219 documenti aziendali it
                     <div class="text-white font-bold">A5000 / A6000 &mdash; 24&ndash;48 GB VRAM</div>
                     <span class="bg-purple-500/20 text-purple-400 text-xs font-bold px-3 py-1 rounded-full">Enterprise</span>
                 </div>
-                <p class="text-gray-400 text-sm">Memoria ECC con codifica degli errori, garanzia professionale, form factor server rack. Supporta Qwen2.5-VL 32B per accuratezza ulteriormente elevata. Per installazioni data center, studi legali con archivi di migliaia di documenti al mese, o integrazione in sistemi ERP enterprise.</p>
+                <p class="text-gray-400 text-sm">Memoria ECC con codifica degli errori, garanzia professionale, form factor server rack. Supporta DataUnchain VLM 32B per accuratezza ulteriormente elevata. Per installazioni data center, studi legali con archivi di migliaia di documenti al mese, o integrazione in sistemi ERP enterprise.</p>
             </div>
             <div class="rounded-xl border border-white/10 bg-brand-surface p-4">
                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                     <div class="text-white font-bold">A100 / H100 &mdash; 40&ndash;80 GB VRAM</div>
                     <span class="bg-blue-500/20 text-blue-400 text-xs font-bold px-3 py-1 rounded-full">Alto Volume</span>
                 </div>
-                <p class="text-gray-400 text-sm">Per volumi superiori a 50.000 documenti al mese. Supporta elaborazione parallela multi-richiesta o Qwen2.5-VL 72B. Throughput stimato 3&ndash;5 documenti al secondo con batching. Classe data center.</p>
+                <p class="text-gray-400 text-sm">Per volumi superiori a 50.000 documenti al mese. Supporta elaborazione parallela multi-richiesta o DataUnchain VLM 72B. Throughput stimato 3&ndash;5 documenti al secondo con batching. Classe data center.</p>
             </div>
         </div>
 

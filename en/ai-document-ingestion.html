@@ -200,7 +200,7 @@ description: "The complete reference on AI document ingestion: architecture, use
                            ↓
 ┌──────────────────────────────────────────────────────────────┐
 │                AI UNDERSTANDING LAYER                         │
-│  Vision-Language Model: Qwen 2.5-VL (local Ollama)           │
+│  Vision-Language Model: Proprietary VLM (local Ollama)           │
 │  Document classification │ Entity extraction │ JSON output    │
 │  Confidence scoring per field                                 │
 └──────────────────────────┬───────────────────────────────────┘
@@ -236,15 +236,15 @@ description: "The complete reference on AI document ingestion: architecture, use
           Files that cannot be parsed — password-protected PDFs, corrupted archives, unsupported binary formats — are moved to a quarantine queue and a notification is sent to the operations team. Processing never silently fails.
         </p>
 
-        <h3 class="text-xl font-bold font-display text-white">Layer 2: AI Understanding with Qwen 2.5-VL</h3>
+        <h3 class="text-xl font-bold font-display text-white">Layer 2: AI Understanding with our Proprietary VLM</h3>
         <p>
-          The AI understanding layer is the core intellectual component of the system. DataUnchain uses Qwen 2.5-VL, a state-of-the-art vision-language model that processes document images directly, without first running OCR. The model runs locally via Ollama — it never communicates with external servers. Inference happens on the same machine that received the document.
+          The AI understanding layer is the core intellectual component of the system. DataUnchain uses our proprietary VLM, a state-of-the-art vision-language model that processes document images directly, without first running OCR. The model runs locally via Ollama — it never communicates with external servers. Inference happens on the same machine that received the document.
         </p>
         <p>
           The model receives a carefully engineered prompt alongside the document image. The prompt instructs the model to identify the document type (invoice, contract, DDT, medical report, pay slip, etc.), extract all relevant fields with their values, and express confidence scores for each extraction. The output is a structured JSON object that downstream layers can process programmatically.
         </p>
         <p>
-          Qwen 2.5-VL's vision capability means it can handle documents that would defeat a pure-text approach: tables whose columns are defined by visual alignment rather than delimiters, handwritten annotations in the margins, dual-language headers, stamps and watermarks overlapping text, and mixed-orientation pages where some sections run vertically.
+          Our proprietary VLM's vision capability means it can handle documents that would defeat a pure-text approach: tables whose columns are defined by visual alignment rather than delimiters, handwritten annotations in the margins, dual-language headers, stamps and watermarks overlapping text, and mixed-orientation pages where some sections run vertically.
         </p>
 
         <h3 class="text-xl font-bold font-display text-white">Layer 3: Validation</h3>
@@ -317,7 +317,7 @@ description: "The complete reference on AI document ingestion: architecture, use
             </tr>
             <tr class="border-b border-white/5">
               <td class="py-3 pr-6 font-medium text-brand-tealLight">Local AI (DataUnchain)</td>
-              <td class="py-3 pr-6 text-brand-tealLight">Excellent — Qwen 2.5-VL vision model</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Excellent — proprietary VLM</td>
               <td class="py-3 pr-6 text-brand-tealLight">Validated JSON with confidence scores</td>
               <td class="py-3 pr-6 text-brand-tealLight">Good — generalises across layouts</td>
               <td class="py-3 pr-6 text-brand-tealLight">Multi-layer: math + format + confidence</td>
@@ -455,7 +455,7 @@ description: "The complete reference on AI document ingestion: architecture, use
 
         <h3 class="text-xl font-bold font-display text-white">Architecture of a Zero-Egress System</h3>
         <p>
-          DataUnchain is designed as a zero-egress system by architecture, not by policy. No document pixels, no extracted text, no intermediate processing artifacts ever leave the machine (or the local network) on which the system runs. The AI model (Qwen 2.5-VL via Ollama) runs as a local process. API calls are made only to the local Ollama server's loopback address. The integration adapters send structured data (field values, not document images) to the configured output systems — and even these can be restricted to internal systems only.
+          DataUnchain is designed as a zero-egress system by architecture, not by policy. No document pixels, no extracted text, no intermediate processing artifacts ever leave the machine (or the local network) on which the system runs. The AI model (our proprietary VLM via Ollama) runs as a local process. API calls are made only to the local Ollama server's loopback address. The integration adapters send structured data (field values, not document images) to the configured output systems — and even these can be restricted to internal systems only.
         </p>
         <p>
           The system can operate in a fully air-gapped configuration: no internet connectivity at all. In this mode, all software updates are applied via physical media, and all output goes to on-premise systems (ERP, local database, network share). This configuration is suitable for classified environments, high-security industrial settings, and healthcare networks that operate behind strict network perimeters.
@@ -466,13 +466,13 @@ description: "The complete reference on AI document ingestion: architecture, use
           Running a large language model locally means that the model weights — the trained neural network parameters — are stored on the local machine's GPU or CPU memory. When a document is processed, the model is invoked directly via the Ollama API on localhost, produces its response, and that is the end of the inference step. No network call is made. No telemetry is sent. The model has no mechanism to exfiltrate data because it is not connected to anything outside the host machine.
         </p>
         <p>
-          Qwen 2.5-VL is an open-weights model published by Alibaba Cloud and downloadable from Hugging Face. The weights can be verified by hash. The inference stack (Ollama) is open-source and auditable. Organisations with security requirements can conduct their own code review of the entire stack that touches their documents.
+          Our proprietary VLM uses weights that can be verified by hash. The inference stack (Ollama) is open-source and auditable. Organisations with security requirements can conduct their own code review of the entire stack that touches their documents.
         </p>
       </div>
 
       <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
         <strong class="text-brand-tealLight">KEY INSIGHT:</strong>
-        <p class="text-gray-300 mt-2">Local AI processing is not a trade-off of capability for privacy. Modern open-weights vision-language models such as Qwen 2.5-VL achieve document understanding quality comparable to GPT-4V on structured business documents — while providing absolute data sovereignty. The gap between cloud and local AI quality has effectively closed for enterprise document processing use cases.</p>
+        <p class="text-gray-300 mt-2">Local AI processing is not a trade-off of capability for privacy. Modern open-weights vision-language models achieve document understanding quality comparable to GPT-4V on structured business documents — while providing absolute data sovereignty. The gap between cloud and local AI quality has effectively closed for enterprise document processing use cases.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
@@ -663,7 +663,7 @@ description: "The complete reference on AI document ingestion: architecture, use
             <span class="text-brand-tealLight text-xl font-light">+</span>
           </summary>
           <div class="px-6 pb-6 text-gray-300 leading-relaxed">
-            <p>Qwen 2.5-VL is a multilingual model trained on data in dozens of languages including Italian, English, French, German, Spanish, and others. It handles Italian-language documents natively, which is important for our primary market. Cross-language documents — a German supplier invoice in German received by an Italian company — are handled correctly: the model reads the German text, understands the document structure, and outputs structured data regardless of the source language. Language detection is automatic; no configuration is required per language.</p>
+            <p>Our proprietary VLM is a multilingual model trained on data in dozens of languages including Italian, English, French, German, Spanish, and others. It handles Italian-language documents natively, which is important for our primary market. Cross-language documents — a German supplier invoice in German received by an Italian company — are handled correctly: the model reads the German text, understands the document structure, and outputs structured data regardless of the source language. Language detection is automatic; no configuration is required per language.</p>
           </div>
         </details>
 

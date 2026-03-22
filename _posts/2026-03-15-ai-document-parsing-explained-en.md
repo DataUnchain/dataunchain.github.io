@@ -72,7 +72,7 @@ VLM prompt construction:
     [Image: rendered page]
     [User: "Extract these fields: ... Return as JSON: ..."]
     ↓
-VLM inference (Qwen 2.5-VL / Ollama)
+VLM inference (our proprietary VLM / Ollama)
     ↓
 Raw text response containing JSON
     ↓
@@ -154,7 +154,7 @@ Structured extraction result {field: value, ...}</pre></div>
       <p>Tables with nested headers (a header that spans multiple columns with sub-headers beneath it), merged cells (a single cell spanning two rows), and rotated headers (column headers written vertically) are challenging for all parsing approaches. VLMs handle these significantly better than OCR-based approaches because they can see the visual table structure and interpret it holistically. However, very dense tables (10+ columns, 50+ rows) may benefit from a hybrid approach: use the VLM to identify the table's structure and column semantics, then use positional text extraction (pdfplumber) to extract the actual cell values efficiently.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Mixed Languages</h3>
-      <p>International trade documents frequently mix languages. A German supplier's invoice may have field labels in German but addresses in Italian (for the Italian buyer). A shipping document may have headers in English with content in local languages. Modern VLMs — especially Qwen 2.5-VL — handle multilingual documents well. The extraction prompt should specify the expected output language for text fields to ensure consistency in the extracted data (extract all text fields in English, or in the original document language, or in the buyer's language).</p>
+      <p>International trade documents frequently mix languages. A German supplier's invoice may have field labels in German but addresses in Italian (for the Italian buyer). A shipping document may have headers in English with content in local languages. Modern VLMs — especially our proprietary VLM — handle multilingual documents well. The extraction prompt should specify the expected output language for text fields to ensure consistency in the extracted data (extract all text fields in English, or in the original document language, or in the buyer's language).</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Low-Quality Scans</h3>
       <p>A document scanned at 72 DPI through a dirty scanner glass produces an image where some text is illegible even to humans. VLM accuracy correlates directly with image quality. The preprocessing layer should measure image quality (contrast, resolution, noise level) and apply corrective transformations where possible. For documents below a minimum quality threshold, the system should route to human review with a quality warning rather than producing unreliable AI extractions with high confidence.</p>
@@ -210,7 +210,7 @@ Structured extraction result {field: value, ...}</pre></div>
 └─────────────────────────────────────────────────────────┘</pre></div>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Performance Benchmarks</h2>
-      <p>Accuracy varies by document type, image quality, and model. The following ranges reflect real-world production performance with Qwen 2.5-VL 7B via Ollama on enterprise document workloads in 2025-2026.</p>
+      <p>Accuracy varies by document type, image quality, and model. The following ranges reflect real-world production performance with DataUnchain VLM 7B via Ollama on enterprise document workloads in 2025-2026.</p>
 
       <div class="overflow-x-auto my-8">
         <table class="w-full text-sm text-left">
@@ -291,16 +291,16 @@ Structured extraction result {field: value, ...}</pre></div>
       <p>No. Modern VLMs extract fields from new document types without training data — you write a prompt describing what to extract. Fine-tuning on your specific documents can improve accuracy by 2-5 percentage points and may be worthwhile after 6-12 months of operation, but it is not required for initial deployment and is not required for acceptable production accuracy.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How does AI parsing handle documents in Italian, German, or other European languages?</h3>
-      <p>Qwen 2.5-VL and most leading VLMs are trained on multilingual data and perform well on Italian, German, French, Spanish, Portuguese, Dutch, and other major European languages. Field labels in these languages are correctly associated with their values. The extraction output can be specified in any language regardless of the document's language — useful for normalizing multilingual documents to a standard output language.</p>
+      <p>our proprietary VLM and most leading VLMs are trained on multilingual data and perform well on Italian, German, French, Spanish, Portuguese, Dutch, and other major European languages. Field labels in these languages are correctly associated with their values. The extraction output can be specified in any language regardless of the document's language — useful for normalizing multilingual documents to a standard output language.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Can AI parsing handle FatturaPA XML documents?</h3>
       <p>FatturaPA XML is a structured format with a defined schema — it can be parsed directly as XML without image rendering or AI extraction. XML parsing is faster, more reliable, and more accurate than VLM-based extraction for FatturaPA, since the schema is fixed and the data is already structured. A production Italian document AI system should parse FatturaPA as XML and fall back to VLM-based image parsing only for non-XML invoices.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">What is the processing latency for a typical invoice?</h3>
-      <p>End-to-end latency from document receipt to structured output depends on hardware, model size, and document complexity. On a server with a mid-range GPU (RTX 4090): PDF rendering 200-500ms, VLM inference for a single-page invoice 1-3 seconds, validation 50-100ms. Total: 2-4 seconds per page. On CPU-only hardware with Qwen 2.5-VL 7B: 15-40 seconds per page. Multi-page documents scale approximately linearly with page count, though batching multiple pages in a single inference call can reduce per-page overhead.</p>
+      <p>End-to-end latency from document receipt to structured output depends on hardware, model size, and document complexity. On a server with a mid-range GPU (RTX 4090): PDF rendering 200-500ms, VLM inference for a single-page invoice 1-3 seconds, validation 50-100ms. Total: 2-4 seconds per page. On CPU-only hardware with DataUnchain VLM 7B: 15-40 seconds per page. Multi-page documents scale approximately linearly with page count, though batching multiple pages in a single inference call can reduce per-page overhead.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Is on-premise AI parsing as accurate as cloud services?</h3>
-      <p>Yes, for most practical document types and quality levels. Qwen 2.5-VL 7B achieves accuracy within 2-4 percentage points of GPT-4o on standard enterprise documents (invoices, contracts, ID documents). The 72B variant is competitive with GPT-4o on most benchmarks. For highly specialized or unusual documents, cloud models may have a slight accuracy advantage — but this must be weighed against the data sovereignty, latency, and cost advantages of on-premise deployment.</p>
+      <p>Yes, for most practical document types and quality levels. DataUnchain VLM 7B achieves accuracy within 2-4 percentage points of GPT-4o on standard enterprise documents (invoices, contracts, ID documents). The 72B variant is competitive with GPT-4o on most benchmarks. For highly specialized or unusual documents, cloud models may have a slight accuracy advantage — but this must be weighed against the data sovereignty, latency, and cost advantages of on-premise deployment.</p>
 
     </div>
 

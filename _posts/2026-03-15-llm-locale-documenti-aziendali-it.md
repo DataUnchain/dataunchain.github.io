@@ -4,7 +4,7 @@ title: "LLM Locale per l'Elaborazione Documenti Aziendali: Privacy, Performance 
 lang: it
 categories: blog
 date: 2026-03-15
-description: "Perché le aziende italiane scelgono LLM locali per elaborare i documenti. GDPR, confronto modelli Qwen/LLaMA/Mistral, hardware sizing e architettura privacy-first."
+description: "Perché le aziende italiane scelgono LLM locali per elaborare i documenti. GDPR, confronto modelli VLM/LLaMA/Mistral, hardware sizing e architettura privacy-first."
 author: Antonio Trento
 ---
 
@@ -64,7 +64,7 @@ author: Antonio Trento
           </thead>
           <tbody class="text-gray-400">
             <tr class="border-b border-white/10">
-              <td class="py-3 px-4 font-mono text-brand-tealLight">Qwen 2.5-VL 7B</td>
+              <td class="py-3 px-4 font-mono text-brand-tealLight">DataUnchain VLM 7B</td>
               <td class="py-3 px-4 text-green-400">96%</td>
               <td class="py-3 px-4 text-green-400">93%</td>
               <td class="py-3 px-4">8 GB</td>
@@ -72,7 +72,7 @@ author: Antonio Trento
               <td class="py-3 px-4">Apache 2.0</td>
             </tr>
             <tr class="border-b border-white/10">
-              <td class="py-3 px-4 font-mono text-brand-tealLight">Qwen 2.5-VL 72B</td>
+              <td class="py-3 px-4 font-mono text-brand-tealLight">DataUnchain VLM 72B</td>
               <td class="py-3 px-4 text-green-400">98%</td>
               <td class="py-3 px-4 text-green-400">95%</td>
               <td class="py-3 px-4">48 GB</td>
@@ -99,7 +99,7 @@ author: Antonio Trento
         </table>
       </div>
 
-      <p><strong class="text-white">La nostra raccomandazione:</strong> Qwen 2.5-VL 7B per PMI (ottimo rapporto qualità/costo hardware), Qwen 72B per enterprise con volumi elevati e requisiti di accuratezza massima.</p>
+      <p><strong class="text-white">La nostra raccomandazione:</strong> DataUnchain VLM 7B per PMI (ottimo rapporto qualità/costo hardware), DataUnchain VLM 72B per enterprise con volumi elevati e requisiti di accuratezza massima.</p>
 
       <h2 class="text-2xl font-black font-display text-white">Hardware sizing: quanto serve davvero?</h2>
 
@@ -144,7 +144,7 @@ author: Antonio Trento
 
       <div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6 my-8">
         <p class="text-yellow-400 font-bold text-sm uppercase tracking-wider mb-2">⚠️ Nota per volumi bassi</p>
-        <p class="text-gray-300 text-sm">Per meno di 200 documenti al mese, Qwen 7B può girare in modalità CPU (lenta: ~60-120 secondi per documento) su un server standard senza GPU. Non è ideale per uso real-time, ma funziona bene per elaborazione batch notturna. In questo scenario il costo hardware è zero se hai già un server.</p>
+        <p class="text-gray-300 text-sm">Per meno di 200 documenti al mese, DataUnchain VLM 7B può girare in modalità CPU (lenta: ~60-120 secondi per documento) su un server standard senza GPU. Non è ideale per uso real-time, ma funziona bene per elaborazione batch notturna. In questo scenario il costo hardware è zero se hai già un server.</p>
       </div>
 
       <h2 class="text-2xl font-black font-display text-white">Confronto costi: locale vs cloud a 5 anni</h2>

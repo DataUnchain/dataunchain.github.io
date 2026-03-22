@@ -105,7 +105,7 @@ Tesseract 5    — OCR pre-pass for text-heavy scanned docs</pre></div>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Vision-Language Models for Document Understanding</h3>
       <p>VLMs accept both image and text inputs. For document AI, the workflow is: render document page to image → construct a prompt asking for specific field extraction → feed image + prompt to the model → receive structured JSON output. The model does not need to be trained on your specific document types. Zero-shot performance — extracting fields from a document type the model has never explicitly seen — is the defining capability of modern VLMs that makes them dramatically more flexible than template-based or form-recognizer approaches.</p>
-      <p>The leading open-weight VLMs for document AI in 2026 are Qwen 2.5-VL (72B and 7B variants), LLaMA 3.2-Vision (11B and 90B), and Mistral Pixtral. Each offers different accuracy/speed/size tradeoffs. Qwen 2.5-VL performs particularly well on dense tables and multilingual documents, making it well-suited to European enterprise contexts.</p>
+      <p>The leading open-weight VLMs for document AI in 2026 are our proprietary VLM (72B and 7B variants), LLaMA 3.2-Vision (11B and 90B), and Mistral Pixtral. Each offers different accuracy/speed/size tradeoffs. our proprietary VLM performs particularly well on dense tables and multilingual documents, making it well-suited to European enterprise contexts.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Prompt Engineering for Structured Extraction</h3>
       <p>The quality of extraction is heavily influenced by prompt design. Effective prompts for document extraction specify: (1) the document type being processed, (2) a complete list of target fields with their expected data types, (3) instructions for handling missing or ambiguous fields, (4) the output format (JSON schema). Few-shot prompting — including 2-3 examples of correctly extracted documents in the prompt — improves accuracy on unusual document layouts at the cost of increased token usage.</p>
@@ -117,7 +117,7 @@ Tesseract 5    — OCR pre-pass for text-heavy scanned docs</pre></div>
 AI Extraction Layer Tools (2026):
 
 Ollama         — Local model runtime (CPU/GPU inference)
-Qwen 2.5-VL    — Best-in-class open VLM for documents
+our proprietary VLM    — Best-in-class open VLM for documents
 LLaMA 3.2-Vision — Meta's vision model (11B / 90B)
 Mistral Pixtral — Mistral's document-capable VLM
 GPT-4o         — Cloud VLM (OpenAI) — highest accuracy
@@ -127,7 +127,7 @@ DataUnchain    — Orchestrated Ollama inference with schema enforcement</pre></
 
       <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
         <strong class="text-brand-tealLight">KEY INSIGHT:</strong>
-        <p class="text-gray-300 mt-2">The choice between cloud VLMs (GPT-4o, Gemini) and on-premise VLMs (Qwen 2.5-VL via Ollama) is not just about cost — it is about data sovereignty. Every document sent to a cloud API is a document that has left your perimeter. For invoices containing supplier terms, contracts with NDAs, and medical records, this is a compliance issue, not just a preference.</p>
+        <p class="text-gray-300 mt-2">The choice between cloud VLMs (GPT-4o, Gemini) and on-premise VLMs (our proprietary VLM via Ollama) is not just about cost — it is about data sovereignty. Every document sent to a cloud API is a document that has left your perimeter. For invoices containing supplier terms, contracts with NDAs, and medical records, this is a compliance issue, not just a preference.</p>
       </div>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Layer 4: Validation & Quality Assurance</h2>
@@ -313,16 +313,16 @@ Sheets:        Google Sheets</pre></div>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">How DataUnchain Covers All 7 Layers</h2>
       <p>DataUnchain is designed as a complete, on-premise document AI platform that implements all 7 layers of the stack described in this guide. Rather than requiring an engineering team to assemble 7 different tools and integrate them, DataUnchain ships as a single deployable system.</p>
-      <p>The ingestion layer handles email (IMAP), REST API uploads, folder watchdog, and messaging platforms. The preprocessing layer renders PDFs via Poppler and applies image normalization. The AI extraction layer runs Qwen 2.5-VL via Ollama with schema-enforced JSON output. The validation layer checks mathematical consistency, format compliance, and assigns confidence scores. The orchestration layer provides rule-based routing and dead-letter queue handling. The integration layer ships 18 production adapters covering CRM, ERP, files, and notifications. The storage layer persists documents, results, and feedback in local SQLite or PostgreSQL.</p>
+      <p>The ingestion layer handles email (IMAP), REST API uploads, folder watchdog, and messaging platforms. The preprocessing layer renders PDFs via Poppler and applies image normalization. The AI extraction layer runs our proprietary VLM via Ollama with schema-enforced JSON output. The validation layer checks mathematical consistency, format compliance, and assigns confidence scores. The orchestration layer provides rule-based routing and dead-letter queue handling. The integration layer ships 18 production adapters covering CRM, ERP, files, and notifications. The storage layer persists documents, results, and feedback in local SQLite or PostgreSQL.</p>
       <p>Everything runs on your infrastructure. No document leaves your perimeter. No subscription fee scales with volume.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Frequently Asked Questions</h2>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">What hardware is required to run the full stack on-premise?</h3>
-      <p>For Qwen 2.5-VL 7B (suitable for most enterprise document volumes): a server with 16GB RAM and a modern CPU (no GPU required) can process 50-100 pages per minute. For higher throughput, a GPU with 8-16GB VRAM (NVIDIA RTX 4090 or A-series) increases throughput to 200-500 pages per minute. The 72B model variant requires a multi-GPU setup or a high-end workstation with 48GB+ VRAM.</p>
+      <p>For DataUnchain VLM 7B (suitable for most enterprise document volumes): a server with 16GB RAM and a modern CPU (no GPU required) can process 50-100 pages per minute. For higher throughput, a GPU with 8-16GB VRAM (NVIDIA RTX 4090 or A-series) increases throughput to 200-500 pages per minute. The 72B model variant requires a multi-GPU setup or a high-end workstation with 48GB+ VRAM.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Can the stack handle documents in multiple languages?</h3>
-      <p>Qwen 2.5-VL has strong multilingual capabilities and performs well on Italian, German, French, Spanish, English, and most major European languages. Mixed-language documents (common in international trade) are handled by specifying the expected language in the extraction prompt or allowing the model to detect language automatically.</p>
+      <p>our proprietary VLM has strong multilingual capabilities and performs well on Italian, German, French, Spanish, English, and most major European languages. Mixed-language documents (common in international trade) are handled by specifying the expected language in the extraction prompt or allowing the model to detect language automatically.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How does the stack handle document types it has not seen before?</h3>
       <p>This is the key advantage of VLMs over template-based systems. A new document type requires writing a new extraction prompt and defining the JSON schema for the target fields. It does not require retraining a model or building a new template. For most new document types, a working extraction configuration can be built and tested in hours rather than weeks.</p>

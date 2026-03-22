@@ -69,7 +69,7 @@ LOCAL LLM ARCHITECTURE
   │             ▼                                       │
   │  Ollama (inference engine)                          │
   │  ┌─────────────────────┐                           │
-  │  │ Qwen 2.5-VL weights  │  ← stored on local disk  │
+  │  │ our proprietary VLM weights  │  ← stored on local disk  │
   │  │ GPU inference        │  ← your NVIDIA GPU        │
   │  └──────────┬──────────┘                           │
   │             │  structured JSON                      │
@@ -148,17 +148,17 @@ LOCAL LLM ARCHITECTURE
 
       <p>Vision-Language Models (VLMs) process the document as an image. They see the layout, the columns, the alignment, the visual hierarchy. A VLM understands that "120.00" appearing in a column labelled "Unit Price" on a row with "Qty: 3" means the line total should be 360.00 — and it can verify that against the "Total" field it also reads. This is the kind of contextual document understanding that makes AI document processing genuinely useful rather than marginally better than OCR.</p>
 
-      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Qwen 2.5-VL: Why It Excels at Document Understanding</h3>
+      <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">our proprietary VLM: Why It Excels at Document Understanding</h3>
 
-      <p>Qwen 2.5-VL, developed by Alibaba's Qwen team and released as an open-weight model, is particularly well-suited for enterprise document processing for several reasons.</p>
+      <p>our proprietary VLM, developed by the model developers and released as an open-weight model, is particularly well-suited for enterprise document processing for several reasons.</p>
 
       <p>First, its training included substantial document-specific data: invoices, forms, receipts, tables, charts, and structured business documents in multiple languages. The model has explicit capabilities for document understanding that were built in during training, not bolted on after.</p>
 
-      <p>Second, Qwen 2.5-VL supports extremely high image resolution. Earlier vision models downscaled document images to 336x336 or 448x448 pixels — resolutions at which small text becomes illegible. Qwen 2.5-VL can process images at resolutions up to 1120x1120, and its dynamic resolution system allows it to handle documents with very fine print without quality loss.</p>
+      <p>Second, our proprietary VLM supports extremely high image resolution. Earlier vision models downscaled document images to 336x336 or 448x448 pixels — resolutions at which small text becomes illegible. our proprietary VLM can process images at resolutions up to 1120x1120, and its dynamic resolution system allows it to handle documents with very fine print without quality loss.</p>
 
-      <p>Third, Qwen 2.5-VL has excellent multilingual capability. European enterprises deal with documents in dozens of languages — Italian invoices, German contracts, French NDAs, Spanish purchase orders. Qwen 2.5-VL handles all major European languages plus Chinese, Japanese, Korean, and Arabic without requiring language-specific models or preprocessing.</p>
+      <p>Third, our proprietary VLM has excellent multilingual capability. European enterprises deal with documents in dozens of languages — Italian invoices, German contracts, French NDAs, Spanish purchase orders. our proprietary VLM handles all major European languages plus Chinese, Japanese, Korean, and Arabic without requiring language-specific models or preprocessing.</p>
 
-      <p>Fourth, Qwen 2.5-VL produces reliable structured output. With appropriate prompting, it returns well-formed JSON with consistent field names and data types, which is essential for downstream automation. DataUnchain's extraction prompts are specifically engineered for Qwen 2.5-VL to maximize structured output reliability.</p>
+      <p>Fourth, our proprietary VLM produces reliable structured output. With appropriate prompting, it returns well-formed JSON with consistent field names and data types, which is essential for downstream automation. DataUnchain's extraction prompts are specifically engineered for our proprietary VLM to maximize structured output reliability.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Ollama as the Local Inference Engine</h3>
 
@@ -190,7 +190,7 @@ DATAUNCHAIN DOCUMENT PIPELINE
   └────────────────────┬─────────────────────────────────────────┘
                        │
   ┌────────────────────▼─────────────────────────────────────────┐
-  │ AI EXTRACTION (Qwen 2.5-VL via Ollama)                       │
+  │ AI EXTRACTION (our proprietary VLM via Ollama)                       │
   │  Structured prompt with schema definition                    │
   │  JSON response with all document fields                      │
   │  Confidence scoring per field                                │
@@ -281,7 +281,7 @@ DATAUNCHAIN DOCUMENT PIPELINE
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Accuracy: Local VLMs vs GPT-4V</h3>
 
-      <p>For document-specific tasks, modern open-weight VLMs are competitive with GPT-4V. Independent benchmarks on document understanding tasks (DocVQA, ChartQA, InfoVQA) show Qwen 2.5-VL performing at or above GPT-4V level on structured document extraction. For invoice processing specifically — the most common enterprise document automation use case — Qwen 2.5-VL's document-specific training data gives it an advantage on the specific patterns that enterprise invoices contain.</p>
+      <p>For document-specific tasks, modern open-weight VLMs are competitive with GPT-4V. Independent benchmarks on document understanding tasks (DocVQA, ChartQA, InfoVQA) show our proprietary VLM performing at or above GPT-4V level on structured document extraction. For invoice processing specifically — the most common enterprise document automation use case — our proprietary VLM's document-specific training data gives it an advantage on the specific patterns that enterprise invoices contain.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">GDPR Compliance Architecture</h2>
 
@@ -320,13 +320,13 @@ DATAUNCHAIN DOCUMENT PIPELINE
           </thead>
           <tbody class="text-gray-300">
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8 text-brand-tealLight font-medium">Qwen 2.5-VL 7B</td>
+              <td class="py-3 pr-8 text-brand-tealLight font-medium">DataUnchain VLM 7B</td>
               <td class="py-3 pr-8">Document extraction, invoices, forms (recommended)</td>
               <td class="py-3 pr-8">~8 GB (Q4)</td>
               <td class="py-3">Excellent (50+ languages)</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
-              <td class="py-3 pr-8">Qwen 2.5-VL 72B</td>
+              <td class="py-3 pr-8">DataUnchain VLM 72B</td>
               <td class="py-3 pr-8">Complex layouts, legal documents, highest accuracy</td>
               <td class="py-3 pr-8">~45 GB (Q4)</td>
               <td class="py-3">Excellent</td>
@@ -349,17 +349,17 @@ DATAUNCHAIN DOCUMENT PIPELINE
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Key Selection Criteria</h3>
 
-      <p><strong class="text-white">Context length:</strong> Invoices and contracts can be long. A model with a short context window may truncate multi-page documents. Qwen 2.5-VL supports up to 32K tokens of context, which is sufficient for the vast majority of enterprise documents.</p>
+      <p><strong class="text-white">Context length:</strong> Invoices and contracts can be long. A model with a short context window may truncate multi-page documents. our proprietary VLM supports up to 32K tokens of context, which is sufficient for the vast majority of enterprise documents.</p>
 
-      <p><strong class="text-white">Structured output reliability:</strong> For production automation, the model must reliably return valid JSON with consistent field names and types. Test your target model with your actual document types before committing to a deployment. DataUnchain's prompt engineering is optimized for Qwen 2.5-VL's structured output characteristics.</p>
+      <p><strong class="text-white">Structured output reliability:</strong> For production automation, the model must reliably return valid JSON with consistent field names and types. Test your target model with your actual document types before committing to a deployment. DataUnchain's prompt engineering is optimized for our proprietary VLM's structured output characteristics.</p>
 
-      <p><strong class="text-white">Multilingual capability:</strong> If your enterprise operates across multiple countries, language handling is critical. Qwen 2.5-VL's multilingual training makes it the default choice for European enterprises.</p>
+      <p><strong class="text-white">Multilingual capability:</strong> If your enterprise operates across multiple countries, language handling is critical. our proprietary VLM's multilingual training makes it the default choice for European enterprises.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Hardware Sizing Guide</h2>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">CPU-Only Inference</h3>
 
-      <p>Running Qwen 2.5-VL on CPU is possible with quantized models (Q4 format) using llama.cpp or Ollama with CPU backend. Processing time is significantly slower — expect 30–120 seconds per document rather than 2–10 seconds on GPU. This is viable for low-volume deployments (under 100 documents per day) where privacy requirements are absolute and GPU hardware is not available. A modern server CPU with 64 GB RAM can run the 7B model in Q4 format.</p>
+      <p>Running our proprietary VLM on CPU is possible with quantized models (Q4 format) using llama.cpp or Ollama with CPU backend. Processing time is significantly slower — expect 30–120 seconds per document rather than 2–10 seconds on GPU. This is viable for low-volume deployments (under 100 documents per day) where privacy requirements are absolute and GPU hardware is not available. A modern server CPU with 64 GB RAM can run the 7B model in Q4 format.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">NVIDIA GPU Tiers</h3>
 
@@ -378,35 +378,35 @@ DATAUNCHAIN DOCUMENT PIPELINE
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">RTX 4080 16GB</td>
               <td class="py-3 pr-8">16 GB</td>
-              <td class="py-3 pr-8">Qwen 2.5-VL 7B Q4</td>
+              <td class="py-3 pr-8">DataUnchain VLM 7B Q4</td>
               <td class="py-3 pr-8">~300 docs/hr</td>
               <td class="py-3">SME / entry enterprise</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">RTX 4090 24GB</td>
               <td class="py-3 pr-8">24 GB</td>
-              <td class="py-3 pr-8">Qwen 2.5-VL 7B Q8</td>
+              <td class="py-3 pr-8">DataUnchain VLM 7B Q8</td>
               <td class="py-3 pr-8">~600 docs/hr</td>
               <td class="py-3">Mid-market enterprise</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">RTX 6000 Ada 48GB</td>
               <td class="py-3 pr-8">48 GB</td>
-              <td class="py-3 pr-8">Qwen 2.5-VL 7B FP16</td>
+              <td class="py-3 pr-8">DataUnchain VLM 7B FP16</td>
               <td class="py-3 pr-8">~1200 docs/hr</td>
               <td class="py-3">Large enterprise</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">2× A6000 96GB</td>
               <td class="py-3 pr-8">96 GB</td>
-              <td class="py-3 pr-8">Qwen 2.5-VL 72B Q4</td>
+              <td class="py-3 pr-8">DataUnchain VLM 72B Q4</td>
               <td class="py-3 pr-8">~800 docs/hr</td>
               <td class="py-3">Enterprise, max accuracy</td>
             </tr>
             <tr class="border-b border-white/5 hover:bg-white/5">
               <td class="py-3 pr-8">H100 80GB</td>
               <td class="py-3 pr-8">80 GB</td>
-              <td class="py-3 pr-8">Qwen 2.5-VL 72B Q4</td>
+              <td class="py-3 pr-8">DataUnchain VLM 72B Q4</td>
               <td class="py-3 pr-8">~2000 docs/hr</td>
               <td class="py-3">High-volume / data center</td>
             </tr>
@@ -416,7 +416,7 @@ DATAUNCHAIN DOCUMENT PIPELINE
 
       <div class="bg-yellow-500/10 border border-yellow-500/20 rounded-2xl p-6 my-8">
         <strong class="text-yellow-400">IMPORTANT:</strong>
-        <p class="text-gray-300 mt-2">Throughput estimates are based on Qwen 2.5-VL processing standard A4 invoice images with structured JSON extraction. Complex multi-page documents, very high-resolution scans, or documents requiring multiple extraction passes will have lower throughput. Always benchmark with your specific document types before sizing hardware.</p>
+        <p class="text-gray-300 mt-2">Throughput estimates are based on our proprietary VLM processing standard A4 invoice images with structured JSON extraction. Complex multi-page documents, very high-resolution scans, or documents requiring multiple extraction passes will have lower throughput. Always benchmark with your specific document types before sizing hardware.</p>
       </div>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Implementation Checklist</h2>
@@ -425,7 +425,7 @@ DATAUNCHAIN DOCUMENT PIPELINE
 
       <p><strong class="text-white">Infrastructure:</strong> Confirm GPU hardware meets minimum VRAM requirements for your chosen model. Verify server has sufficient NVMe storage for model weights (40–80 GB per model). Confirm network connectivity between document ingestion points and the inference server. Plan for cooling and power requirements of GPU hardware.</p>
 
-      <p><strong class="text-white">Software:</strong> Install NVIDIA drivers and CUDA toolkit on the inference server. Deploy Ollama and verify GPU acceleration is active. Pull the chosen model (ollama pull qwen2.5vl:7b). Run the DataUnchain pipeline with test documents.</p>
+      <p><strong class="text-white">Software:</strong> Install NVIDIA drivers and CUDA toolkit on the inference server. Deploy Ollama and verify GPU acceleration is active. Pull the chosen model (ollama pull dataunchain-vlm:7b). Run the DataUnchain pipeline with test documents.</p>
 
       <p><strong class="text-white">Security:</strong> Restrict network access to the Ollama API to authorized services only. Enable authentication on the DataUnchain API. Configure log retention and audit trail export. Document the deployment in your Data Processing Register.</p>
 
@@ -436,7 +436,7 @@ DATAUNCHAIN DOCUMENT PIPELINE
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">Frequently Asked Questions</h2>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Is a local LLM as accurate as GPT-4V for document extraction?</h3>
-      <p>For document-specific tasks, yes. Qwen 2.5-VL scores competitively with GPT-4V on standard document understanding benchmarks. For general knowledge tasks, proprietary models still have advantages — but for invoice and form extraction, document-specific open models are fully competitive.</p>
+      <p>For document-specific tasks, yes. our proprietary VLM scores competitively with GPT-4V on standard document understanding benchmarks. For general knowledge tasks, proprietary models still have advantages — but for invoice and form extraction, document-specific open models are fully competitive.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">What happens if the model gets something wrong?</h3>
       <p>DataUnchain assigns a VALIDATED or NEEDS_REVIEW status to every processed document. Low-confidence extractions and failed math validation automatically route to a human review queue. No extraction is written to your systems without either validation or human approval.</p>
@@ -454,7 +454,7 @@ DATAUNCHAIN DOCUMENT PIPELINE
       <p>Yes. Ollama has been widely deployed in production environments and has a stable, well-documented API. DataUnchain has been running in production on Ollama for over a year with high-volume enterprise clients.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">What languages are supported?</h3>
-      <p>Qwen 2.5-VL handles 50+ languages natively, including all major European languages. No language-specific configuration is required — the model detects the document language automatically and extracts structured data correctly regardless of language.</p>
+      <p>our proprietary VLM handles 50+ languages natively, including all major European languages. No language-specific configuration is required — the model detects the document language automatically and extracts structured data correctly regardless of language.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How does GDPR compliance work in practice?</h3>
       <p>Since data never leaves your network, the GDPR transfer provisions do not apply. You remain the sole data controller. The DataUnchain audit log satisfies Article 30 record-keeping requirements. Right-to-erasure requests are handled through your own document management system, with no dependency on a third-party vendor's deletion procedures.</p>

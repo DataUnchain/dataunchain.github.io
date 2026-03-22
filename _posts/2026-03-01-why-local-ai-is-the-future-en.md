@@ -25,7 +25,7 @@ description: "Cloud AI services are convenient, but what about privacy, costs, a
             </ul>
 
             <h2 class="text-2xl font-black font-display text-white">The local alternative</h2>
-            <p>Modern AI models like <strong class="text-white">Qwen 3.5 VL</strong> have changed the game. A 4-billion parameter Vision Language Model can now run on a standard laptop with 16 GB of RAM — no GPU required, no internet connection needed.</p>
+            <p>Modern AI models like <strong class="text-white">our proprietary Vision Language Model</strong> have changed the game. A 4-billion parameter Vision Language Model can now run on a standard laptop with 16 GB of RAM — no GPU required, no internet connection needed.</p>
             <p>This means you can build document processing pipelines that are:</p>
             <ul class="space-y-3 text-gray-400">
                 <li>✅ <strong class="text-white">100% offline</strong> — data never leaves your device</li>

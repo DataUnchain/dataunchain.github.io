@@ -200,7 +200,7 @@ description: "La guida completa sull'acquisizione documenti con AI: architettura
                            ↓
 ┌──────────────────────────────────────────────────────────────┐
 │                AI UNDERSTANDING LAYER                         │
-│  Vision-Language Model: Qwen 2.5-VL (local Ollama)           │
+│  Vision-Language Model: Proprietary VLM (local Ollama)           │
 │  Document classification │ Entity extraction │ JSON output    │
 │  Confidence scoring per field                                 │
 └──────────────────────────┬───────────────────────────────────┘
@@ -236,15 +236,15 @@ description: "La guida completa sull'acquisizione documenti con AI: architettura
           I file che non possono essere analizzati — PDF protetti da password, archivi corrotti, formati binari non supportati — vengono spostati in una coda di quarantena e viene inviata una notifica al team operativo. Il sistema non fallisce mai silenziosamente.
         </p>
 
-        <h3 class="text-xl font-bold font-display text-white">Livello 2: Comprensione AI con Qwen 2.5-VL</h3>
+        <h3 class="text-xl font-bold font-display text-white">Livello 2: Comprensione AI con il VLM Proprietario</h3>
         <p>
-          Il livello di comprensione AI è il nucleo intellettuale del sistema. DataUnchain utilizza Qwen 2.5-VL, un modello vision-language all'avanguardia che elabora le immagini dei documenti direttamente, senza eseguire prima l'OCR. Il modello gira localmente tramite Ollama — non comunica mai con server esterni. L'inferenza avviene sulla stessa macchina che ha ricevuto il documento.
+          Il livello di comprensione AI è il nucleo intellettuale del sistema. DataUnchain utilizza il nostro VLM proprietario, un modello vision-language all'avanguardia che elabora le immagini dei documenti direttamente, senza eseguire prima l'OCR. Il modello gira localmente tramite Ollama — non comunica mai con server esterni. L'inferenza avviene sulla stessa macchina che ha ricevuto il documento.
         </p>
         <p>
           Il modello riceve un prompt accuratamente costruito insieme all'immagine del documento. Il prompt istruisce il modello a identificare il tipo di documento (fattura, contratto, DDT, referto medico, busta paga, ecc.), estrarre tutti i campi rilevanti con i rispettivi valori ed esprimere punteggi di confidenza per ogni estrazione. L'output è un oggetto JSON strutturato che i livelli a valle possono elaborare programmaticamente.
         </p>
         <p>
-          La capacità visiva di Qwen 2.5-VL gli consente di gestire documenti che sconfesserebbero un approccio puramente testuale: tabelle le cui colonne sono definite dall'allineamento visivo anziché da delimitatori, annotazioni manoscritte nei margini, intestazioni bilingui, timbri e filigrane che si sovrappongono al testo, e pagine con orientamento misto dove alcune sezioni sono disposte verticalmente.
+          La capacità visiva del nostro VLM proprietario gli consente di gestire documenti che sconfesserebbero un approccio puramente testuale: tabelle le cui colonne sono definite dall'allineamento visivo anziché da delimitatori, annotazioni manoscritte nei margini, intestazioni bilingui, timbri e filigrane che si sovrappongono al testo, e pagine con orientamento misto dove alcune sezioni sono disposte verticalmente.
         </p>
 
         <h3 class="text-xl font-bold font-display text-white">Livello 3: Validazione</h3>
@@ -317,7 +317,7 @@ description: "La guida completa sull'acquisizione documenti con AI: architettura
             </tr>
             <tr class="border-b border-white/5">
               <td class="py-3 pr-6 font-medium text-brand-tealLight">AI Locale (DataUnchain)</td>
-              <td class="py-3 pr-6 text-brand-tealLight">Eccellente — modello visivo Qwen 2.5-VL</td>
+              <td class="py-3 pr-6 text-brand-tealLight">Eccellente — VLM proprietario</td>
               <td class="py-3 pr-6 text-brand-tealLight">JSON validato con punteggi di confidenza</td>
               <td class="py-3 pr-6 text-brand-tealLight">Buono — generalizza tra layout</td>
               <td class="py-3 pr-6 text-brand-tealLight">Multilivello: matematica + formato + confidenza</td>
@@ -455,7 +455,7 @@ description: "La guida completa sull'acquisizione documenti con AI: architettura
 
         <h3 class="text-xl font-bold font-display text-white">Architettura di un Sistema Zero-Egress</h3>
         <p>
-          DataUnchain è progettato come sistema zero-egress per architettura, non per policy. Nessun pixel di documento, nessun testo estratto, nessun artefatto di elaborazione intermedia lascia mai la macchina (o la rete locale) su cui gira il sistema. Il modello AI (Qwen 2.5-VL tramite Ollama) gira come processo locale. Le chiamate API vengono effettuate solo all'indirizzo loopback del server Ollama locale. Gli adapter di integrazione inviano dati strutturati (valori dei campi, non immagini dei documenti) ai sistemi di output configurati — e anche questi possono essere limitati ai soli sistemi interni.
+          DataUnchain è progettato come sistema zero-egress per architettura, non per policy. Nessun pixel di documento, nessun testo estratto, nessun artefatto di elaborazione intermedia lascia mai la macchina (o la rete locale) su cui gira il sistema. Il modello AI (il nostro VLM proprietario tramite Ollama) gira come processo locale. Le chiamate API vengono effettuate solo all'indirizzo loopback del server Ollama locale. Gli adapter di integrazione inviano dati strutturati (valori dei campi, non immagini dei documenti) ai sistemi di output configurati — e anche questi possono essere limitati ai soli sistemi interni.
         </p>
         <p>
           Il sistema può operare in una configurazione completamente air-gapped: nessuna connettività internet. In questa modalità, tutti gli aggiornamenti software vengono applicati tramite supporto fisico e tutti gli output vanno verso sistemi on-premise (ERP, database locale, condivisione di rete). Questa configurazione è adatta ad ambienti classificati, impianti industriali ad alta sicurezza e reti sanitarie operative dietro perimetri di rete rigorosi.
@@ -466,13 +466,13 @@ description: "La guida completa sull'acquisizione documenti con AI: architettura
           Far girare un modello linguistico localmente significa che i pesi del modello — i parametri della rete neurale addestrata — sono archiviati nella memoria GPU o CPU della macchina locale. Quando un documento viene elaborato, il modello viene invocato direttamente tramite l'API Ollama su localhost, produce la propria risposta e quella è la fine della fase di inferenza. Non viene effettuata alcuna chiamata di rete. Non viene inviata alcuna telemetria. Il modello non ha alcun meccanismo per esfiltrare dati perché non è connesso a nulla al di fuori della macchina host.
         </p>
         <p>
-          Qwen 2.5-VL è un modello open-weights pubblicato da Alibaba Cloud e scaricabile da Hugging Face. I pesi possono essere verificati tramite hash. Lo stack di inferenza (Ollama) è open-source e verificabile. Le organizzazioni con requisiti di sicurezza possono condurre la propria revisione del codice dell'intero stack che tratta i loro documenti.
+          Il nostro VLM proprietario utilizza pesi verificabili tramite hash. Lo stack di inferenza (Ollama) è open-source e verificabile. Le organizzazioni con requisiti di sicurezza possono condurre la propria revisione del codice dell'intero stack che tratta i loro documenti.
         </p>
       </div>
 
       <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 my-8">
         <strong class="text-brand-tealLight">DATO CHIAVE:</strong>
-        <p class="text-gray-300 mt-2">L'elaborazione AI locale non è un compromesso tra capacità e privacy. I moderni modelli vision-language open-weights come Qwen 2.5-VL raggiungono una qualità di comprensione documentale paragonabile a GPT-4V su documenti aziendali strutturati — garantendo al contempo la piena sovranità sui dati. Il gap tra AI cloud e AI locale si è di fatto chiuso per i casi d'uso enterprise di elaborazione documentale.</p>
+        <p class="text-gray-300 mt-2">L'elaborazione AI locale non è un compromesso tra capacità e privacy. I moderni modelli vision-language open-weights raggiungono una qualità di comprensione documentale paragonabile a GPT-4V su documenti aziendali strutturati — garantendo al contempo la piena sovranità sui dati. Il gap tra AI cloud e AI locale si è di fatto chiuso per i casi d'uso enterprise di elaborazione documentale.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
@@ -663,7 +663,7 @@ description: "La guida completa sull'acquisizione documenti con AI: architettura
             <span class="text-brand-tealLight text-xl font-light">+</span>
           </summary>
           <div class="px-6 pb-6 text-gray-300 leading-relaxed">
-            <p>Qwen 2.5-VL è un modello multilingue addestrato su dati in decine di lingue, tra cui italiano, inglese, francese, tedesco, spagnolo e altre. Gestisce nativamente i documenti in lingua italiana, aspetto fondamentale per il nostro mercato principale. I documenti in lingue diverse — una fattura fornitore tedesca in tedesco ricevuta da un'azienda italiana — vengono gestiti correttamente: il modello legge il testo tedesco, comprende la struttura del documento e produce dati strutturati indipendentemente dalla lingua di origine. Il rilevamento della lingua è automatico; non è richiesta alcuna configurazione per lingua.</p>
+            <p>Il nostro VLM proprietario è un modello multilingue addestrato su dati in decine di lingue, tra cui italiano, inglese, francese, tedesco, spagnolo e altre. Gestisce nativamente i documenti in lingua italiana, aspetto fondamentale per il nostro mercato principale. I documenti in lingue diverse — una fattura fornitore tedesca in tedesco ricevuta da un'azienda italiana — vengono gestiti correttamente: il modello legge il testo tedesco, comprende la struttura del documento e produce dati strutturati indipendentemente dalla lingua di origine. Il rilevamento della lingua è automatico; non è richiesta alcuna configurazione per lingua.</p>
           </div>
         </details>
 

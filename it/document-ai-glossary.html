@@ -353,12 +353,12 @@ description: "Il glossario completo dei termini Document AI: acquisizione docume
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">LLM (Large Language Model — Grande Modello Linguistico)</h3>
-          <p class="text-gray-300 text-sm">Un modello di rete neurale addestrato su massivi corpus di testo in grado di generare, classificare e ragionare sul testo. Nel Document AI, gli LLM vengono utilizzati per estrarre dati strutturati dal testo dei documenti (dopo OCR), classificare tipi di documenti, generare riepilogi ed eseguire ragionamenti semantici. La distinzione tra un LLM e un VLM (Vision-Language Model) è che i VLM accettano anche immagini come input, rendendoli applicabili direttamente alle immagini di documenti senza un passo OCR separato. Esempi: GPT-4, LLaMA 3, Mistral, Qwen 2.5.</p>
+          <p class="text-gray-300 text-sm">Un modello di rete neurale addestrato su massivi corpus di testo in grado di generare, classificare e ragionare sul testo. Nel Document AI, gli LLM vengono utilizzati per estrarre dati strutturati dal testo dei documenti (dopo OCR), classificare tipi di documenti, generare riepilogi ed eseguire ragionamenti semantici. La distinzione tra un LLM e un VLM (Vision-Language Model) è che i VLM accettano anche immagini come input, rendendoli applicabili direttamente alle immagini di documenti senza un passo OCR separato. Esempi: GPT-4, LLaMA 3, Mistral.</p>
         </div>
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">Local AI <span class="text-gray-500 font-normal text-base">(AI Locale)</span></h3>
-          <p class="text-gray-300 text-sm">L'inferenza AI eseguita interamente su hardware di proprietà e controllato dall'organizzazione, senza trasmettere dati a server esterni. L'AI locale è sinonimo di AI on-premise e si distingue dall'AI cloud (dove i dati vengono inviati ai server di un fornitore per l'inferenza). L'AI locale è sempre più pratica per l'elaborazione documentale grazie alla disponibilità di modelli open-weight capaci (Qwen, LLaMA, Mistral) che girano su GPU consumer. I principali vantaggi sono la privacy dei dati, l'assenza di costi ricorrenti per inferenza e il funzionamento senza connettività internet.</p>
+          <p class="text-gray-300 text-sm">L'inferenza AI eseguita interamente su hardware di proprietà e controllato dall'organizzazione, senza trasmettere dati a server esterni. L'AI locale è sinonimo di AI on-premise e si distingue dall'AI cloud (dove i dati vengono inviati ai server di un fornitore per l'inferenza). L'AI locale è sempre più pratica per l'elaborazione documentale grazie alla disponibilità di modelli open-weight capaci (LLaMA, Mistral e altri) che girano su GPU consumer. I principali vantaggi sono la privacy dei dati, l'assenza di costi ricorrenti per inferenza e il funzionamento senza connettività internet.</p>
         </div>
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
@@ -418,7 +418,7 @@ description: "Il glossario completo dei termini Document AI: acquisizione docume
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">On-premise AI <span class="text-gray-500 font-normal text-base">(AI On-Premise)</span></h3>
-          <p class="text-gray-300 text-sm">L'inferenza del modello AI eseguita su hardware fisicamente localizzato nel proprio data center o uffici dell'organizzazione, con dati che non lasciano mai il perimetro della rete dell'organizzazione. L'AI on-premise per l'elaborazione documentale è abilitata da modelli open-weight (Qwen, LLaMA, Mistral) serviti tramite server di inferenza locali (Ollama, vLLM, llama.cpp). I principali vantaggi sono la privacy dei dati, la conformità normativa, l'assenza di costi cloud per inferenza e l'indipendenza dalla connettività internet. Il costo principale è l'investimento hardware GPU e la manutenzione.</p>
+          <p class="text-gray-300 text-sm">L'inferenza del modello AI eseguita su hardware fisicamente localizzato nel proprio data center o uffici dell'organizzazione, con dati che non lasciano mai il perimetro della rete dell'organizzazione. L'AI on-premise per l'elaborazione documentale è abilitata da modelli open-weight (LLaMA, Mistral e altri) serviti tramite server di inferenza locali (Ollama, vLLM, llama.cpp). I principali vantaggi sono la privacy dei dati, la conformità normativa, l'assenza di costi cloud per inferenza e l'indipendenza dalla connettività internet. Il costo principale è l'investimento hardware GPU e la manutenzione.</p>
         </div>
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
@@ -573,7 +573,7 @@ description: "Il glossario completo dei termini Document AI: acquisizione docume
 
         <div class="border-l-4 border-brand-teal pl-6 my-6">
           <h3 class="text-lg font-bold text-white mb-1">VLM (Vision-Language Model — Modello Visione-Linguaggio)</h3>
-          <p class="text-gray-300 text-sm">Una rete neurale multi-modale che elabora immagini e testo congiuntamente, permettendole di ragionare sul contenuto visivo delle pagine dei documenti insieme al loro contenuto testuale. I VLM sono l'architettura all'avanguardia per il Document AI nel 2026, superando gli approcci a pipeline (OCR → NER → estrazione) eliminando la propagazione degli errori tra gli stadi e consentendo l'estrazione layout-aware. I principali VLM per l'elaborazione documentale on-premise includono Qwen 2.5-VL (varianti da 7B e 72B parametri), LLaMA 3.2-Vision e Mistral Pixtral. DataUnchain utilizza Qwen 2.5-VL come motore di estrazione principale.</p>
+          <p class="text-gray-300 text-sm">Una rete neurale multi-modale che elabora immagini e testo congiuntamente, permettendole di ragionare sul contenuto visivo delle pagine dei documenti insieme al loro contenuto testuale. I VLM sono l'architettura all'avanguardia per il Document AI nel 2026, superando gli approcci a pipeline (OCR → NER → estrazione) eliminando la propagazione degli errori tra gli stadi e consentendo l'estrazione layout-aware. I principali VLM per l'elaborazione documentale on-premise includono LLaMA 3.2-Vision, Mistral Pixtral e altri modelli specializzati. DataUnchain utilizza un VLM proprietario come motore di estrazione principale.</p>
         </div>
       </div>
 
@@ -618,7 +618,7 @@ description: "Il glossario completo dei termini Document AI: acquisizione docume
         <li><a href="/it/how-it-works/" class="text-brand-tealLight hover:underline">Come Funziona DataUnchain — Panoramica completa della pipeline</a></li>
         <li><a href="/it/use-cases/" class="text-brand-tealLight hover:underline">Casi d'Uso Document AI — Fatture, DDT, contratti e altro</a></li>
         <li><a href="/it/features/" class="text-brand-tealLight hover:underline">Funzionalità — Adapter, validazione e capacità di estrazione</a></li>
-        <li><a href="/it/benchmark-llm-estrazione-documenti/" class="text-brand-tealLight hover:underline">Benchmark LLM per l'Estrazione Documenti — Qwen vs LLaMA vs Mistral (2026)</a></li>
+        <li><a href="/it/benchmark-llm-estrazione-documenti/" class="text-brand-tealLight hover:underline">Benchmark LLM per l'Estrazione Documenti — VLM a confronto (2026)</a></li>
         <li><a href="/it/studio-caso-automazione-documenti-enterprise/" class="text-brand-tealLight hover:underline">Case Study Enterprise — Elaborazione di 50.000 documenti l'anno</a></li>
       </ul>
 

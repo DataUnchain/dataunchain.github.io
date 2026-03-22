@@ -77,7 +77,7 @@ description: "Deep technical dive into AI document processing architecture: inge
 │  └────────────────────┬─────────────────────────────────────────┘  │
 │                        │                                            │
 │  ┌─────────────────────▼──────────────────────────────────────┐   │
-│  │   Qwen 2.5-VL (via Ollama, local GPU)                      │   │
+│  │   our proprietary VLM (via Ollama, local GPU)                      │   │
 │  │   Vision-Language Model, 7B or 72B parameters              │   │
 │  └────────────────────┬────────────────────────────────────────┘   │
 │                        │                                            │
@@ -148,7 +148,7 @@ description: "Deep technical dive into AI document processing architecture: inge
 
       <p>Multi-page documents present a specific challenge: which pages contain the information to extract? The system uses two strategies. For known document types with predictable structure (invoices — totals always on the first or last page), the extraction prompt focuses on specific pages. For unknown document types or long contracts, all pages are rendered and passed to the model with instructions to locate relevant information across the full document.</p>
 
-      <p>Practical limit: Qwen 2.5-VL reliably handles up to approximately 10 page images in a single prompt. For documents longer than 10 pages, the system uses a two-pass approach: a first pass to identify which pages contain the relevant information, followed by a focused extraction pass on those pages only.</p>
+      <p>Practical limit: our proprietary VLM reliably handles up to approximately 10 page images in a single prompt. For documents longer than 10 pages, the system uses a two-pass approach: a first pass to identify which pages contain the relevant information, followed by a focused extraction pass on those pages only.</p>
 
       <h2 class="text-2xl font-black font-display text-white mt-12 mb-4">4. The Document Parsing Layer</h2>
 
@@ -196,7 +196,7 @@ def preprocess_page(image: np.ndarray, flags: QualityFlags) -> np.ndarray:
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How Vision-Language Models Work</h3>
 
-      <p>Qwen 2.5-VL is a transformer model with two input modalities: text tokens and image patch embeddings. When a document image is passed to the model, it is divided into fixed-size patches (typically 14x14 or 16x16 pixels), each patch is encoded into a dense vector embedding, and these visual embeddings are interleaved with the text token embeddings from the prompt. The transformer then attends across both modalities — text and visual — allowing it to answer questions that require understanding both the content and the layout of the document.</p>
+      <p>our proprietary VLM is a transformer model with two input modalities: text tokens and image patch embeddings. When a document image is passed to the model, it is divided into fixed-size patches (typically 14x14 or 16x16 pixels), each patch is encoded into a dense vector embedding, and these visual embeddings are interleaved with the text token embeddings from the prompt. The transformer then attends across both modalities — text and visual — allowing it to answer questions that require understanding both the content and the layout of the document.</p>
 
       <p>This is fundamentally different from OCR + LLM pipelines (which extract text first, losing all layout information, then process the text) and from template OCR (which looks for content at fixed pixel coordinates). The vision-language model sees the whole page as a human would — understanding that a number in the bottom-right corner of a table is likely a total, that text in a smaller font below the main content area is likely legal fine print, that a bold label followed by a value is a labeled field.</p>
 
@@ -518,7 +518,7 @@ CREATE TABLE extractions (
     id              TEXT PRIMARY KEY,
     document_id     TEXT NOT NULL REFERENCES documents(id),
     extracted_at    TEXT NOT NULL,
-    model_name      TEXT NOT NULL,             -- qwen2.5-vl:7b
+    model_name      TEXT NOT NULL,             -- proprietary-vlm:7b
     raw_output      TEXT,                      -- raw LLM output before parsing
     parsed_data     TEXT,                      -- JSON string of parsed extraction
     parse_status    TEXT NOT NULL,             -- SUCCESS | PARSE_FAILED

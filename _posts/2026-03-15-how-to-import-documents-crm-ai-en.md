@@ -80,7 +80,7 @@ DOCUMENT-TO-CRM INTEGRATION ARCHITECTURE
   ┌─────────────────────────────▼────────────────────────────────┐
   │ AI EXTRACTION (DataUnchain)                                  │
   │  Document type classification                                │
-  │  Qwen 2.5-VL field extraction                                │
+  │  our proprietary VLM field extraction                                │
   │  Structured JSON with confidence scores                      │
   │  Math validation (for financial documents)                   │
   │  Status: VALIDATED / NEEDS_REVIEW                            │
@@ -384,13 +384,13 @@ DOCUMENT-TO-CRM INTEGRATION ARCHITECTURE
       <p>Yes. DataUnchain supports batch processing of document archives. You can upload a folder of historical documents — contracts signed over the past 5 years, invoice archives, historical proposals — and the pipeline will process them in batches, populating the CRM with the extracted data. Batch processing is useful for initial CRM enrichment projects and for bringing legacy data into a new CRM deployment.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">How do we handle documents in multiple languages?</h3>
-      <p>Qwen 2.5-VL handles document extraction across 50+ languages automatically, with no language-specific configuration. A French contract and an Italian invoice and a German NDA all process through the same pipeline. The extracted JSON uses your configured field names regardless of the source language, allowing downstream CRM mapping to work consistently.</p>
+      <p>our proprietary VLM handles document extraction across 50+ languages automatically, with no language-specific configuration. A French contract and an Italian invoice and a German NDA all process through the same pipeline. The extracted JSON uses your configured field names regardless of the source language, allowing downstream CRM mapping to work consistently.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">What if our contracts have unusual or non-standard structures?</h3>
       <p>AI document understanding handles unusual structures better than any rules-based approach, but accuracy varies by document complexity. For highly unusual or bespoke contract structures, DataUnchain's extraction prompts can be customized with specific instructions. Alternatively, such documents can be configured to always route to the human review queue, where the pre-filled extraction speeds up review even if it is not fully automatic.</p>
 
       <h3 class="text-xl font-bold font-display text-white mt-8 mb-3">Is the data secure during processing?</h3>
-      <p>DataUnchain processes all documents locally on your infrastructure using Qwen 2.5-VL running via Ollama. No document content, extracted fields, or CRM credentials ever leave your network. The CRM adapter makes outbound API calls to Salesforce or HubSpot using your credentials — these are standard CRM API calls, no different from what a sales rep's browser makes when they update a record. The AI processing itself is entirely on-premise.</p>
+      <p>DataUnchain processes all documents locally on your infrastructure using our proprietary VLM running via Ollama. No document content, extracted fields, or CRM credentials ever leave your network. The CRM adapter makes outbound API calls to Salesforce or HubSpot using your credentials — these are standard CRM API calls, no different from what a sales rep's browser makes when they update a record. The AI processing itself is entirely on-premise.</p>
 
     </div>
 
