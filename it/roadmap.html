@@ -1,0 +1,695 @@
+---
+layout: default
+title: "Roadmap di Sviluppo — DataUnchain"
+lang: it
+locale: it_IT
+description: "La roadmap di DataUnchain: dal prodotto attuale alla v3.0. Nuove integrazioni, auto-apprendimento avanzato, multi-lingua, marketplace connettori e molto altro nei prossimi 12 mesi."
+---
+
+<!-- Hero -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/3 w-[600px] h-[600px] bg-brand-teal/8 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[100px]"></div>
+    <div class="absolute top-1/2 right-1/3 w-[300px] h-[300px] bg-brand-gold/5 rounded-full blur-[120px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            🗺️ Roadmap 2026–2027
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-black font-display mb-6 leading-[0.95]">
+            Dove stiamo<br>
+            <span class="gradient-text">andando.</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
+            La roadmap di DataUnchain — dal v2.1 alla v3.0 e oltre.
+            Ogni funzionalità nasce dal feedback reale delle aziende che usano il prodotto ogni giorno.
+        </p>
+        <p class="text-sm text-gray-500 mb-10">Ultimo aggiornamento: Marzo 2026 · Ciclo trimestrale · Priorità guidate dagli Early Adopter</p>
+        <div class="flex gap-4 justify-center flex-wrap">
+            <a href="#timeline"
+                class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform text-lg">
+                Esplora la roadmap ↓
+            </a>
+            <a href="/it/early-access/"
+                class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors">
+                Diventa Early Adopter
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Filosofia -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-black font-display mb-6">Una roadmap trasparente, guidata da chi ci usa</h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+            DataUnchain non costruisce funzionalità in isolamento. Ogni trimestre raccogliamo i dati di utilizzo, i ticket di supporto e le richieste dei nostri Early Adopter per decidere cosa sviluppare. Se una funzionalità non risolve un problema reale di almeno due aziende pilota, non entra nella roadmap. Questo approccio ci permette di costruire un prodotto che funziona davvero — non un catalogo di feature inutili.
+        </p>
+        <p class="text-gray-400 text-lg leading-relaxed">
+            La nostra visione a lungo termine resta chiara: eliminare ogni forma di data entry manuale da documenti, ovunque, per qualsiasi formato e in qualsiasi lingua. Ogni release ci avvicina a questo obiettivo, un passo concreto alla volta. Qui sotto trovi il dettaglio di ciò che abbiamo già completato, di ciò su cui stiamo lavorando adesso e di ciò che arriverà nei prossimi 12 mesi.
+        </p>
+    </div>
+</section>
+
+<!-- Stato Attuale v2.1 -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="v2-1">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold tracking-widest uppercase mb-6">
+                ✅ Rilasciato — Marzo 2026
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-4">v2.1 — Stato Attuale</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Tutto ciò che DataUnchain fa oggi, in produzione, testato su documenti reali di aziende italiane. Nessun vapor-ware, nessuna promessa: solo funzionalità che girano adesso.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Card 1 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">Pipeline AI Vision-Native</h3>
+                        <p class="text-gray-500 text-sm">Il nostro VLM proprietario analizza i documenti come immagini, pagina per pagina. Nessun OCR tradizionale, nessun template, nessun layout fisso. Il modello "vede" il documento e ne comprende la struttura semantica — tabelle, intestazioni, note a piè di pagina, timbri e scritte a mano incluse. Supporto completo multi-pagina per fatture, DDT e contratti di qualsiasi lunghezza.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">95,5% Accuratezza su 219 Documenti Reali</h3>
+                        <p class="text-gray-500 text-sm">Non un benchmark su dataset sintetici. Abbiamo testato DataUnchain su 219 documenti reali — fatture cartacee scannerizzate, PDF digitali, XML FatturaPA, formati misti — provenienti da fornitori diversi, con layout diversi, qualità diverse. Il risultato: 95,5% di accuratezza end-to-end senza alcun intervento manuale. Ogni estrazione è verificata con validazione matematica automatica (imponibile + IVA = totale).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">18 Connettori Output verso Gestionali</h3>
+                        <p class="text-gray-500 text-sm">Ogni dato estratto deve finire da qualche parte. DataUnchain include 18 connettori pronti all'uso: CSV, Excel, JSON, XML FatturaPA, PostgreSQL, MySQL, REST API, webhook, FTP/SFTP e connettori specifici per i gestionali italiani più diffusi. L'architettura ad adapter permette di aggiungerne di nuovi in poche ore, senza toccare il core della pipeline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">5 Canali Input Automatici</h3>
+                        <p class="text-gray-500 text-sm">I documenti arrivano da ovunque. DataUnchain li intercetta automaticamente da 5 canali: cartella locale/di rete con file watcher, API REST per integrazione programmatica, bot Telegram per invio da smartphone, email IMAP per PEC e caselle dedicate, e canale SDI/PEC per fatture elettroniche. Ogni canale converte il documento nel formato interno e lo inserisce nella pipeline senza intervento umano.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">Dashboard con Revisione Human-in-the-Loop</h3>
+                        <p class="text-gray-500 text-sm">Non ci fidiamo ciecamente dell'AI. La dashboard operativa mostra ogni documento elaborato con il suo punteggio di confidenza. L'operatore può verificare, correggere e approvare ogni estrazione con un'interfaccia pulita e veloce. I documenti con confidenza sotto soglia vengono automaticamente segnalati per la revisione umana. Il tempo medio di revisione è sotto i 30 secondi per documento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">Auto-Learning con Correzioni JSONL</h3>
+                        <p class="text-gray-500 text-sm">Ogni correzione umana diventa un dato di addestramento. Il sistema salva automaticamente le coppie documento-correzione in formato JSONL, pronte per il fine-tuning periodico del VLM. Più usi DataUnchain, più diventa preciso — senza bisogno di data scientist. È il ciclo virtuoso che rende il sistema progressivamente migliore nel tempo, specificamente per i tuoi fornitori e i tuoi formati.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">Validazione FatturaPA XSD</h3>
+                        <p class="text-gray-500 text-sm">Per le fatture elettroniche italiane, DataUnchain valida automaticamente l'output contro lo schema XSD ufficiale dell'Agenzia delle Entrate. Ogni campo viene controllato: formato partita IVA, codice destinatario, codici natura IVA, date e importi. Questo garantisce che i dati estratti siano non solo corretti, ma anche conformi alle specifiche normative italiane.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">Universal RPA Engine</h3>
+                        <p class="text-gray-500 text-sm">Non tutti i gestionali hanno API. Il nostro motore RPA vision-guided pilota direttamente le interfacce dei software legacy: apre finestre, compila campi, clicca pulsanti — tutto guidato dalla visione AI, senza bisogno di selettori CSS o XPath fragili. Funziona con qualsiasi software che abbia un'interfaccia grafica, inclusi i gestionali DOS-like ancora diffusi nelle PMI italiane.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">Docker Compose Deploy</h3>
+                        <p class="text-gray-500 text-sm">Un singolo comando: <code class="text-brand-tealLight">docker compose up</code>. L'intera infrastruttura — VLM, processor, PostgreSQL, dashboard, file watcher — si avvia in contenitori isolati. Aggiornamenti con <code class="text-brand-tealLight">docker compose pull</code>. Nessuna dipendenza esterna, nessun conflitto, nessuna configurazione manuale del sistema operativo. Funziona su Linux, Windows con WSL e macOS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-emerald/20 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5 text-brand-emeraldLight" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-1">100% On-Premise, Zero Cloud</h3>
+                        <p class="text-gray-500 text-sm">Nessun dato esce dalla tua rete. Mai. Il VLM gira localmente sulla tua GPU, i dati restano nel tuo PostgreSQL, i documenti restano nel tuo filesystem. Non c'è nessun server remoto, nessuna telemetria, nessuna chiamata API esterna. Conformità GDPR nativa, senza bisogno di DPA con terze parti. Il tuo dato è tuo — punto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Q2 2026 v2.5 -->
+<section class="py-24 px-6 bg-brand-surface reveal" id="v2-5">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                🔧 In Sviluppo — Q2 2026
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-4">v2.5 — Consolidamento</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Il trimestre in cui DataUnchain incontra le prime aziende reali. Onboarding assistito, fine-tuning su documenti veri e il primo connettore gestionale italiano dedicato.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🏢</div>
+                <h3 class="text-xl font-bold mb-3 font-display">5 Aziende Pilota</h3>
+                <p class="text-gray-500 text-sm mb-4">Il programma Early Adopter entra nel vivo. Cinque aziende italiane selezionate riceveranno l'installazione completa di DataUnchain, con supporto diretto dal fondatore. Ogni azienda porterà i propri documenti reali, i propri gestionali e le proprie esigenze specifiche. Questo ci permetterà di validare la pipeline su scenari diversi e di raccogliere dati preziosi per migliorare il prodotto.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Early Adopter</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Pilota</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🎓</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Onboarding Assistito</h3>
+                <p class="text-gray-500 text-sm mb-4">Ogni Early Adopter riceverà un percorso di onboarding personalizzato: installazione guidata, configurazione dei canali input specifici dell'azienda, mapping dei campi verso il gestionale esistente, e formazione dell'operatore sulla dashboard di revisione. Il goal è rendere ogni azienda completamente autonoma entro 5 giorni lavorativi dall'avvio.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Formazione</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Supporto 1:1</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🎯</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Fine-Tuning su Documenti Reali</h3>
+                <p class="text-gray-500 text-sm mb-4">Con le correzioni accumulate durante le prime settimane di utilizzo, eseguiremo il primo ciclo di fine-tuning del VLM sui documenti reali di ogni azienda pilota. L'obiettivo è portare l'accuratezza sopra il 98% per i fornitori ricorrenti di ciascuna azienda. Il modello impara i layout specifici, le peculiarità tipografiche e le convenzioni di ciascun fornitore.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Fine-Tuning</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">JSONL</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📊</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Dashboard Migliorata</h3>
+                <p class="text-gray-500 text-sm mb-4">Nuova interfaccia di revisione con confronto side-by-side documento/dati estratti, filtri avanzati per stato, confidenza e fornitore, e statistiche di performance per operatore. La dashboard diventerà il cockpit quotidiano dell'ufficio amministrativo, con notifiche in tempo reale per documenti che richiedono attenzione e report settimanali automatici.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">UX</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Reportistica</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📚</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Documentazione Completa</h3>
+                <p class="text-gray-500 text-sm mb-4">Guida di installazione passo-passo, documentazione API con esempi, troubleshooting delle configurazioni comuni, video tutorial per ogni funzionalità e changelog dettagliato. L'obiettivo è che qualsiasi system administrator possa installare e configurare DataUnchain senza assistenza diretta, seguendo solo la documentazione online.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Docs</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Video</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">💼</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Connettore Danea EasyFatt</h3>
+                <p class="text-gray-500 text-sm mb-4">Il primo connettore dedicato per un gestionale italiano specifico. Danea EasyFatt è usato da decine di migliaia di PMI italiane. Il connettore importerà automaticamente i dati estratti nel formato nativo di EasyFatt, mappando ogni campo — dalla ragione sociale ai singoli articoli di riga, incluse aliquote IVA e condizioni di pagamento. Zero copia-incolla, zero errori di trascrizione.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Danea</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">EasyFatt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Q3 2026 v2.8 -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="v2-8">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+                📐 Pianificato — Q3 2026
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-4">v2.8 — Scalabilità</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Il trimestre della maturità tecnica. Auto-learning avanzato, elaborazione parallela, classificazione automatica dei documenti e supporto multi-lingua per le aziende che operano con l'estero.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🧠</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Auto-Learning Avanzato</h3>
+                <p class="text-gray-500 text-sm mb-4">Il sistema di apprendimento progressivo diventa completamente automatico. Quando il dataset JSONL di un fornitore raggiunge una soglia critica di correzioni, il fine-tuning parte da solo — senza intervento umano. Il modello viene aggiornato, testato automaticamente contro un validation set, e promosso in produzione solo se l'accuratezza migliora. È il circolo virtuoso dell'AI che si affina da sola.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Auto-Training</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Validation</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🎯</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Fine-Tuning per Fornitore</h3>
+                <p class="text-gray-500 text-sm mb-4">Ogni fornitore ricorrente avrà il proprio profilo di estrazione ottimizzato. Il sistema riconosce automaticamente il fornitore dalla partita IVA o dal layout e applica il modello fine-tuned specifico. L'obiettivo è superare il 99% di accuratezza per i fornitori che inviano almeno 10 documenti al mese. I fornitori nuovi partono dal modello base e vengono progressivamente specializzati.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">99%+</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Per-Fornitore</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">⚡</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Batch Parallelo Multi-GPU</h3>
+                <p class="text-gray-500 text-sm mb-4">Per le aziende che elaborano centinaia o migliaia di documenti al giorno, il processing diventa parallelo. Più GPU lavorano in contemporanea, con un load balancer intelligente che distribuisce i documenti in base alla complessità stimata. L'obiettivo è elaborare 1.000 pagine all'ora su un setup con due GPU consumer-grade. Nessun cloud, nessun costo variabile.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Multi-GPU</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Parallelo</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🏷️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Classificazione Automatica Tipo Documento</h3>
+                <p class="text-gray-500 text-sm mb-4">DataUnchain non chiederà più all'utente che tipo di documento sta elaborando. Il VLM classificherà automaticamente ogni documento — fattura, nota di credito, DDT, ordine, contratto, ricevuta — e applicherà lo schema di estrazione corretto. Un unico canale input per tutti i tipi di documento, con smistamento intelligente e automatico.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Classificazione</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Auto-Routing</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🌍</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Supporto Multi-Lingua</h3>
+                <p class="text-gray-500 text-sm mb-4">Le aziende italiane che lavorano con l'estero ricevono documenti in inglese, tedesco, francese e spagnolo. Il VLM verrà esteso per supportare le principali lingue europee mantenendo la stessa accuratezza. Ogni lingua avrà il proprio set di validazioni specifiche — formati data, codici fiscali, formati di partita IVA — per garantire estrazioni corrette indipendentemente dall'origine del documento.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">EN/DE/FR/ES</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Europa</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🔌</div>
+                <h3 class="text-xl font-bold mb-3 font-display">API v2 con Webhook Avanzati</h3>
+                <p class="text-gray-500 text-sm mb-4">La nuova API v2 sarà completamente RESTful con autenticazione JWT, rate limiting configurabile, documentazione OpenAPI 3.1 interattiva e webhook bidirezionali. Ogni evento della pipeline — documento ricevuto, estrazione completata, revisione approvata, dato esportato — potrà triggherare webhook verso sistemi esterni. Perfetta per integrazioni con N8N, Make, Zapier o workflow custom.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">REST</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">OpenAPI</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Q4 2026 v3.0 -->
+<section class="py-24 px-6 bg-brand-surface reveal" id="v3-0">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold tracking-widest uppercase mb-6">
+                🚀 Visione — Q4 2026
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-4">v3.0 — Enterprise</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">La release che trasforma DataUnchain da strumento per PMI a piattaforma enterprise. Marketplace connettori, multi-tenant, analytics avanzati e certificazioni di sicurezza per i clienti più esigenti.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">🏪</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Marketplace Connettori</h3>
+                <p class="text-gray-500 text-sm mb-4">Un ecosistema aperto di connettori. Sviluppatori terzi — system integrator, software house, VAR — potranno creare e pubblicare connettori per qualsiasi gestionale o ERP. Ogni connettore sarà testato, documentato e installabile con un click dalla dashboard. L'architettura ad adapter che abbiamo costruito fin dal giorno uno rende tutto questo possibile senza modificare il core del prodotto.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Ecosystem</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Plugin</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">🏗️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Architettura Multi-Tenant</h3>
+                <p class="text-gray-500 text-sm mb-4">Per gli studi commercialisti e i centri servizi che gestiscono documenti per conto di più clienti. Ogni tenant avrà il proprio spazio isolato con dati, modelli fine-tuned, connettori e utenti separati. L'amministratore dello studio potrà gestire tutti i clienti da un'unica dashboard centralizzata, con fatturazione e statistiche per singolo tenant.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Multi-Tenant</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Studi</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">🔍</div>
+                <h3 class="text-xl font-bold mb-3 font-display">OCR Ibrido Fallback</h3>
+                <p class="text-gray-500 text-sm mb-4">Il VLM è eccellente, ma per documenti con qualità estremamente bassa — fax, fotocopie di fotocopie, scansioni a 72 DPI — un layer OCR tradizionale come fallback può fare la differenza. Il sistema rileverà automaticamente quando la confidenza del VLM è troppo bassa e attiverà un pipeline ibrida VLM + OCR, combinando i punti di forza di entrambi gli approcci per massimizzare l'accuratezza.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Ibrido</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Fallback</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">✍️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Verifica Firma Digitale</h3>
+                <p class="text-gray-500 text-sm mb-4">Supporto nativo per la verifica delle firme digitali P7M e PAdES. Ogni fattura elettronica firmata verrà verificata automaticamente contro le authority di certificazione italiane prima dell'elaborazione. Questo aggiunge un ulteriore livello di sicurezza e compliance, particolarmente importante per la pubblica amministrazione e per le aziende che gestiscono documenti legali.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">P7M</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">PAdES</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">📈</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Dashboard Analytics ROI</h3>
+                <p class="text-gray-500 text-sm mb-4">Quanto ti sta facendo risparmiare DataUnchain? La nuova dashboard analytics calcolerà automaticamente il ROI: documenti elaborati, tempo risparmiato per documento, errori evitati, FTE equivalenti liberati, costo per documento. Report mensili esportabili in PDF per giustificare l'investimento con la direzione. Grafici di trend per monitorare il miglioramento nel tempo.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">ROI</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Analytics</span>
+                </div>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">🛡️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Percorso Certificazione ISO 27001</h3>
+                <p class="text-gray-500 text-sm mb-4">Per i clienti enterprise, la certificazione ISO 27001 sulla gestione della sicurezza delle informazioni è spesso un requisito non negoziabile. Avvieremo il percorso di certificazione con audit trail completo, crittografia at-rest e in-transit, gestione accessi RBAC, log di ogni operazione e documentazione delle procedure di sicurezza. L'obiettivo è ottenere la certificazione entro Q1 2027.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">ISO 27001</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Security</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 2027 Visione -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="2027">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-bold tracking-widest uppercase mb-6">
+                🔮 Orizzonte — 2027
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-4">2027 — La Visione</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Oltre il prodotto attuale. Il 2027 porta DataUnchain verso nuovi mercati, nuovi modelli di business e nuovi verticali. Queste sono le direttrici strategiche su cui stiamo ragionando.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-6">☁️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">SaaS Ibrido Opzionale</h3>
+                <p class="text-gray-500 text-sm">Per le aziende che preferiscono non gestire infrastruttura, offriremo un'opzione SaaS ibrida. Il VLM girerà nel nostro data center europeo (GDPR compliant), ma il cliente potrà scegliere di mantenere i dati estratti solo nel proprio database locale. Un modello flessibile che preserva la privacy dei dati sensibili pur offrendo la comodità del cloud per l'inferenza AI. L'opzione on-premise resterà sempre disponibile per chi la preferisce.</p>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-6">🇮🇹</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Modello Fine-Tuned Italiano</h3>
+                <p class="text-gray-500 text-sm">Dopo mesi di dati raccolti dagli Early Adopter, avremo abbastanza esempi per creare un modello VLM specificamente ottimizzato per i documenti italiani. Fatture, DDT, note di credito, F24, CU, visure camerali — ogni tipologia documentale italiana avrà il suo training dedicato. L'obiettivo è un modello che capisca il contesto normativo e fiscale italiano nativamente, non come traduzione dall'inglese.</p>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-6">💳</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Integrazione PagoPA</h3>
+                <p class="text-gray-500 text-sm">Per la pubblica amministrazione e per le aziende che interagiscono con enti pubblici, supporto nativo per i bollettini PagoPA. Estrazione automatica dei dati di pagamento, riconciliazione con le fatture corrispondenti, e generazione automatica delle disposizioni di pagamento. Un verticale specifico per il settore pubblico italiano che nessun competitor internazionale può offrire.</p>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-6">🏥</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Verticali: Sanità, Legal, PA</h3>
+                <p class="text-gray-500 text-sm">DataUnchain diventa una piattaforma verticale. Per la sanità: referti, ricette, cartelle cliniche. Per il legal: contratti, atti notarili, visure. Per la PA: determine, delibere, mandati di pagamento. Ogni verticale avrà i propri schemi di estrazione, le proprie validazioni e i propri connettori verso i software di settore. La pipeline AI resta la stessa — cambiano i modelli e le regole di business.</p>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-6">🤝</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Partnership VAR e System Integrator</h3>
+                <p class="text-gray-500 text-sm">Non possiamo raggiungere tutte le PMI italiane da soli. Costruiremo un programma partner per VAR (Value Added Reseller) e system integrator che potranno installare, configurare e rivendere DataUnchain ai propri clienti. Formazione certificata, margini competitivi, supporto di secondo livello e co-marketing. L'obiettivo è creare un ecosistema di partner che moltiplichi la nostra capacità di distribuzione capillarmente sul territorio italiano.</p>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl mb-6">🔬</div>
+                <h3 class="text-xl font-bold mb-3 font-display">R&D: Comprensione Documentale Profonda</h3>
+                <p class="text-gray-500 text-sm">Oltre l'estrazione dati. La nostra ricerca si muove verso la comprensione semantica profonda dei documenti: identificare clausole contrattuali anomale, segnalare incongruenze tra documenti correlati (ordine vs fattura vs DDT), e suggerire azioni automatiche basate sul contenuto. Non solo "cosa dice il documento", ma "cosa significa per la tua azienda".</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Come Partecipi -->
+<section class="py-24 px-6 bg-brand-surface reveal" id="partecipa">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold tracking-widest uppercase mb-6">
+                🙋 La Tua Voce Conta
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Come partecipi alla roadmap</h2>
+            <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                Questa roadmap non è scolpita nella pietra. È un documento vivo che evolve con il feedback delle aziende che usano DataUnchain ogni giorno. Gli Early Adopter hanno un potere concreto sulle priorità di sviluppo.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-3xl mx-auto mb-6">1</div>
+                <h3 class="text-lg font-bold font-display mb-3">Diventi Early Adopter</h3>
+                <p class="text-gray-500 text-sm">Ti candidi al programma, ricevi l'installazione gratuita di DataUnchain e inizi a elaborare i tuoi documenti reali. Zero costi per 6 mesi, supporto diretto dal fondatore.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-3xl mx-auto mb-6">2</div>
+                <h3 class="text-lg font-bold font-display mb-3">Usi e Ci Dai Feedback</h3>
+                <p class="text-gray-500 text-sm">Ogni mese facciamo una call di 30 minuti per capire cosa funziona e cosa no. Ogni richiesta viene tracciata, discussa e valutata. Il tuo caso d'uso reale guida le nostre decisioni.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-3xl mx-auto mb-6">3</div>
+                <h3 class="text-lg font-bold font-display mb-3">Influenzi le Priorità</h3>
+                <p class="text-gray-500 text-sm">Le funzionalità richieste da almeno due Early Adopter salgono automaticamente nella priorità della roadmap. Il tuo bisogno reale diventa la nostra prossima feature. Costruiamo per te, non per un mercato astratto.</p>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="/it/early-access/"
+                class="inline-flex px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform text-lg">
+                Candidati come Early Adopter →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Visuale -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="timeline">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black font-display mb-4">Timeline a Colpo d'Occhio</h2>
+            <p class="text-gray-400 text-lg">Tutto il percorso in una vista verticale. Verde = completato, teal = in corso, grigio = pianificato.</p>
+        </div>
+
+        <div class="relative">
+            <!-- Vertical line -->
+            <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-emerald via-brand-teal to-gray-700"></div>
+
+            <!-- v2.1 - Completed -->
+            <div class="relative pl-16 pb-12">
+                <div class="absolute left-4 w-5 h-5 rounded-full bg-brand-emerald border-4 border-brand-dark"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20 font-bold">COMPLETATO</span>
+                        <span class="text-sm text-gray-500">Marzo 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v2.1 — Prodotto Base</h3>
+                    <p class="text-gray-500 text-sm">Pipeline AI vision-native, 95,5% accuratezza, 18 connettori output, 5 canali input, dashboard human-in-the-loop, auto-learning JSONL, validazione FatturaPA XSD, Universal RPA Engine, Docker Compose, 100% on-premise.</p>
+                </div>
+            </div>
+
+            <!-- v2.5 - In Progress -->
+            <div class="relative pl-16 pb-12">
+                <div class="absolute left-4 w-5 h-5 rounded-full bg-brand-teal border-4 border-brand-dark animate-pulse"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20 font-bold">IN CORSO</span>
+                        <span class="text-sm text-gray-500">Q2 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v2.5 — Consolidamento</h3>
+                    <p class="text-gray-500 text-sm">5 aziende pilota, onboarding assistito, fine-tuning su documenti reali, dashboard migliorata con side-by-side, documentazione completa, connettore Danea EasyFatt.</p>
+                </div>
+            </div>
+
+            <!-- v2.8 - Planned -->
+            <div class="relative pl-16 pb-12">
+                <div class="absolute left-4 w-5 h-5 rounded-full bg-gray-600 border-4 border-brand-dark"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs px-2 py-1 rounded-lg bg-white/5 text-gray-400 border border-white/10 font-bold">PIANIFICATO</span>
+                        <span class="text-sm text-gray-500">Q3 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v2.8 — Scalabilità</h3>
+                    <p class="text-gray-500 text-sm">Auto-learning avanzato, fine-tuning per fornitore (99%+), batch parallelo multi-GPU, classificazione automatica tipo documento, multi-lingua europeo, API v2 con webhook.</p>
+                </div>
+            </div>
+
+            <!-- v3.0 - Planned -->
+            <div class="relative pl-16 pb-12">
+                <div class="absolute left-4 w-5 h-5 rounded-full bg-gray-600 border-4 border-brand-dark"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs px-2 py-1 rounded-lg bg-white/5 text-gray-400 border border-white/10 font-bold">PIANIFICATO</span>
+                        <span class="text-sm text-gray-500">Q4 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v3.0 — Enterprise</h3>
+                    <p class="text-gray-500 text-sm">Marketplace connettori, architettura multi-tenant, OCR ibrido fallback, verifica firma digitale P7M/PAdES, dashboard analytics ROI, percorso certificazione ISO 27001.</p>
+                </div>
+            </div>
+
+            <!-- 2027 - Vision -->
+            <div class="relative pl-16">
+                <div class="absolute left-4 w-5 h-5 rounded-full bg-gray-700 border-4 border-brand-dark"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-xs px-2 py-1 rounded-lg bg-white/5 text-gray-400 border border-white/10 font-bold">VISIONE</span>
+                        <span class="text-sm text-gray-500">2027</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">Oltre — La Visione</h3>
+                    <p class="text-gray-500 text-sm">SaaS ibrido opzionale, modello VLM fine-tuned italiano, PagoPA, verticali sanità/legal/PA, partnership VAR e system integrator, comprensione documentale profonda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-black font-display mb-4">Domande Frequenti sulla Roadmap</h2>
+            <p class="text-gray-400">Tutto quello che potresti chiederti sul nostro percorso di sviluppo.</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group card-glow bg-brand-dark rounded-3xl overflow-hidden">
+                <summary class="cursor-pointer px-8 py-6 flex items-center justify-between text-lg font-bold font-display hover:text-brand-tealLight transition-colors">
+                    Le date della roadmap sono garantite?
+                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed">
+                    No, le date sono indicative e basate sulla nostra pianificazione attuale. La roadmap viene rivista trimestralmente in base al feedback degli Early Adopter, alla complessità tecnica effettiva e alle risorse disponibili. Ciò che è garantito è la direzione: ogni trimestre rilasciamo valore concreto e misurabile. Preferiamo spostare una feature di un mese piuttosto che rilasciarla incompleta o instabile. La trasparenza è un nostro valore fondamentale — comunicheremo sempre lo stato reale di ogni milestone.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl overflow-hidden">
+                <summary class="cursor-pointer px-8 py-6 flex items-center justify-between text-lg font-bold font-display hover:text-brand-tealLight transition-colors">
+                    Posso richiedere una funzionalità specifica?
+                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed">
+                    Assolutamente. Se diventi Early Adopter, le tue richieste vengono tracciate e discusse con priorità. Le funzionalità richieste da almeno due aziende pilota salgono automaticamente nella coda di sviluppo. Anche se non sei un Early Adopter, puoi comunque contattarci per suggerire feature — ogni input è prezioso per capire le esigenze del mercato. Il nostro obiettivo è costruire il prodotto che le aziende italiane hanno davvero bisogno, non quello che pensiamo noi dal nostro ufficio.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl overflow-hidden">
+                <summary class="cursor-pointer px-8 py-6 flex items-center justify-between text-lg font-bold font-display hover:text-brand-tealLight transition-colors">
+                    Il prodotto attuale è già utilizzabile in produzione?
+                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed">
+                    Sì. La versione 2.1 è il prodotto che offriamo agli Early Adopter. Tutte le funzionalità elencate nella sezione "Stato Attuale" sono operative e testate su documenti reali. Non stiamo vendendo un mockup o un prototipo — stiamo cercando aziende che vogliano usare un prodotto funzionante e aiutarci a renderlo ancora migliore con il loro feedback. L'accuratezza del 95,5% è misurata su un dataset reale di 219 documenti, non su benchmark sintetici.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl overflow-hidden">
+                <summary class="cursor-pointer px-8 py-6 flex items-center justify-between text-lg font-bold font-display hover:text-brand-tealLight transition-colors">
+                    Cosa succede se il mio gestionale non è nella lista dei connettori?
+                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed">
+                    Ci sono due opzioni immediate: il connettore CSV/Excel universale (funziona con qualsiasi software che accetti importazione file) e l'Universal RPA Engine che pilota direttamente l'interfaccia grafica del tuo gestionale. Se diventi Early Adopter e il tuo gestionale è sufficientemente diffuso, possiamo sviluppare un connettore dedicato — come stiamo facendo con Danea EasyFatt per la v2.5. L'architettura ad adapter rende la creazione di nuovi connettori un lavoro di giorni, non di settimane.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl overflow-hidden">
+                <summary class="cursor-pointer px-8 py-6 flex items-center justify-between text-lg font-bold font-display hover:text-brand-tealLight transition-colors">
+                    DataUnchain resterà sempre on-premise?
+                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed">
+                    L'opzione on-premise resterà sempre disponibile — è il nostro DNA e la nostra promessa fondamentale. Nel 2027 potremmo aggiungere un'opzione SaaS ibrida per chi preferisce non gestire infrastruttura, ma sarà sempre una scelta dell'azienda, mai un obbligo. Il valore fondamentale di DataUnchain — i tuoi dati restano tuoi — non cambierà mai. L'opzione cloud, se e quando arriverà, sarà progettata per preservare questo principio con data center europei e separazione tra elaborazione e storage.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl overflow-hidden">
+                <summary class="cursor-pointer px-8 py-6 flex items-center justify-between text-lg font-bold font-display hover:text-brand-tealLight transition-colors">
+                    Quali hardware servono per far girare DataUnchain?
+                    <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-8 pb-6 text-gray-400 text-sm leading-relaxed">
+                    Il requisito principale è una GPU con almeno 8 GB di VRAM per il VLM — una NVIDIA RTX 3060 o superiore è sufficiente. Il resto è standard: 16 GB di RAM, 50 GB di disco per il sistema e i modelli, Docker installato. Per volumi elevati (v2.8+), consigliamo due GPU per l'elaborazione parallela. Non servono server enterprise o hardware specializzato — DataUnchain è progettato per girare su hardware consumer-grade disponibile in qualsiasi negozio di informatica.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Finale -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto text-center relative">
+        <div class="absolute inset-0 bg-brand-teal/5 rounded-3xl blur-[80px]"></div>
+        <div class="relative z-10 card-glow bg-brand-surface rounded-3xl p-12 lg:p-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+                🚀 Solo 5 Posti Disponibili
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-6">
+                Vuoi influenzare<br>
+                <span class="gradient-text">la roadmap?</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-4">
+                Gli Early Adopter non sono semplici utenti. Sono co-creatori del prodotto. Le loro esigenze reali diventano le nostre priorità di sviluppo. Se la tua azienda elabora documenti ogni giorno e vuole smettere di farlo a mano, questo è il momento giusto per salire a bordo.
+            </p>
+            <p class="text-gray-500 text-sm mb-10">Installazione gratuita · 6 mesi senza costi · Supporto diretto dal fondatore · Nessun vincolo</p>
+            <div class="flex gap-4 justify-center flex-wrap">
+                <a href="/it/early-access/"
+                    class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform text-lg">
+                    Diventa Early Adopter →
+                </a>
+                <a href="/it/how-it-works/"
+                    class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors">
+                    Come Funziona
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

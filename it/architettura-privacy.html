@@ -1,0 +1,868 @@
+---
+layout: default
+title: "Architettura & Privacy — DataUnchain"
+lang: it
+locale: it_IT
+description: "Architettura tecnica di DataUnchain: Docker, AI locale via Ollama, PostgreSQL, zero telemetria, GDPR by design. Come funziona un sistema di estrazione documenti 100% on-premise."
+---
+
+<!-- Hero -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 right-1/3 w-[500px] h-[500px] bg-brand-teal/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[100px]"></div>
+    <div class="absolute top-1/2 left-2/3 w-[300px] h-[300px] bg-brand-gold/5 rounded-full blur-[80px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            🏗️ Architettura & Privacy
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-black font-display mb-6 leading-[0.95]">
+            Zero Cloud. Zero Telemetria.<br>
+            <span class="gradient-text">I tuoi dati restano tuoi.</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
+            DataUnchain non invia un solo byte su internet. L'intera pipeline di estrazione documentale
+            gira sulla tua infrastruttura, con un'architettura progettata da zero per la
+            <strong class="text-white">sovranita digitale</strong> dei tuoi dati aziendali.
+        </p>
+        <p class="text-sm text-gray-500 mb-10">Docker Compose · VLM locale · PostgreSQL · GDPR by design · Air-Gap ready</p>
+    </div>
+</section>
+
+
+<!-- Principi Architetturali -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black font-display mb-4">Principi architetturali fondanti</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Ogni decisione tecnica in DataUnchain discende da quattro principi non negoziabili. Non sono feature — sono vincoli architetturali che guidano ogni riga di codice.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Privacy by Design -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-4xl mb-5">🛡️</div>
+                <h3 class="text-xl font-bold font-display mb-3 text-white">Privacy by Design</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    La privacy non e un'opzione da attivare. L'architettura e costruita in modo che i dati
+                    non possano fisicamente lasciare il perimetro aziendale. Non esiste un flag "invia dati in cloud"
+                    perche non esiste il codice per farlo. Nessuna chiamata HTTP verso endpoint esterni, nessun SDK
+                    di analytics, nessun tracker. La privacy e garantita dall'assenza stessa del codice che potrebbe violarla.
+                    Questa scelta e irreversibile by design: non si tratta di una policy, ma di un vincolo architetturale
+                    fisico codificato nell'infrastruttura.
+                </p>
+            </div>
+
+            <!-- Zero Trust Esterno -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-4xl mb-5">🔒</div>
+                <h3 class="text-xl font-bold font-display mb-3 text-white">Zero Trust esterno</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Nessun servizio esterno e considerato affidabile. L'unica comunicazione in uscita consentita e quella
+                    verso il connettore ERP configurato dall'utente — e anche quella avviene su rete locale o VPN aziendale.
+                    Il modello AI gira su Ollama in locale. Il database e locale. La coda di lavoro e locale. Il dashboard
+                    e locale. Non esistono dipendenze runtime su servizi cloud di terze parti. Se domani AWS, Google o
+                    Azure smettessero di esistere, DataUnchain continuerebbe a funzionare esattamente come prima, perche
+                    non ha mai avuto bisogno di loro.
+                </p>
+            </div>
+
+            <!-- Minimo Privilegio -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-4xl mb-5">🎯</div>
+                <h3 class="text-xl font-bold font-display mb-3 text-white">Minimo privilegio</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Ogni componente ha accesso solo alle risorse strettamente necessarie al suo funzionamento. Il container
+                    del VLM vede solo la directory dei documenti in input e quella dei risultati. Il container del database
+                    non ha accesso al filesystem dei documenti. Il container del dashboard non ha accesso diretto al modello.
+                    I container comunicano esclusivamente attraverso reti Docker isolate e volumi condivisi minimali. Se un
+                    componente viene compromesso, il blast radius e contenuto al singolo container senza propagazione laterale.
+                </p>
+            </div>
+
+            <!-- Trasparenza -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-4xl mb-5">📖</div>
+                <h3 class="text-xl font-bold font-display mb-3 text-white">Trasparenza totale</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Il codice sorgente e disponibile su GitHub. Puoi ispezionare ogni singola riga, verificare che non
+                    esistano backdoor, che non ci siano chiamate nascoste a servizi esterni, che la pipeline faccia
+                    esattamente quello che dichiariamo. Non devi fidarti della nostra parola — puoi leggere il codice.
+                    Ogni commit e tracciabile, ogni modifica e documentata, ogni dipendenza e verificabile. La sicurezza
+                    through obscurity e il passato. La sicurezza attraverso la trasparenza e il presente.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Stack Tecnologico -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                ⚙️ Stack Tecnologico
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">Ogni componente gira sulla tua macchina</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">L'intero sistema e orchestrato da Docker Compose. Ogni servizio e un container isolato, con risorse definite, limiti di memoria e rete dedicata. Nessun componente richiede accesso a internet per funzionare.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Docker Compose -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-lg">🐳</div>
+                    <h3 class="text-lg font-bold font-display text-white">Docker Compose</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    L'orchestratore dell'intera pipeline. Un singolo file <code class="text-brand-tealLight bg-brand-dark px-1.5 py-0.5 rounded text-xs">docker-compose.yml</code>
+                    definisce tutti i servizi, le reti, i volumi e le dipendenze. Un comando per avviare, un comando per fermare.
+                    Non servono Kubernetes, Terraform o infrastruttura cloud. La semplicita operativa e un requisito, non un compromesso.
+                </p>
+                <div class="text-xs text-gray-500">Orchestrazione · Reti isolate · Volume management</div>
+            </div>
+
+            <!-- Ollama VLM -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-teal/10 border border-brand-teal/20 flex items-center justify-center text-brand-tealLight font-bold text-lg">🧠</div>
+                    <h3 class="text-lg font-bold font-display text-white">Ollama — VLM locale</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Il cuore dell'intelligenza artificiale. Ollama serve il nostro VLM proprietario interamente in locale, sulla GPU
+                    del tuo server. Non e un wrapper per API cloud — e un runtime completo che carica i pesi del modello nella
+                    VRAM della tua scheda grafica. Il modello non comunica con l'esterno: riceve immagini di documenti come input
+                    e restituisce JSON strutturato come output. Tutto avviene in memoria locale, senza mai toccare la rete.
+                </p>
+                <div class="text-xs text-gray-500">GPU NVIDIA · VRAM 16GB+ · Inference locale</div>
+            </div>
+
+            <!-- FastAPI -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold text-lg">⚡</div>
+                    <h3 class="text-lg font-bold font-display text-white">FastAPI</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Il backend applicativo che gestisce la logica di business: ricezione documenti, validazione input, orchestrazione
+                    della pipeline di estrazione, post-processing dei risultati e comunicazione con il connettore ERP. API REST
+                    documentate automaticamente via OpenAPI. Ogni endpoint e protetto da autenticazione e rate limiting. Logging
+                    strutturato in formato JSON per ogni operazione critica.
+                </p>
+                <div class="text-xs text-gray-500">Python 3.11+ · Async · OpenAPI docs</div>
+            </div>
+
+            <!-- PostgreSQL / SQLite -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-blue-600/10 border border-blue-600/20 flex items-center justify-center text-blue-300 font-bold text-lg">🗄️</div>
+                    <h3 class="text-lg font-bold font-display text-white">PostgreSQL / SQLite</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Persistenza dati interamente locale. PostgreSQL per deployment enterprise con volumi elevati; SQLite per
+                    installazioni piu leggere o ambienti di test. Entrambi girano in container Docker con volumi persistenti
+                    mappati su disco locale. I dati estratti, i log di audit, le metriche di accuratezza e lo stato della pipeline
+                    sono tutti nel tuo database, sotto il tuo controllo.
+                </p>
+                <div class="text-xs text-gray-500">Volume persistente · Backup giornaliero · Audit trail</div>
+            </div>
+
+            <!-- Redis Queue -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 font-bold text-lg">📮</div>
+                    <h3 class="text-lg font-bold font-display text-white">Redis Queue</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Coda di lavoro asincrona per la gestione dei documenti. Quando un documento viene caricato, entra in coda
+                    e viene processato dal worker in ordine FIFO. Questo permette di gestire batch di centinaia di documenti
+                    senza bloccare l'interfaccia utente, con retry automatico in caso di errore e backoff esponenziale per evitare
+                    sovraccarichi. La coda e persistente: un riavvio del sistema non perde i lavori pendenti.
+                </p>
+                <div class="text-xs text-gray-500">Asincrono · Retry automatico · Persistenza</div>
+            </div>
+
+            <!-- Streamlit Dashboard -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold font-bold text-lg">📊</div>
+                    <h3 class="text-lg font-bold font-display text-white">Streamlit Dashboard</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Interfaccia web locale per monitorare lo stato della pipeline, visualizzare i risultati delle estrazioni,
+                    verificare i punteggi di confidenza e gestire i documenti che richiedono revisione umana. Dashboard accessibile
+                    solo dalla rete locale o VPN. Nessun dato transita su servizi di hosting esterni. L'interfaccia e uno
+                    strumento interno, non un SaaS esposto su internet.
+                </p>
+                <div class="text-xs text-gray-500">Monitoraggio · Review manuale · Rete locale</div>
+            </div>
+
+            <!-- Prometheus Metrics -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-lg">📈</div>
+                    <h3 class="text-lg font-bold font-display text-white">Prometheus Metrics</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Endpoint <code class="text-brand-tealLight bg-brand-dark px-1.5 py-0.5 rounded text-xs">/metrics</code>
+                    compatibile Prometheus per esportare metriche operative: documenti processati, tempo medio di elaborazione,
+                    tasso di errore, utilizzo GPU, dimensione coda. Integrabile con Grafana per dashboard personalizzate. Le
+                    metriche restano nel tuo stack di monitoring — nessun dato viene inviato a servizi di telemetria esterni.
+                </p>
+                <div class="text-xs text-gray-500">Grafana-ready · Custom metrics · Zero telemetria</div>
+            </div>
+
+            <!-- Connettore ERP -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 font-bold text-lg">🔌</div>
+                    <h3 class="text-lg font-bold font-display text-white">Connettore ERP</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Modulo adapter configurabile per l'invio dei dati estratti al gestionale aziendale. Supporta connessioni
+                    dirette a database, API REST locali, o integrazioni personalizzate. L'unico punto di uscita controllato
+                    dei dati, sempre verso sistemi interni. Ogni invio e loggato con timestamp, payload e risposta del
+                    gestionale per audit trail completo. Retry con backoff esponenziale in caso di errore temporaneo.
+                </p>
+                <div class="text-xs text-gray-500">Adapter pattern · Multi-ERP · Audit log</div>
+            </div>
+
+            <!-- JSON Structured Logging -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8 border border-white/5">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-gray-500/10 border border-gray-500/20 flex items-center justify-center text-gray-400 font-bold text-lg">📝</div>
+                    <h3 class="text-lg font-bold font-display text-white">Logging strutturato</h3>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    Ogni operazione critica viene registrata in formato JSON strutturato: timestamp ISO 8601, livello di severita,
+                    componente sorgente, ID documento, azione eseguita, risultato. I log sono pensati per essere parsati da
+                    strumenti automatici (ELK, Loki, Splunk) e per fornire un audit trail completo di ogni documento processato,
+                    dalla ricezione all'invio al gestionale.
+                </p>
+                <div class="text-xs text-gray-500">JSON format · ELK-ready · Audit trail</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Flusso dei Dati -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                🔄 Flusso dei Dati
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">Il percorso di un documento</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Dalla ricezione all'inserimento nel gestionale, ogni passaggio avviene su infrastruttura locale. Ecco esattamente cosa succede quando carichi un documento.</p>
+        </div>
+
+        <div class="relative">
+            <div class="absolute -inset-4 bg-brand-teal/5 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-dark rounded-3xl border border-white/10 p-6 font-mono text-sm">
+                <div class="flex items-center gap-2 mb-6 text-brand-tealLight">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-teal"></div>
+                    <span>dataunchain — pipeline completa</span>
+                </div>
+                <div class="space-y-4 text-xs">
+                    <div class="text-gray-500">## STEP 1 — Ingresso documento</div>
+                    <div class="text-white">📄 Documento (PDF/immagine) → <span class="text-brand-tealLight">filesystem locale</span> /data/input/</div>
+                    <div class="text-gray-500 pl-4">→ Validazione formato, dimensione, integrità</div>
+                    <div class="text-gray-500 pl-4">→ Assegnazione UUID univoco + timestamp</div>
+                    <div class="text-gray-500 pl-4">→ Inserimento in coda Redis (FIFO)</div>
+
+                    <div class="border-t border-white/5 my-4"></div>
+
+                    <div class="text-gray-500">## STEP 2 — Elaborazione VLM</div>
+                    <div class="text-white">🧠 Worker preleva dalla coda → invio a <span class="text-brand-tealLight">Ollama (VLM locale)</span></div>
+                    <div class="text-gray-500 pl-4">→ Conversione pagine in immagini ad alta risoluzione</div>
+                    <div class="text-gray-500 pl-4">→ Il VLM proprietario analizza layout, tabelle, testo</div>
+                    <div class="text-gray-500 pl-4">→ Output: JSON strutturato con campi estratti + confidence score</div>
+                    <div class="text-gray-500 pl-4">→ Nessuna chiamata di rete: tutto in <span class="text-brand-tealLight">VRAM locale</span></div>
+
+                    <div class="border-t border-white/5 my-4"></div>
+
+                    <div class="text-gray-500">## STEP 3 — Post-processing e validazione</div>
+                    <div class="text-white">✅ FastAPI riceve il JSON → <span class="text-brand-tealLight">validazione e normalizzazione</span></div>
+                    <div class="text-gray-500 pl-4">→ Validazione XSD per FatturaPA XML</div>
+                    <div class="text-gray-500 pl-4">→ Normalizzazione importi, date, codici fiscali</div>
+                    <div class="text-gray-500 pl-4">→ Calcolo confidence score aggregato</div>
+                    <div class="text-gray-500 pl-4">→ Salvataggio in <span class="text-brand-tealLight">PostgreSQL locale</span></div>
+
+                    <div class="border-t border-white/5 my-4"></div>
+
+                    <div class="text-gray-500">## STEP 4 — Decisione di routing</div>
+                    <div class="text-white">🔀 Confidence ≥ soglia → <span class="text-green-400">invio automatico ERP</span></div>
+                    <div class="text-white">🔀 Confidence &lt; soglia → <span class="text-brand-gold">coda revisione umana</span></div>
+                    <div class="text-gray-500 pl-4">→ Dashboard Streamlit per verifica e correzione</div>
+
+                    <div class="border-t border-white/5 my-4"></div>
+
+                    <div class="text-gray-500">## STEP 5 — Push al gestionale</div>
+                    <div class="text-white">🔌 Connettore ERP → <span class="text-brand-tealLight">rete locale / VPN</span></div>
+                    <div class="text-gray-500 pl-4">→ Adapter specifico per il gestionale di destinazione</div>
+                    <div class="text-gray-500 pl-4">→ Retry con backoff esponenziale in caso di errore</div>
+                    <div class="text-gray-500 pl-4">→ Log JSON completo: payload, risposta, timestamp</div>
+
+                    <div class="border-t border-white/5 my-6"></div>
+
+                    <div class="text-brand-tealLight font-bold text-sm">
+                        ⮕ In nessun momento i dati transitano su internet.
+                    </div>
+                    <div class="text-brand-tealLight font-bold text-sm">
+                        ⮕ Ogni byte resta nel perimetro della tua infrastruttura.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Sicurezza Enterprise -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-xs font-bold tracking-widest uppercase mb-6">
+                🔐 Sicurezza Enterprise
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">Sicurezza a ogni livello</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">DataUnchain implementa controlli di sicurezza enterprise-grade su autenticazione, rate limiting, resilienza e osservabilita. Non perche lo chiede il mercato — perche lo richiede un'architettura seria.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-lg font-bold font-display text-white mb-3">🔑 Autenticazione HTTP Basic Auth</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Ogni endpoint dell'API e protetto da autenticazione HTTP Basic Auth. Le credenziali sono configurabili
+                    via variabili d'ambiente nel file <code class="text-brand-tealLight bg-brand-surface px-1.5 py-0.5 rounded text-xs">.env</code>.
+                    Nessuna richiesta anonima viene accettata. L'autenticazione e enforced a livello middleware, prima che
+                    la richiesta raggiunga qualsiasi logica di business. In ambienti enterprise e possibile sostituire Basic Auth
+                    con token JWT o integrare con un identity provider aziendale tramite reverse proxy.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-lg font-bold font-display text-white mb-3">🚦 Rate Limiting</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Rate limiting configurabile per proteggere la pipeline da sovraccarichi accidentali o attacchi.
+                    Limiti impostabili per IP, per utente e per endpoint. Le richieste che superano il limite ricevono
+                    una risposta HTTP 429 con header Retry-After. Il rate limiting previene scenari in cui un client
+                    malfunzionante inonda la coda di elaborazione saturando GPU e risorse di sistema. Ogni violazione
+                    viene registrata nei log strutturati.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-lg font-bold font-display text-white mb-3">🔄 Retry con Backoff Esponenziale</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Ogni operazione critica (invio ERP, elaborazione VLM, scrittura database) e protetta da un meccanismo
+                    di retry con backoff esponenziale. In caso di errore temporaneo, il sistema riprova automaticamente
+                    con intervalli crescenti (1s, 2s, 4s, 8s...) fino a un massimo configurabile. Dopo l'esaurimento dei
+                    tentativi, il documento viene marcato come "failed" con il dettaglio dell'errore per intervento manuale.
+                    Nessun documento viene perso silenziosamente.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-lg font-bold font-display text-white mb-3">💾 Backup Automatico Giornaliero</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Il database viene sottoposto a backup automatico giornaliero tramite cron job nel container dedicato.
+                    I backup sono compressi e salvati in una directory configurabile con retention policy impostabile
+                    (default: 30 giorni). Il backup include il database completo, i metadati dei documenti e lo stato
+                    della pipeline. Il restore e un singolo comando. I file originali dei documenti sono nella directory
+                    di input, gia sotto il controllo del filesystem aziendale.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-lg font-bold font-display text-white mb-3">🏥 Health Check</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Ogni container espone un endpoint <code class="text-brand-tealLight bg-brand-surface px-1.5 py-0.5 rounded text-xs">/health</code>
+                    che verifica lo stato del servizio, la connettivita con le dipendenze e la disponibilita delle risorse.
+                    Docker Compose utilizza questi health check per riavviare automaticamente i container in stato di errore.
+                    L'endpoint Prometheus aggrega lo stato di tutti i componenti in una vista unificata per il monitoring
+                    centralizzato. Alert configurabili via Alertmanager per notifiche immediate in caso di degradazione.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-lg font-bold font-display text-white mb-3">📋 Validazione FatturaPA XSD</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Per le fatture elettroniche italiane in formato FatturaPA XML, DataUnchain esegue validazione completa
+                    contro lo schema XSD ufficiale dell'Agenzia delle Entrate. I file XML validi vengono parsati
+                    programmaticamente con accuratezza del 100% — senza bisogno del VLM. I file non conformi vengono
+                    segnalati con dettaglio dell'errore di validazione. Questo garantisce la piena conformita con il
+                    sistema SDI (Sistema di Interscambio) per la fatturazione elettronica italiana.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- GDPR & Compliance -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emerald text-xs font-bold tracking-widest uppercase mb-6">
+                🇪🇺 GDPR & Compliance
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">Conformita normativa by design</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">DataUnchain non "si adegua" al GDPR. E progettato in modo che la conformita sia una conseguenza naturale dell'architettura, non un'aggiunta retroattiva.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <!-- Art. 25 -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-emerald text-2xl font-black font-display">25</div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display text-white">Art. 25 — Privacy by Design & by Default</h3>
+                        <p class="text-gray-500 text-xs">Protezione dei dati fin dalla progettazione</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    L'articolo 25 del GDPR richiede che la protezione dei dati personali sia integrata nella progettazione
+                    dei sistemi fin dall'inizio. DataUnchain non ha bisogno di "adeguarsi" a questo articolo perche
+                    l'architettura on-premise e il principio fondante del progetto. I dati personali contenuti nei documenti
+                    aziendali (nomi, indirizzi, codici fiscali, IBAN) non lasciano mai l'infrastruttura del titolare del
+                    trattamento. Non esistono data transfer verso terzi perche non esistono terzi coinvolti nell'elaborazione.
+                    La minimizzazione dei dati e garantita dal fatto che il sistema estrae solo i campi esplicitamente
+                    configurati — nulla di piu, nulla di meno.
+                </p>
+            </div>
+
+            <!-- Art. 28 -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-emerald text-2xl font-black font-display">28</div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display text-white">Art. 28 — Nessun Sub-Processor</h3>
+                        <p class="text-gray-500 text-xs">Responsabili del trattamento</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    L'articolo 28 disciplina il rapporto tra titolare e responsabile del trattamento, inclusi i sub-processor.
+                    Con DataUnchain, la catena dei sub-processor e vuota. Non ci sono fornitori cloud che elaborano i vostri dati.
+                    Non ci sono API di terze parti che ricevono il contenuto dei vostri documenti. Non ci sono provider di modelli
+                    AI che usano i vostri dati per addestrare i loro modelli. Questo semplifica drasticamente la compliance:
+                    niente DPIA per trasferimenti a terzi, niente valutazione di adeguatezza dei sub-processor, niente clausole
+                    contrattuali standard. Il trattamento avviene interamente nel perimetro del titolare, sotto il suo pieno
+                    e unico controllo.
+                </p>
+            </div>
+
+            <!-- Art. 32 -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-emerald text-2xl font-black font-display">32</div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display text-white">Art. 32 — Misure Tecniche e Organizzative</h3>
+                        <p class="text-gray-500 text-xs">Sicurezza del trattamento</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    L'articolo 32 richiede misure tecniche e organizzative adeguate al rischio. DataUnchain implementa:
+                    isolamento dei container Docker con reti dedicate, autenticazione su ogni endpoint, logging strutturato
+                    di ogni operazione, backup automatici giornalieri, health check continui, rate limiting, retry con backoff.
+                    L'architettura on-premise significa che le misure di sicurezza fisiche (accesso al data center, firewall
+                    perimetrale, segmentazione di rete) sono sotto il controllo diretto del cliente, senza dipendere dalla
+                    postura di sicurezza di un fornitore cloud terzo.
+                </p>
+            </div>
+
+            <!-- NIS2 -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 rounded-2xl bg-brand-emerald/10 border border-brand-emerald/20 flex items-center justify-center text-brand-emerald text-lg font-black font-display">NIS2</div>
+                    <div>
+                        <h3 class="text-lg font-bold font-display text-white">Direttiva NIS2 — Supply Chain</h3>
+                        <p class="text-gray-500 text-xs">Sicurezza della catena di fornitura</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    La direttiva NIS2 introduce obblighi stringenti sulla sicurezza della supply chain digitale per le entita
+                    essenziali e importanti. DataUnchain riduce drasticamente la superficie di attacco della supply chain:
+                    nessuna dipendenza runtime da servizi cloud esterni, nessun fornitore terzo coinvolto nell'elaborazione
+                    dei dati, nessun componente che richiede connettivita internet per funzionare. Il codice sorgente e
+                    ispezionabile, le dipendenze software sono dichiarate e versionabili, i container Docker utilizzano
+                    immagini base ufficiali e verificabili. Per le organizzazioni soggette a NIS2, un'architettura on-premise
+                    e verificabile come DataUnchain semplifica significativamente la compliance con gli obblighi di due
+                    diligence sulla supply chain.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Confronto On-Premise vs Cloud -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                ⚖️ Confronto
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">On-Premise vs Cloud: i fatti</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Non e un'opinione — e una conseguenza delle architetture. Ecco cosa cambia concretamente quando i dati non lasciano il tuo perimetro.</p>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-white/10">
+                        <th class="text-left py-4 px-4 text-gray-400 font-normal uppercase tracking-wider text-xs">Criterio</th>
+                        <th class="text-center py-4 px-4">
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold">DataUnchain On-Premise</span>
+                        </th>
+                        <th class="text-center py-4 px-4">
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-bold">Soluzione Cloud tipica</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr class="border-b border-white/5">
+                        <td class="py-5 px-4 text-gray-300 font-medium">Dove risiedono i dati</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 Sul tuo server, sempre</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🔴 Data center del fornitore (US/EU)</td>
+                    </tr>
+                    <tr class="border-b border-white/5">
+                        <td class="py-5 px-4 text-gray-300 font-medium">Sub-processor</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 Zero — nessun terzo coinvolto</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🔴 AWS/GCP/Azure + provider AI</td>
+                    </tr>
+                    <tr class="border-b border-white/5">
+                        <td class="py-5 px-4 text-gray-300 font-medium">Connessione internet</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 Non necessaria (air-gap)</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🔴 Obbligatoria per ogni documento</td>
+                    </tr>
+                    <tr class="border-b border-white/5">
+                        <td class="py-5 px-4 text-gray-300 font-medium">Conformita GDPR</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 By design — nessun transfer</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🟡 Richiede DPA, DPIA, SCC</td>
+                    </tr>
+                    <tr class="border-b border-white/5">
+                        <td class="py-5 px-4 text-gray-300 font-medium">Costo per pagina</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 Zero — hardware tuo</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🔴 €0,01–0,10 per pagina</td>
+                    </tr>
+                    <tr class="border-b border-white/5">
+                        <td class="py-5 px-4 text-gray-300 font-medium">Vendor lock-in</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 Open-source, esportabile</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🔴 Formato proprietario, API custom</td>
+                    </tr>
+                    <tr>
+                        <td class="py-5 px-4 text-gray-300 font-medium">Audit trail</td>
+                        <td class="py-5 px-4 text-center text-brand-tealLight">🟢 Log locali, pieno controllo</td>
+                        <td class="py-5 px-4 text-center text-gray-500">🟡 Log nel cloud del fornitore</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<!-- Deploy e Requisiti -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                🚀 Deploy
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">Un comando per partire</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">DataUnchain e progettato per essere installato e operativo in meno di 15 minuti. Nessun DevOps dedicato, nessuna infrastruttura cloud, nessuna configurazione complessa.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+
+            <!-- Requisiti GPU -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <h3 class="text-xl font-bold font-display text-white mb-6">Requisiti hardware</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-sm flex-shrink-0 mt-0.5">✓</div>
+                        <div>
+                            <p class="text-white font-medium">GPU NVIDIA con 16GB+ VRAM <span class="text-brand-tealLight text-xs">(raccomandato)</span></p>
+                            <p class="text-gray-500 text-sm">RTX 4090, RTX A4000, Tesla T4 o superiore. CUDA 11.8+. Per massime prestazioni e throughput elevato.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-gold/10 border border-brand-gold/20 flex items-center justify-center text-brand-gold text-sm flex-shrink-0 mt-0.5">~</div>
+                        <div>
+                            <p class="text-white font-medium">CPU-only mode <span class="text-brand-gold text-xs">(supportato)</span></p>
+                            <p class="text-gray-500 text-sm">Funziona senza GPU con prestazioni ridotte. Adatto per POC, ambienti di test o volumi bassi (fino a ~50 documenti/giorno).</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-sm flex-shrink-0 mt-0.5">✓</div>
+                        <div>
+                            <p class="text-white font-medium">RAM: 16GB minimo, 32GB raccomandato</p>
+                            <p class="text-gray-500 text-sm">Per il modello AI, il database, la coda Redis e i servizi applicativi.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-sm flex-shrink-0 mt-0.5">✓</div>
+                        <div>
+                            <p class="text-white font-medium">Storage: 50GB+ per sistema + spazio documenti</p>
+                            <p class="text-gray-500 text-sm">SSD raccomandato per I/O veloce. Lo spazio documenti dipende dal volume aziendale.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-sm flex-shrink-0 mt-0.5">✓</div>
+                        <div>
+                            <p class="text-white font-medium">Docker Engine 24+ & Docker Compose v2</p>
+                            <p class="text-gray-500 text-sm">L'unico prerequisito software. Linux raccomandato per produzione; Windows/macOS per sviluppo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comando di deploy -->
+            <div>
+                <div class="card-glow bg-brand-dark rounded-3xl p-8 mb-6">
+                    <h3 class="text-xl font-bold font-display text-white mb-6">Installazione</h3>
+                    <div class="bg-brand-surface rounded-2xl border border-white/10 p-5 font-mono text-sm">
+                        <div class="flex items-center gap-2 mb-4 text-brand-tealLight text-xs">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-teal"></div>terminal
+                        </div>
+                        <div class="space-y-2 text-xs">
+                            <div class="text-gray-500"># Clona il repository</div>
+                            <div class="text-white">git clone https://github.com/dataunchain/dataunchain.git</div>
+                            <div class="text-white">cd dataunchain</div>
+                            <div class="text-gray-500 mt-3"># Configura le variabili d'ambiente</div>
+                            <div class="text-white">cp .env.example .env</div>
+                            <div class="text-white">nano .env</div>
+                            <div class="text-gray-500 mt-3"># Avvia tutto con un comando</div>
+                            <div class="text-brand-tealLight font-bold">docker compose up -d</div>
+                            <div class="text-gray-500 mt-3"># Verifica lo stato</div>
+                            <div class="text-white">docker compose ps</div>
+                            <div class="text-green-400 mt-2">✓ Tutti i servizi: healthy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                    <h3 class="text-lg font-bold font-display text-white mb-3">Tempo di setup stimato</h3>
+                    <div class="flex items-center gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-black font-display text-brand-tealLight">5 min</div>
+                            <div class="text-gray-500 text-xs">Con GPU pronta</div>
+                        </div>
+                        <div class="text-gray-600">|</div>
+                        <div class="text-center">
+                            <div class="text-3xl font-black font-display text-brand-gold">15 min</div>
+                            <div class="text-gray-500 text-xs">Con download modello</div>
+                        </div>
+                        <div class="text-gray-600">|</div>
+                        <div class="text-center">
+                            <div class="text-3xl font-black font-display text-gray-400">0</div>
+                            <div class="text-gray-500 text-xs">Configurazione cloud</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Air-Gap -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-brand-gold text-xs font-bold tracking-widest uppercase mb-6">
+                ✈️ Air-Gap Mode
+            </div>
+            <h2 class="text-4xl font-black font-display mb-4">Funziona senza internet. Davvero.</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Dopo l'installazione iniziale (download immagini Docker e pesi del modello), DataUnchain puo operare in modalita completamente air-gapped — senza alcuna connessione di rete esterna.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <h3 class="text-xl font-bold font-display text-white mb-4">Cosa serve internet</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-brand-gold flex-shrink-0 mt-0.5">→</span>
+                        <p class="text-gray-400 text-sm">Download iniziale delle immagini Docker (~3GB)</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-brand-gold flex-shrink-0 mt-0.5">→</span>
+                        <p class="text-gray-400 text-sm">Download iniziale dei pesi del VLM proprietario (~8GB)</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-brand-gold flex-shrink-0 mt-0.5">→</span>
+                        <p class="text-gray-400 text-sm">Aggiornamenti software (opzionali, quando disponibili)</p>
+                    </div>
+                </div>
+                <p class="text-gray-500 text-xs mt-6 border-t border-white/5 pt-4">
+                    Per ambienti completamente isolati, le immagini Docker e i pesi del modello possono essere trasferiti
+                    via supporto fisico (USB, disco esterno) senza mai connettere il server a internet.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <h3 class="text-xl font-bold font-display text-white mb-4">Cosa NON serve internet</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                        <p class="text-gray-400 text-sm">Elaborazione documenti — il VLM gira in locale</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                        <p class="text-gray-400 text-sm">Estrazione dati strutturati — tutta la pipeline e locale</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                        <p class="text-gray-400 text-sm">Dashboard di monitoraggio — Streamlit locale</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                        <p class="text-gray-400 text-sm">Invio dati al gestionale — rete locale/VPN</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                        <p class="text-gray-400 text-sm">Backup, logging, metriche — tutto on-premise</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-green-400 flex-shrink-0 mt-0.5">✓</span>
+                        <p class="text-gray-400 text-sm">Licenza e attivazione — nessun phone-home necessario</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-8 bg-brand-surface rounded-3xl border border-brand-teal/10 p-6 text-center">
+            <p class="text-gray-400 text-sm leading-relaxed max-w-3xl mx-auto">
+                La modalita air-gap e fondamentale per settori regolamentati: <strong class="text-white">difesa</strong>,
+                <strong class="text-white">sanita</strong>, <strong class="text-white">infrastrutture critiche</strong>,
+                <strong class="text-white">pubblica amministrazione</strong>. In questi contesti, la possibilita di operare
+                senza alcuna connessione esterna non e un nice-to-have — e un requisito normativo. DataUnchain lo soddisfa
+                nativamente, senza workaround o configurazioni speciali.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black font-display mb-4">Domande frequenti</h2>
+            <p class="text-gray-400">Risposte tecniche alle domande piu comuni sull'architettura e la privacy di DataUnchain.</p>
+        </div>
+
+        <div class="space-y-4">
+
+            <details class="bg-brand-dark rounded-2xl border border-white/5 overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+                    <span class="font-bold text-white">I documenti vengono mai inviati a un server esterno?</span>
+                    <span class="text-brand-tealLight text-xl font-light">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <p>No, mai. Non esiste nel codice sorgente di DataUnchain una singola chiamata HTTP verso server esterni per l'invio di documenti o dati estratti. Il modello AI (VLM) gira interamente in locale tramite Ollama. Il database e locale. La coda di lavoro e locale. L'unica comunicazione in uscita consentita e quella verso il connettore ERP configurato dall'utente, che tipicamente avviene su rete locale o VPN aziendale. Puoi verificarlo tu stesso ispezionando il codice sorgente su GitHub o monitorando il traffico di rete del container con strumenti come tcpdump o Wireshark — non vedrai un singolo pacchetto diretto verso internet.</p>
+                </div>
+            </details>
+
+            <details class="bg-brand-dark rounded-2xl border border-white/5 overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+                    <span class="font-bold text-white">Posso usare DataUnchain senza GPU?</span>
+                    <span class="text-brand-tealLight text-xl font-light">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <p>Si, DataUnchain supporta la modalita CPU-only. Ollama puo eseguire il VLM proprietario utilizzando solo la CPU del server, senza richiedere una GPU NVIDIA. Le prestazioni saranno inferiori: l'elaborazione di un singolo documento passera da pochi secondi (con GPU) a 30-90 secondi (solo CPU), a seconda della complessita del documento e delle specifiche del processore. Questa modalita e adatta per proof-of-concept, ambienti di test, o installazioni con volumi contenuti (fino a circa 50 documenti al giorno). Per volumi di produzione elevati, raccomandiamo una GPU NVIDIA con almeno 16GB di VRAM.</p>
+                </div>
+            </details>
+
+            <details class="bg-brand-dark rounded-2xl border border-white/5 overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+                    <span class="font-bold text-white">Come si aggiorna il sistema senza internet?</span>
+                    <span class="text-brand-tealLight text-xl font-light">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <p>Per ambienti air-gapped, gli aggiornamenti vengono distribuiti come pacchetti offline. Le nuove immagini Docker vengono esportate con <code>docker save</code> e trasferite via supporto fisico (USB, disco esterno) al server di produzione, dove vengono importate con <code>docker load</code>. I pesi aggiornati del modello vengono trasferiti allo stesso modo. Il processo e documentato step-by-step nella guida di amministrazione. Nessun dato del sistema di produzione viene esposto durante l'aggiornamento — il trasferimento e unidirezionale: dal supporto fisico al server, mai il contrario.</p>
+                </div>
+            </details>
+
+            <details class="bg-brand-dark rounded-2xl border border-white/5 overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+                    <span class="font-bold text-white">Il modello AI impara dai miei documenti?</span>
+                    <span class="text-brand-tealLight text-xl font-light">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <p>No. Il VLM proprietario utilizzato da DataUnchain opera esclusivamente in modalita inference — cioe esegue previsioni basate sui pesi del modello gia addestrato, senza mai modificarli. I tuoi documenti vengono elaborati, i dati vengono estratti, e poi il documento esce dalla memoria del modello. Non esiste alcun meccanismo di fine-tuning automatico, nessun feedback loop che aggiorna i pesi, nessuna raccolta dati per addestramento futuro. I pesi del modello sono immutabili durante l'operazione. Questa e una garanzia architetturale, non una policy: il codice semplicemente non contiene la funzionalita di training.</p>
+                </div>
+            </details>
+
+            <details class="bg-brand-dark rounded-2xl border border-white/5 overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+                    <span class="font-bold text-white">Quali certificazioni di sicurezza ha DataUnchain?</span>
+                    <span class="text-brand-tealLight text-xl font-light">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <p>DataUnchain e un software on-premise open-source — le certificazioni di sicurezza (ISO 27001, SOC 2, etc.) si applicano all'infrastruttura e ai processi dell'organizzazione che lo ospita, non al software in se. Cio che DataUnchain garantisce e un'architettura che facilita la conformita: isolamento dei dati, logging completo, autenticazione, zero dipendenze cloud, codice sorgente ispezionabile. Per le organizzazioni che necessitano di certificazioni specifiche, l'architettura on-premise di DataUnchain semplifica significativamente il percorso di certificazione perche elimina la necessita di valutare e includere fornitori cloud terzi nel perimetro di audit.</p>
+                </div>
+            </details>
+
+            <details class="bg-brand-dark rounded-2xl border border-white/5 overflow-hidden">
+                <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+                    <span class="font-bold text-white">Posso integrare DataUnchain con il mio SIEM aziendale?</span>
+                    <span class="text-brand-tealLight text-xl font-light">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+                    <p>Si. DataUnchain produce log strutturati in formato JSON che possono essere raccolti da qualsiasi SIEM (Splunk, Elastic SIEM, QRadar, Sentinel) tramite file shipper (Filebeat, Fluentd) o syslog forwarding. L'endpoint Prometheus espone metriche operative in formato standard, integrabile con Grafana, Datadog Agent locale, o qualsiasi sistema di monitoring compatibile. Gli health check HTTP permettono l'integrazione con sistemi di alerting aziendali. L'architettura a container facilita l'integrazione con piattaforme di orchestrazione e monitoring gia in uso nell'infrastruttura del cliente.</p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="card-glow bg-brand-surface rounded-3xl p-12 lg:p-16 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[300px] h-[300px] bg-brand-teal/5 rounded-full blur-[80px]"></div>
+            <div class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-brand-emerald/5 rounded-full blur-[60px]"></div>
+            <div class="relative z-10">
+                <h2 class="text-4xl lg:text-5xl font-black font-display mb-6 leading-tight">
+                    Vuoi ispezionare<br>
+                    <span class="gradient-text">l'architettura?</span>
+                </h2>
+                <p class="text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
+                    Il codice sorgente e su GitHub. Ogni riga e leggibile, ogni componente e documentato, ogni
+                    decisione architetturale e tracciabile. Non devi fidarti della nostra parola — leggi il codice.
+                    E se hai domande, parliamone.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/dataunchain/dataunchain" target="_blank" rel="noopener noreferrer"
+                       class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform text-white inline-flex items-center justify-center gap-2">
+                        Esplora il codice su GitHub
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                    </a>
+                    <a href="/it/early-access"
+                       class="px-8 py-4 rounded-2xl border border-white/10 font-bold hover:bg-white/5 transition-colors text-white inline-flex items-center justify-center gap-2">
+                        Richiedi accesso anticipato
+                    </a>
+                </div>
+                <p class="text-gray-500 text-sm mt-8">
+                    Hai domande tecniche sull'architettura? <a href="mailto:info@dataunchain.com" class="text-brand-tealLight hover:underline">Scrivici</a> — rispondiamo con dettagli tecnici, non con slide di marketing.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

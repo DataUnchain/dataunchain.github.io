@@ -1,0 +1,811 @@
+---
+layout: default
+title: "Development Roadmap — DataUnchain"
+lang: en
+locale: en_US
+description: "DataUnchain roadmap: from v2.1 to v3.0. New integrations, advanced auto-learning, multi-language support, connector marketplace and more in the next 12 months."
+---
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-teal/8 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 right-0 w-[300px] h-[300px] bg-brand-gold/5 rounded-full blur-[100px]"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            Roadmap 2026-2027
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-black font-display mb-6">
+            Where We're <span class="gradient-text">Headed.</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
+            From <strong class="text-white">v2.1</strong> to <strong class="text-white">v3.0</strong> and beyond.
+            Everything we are building over the next twelve months to make document AI truly effortless, private, and enterprise-ready.
+        </p>
+        <p class="text-gray-500 max-w-xl mx-auto mb-10">
+            This is a living document. It reflects our current priorities, informed by real conversations with early adopters
+            and the day-to-day pain points of Italian businesses drowning in paper. Dates are targets, not promises.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+            <a href="#timeline"
+                class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold hover:shadow-lg hover:shadow-brand-teal/25 transition-all">
+                Explore the Timeline
+            </a>
+            <a href="/en/early-access/"
+                class="px-8 py-4 rounded-2xl border border-white/10 text-white font-bold hover:bg-white/5 transition-all">
+                Become an Early Adopter
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     HOW TO READ THIS ROADMAP
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-black font-display mb-2 text-center">How to Read This Roadmap</h2>
+        <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">
+            Each milestone is grouped by quarter and version number.
+            Features marked with a green check are already shipped. Everything else is planned or in active development.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-2xl mx-auto mb-5">&#x2705;</div>
+                <h3 class="text-lg font-bold font-display mb-2">Shipped</h3>
+                <p class="text-gray-500 text-sm">The feature is live in production and available to every user right now.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="w-14 h-14 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mx-auto mb-5">&#x1F6E0;&#xFE0F;</div>
+                <h3 class="text-lg font-bold font-display mb-2">In Progress</h3>
+                <p class="text-gray-500 text-sm">Active development. Expected to land in the target quarter.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 text-center">
+                <div class="w-14 h-14 rounded-2xl bg-brand-gold/20 flex items-center justify-center text-2xl mx-auto mb-5">&#x1F4CB;</div>
+                <h3 class="text-lg font-bold font-display mb-2">Planned</h3>
+                <p class="text-gray-500 text-sm">On the backlog, validated by user research. Timing may shift based on feedback.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 1 — CURRENT STATE v2.1 (March 2026)
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="v21">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-4 h-4 rounded-full bg-emerald-400 shadow-lg shadow-emerald-400/40"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-emerald-400">Now</span>
+        </div>
+        <h2 class="text-4xl font-black font-display mb-2">
+            v2.1 &mdash; Current State
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-2xl">
+            March 2026. This is what DataUnchain can do <em>today</em>. Every feature below has been validated on real
+            Italian invoices and deployed on-premise with early testers.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Card 1 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Proprietary VLM Extraction</h3>
+                        <p class="text-gray-500 text-sm">Our proprietary Vision-Language Model reads invoices, delivery notes, and receipts
+                            directly from images &mdash; no OCR layer required. It handles rotated scans, stamps, handwriting, and complex table layouts.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Mathematical Validation Engine</h3>
+                        <p class="text-gray-500 text-sm">A dedicated Python layer cross-checks every extracted number:
+                            Taxable + VAT = Total, line-item sums, rounding tolerance. Inconsistencies are flagged
+                            before anything reaches your ERP.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">ERP Adapter Framework</h3>
+                        <p class="text-gray-500 text-sm">Fattura Elettronica adapter is production-ready. The architecture is modular:
+                            each ERP connector is a standalone Python adapter that maps JSON extraction to the target format (XML, CSV, SQL).</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Progressive Learning v1</h3>
+                        <p class="text-gray-500 text-sm">The system learns from every correction: when a user fixes an extraction, the correction
+                            is stored and used to improve future prompts. Accuracy climbs with every processed document.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Docker-Based Appliance</h3>
+                        <p class="text-gray-500 text-sm">Complete containerised stack: VLM engine, processor, PostgreSQL, hot-folder watcher.
+                            Runs on a single GPU-equipped machine. Zero cloud dependency, absolute data privacy.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Hot-Folder &amp; REST API v1</h3>
+                        <p class="text-gray-500 text-sm">Drop a PDF into a watched folder or POST it to the API. Extraction starts automatically.
+                            Results land in PostgreSQL and are available via JSON or webhook callback.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Multi-Schema Configuration</h3>
+                        <p class="text-gray-500 text-sm">Switch between document types &mdash; invoices, transport documents, contracts &mdash;
+                            by changing a single prompt string in the configuration. No retraining, no redeployment.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-emerald-400 text-xl mt-1">&#x2714;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">RPA Vision Engine</h3>
+                        <p class="text-gray-500 text-sm">A lightweight vision-guided RPA module that types extracted data directly into legacy
+                            interfaces &mdash; no selectors, no brittle macros, no cloud APIs. Works with any screen-based ERP.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2 — Q2 2026 v2.5: CONSOLIDATION
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-surface reveal" id="v25">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-4 h-4 rounded-full bg-brand-teal shadow-lg shadow-brand-teal/40"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-brand-tealLight">Q2 2026</span>
+        </div>
+        <h2 class="text-4xl font-black font-display mb-2">
+            v2.5 &mdash; Consolidation
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-2xl">
+            April &ndash; June 2026. The focus shifts from &ldquo;does it work?&rdquo; to &ldquo;can anyone set it up in one afternoon?&rdquo;
+            We harden the product, onboard the first paying customers, and ship the first third-party ERP connector.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-tealLight text-xl mt-1">&#x1F6E0;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Early Adopter Program Launch</h3>
+                        <p class="text-gray-500 text-sm">Five selected businesses get a free, fully-managed installation, six months at zero cost,
+                            and a direct line to the founder. In return, they help us validate real-world edge cases and shape the product.
+                            <a href="/en/early-access/" class="text-brand-tealLight underline">Apply now &rarr;</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-tealLight text-xl mt-1">&#x1F6E0;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">One-Click Onboarding Wizard</h3>
+                        <p class="text-gray-500 text-sm">A guided setup experience that walks new users through GPU detection, Docker health checks,
+                            model download, and the first test extraction &mdash; all from a single web interface.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-tealLight text-xl mt-1">&#x1F6E0;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Fine-Tuning Pipeline v1</h3>
+                        <p class="text-gray-500 text-sm">A semi-automated pipeline that takes accumulated user corrections, packages them into
+                            training data, and fine-tunes the VLM on Italian invoice patterns. The first iteration targets global accuracy
+                            improvements across all suppliers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-tealLight text-xl mt-1">&#x1F6E0;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Danea Easyfatt Connector</h3>
+                        <p class="text-gray-500 text-sm">The first official third-party ERP adapter. Danea Easyfatt is the most widely used invoicing
+                            software among Italian micro-businesses. The connector maps extracted JSON directly into Danea's import format, closing the gap
+                            between AI extraction and daily bookkeeping.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-tealLight text-xl mt-1">&#x1F6E0;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Comprehensive Documentation</h3>
+                        <p class="text-gray-500 text-sm">Full installation guide, API reference, adapter development tutorial, and troubleshooting
+                            playbook. Published as a searchable docs site &mdash; because great software without great docs is just a puzzle.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-tealLight text-xl mt-1">&#x1F6E0;&#xFE0F;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Dashboard &amp; Extraction Review UI</h3>
+                        <p class="text-gray-500 text-sm">A lightweight web dashboard where operators can review extractions side-by-side with the
+                            original document image, approve or correct fields, and trigger re-processing. The corrections feed directly back into
+                            Progressive Learning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — Q3 2026 v2.8: SCALABILITY
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="v28">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-4 h-4 rounded-full bg-brand-emerald shadow-lg shadow-brand-emerald/40"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-brand-emeraldLight">Q3 2026</span>
+        </div>
+        <h2 class="text-4xl font-black font-display mb-2">
+            v2.8 &mdash; Scalability
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-2xl">
+            July &ndash; September 2026. DataUnchain learns to handle volume. Batch processing, per-supplier intelligence,
+            multi-language support, and an upgraded API designed for system integrators.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Advanced Auto-Learning</h3>
+                        <p class="text-gray-500 text-sm">Progressive Learning v2 introduces automatic confidence scoring. When the model's
+                            confidence on a field drops below a configurable threshold, the extraction is routed to human review.
+                            Approved corrections are incorporated continuously, creating a flywheel that makes the system smarter
+                            with every batch.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Per-Supplier Fine-Tuning</h3>
+                        <p class="text-gray-500 text-sm">Instead of a single global model, the system can now maintain lightweight per-supplier
+                            LoRA adapters. If a particular supplier uses an unusual layout, the VLM learns that layout specifically &mdash;
+                            without forgetting everything else. Think of it as muscle memory for each vendor's quirks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Batch Processing Engine</h3>
+                        <p class="text-gray-500 text-sm">Queue hundreds of documents at once. The engine distributes work across available
+                            GPU resources, parallelises extraction, and reports results via a progress webhook. Perfect for
+                            month-end invoice dumps or bulk migrations from paper archives.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Automatic Document Classification</h3>
+                        <p class="text-gray-500 text-sm">Before extraction even begins, the VLM classifies the incoming document: invoice,
+                            credit note, delivery note, purchase order, receipt. The correct extraction schema is selected automatically,
+                            eliminating the need for manual routing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Multi-Language Support</h3>
+                        <p class="text-gray-500 text-sm">Extend extraction beyond Italian. English, German, French, and Spanish invoices
+                            are supported out of the box, with language auto-detection. Critical for Italian companies with international
+                            suppliers or for expanding DataUnchain into new markets.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">REST API v2 &amp; Webhooks</h3>
+                        <p class="text-gray-500 text-sm">A redesigned API with versioning, API key management, rate limiting, and proper
+                            OpenAPI documentation. Webhook callbacks support multiple endpoints per tenant. Designed so system integrators
+                            can embed DataUnchain into larger automation workflows without friction.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">TeamSystem &amp; Zucchetti Connectors</h3>
+                        <p class="text-gray-500 text-sm">Two more heavyweight ERP connectors for the Italian market. TeamSystem and Zucchetti
+                            together cover the majority of Italian SMEs and accounting firms. Both connectors follow the same adapter pattern
+                            established in v2.1, keeping the architecture clean and testable.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-brand-emeraldLight text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Audit Log &amp; Traceability</h3>
+                        <p class="text-gray-500 text-sm">Every extraction, correction, approval, and export is logged with timestamps,
+                            user identity, and before/after values. Designed for compliance-sensitive environments where you need to prove
+                            exactly what happened to every document.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — Q4 2026 v3.0: ENTERPRISE
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-surface reveal" id="v30">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-4 h-4 rounded-full bg-brand-gold shadow-lg shadow-brand-gold/40"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-yellow-400">Q4 2026</span>
+        </div>
+        <h2 class="text-4xl font-black font-display mb-2">
+            v3.0 &mdash; Enterprise
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-2xl">
+            October &ndash; December 2026. The version where DataUnchain becomes enterprise-grade. Multi-tenant architecture,
+            a connector marketplace, hybrid OCR fallback, digital signature workflows, and analytics.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Connector Marketplace</h3>
+                        <p class="text-gray-500 text-sm">An open marketplace where third-party developers and system integrators can publish,
+                            share, and sell ERP adapters. We provide the SDK, the testing sandbox, and the distribution channel.
+                            The community builds the long tail of integrations we could never cover alone.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Multi-Tenant Architecture</h3>
+                        <p class="text-gray-500 text-sm">A single DataUnchain instance can now serve multiple organisations with complete data
+                            isolation. Each tenant gets its own extraction schemas, learning history, user roles, and API keys. Ideal for
+                            accounting firms managing dozens of client companies from one appliance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Hybrid OCR Fallback</h3>
+                        <p class="text-gray-500 text-sm">For edge cases where our proprietary VLM cannot confidently extract a field &mdash; think severely
+                            damaged documents or handwritten notes on thermal paper &mdash; a secondary OCR engine kicks in as a
+                            fallback. The system merges both outputs and surfaces the highest-confidence result.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Digital Signature Workflow</h3>
+                        <p class="text-gray-500 text-sm">After extraction and validation, documents can be routed through a multi-step approval
+                            workflow and digitally signed. Supports Italian CAdES and PAdES signature formats, integrated with
+                            major Italian qualified trust service providers.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-500 text-sm">Real-time visibility into extraction volume, accuracy rates, processing times,
+                            error distributions, and per-supplier performance. Exportable charts help operations teams identify bottlenecks
+                            and justify ROI to management. Think of it as the control tower for your document pipeline.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">ISO 27001 Alignment</h3>
+                        <p class="text-gray-500 text-sm">Full documentation and controls alignment with ISO 27001 information security standards.
+                            Encryption at rest, encryption in transit, role-based access control, penetration testing, and a formal
+                            incident response plan. The goal: make procurement teams at large enterprises comfortable signing off on
+                            DataUnchain without months of back-and-forth.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">RBAC &amp; SSO</h3>
+                        <p class="text-gray-500 text-sm">Granular role-based access control with predefined roles (admin, operator, auditor,
+                            read-only) plus custom role creation. Single Sign-On via SAML 2.0 and OpenID Connect for seamless integration
+                            with corporate identity providers like Azure AD, Okta, and Google Workspace.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-yellow-400 text-xl mt-1">&#x1F4CB;</span>
+                    <div>
+                        <h3 class="text-lg font-bold font-display mb-2">High-Availability Deployment</h3>
+                        <p class="text-gray-500 text-sm">Kubernetes-native deployment with horizontal scaling, health checks, and automatic
+                            failover. For organisations that process thousands of documents per day and cannot afford downtime. Helm charts
+                            and Terraform modules included.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — 2027 VISION
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="vision-2027">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-3 mb-2">
+            <span class="inline-block w-4 h-4 rounded-full bg-purple-500 shadow-lg shadow-purple-500/40"></span>
+            <span class="text-xs font-bold tracking-widest uppercase text-purple-400">2027 Vision</span>
+        </div>
+        <h2 class="text-4xl font-black font-display mb-2">
+            Beyond v3.0 &mdash; The Bigger Picture
+        </h2>
+        <p class="text-gray-500 mb-12 max-w-2xl">
+            Looking further ahead. These are strategic directions, not committed features. They represent where we believe
+            the market is going and where DataUnchain needs to be.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">&#x2601;&#xFE0F;</div>
+                <h3 class="text-lg font-bold font-display mb-3">Hybrid SaaS Model</h3>
+                <p class="text-gray-500 text-sm">A managed cloud option for businesses that want DataUnchain without managing hardware.
+                    Your data stays encrypted and isolated; the VLM runs on dedicated GPU instances in European data centres.
+                    On-premise remains the default for privacy-first customers.</p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">&#x1F1EE;&#x1F1F9;</div>
+                <h3 class="text-lg font-bold font-display mb-3">Italian-First Fine-Tuned Model</h3>
+                <p class="text-gray-500 text-sm">A purpose-built VLM trained from scratch on hundreds of thousands of Italian fiscal documents.
+                    Not a generic multilingual model with Italian bolted on, but a model that thinks in Italian accounting terminology,
+                    understands Italian tax codes natively, and handles the idiosyncrasies of Italian invoice layouts out of the box.</p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">&#x1F3DB;&#xFE0F;</div>
+                <h3 class="text-lg font-bold font-display mb-3">PagoPA Integration</h3>
+                <p class="text-gray-500 text-sm">Direct integration with Italy's PagoPA digital payments platform. Extract payment notices,
+                    reconcile them against open invoices, and trigger payments &mdash; all within a single automated workflow.
+                    A natural extension for public administration use cases.</p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">&#x1F3E5;</div>
+                <h3 class="text-lg font-bold font-display mb-3">Vertical Industry Packages</h3>
+                <p class="text-gray-500 text-sm">Pre-configured extraction schemas and adapter bundles for high-value verticals: healthcare
+                    (medical reports, lab results), logistics (bills of lading, customs declarations), construction (SAL certificates,
+                    material receipts), and legal (court filings, notarial deeds).</p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">&#x1F91D;</div>
+                <h3 class="text-lg font-bold font-display mb-3">VAR &amp; Reseller Partnerships</h3>
+                <p class="text-gray-500 text-sm">A partner programme for Value-Added Resellers, system integrators, and accounting software
+                    vendors. Partners get training, co-marketing support, volume licensing, and revenue sharing. The fastest path to
+                    scaling distribution across Italy and eventually across Europe.</p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">&#x1F9E0;</div>
+                <h3 class="text-lg font-bold font-display mb-3">Agentic Document Workflows</h3>
+                <p class="text-gray-500 text-sm">Move beyond extraction into full document orchestration. The AI agent autonomously decides
+                    the next step: extract, validate, route for approval, match against purchase orders, flag anomalies, and push to
+                    ERP &mdash; all without human intervention except for edge cases that truly require judgment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — HOW YOU SHAPE THE ROADMAP
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold tracking-widest uppercase mb-6">
+            Community-Driven
+        </div>
+        <h2 class="text-4xl font-black font-display mb-6">
+            How You Shape the Roadmap
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-6">
+            DataUnchain is not built in a vacuum. Every feature on this page exists because a real business told us they needed it.
+            The best way to influence what we build next is to become an early adopter.
+        </p>
+        <p class="text-gray-500 max-w-2xl mx-auto mb-12">
+            Early adopters get a direct communication channel with the founder and the engineering team. When you hit a limitation,
+            we hear about it the same day. When you request a feature, it goes straight into our prioritisation matrix with real-world
+            context attached. No feature-request black holes, no six-month silence. This is how good software gets built.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mb-12">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-3xl font-black font-display gradient-text mb-3">01</div>
+                <h3 class="text-lg font-bold font-display mb-2">Use It Daily</h3>
+                <p class="text-gray-500 text-sm">Install DataUnchain, feed it your real invoices, and let us know what breaks.
+                    Real usage data is worth more than a hundred surveys.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-3xl font-black font-display gradient-text mb-3">02</div>
+                <h3 class="text-lg font-bold font-display mb-2">Share Feedback</h3>
+                <p class="text-gray-500 text-sm">Every correction you make teaches the system. Every bug you report prevents it from
+                    happening to the next user. Every feature request shapes the next quarter.</p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="text-3xl font-black font-display gradient-text mb-3">03</div>
+                <h3 class="text-lg font-bold font-display mb-2">Co-Create</h3>
+                <p class="text-gray-500 text-sm">Join monthly roadmap calls. Vote on feature priorities. Beta-test new capabilities
+                    before anyone else. Your name in the changelog.</p>
+            </div>
+        </div>
+        <a href="/en/early-access/"
+            class="inline-block px-10 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold text-lg hover:shadow-lg hover:shadow-brand-teal/25 transition-all">
+            Apply for Early Access &rarr;
+        </a>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — VISUAL VERTICAL TIMELINE
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-dark reveal" id="timeline">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-black font-display mb-2 text-center">Timeline at a Glance</h2>
+        <p class="text-gray-500 text-center mb-16">A bird's-eye view of every milestone from now to 2027.</p>
+
+        <div class="relative">
+            <!-- Vertical line -->
+            <div class="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-400 via-brand-teal via-brand-emerald via-brand-gold to-purple-500"></div>
+
+            <!-- v2.1 -->
+            <div class="relative pl-16 md:pl-20 pb-16">
+                <div class="absolute left-4 md:left-6 top-1 w-4 h-4 rounded-full bg-emerald-400 border-4 border-brand-dark shadow-lg shadow-emerald-400/40 z-10"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold">LIVE</span>
+                        <span class="text-sm text-gray-500">March 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v2.1 &mdash; Foundation</h3>
+                    <p class="text-gray-500 text-sm">Proprietary VLM extraction, mathematical validation, Fattura Elettronica adapter,
+                        Progressive Learning v1, Docker appliance, hot-folder and REST API, multi-schema config, RPA vision engine.</p>
+                </div>
+            </div>
+
+            <!-- v2.5 -->
+            <div class="relative pl-16 md:pl-20 pb-16">
+                <div class="absolute left-4 md:left-6 top-1 w-4 h-4 rounded-full bg-brand-teal border-4 border-brand-dark shadow-lg shadow-brand-teal/40 z-10"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold">IN PROGRESS</span>
+                        <span class="text-sm text-gray-500">Q2 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v2.5 &mdash; Consolidation</h3>
+                    <p class="text-gray-500 text-sm">Early Adopter programme, one-click onboarding wizard, fine-tuning pipeline v1,
+                        Danea Easyfatt connector, comprehensive documentation, extraction review dashboard.</p>
+                </div>
+            </div>
+
+            <!-- v2.8 -->
+            <div class="relative pl-16 md:pl-20 pb-16">
+                <div class="absolute left-4 md:left-6 top-1 w-4 h-4 rounded-full bg-brand-emerald border-4 border-brand-dark shadow-lg shadow-brand-emerald/40 z-10"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold">PLANNED</span>
+                        <span class="text-sm text-gray-500">Q3 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v2.8 &mdash; Scalability</h3>
+                    <p class="text-gray-500 text-sm">Advanced auto-learning, per-supplier fine-tuning, batch processing, automatic document
+                        classification, multi-language support, REST API v2, TeamSystem and Zucchetti connectors, audit log.</p>
+                </div>
+            </div>
+
+            <!-- v3.0 -->
+            <div class="relative pl-16 md:pl-20 pb-16">
+                <div class="absolute left-4 md:left-6 top-1 w-4 h-4 rounded-full bg-brand-gold border-4 border-brand-dark shadow-lg shadow-brand-gold/40 z-10"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold">PLANNED</span>
+                        <span class="text-sm text-gray-500">Q4 2026</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">v3.0 &mdash; Enterprise</h3>
+                    <p class="text-gray-500 text-sm">Connector marketplace, multi-tenant architecture, hybrid OCR fallback, digital signature
+                        workflow, analytics dashboard, ISO 27001 alignment, RBAC and SSO, high-availability deployment.</p>
+                </div>
+            </div>
+
+            <!-- 2027 -->
+            <div class="relative pl-16 md:pl-20">
+                <div class="absolute left-4 md:left-6 top-1 w-4 h-4 rounded-full bg-purple-500 border-4 border-brand-dark shadow-lg shadow-purple-500/40 z-10"></div>
+                <div class="card-glow bg-brand-surface rounded-3xl p-6">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold">VISION</span>
+                        <span class="text-sm text-gray-500">2027</span>
+                    </div>
+                    <h3 class="text-xl font-bold font-display mb-2">Beyond v3.0</h3>
+                    <p class="text-gray-500 text-sm">Hybrid SaaS model, Italian-first fine-tuned VLM, PagoPA integration, vertical industry
+                        packages, VAR and reseller partnerships, agentic document workflows.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     SECTION 8 — FAQ
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-black font-display mb-2 text-center">Frequently Asked Questions</h2>
+        <p class="text-gray-500 text-center mb-12">Common questions about the roadmap and what comes next.</p>
+
+        <div class="space-y-4">
+            <details class="group card-glow bg-brand-dark rounded-3xl">
+                <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-bold font-display">
+                    Is this roadmap a binding commitment?
+                    <span class="text-gray-600 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-500 text-sm leading-relaxed">
+                    No. This roadmap reflects our current plans and priorities. Dates and feature sets may shift based on user feedback,
+                    technical discoveries, and market conditions. We update this page regularly to keep it honest. If a planned feature
+                    gets deprioritised or fundamentally redesigned, we will say so openly.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl">
+                <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-bold font-display">
+                    Can I request a feature not listed here?
+                    <span class="text-gray-600 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-500 text-sm leading-relaxed">
+                    Absolutely. The best way is to join the <a href="/en/early-access/" class="text-brand-tealLight underline">Early Adopter Programme</a>
+                    and bring your use case directly to us. We evaluate every request against three criteria: how many users would benefit,
+                    how well it fits the product vision, and how feasible it is with current resources. Even if your request doesn't make
+                    the next quarter, it enters our backlog with full context.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl">
+                <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-bold font-display">
+                    Will the on-premise model always be available?
+                    <span class="text-gray-600 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-500 text-sm leading-relaxed">
+                    Yes. On-premise deployment is a core architectural principle, not a temporary concession. Even when we introduce a
+                    managed cloud option in 2027, the self-hosted appliance will remain first-class. We believe data sovereignty is
+                    non-negotiable for many businesses, and we will never force a cloud dependency.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl">
+                <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-bold font-display">
+                    What hardware will v3.0 require?
+                    <span class="text-gray-600 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-500 text-sm leading-relaxed">
+                    We are committed to keeping the minimum hardware requirements reasonable. Currently, DataUnchain runs on a single
+                    machine with an NVIDIA GPU (16 GB+ VRAM recommended). As we add features like batch processing and per-supplier
+                    fine-tuning, you may benefit from more VRAM (24 GB+), but the base extraction pipeline will continue to work on
+                    16 GB cards. The Kubernetes-based HA deployment in v3.0 is optional and designed for high-volume environments.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl">
+                <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-bold font-display">
+                    How do you handle breaking changes between versions?
+                    <span class="text-gray-600 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-500 text-sm leading-relaxed">
+                    We follow semantic versioning. Minor versions (2.1 to 2.5, 2.5 to 2.8) will not break existing integrations.
+                    The jump to v3.0 may introduce breaking changes in the API, but we will provide a detailed migration guide,
+                    a compatibility shim for the v1 API, and at least three months of parallel support. No surprises.
+                </div>
+            </details>
+
+            <details class="group card-glow bg-brand-dark rounded-3xl">
+                <summary class="flex items-center justify-between cursor-pointer p-6 text-lg font-bold font-display">
+                    Can I build my own ERP connector today?
+                    <span class="text-gray-600 group-open:rotate-45 transition-transform text-2xl">+</span>
+                </summary>
+                <div class="px-6 pb-6 text-gray-500 text-sm leading-relaxed">
+                    Yes. The adapter framework in v2.1 is fully extensible. Each connector is a standalone Python module that implements
+                    a standard interface. You can build a connector for any ERP that accepts CSV, XML, SQL, or API-based imports.
+                    The formal Connector Marketplace with SDK and distribution is planned for v3.0, but nothing stops you from building
+                    and using custom adapters right now.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="card-glow bg-brand-surface rounded-3xl p-12 md:p-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-gold/10 border border-brand-gold/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+                Limited Spots
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-6">
+                Want to influence the roadmap?<br>
+                <span class="gradient-text">Become an Early Adopter.</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
+                Free installation, six months at zero cost, and a direct line to the team building the product.
+                In return, help us validate real-world edge cases and shape what comes next.
+            </p>
+            <p class="text-gray-500 max-w-xl mx-auto mb-10">
+                Only five spots available. We are looking for Italian businesses that process at least 200 invoices per month
+                and are tired of manual data entry. If that sounds like you, we should talk.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/en/early-access/"
+                    class="px-10 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold text-lg hover:shadow-lg hover:shadow-brand-teal/25 transition-all">
+                    Apply for Early Access &rarr;
+                </a>
+                <a href="/en/features/"
+                    class="px-10 py-4 rounded-2xl border border-white/10 text-white font-bold text-lg hover:bg-white/5 transition-all">
+                    See Current Features
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

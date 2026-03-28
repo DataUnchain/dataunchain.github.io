@@ -1,0 +1,661 @@
+---
+layout: default
+title: "ERP & Management Software Integrations — DataUnchain"
+lang: en
+locale: en_US
+description: "DataUnchain natively integrates with Odoo, SAP, Salesforce, HubSpot, TeamSystem, Zucchetti, and 18+ connectors. Automate document-to-ERP data flow with on-premise AI."
+---
+
+<!-- Hero -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+  <div class="absolute inset-0 bg-brand-dark"></div>
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-teal/8 rounded-full blur-[140px]"></div>
+  <div class="absolute top-10 right-1/4 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[120px]"></div>
+  <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+    <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+      🔗 ERP Integrations
+    </div>
+    <h1 class="text-5xl lg:text-6xl font-black font-display mb-6 leading-tight">
+      18 Connectors. One System.<br>
+      <span class="gradient-text">Your ERP.</span>
+    </h1>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      DataUnchain extracts structured data from any document and pushes it directly into your management software — invoices, delivery notes, contracts, purchase orders. No copy-paste. No intermediary. No cloud dependency.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#how-it-works" class="inline-flex items-center gap-2 px-8 py-3 bg-brand-surface border border-brand-teal/30 text-brand-tealLight font-bold rounded-full hover:border-brand-teal/60 transition-all">
+        How It Works ↓
+      </a>
+      <a href="mailto:info@dataunchain.com?subject=ERP Integration Check — DataUnchain" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold hover:scale-105 transition-transform">
+        Check Your ERP Compatibility →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Quick nav -->
+<section class="py-4 px-6 bg-brand-surface border-b border-white/5">
+  <div class="max-w-3xl mx-auto">
+    <nav class="flex flex-wrap gap-x-6 gap-y-2 text-xs text-gray-500">
+      <a href="#how-it-works" class="hover:text-brand-tealLight transition-colors">How It Works</a>
+      <span>·</span>
+      <a href="#italian-erps" class="hover:text-brand-tealLight transition-colors">Italian ERPs</a>
+      <span>·</span>
+      <a href="#international-erps" class="hover:text-brand-tealLight transition-colors">International ERPs</a>
+      <span>·</span>
+      <a href="#crm-collaboration" class="hover:text-brand-tealLight transition-colors">CRM & Collaboration</a>
+      <span>·</span>
+      <a href="#database-export" class="hover:text-brand-tealLight transition-colors">Database & Export</a>
+      <span>·</span>
+      <a href="#input-channels" class="hover:text-brand-tealLight transition-colors">Input Channels</a>
+      <span>·</span>
+      <a href="#why-dataunchain" class="hover:text-brand-tealLight transition-colors">Why DataUnchain</a>
+      <span>·</span>
+      <a href="#custom" class="hover:text-brand-tealLight transition-colors">Custom Integrations</a>
+      <span>·</span>
+      <a href="#faq" class="hover:text-brand-tealLight transition-colors">FAQ</a>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- HOW INTEGRATION WORKS                                                  -->
+<!-- ====================================================================== -->
+<section id="how-it-works" class="py-24 px-6 bg-brand-surface reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Architecture · Pipeline Flow</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">How Integration Works</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Every document follows the same deterministic pipeline. From the moment a file enters the system to the moment structured data lands in your ERP, every step is logged, validated, and auditable.</p>
+    </div>
+
+    <div class="grid md:grid-cols-5 gap-4">
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-3">📥</div>
+        <div class="text-brand-tealLight font-bold text-xs uppercase tracking-widest mb-2">Step 1</div>
+        <h3 class="font-bold font-display text-sm mb-2">Ingestion</h3>
+        <p class="text-gray-500 text-xs">Document arrives via folder watchdog, REST API, Telegram, IMAP, or SDI/PEC channel.</p>
+      </div>
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-3">👁️</div>
+        <div class="text-brand-tealLight font-bold text-xs uppercase tracking-widest mb-2">Step 2</div>
+        <h3 class="font-bold font-display text-sm mb-2">AI Vision</h3>
+        <p class="text-gray-500 text-xs">Our proprietary VLM reads the document visually — no OCR, no templates. Tables, stamps, handwriting: all understood.</p>
+      </div>
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-3">🧮</div>
+        <div class="text-brand-tealLight font-bold text-xs uppercase tracking-widest mb-2">Step 3</div>
+        <h3 class="font-bold font-display text-sm mb-2">Validation</h3>
+        <p class="text-gray-500 text-xs">Python checks math: taxable + VAT = total. Confidence score assigned. Anomalies flagged for review.</p>
+      </div>
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-3">🔀</div>
+        <div class="text-brand-tealLight font-bold text-xs uppercase tracking-widest mb-2">Step 4</div>
+        <h3 class="font-bold font-display text-sm mb-2">Adapter</h3>
+        <p class="text-gray-500 text-xs">Structured JSON mapped to your ERP's schema. Each adapter speaks the native language of the target system.</p>
+      </div>
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-3">✅</div>
+        <div class="text-brand-tealLight font-bold text-xs uppercase tracking-widest mb-2">Step 5</div>
+        <h3 class="font-bold font-display text-sm mb-2">ERP Write</h3>
+        <p class="text-gray-500 text-xs">Data lands in your ERP as a draft invoice, contact, or journal entry. Fully traceable, reversible, audited.</p>
+      </div>
+    </div>
+
+    <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-6 mt-10">
+      <strong class="text-brand-tealLight">KEY CONCEPT — Adapter Architecture:</strong>
+      <p class="text-gray-300 mt-2">Every ERP connector in DataUnchain is a standalone Python adapter module. Adapters are decoupled from the extraction engine, which means adding a new ERP integration never requires modifying core AI logic. Each adapter implements a standard interface: it receives validated JSON, maps fields to the target system's schema, handles authentication, pushes data, and returns a success/failure status with full error detail. This architecture means we can support your ERP in days, not months.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- ITALIAN ERPs                                                           -->
+<!-- ====================================================================== -->
+<section id="italian-erps" class="py-24 px-6 reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Italian Market · Gestionali Italiani</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Italian ERP & Management Software</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Italy's management software landscape is unique: hundreds of regional ERPs, mandatory electronic invoicing via SDI, and deeply entrenched legacy systems. DataUnchain was built in this environment and speaks its language natively.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Fatture in Cloud -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">☁️</div>
+        <h3 class="text-xl font-bold mb-3 font-display">Fatture in Cloud</h3>
+        <p class="text-gray-500 text-sm mb-4">DataUnchain connects to Fatture in Cloud through its official REST API. Extracted invoice data — supplier name, VAT number, amounts, line items, payment terms — is pushed directly into the platform as a draft passive invoice. The adapter handles OAuth2 authentication, rate limiting, and automatic retry on transient failures. For businesses using Fatture in Cloud as their primary accounting tool, this eliminates the need to manually upload XML files or re-key data from paper invoices. The adapter also supports creating new contacts (anagrafiche) when a supplier is encountered for the first time, reducing setup friction to near zero.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">REST API</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">OAuth2</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Draft Invoices</span>
+        </div>
+      </div>
+
+      <!-- TeamSystem Digital Hub -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🏢</div>
+        <h3 class="text-xl font-bold mb-3 font-display">TeamSystem Digital Hub</h3>
+        <p class="text-gray-500 text-sm mb-4">TeamSystem's Digital Hub is the centralised integration layer used by most TeamSystem products. DataUnchain's adapter authenticates via API key, then posts structured invoice records using the Hub's standard JSON schema. Documents processed by the AI vision engine are transformed into the exact field structure TeamSystem expects — including Italian-specific fields like Codice Destinatario, split payment flags, and withholding tax (ritenuta d'acconto) details. This adapter is particularly useful for accounting firms managing dozens of client companies through a single TeamSystem Digital Hub instance.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Digital Hub API</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Multi-tenant</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">FatturaPA</span>
+        </div>
+      </div>
+
+      <!-- TeamSystem Enterprise -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🏗️</div>
+        <h3 class="text-xl font-bold mb-3 font-display">TeamSystem Enterprise</h3>
+        <p class="text-gray-500 text-sm mb-4">For companies running TeamSystem Enterprise (the on-premise ERP suite), DataUnchain provides a dedicated adapter that writes directly to the Enterprise database or uses its SOAP/REST web services, depending on deployment configuration. The adapter supports creating purchase invoices, journal entries, and supplier master data. Because TeamSystem Enterprise installations vary significantly in customisation, the adapter includes a field mapping layer that can be configured per-client without code changes. This means your specific chart of accounts, cost centres, and custom fields are respected automatically.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">On-Premise</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">SOAP/REST</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Custom Mapping</span>
+        </div>
+      </div>
+
+      <!-- Zucchetti Ad Hoc -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">⚙️</div>
+        <h3 class="text-xl font-bold mb-3 font-display">Zucchetti Ad Hoc</h3>
+        <p class="text-gray-500 text-sm mb-4">Zucchetti Ad Hoc (Revolution, Infinity, and older versions) is among the most widely deployed ERPs in Italian SMEs. DataUnchain integrates with Zucchetti using a combination of database-level writes and web service calls, depending on the installed version. The adapter handles the complexities of Zucchetti's internal data model: document numbering sequences, fiscal year partitioning, VAT register allocation, and the particular way Zucchetti structures multi-line invoices. For companies that have used Zucchetti for decades and cannot migrate, this adapter brings modern AI-powered automation without disrupting an entrenched workflow.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Ad Hoc Revolution</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Infinity</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">DB Write</span>
+        </div>
+      </div>
+
+      <!-- Mexal/Passepartout -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🧾</div>
+        <h3 class="text-xl font-bold mb-3 font-display">Mexal / Passepartout</h3>
+        <p class="text-gray-500 text-sm mb-4">Passepartout Mexal is the backbone of thousands of Italian accounting firms and small businesses. DataUnchain integrates with Mexal through its Passcom interface and, where available, through direct Sprix scripting integration. The adapter generates import files that Mexal can ingest natively, or pushes data directly through Passcom's web service layer. Extracted invoice data is mapped to Mexal's specific account codes, VAT codes, and payment condition structures. For accountants managing 50+ client companies in a single Mexal installation, DataUnchain can route documents to the correct company context automatically based on the recipient VAT number.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Passcom</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Sprix</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Multi-Company</span>
+        </div>
+      </div>
+
+      <!-- XML FatturaPA -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📄</div>
+        <h3 class="text-xl font-bold mb-3 font-display">XML FatturaPA (SDI)</h3>
+        <p class="text-gray-500 text-sm mb-4">Italy's mandatory electronic invoicing system (Sistema di Interscambio) uses a structured XML format called FatturaPA. DataUnchain includes a native XML parser that extracts every field from FatturaPA files with 100% accuracy — no AI vision needed for these, since the data is already structured. The system handles both FPA12 (B2B) and FPA12 (B2G) schemas, including complex scenarios like multi-body invoices, split payment, reverse charge, and stamp duty. The parsed data feeds into the same adapter pipeline as AI-extracted data, meaning your ERP receives identically formatted records regardless of whether the source was a scanned PDF or an SDI XML file.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">FPA12</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">100% Accuracy</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">SDI Native</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- INTERNATIONAL ERPs                                                     -->
+<!-- ====================================================================== -->
+<section id="international-erps" class="py-24 px-6 bg-brand-surface reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Global ERPs · Enterprise Grade</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">International ERP Systems</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">For multinational companies and growing businesses using world-class ERP platforms, DataUnchain provides deep, native integrations that go far beyond simple CSV import.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Odoo -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🟣</div>
+        <h3 class="text-xl font-bold mb-3 font-display">Odoo (XML-RPC / JSON-RPC)</h3>
+        <p class="text-gray-500 text-sm mb-4">Odoo is the world's most deployed open-source ERP, and DataUnchain's Odoo adapter is our most mature integration. The adapter communicates directly through Odoo's XML-RPC or JSON-RPC interface, supporting both Odoo Community and Enterprise editions (versions 14 through 18). It can create vendor bills (account.move), contacts (res.partner), products (product.product), and purchase orders (purchase.order). The adapter respects Odoo's multi-company and multi-currency setups, automatically resolving the correct journal, fiscal position, and tax configuration based on the extracted document data. For Odoo deployments with heavy customisation, field mapping can be extended via a simple YAML configuration file — no code changes required. The adapter also supports Odoo's attachment system, linking the original scanned document to the created record for full traceability.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">XML-RPC</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">v14–18</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Multi-Company</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">YAML Config</span>
+        </div>
+      </div>
+
+      <!-- SAP Business One -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🔷</div>
+        <h3 class="text-xl font-bold mb-3 font-display">SAP Business One</h3>
+        <p class="text-gray-500 text-sm mb-4">SAP Business One is the ERP of choice for mid-market companies worldwide. DataUnchain integrates with SAP B1 through its Service Layer (REST/OData API), which is the recommended integration path for SAP Business One versions 10 and above. The adapter creates A/P invoices, business partner master data, and goods receipt POs. It handles SAP B1's session-based authentication, batch requests for multi-line documents, and the platform's strict field validation rules. The adapter maps extracted data to SAP B1's internal codes — tax groups, warehouse codes, G/L accounts — using a configurable lookup table that your SAP consultant can populate during onboarding. For organisations with complex approval workflows in SAP B1, DataUnchain creates documents in "draft" status by default, allowing existing approval chains to proceed unmodified.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Service Layer</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">OData</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Draft Mode</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Batch API</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bg-brand-emerald/10 border border-brand-emerald/20 rounded-2xl p-6 mt-10">
+      <strong class="text-brand-emeraldLight">ENTERPRISE NOTE:</strong>
+      <p class="text-gray-300 mt-2">Both Odoo and SAP Business One adapters support running behind corporate proxies, VPNs, and firewalls. Because DataUnchain runs entirely on-premise, there are no outbound data flows to external servers. The ERP adapter communicates over your internal network only. This architecture satisfies IT security requirements at enterprise-grade organisations and eliminates the need for firewall exceptions or cloud-to-on-premise tunnels.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- CRM & COLLABORATION                                                    -->
+<!-- ====================================================================== -->
+<section id="crm-collaboration" class="py-24 px-6 reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">CRM & Collaboration · Beyond the ERP</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">CRM & Collaboration Platforms</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Documents do not live exclusively in ERP systems. Sales quotes feed into CRMs, summaries go to team channels, and processed records need to be shared across departments. DataUnchain connects to the tools your teams already use.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Salesforce -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center text-2xl mb-6">💼</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Salesforce</h3>
+        <p class="text-gray-500 text-sm mb-4">Push extracted data into Salesforce as new Leads, Contacts, Opportunities, or custom objects via the Salesforce REST API. The adapter supports both classic and Lightning experience, handles bulk API for high-volume ingestion, and respects your existing validation rules, triggers, and workflow automations. Ideal for sales teams receiving quotes, purchase orders, or RFPs as document attachments that need to be turned into actionable CRM records without manual data entry.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">REST API</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20">Bulk API</span>
+        </div>
+      </div>
+
+      <!-- HubSpot -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center text-2xl mb-6">🟠</div>
+        <h3 class="text-lg font-bold mb-3 font-display">HubSpot</h3>
+        <p class="text-gray-500 text-sm mb-4">DataUnchain creates and updates HubSpot contacts, companies, and deals through the HubSpot API v3. Extracted document data is mapped to standard and custom HubSpot properties. The adapter handles association between objects — linking a new deal to the correct company based on the VAT number extracted from the document. It also supports HubSpot's timeline API, logging each document processing event as an activity on the relevant record.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-500/20">API v3</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-orange-500/10 text-orange-400 border border-orange-500/20">Associations</span>
+        </div>
+      </div>
+
+      <!-- Slack -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-2xl mb-6">💬</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Slack</h3>
+        <p class="text-gray-500 text-sm mb-4">Real-time notifications for your team. When a document is processed, a structured summary is posted to a designated Slack channel — including extracted amounts, supplier name, confidence score, and a direct link to review or approve the record. Configurable alerting for low-confidence extractions, anomalies, or processing failures. The adapter uses Slack's Block Kit for rich, interactive message formatting.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Webhooks</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20">Block Kit</span>
+        </div>
+      </div>
+
+      <!-- Microsoft 365 -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-blue-600/20 flex items-center justify-center text-2xl mb-6">📊</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Microsoft 365</h3>
+        <p class="text-gray-500 text-sm mb-4">Integration with the Microsoft 365 ecosystem through Microsoft Graph API. DataUnchain can save processed documents and extracted data to SharePoint document libraries, create entries in Microsoft Lists, send summary emails via Outlook, and post notifications to Microsoft Teams channels. For enterprises standardised on Microsoft, this adapter fits seamlessly into existing information governance and compliance workflows.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-blue-600/10 text-blue-400 border border-blue-600/20">Graph API</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-blue-600/10 text-blue-400 border border-blue-600/20">Teams</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- DATABASE & EXPORT                                                      -->
+<!-- ====================================================================== -->
+<section id="database-export" class="py-24 px-6 bg-brand-surface reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Universal Outputs · Maximum Flexibility</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Database, Export & Automation</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Not every destination is an ERP. DataUnchain supports a wide range of output targets for teams that need data in spreadsheets, databases, automation platforms, or custom systems.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Airtable -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📋</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Airtable</h3>
+        <p class="text-gray-500 text-sm mb-4">Extracted records are pushed to Airtable bases as new rows via the Airtable REST API. The adapter maps JSON fields to Airtable columns, supports linked records across tables, and handles Airtable's rate limits gracefully. Perfect for operations teams that use Airtable as a lightweight tracking system for incoming invoices or purchase orders before they are approved and forwarded to accounting.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">REST API</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Linked Records</span>
+        </div>
+      </div>
+
+      <!-- Notion -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-dark flex items-center justify-center text-2xl mb-6 border border-white/10">📝</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Notion</h3>
+        <p class="text-gray-500 text-sm mb-4">DataUnchain creates new entries in Notion databases via the Notion API. Each processed document becomes a database row with properties mapped from extracted fields. The adapter supports rich text content blocks, so the full extraction summary can be embedded in the page body alongside the structured properties. Useful for teams running their document approval workflows in Notion.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-white/10 text-gray-300 border border-white/10">Notion API</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-white/10 text-gray-300 border border-white/10">Databases</span>
+        </div>
+      </div>
+
+      <!-- Google Sheets -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-green-500/20 flex items-center justify-center text-2xl mb-6">📗</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Google Sheets</h3>
+        <p class="text-gray-500 text-sm mb-4">Append extracted data as new rows in a Google Sheets spreadsheet via the Google Sheets API v4. The adapter authenticates using a service account, handles sheet creation for new document types, and supports writing to multiple sheets within the same workbook. Headers are auto-generated from the extraction schema on first write. For businesses transitioning from spreadsheet-based workflows to a proper ERP, this adapter provides a familiar intermediate step.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-green-500/10 text-green-400 border border-green-500/20">Sheets API v4</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-green-500/10 text-green-400 border border-green-500/20">Service Account</span>
+        </div>
+      </div>
+
+      <!-- Webhook REST -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🌐</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Webhook REST</h3>
+        <p class="text-gray-500 text-sm mb-4">The universal adapter. DataUnchain can POST extracted JSON to any HTTP endpoint you specify. This is the escape hatch for custom integrations: if your target system has a REST API, you can receive DataUnchain output directly. The webhook adapter supports custom headers, bearer token authentication, HMAC signature verification, retry with exponential backoff, and configurable payload templates using Jinja2 syntax. Connect to Zapier, Make (Integromat), n8n, or any internal microservice.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">HTTP POST</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">HMAC</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Jinja2</span>
+        </div>
+      </div>
+
+      <!-- CSV/Excel -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">📊</div>
+        <h3 class="text-lg font-bold mb-3 font-display">CSV / Excel Export</h3>
+        <p class="text-gray-500 text-sm mb-4">For systems that accept flat-file imports, DataUnchain generates CSV and XLSX files from extracted data. Files can be written to a local folder, a network share (SMB/CIFS), or an SFTP server on a configurable schedule. The adapter supports custom column ordering, date format localisation, decimal separator configuration (comma vs period), and encoding selection (UTF-8, Latin-1). Many legacy ERPs that lack API access can import CSV files through batch jobs — this adapter bridges that gap reliably.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">CSV</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">XLSX</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">SFTP</span>
+        </div>
+      </div>
+
+      <!-- Email HTML -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📧</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Email HTML Summary</h3>
+        <p class="text-gray-500 text-sm mb-4">DataUnchain sends styled HTML email summaries after each batch processing run. The email contains a table of all processed documents with key extracted fields, confidence scores, and processing status. Recipients can be configured per-document-type — accounting gets invoice summaries, logistics gets delivery note summaries. The adapter supports SMTP with TLS, multiple recipients, CC/BCC, and custom email templates. A zero-integration notification channel that works with every email client.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">SMTP/TLS</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">HTML Templates</span>
+        </div>
+      </div>
+
+      <!-- RPA Playwright -->
+      <div class="card-glow bg-brand-dark rounded-3xl p-8 md:col-span-2 lg:col-span-3">
+        <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">🤖</div>
+        <h3 class="text-xl font-bold mb-3 font-display">RPA Playwright — The Last Resort Adapter</h3>
+        <p class="text-gray-500 text-sm mb-4">Some legacy systems have no API, no database access, no file import capability. They have a web interface and nothing else. For these systems, DataUnchain includes an RPA adapter powered by Playwright, guided by our proprietary VLM. The AI visually identifies form fields in the target application's interface, fills them with extracted data, and navigates multi-step workflows — all without brittle CSS selectors or XPath expressions. The VLM "sees" the screen the same way a human operator would, making it resilient to UI updates that would break traditional RPA. This is the adapter of last resort: when nothing else can reach your legacy system, the RPA adapter can. It runs entirely on-premise, requires no cloud connection, and supports any web-based application accessible via a Chromium browser.</p>
+        <div class="flex flex-wrap gap-2 mt-4">
+          <span class="text-xs px-2 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">Playwright</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">Vision-Guided</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">No Selectors</span>
+          <span class="text-xs px-2 py-1 rounded-lg bg-red-500/10 text-red-400 border border-red-500/20">On-Premise</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- 5 INPUT CHANNELS                                                       -->
+<!-- ====================================================================== -->
+<section id="input-channels" class="py-24 px-6 reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Input · 5 Channels</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">5 Ways Documents Enter the System</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">DataUnchain does not require you to change how documents arrive at your organisation. Instead, it watches the channels you already use and intercepts documents automatically.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-4">📁</div>
+        <h3 class="font-bold font-display text-sm mb-2">Folder Watchdog</h3>
+        <p class="text-gray-500 text-xs">Monitors a local or network folder. Drop a file in, processing starts automatically. Supports subfolder routing — different folders for different document types. Processed files are moved to an archive folder with a timestamp. Zero configuration for the end user: just save the file where you always do.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-4">🔌</div>
+        <h3 class="font-bold font-display text-sm mb-2">REST API</h3>
+        <p class="text-gray-500 text-xs">Submit documents programmatically via a JSON/multipart REST API. Supports base64-encoded files, direct file upload, and batch submission. Returns a job ID for asynchronous status polling. Ideal for integrating DataUnchain into existing application workflows, portals, or middleware layers.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-4">✈️</div>
+        <h3 class="font-bold font-display text-sm mb-2">Telegram Bot</h3>
+        <p class="text-gray-500 text-xs">A Telegram bot that accepts document photos and PDF files. Sales reps in the field snap a photo of a receipt or delivery note, send it to the bot, and the document is processed and pushed to the ERP within minutes. Supports group chats for team-level document submission with automatic user attribution.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-4">📬</div>
+        <h3 class="font-bold font-display text-sm mb-2">IMAP Email</h3>
+        <p class="text-gray-500 text-xs">Connects to any IMAP mailbox and automatically processes email attachments. Configure rules based on sender, subject line patterns, or attachment type. Handles multiple attachments per email. The original email is archived after processing. Forward your invoice inbox to DataUnchain and never open it again.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-6 text-center">
+        <div class="text-3xl mb-4">🏛️</div>
+        <h3 class="font-bold font-display text-sm mb-2">SDI / PEC</h3>
+        <p class="text-gray-500 text-xs">Direct integration with Italy's Sistema di Interscambio and PEC (Posta Elettronica Certificata) channels. FatturaPA XML files received via SDI are parsed with 100% accuracy. PEC attachments are extracted and processed through the standard AI pipeline. The definitive input channel for Italian electronic invoicing.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- WHY DATAUNCHAIN FOR YOUR ERP                                           -->
+<!-- ====================================================================== -->
+<section id="why-dataunchain" class="py-24 px-6 bg-brand-surface reveal">
+  <div class="max-w-5xl mx-auto">
+    <div class="text-center mb-16">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Benefits · Why DataUnchain</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Why DataUnchain for Your ERP</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Connecting AI document extraction to an ERP is not a new idea. What makes DataUnchain different is where the AI runs, how it learns, and what happens when something goes wrong.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">🏠</div>
+        <h3 class="text-lg font-bold mb-3 font-display">100% On-Premise</h3>
+        <p class="text-gray-500 text-sm">Every component runs on your hardware. The AI model, the processing pipeline, the database, and all ERP adapters — nothing leaves your network. Your invoices, contracts, and financial documents never touch an external server. This is not a marketing claim; it is an architectural constraint enforced by the Docker deployment model.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">🧠</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Progressive Learning</h3>
+        <p class="text-gray-500 text-sm">When a human corrects an extraction error, the correction is stored locally and used to improve future extractions from the same supplier or document format. The system gets smarter over time without sending data anywhere. After a few dozen corrections, the system handles even the most unusual supplier layouts with high confidence. Your corrections stay on your infrastructure — they are your competitive advantage.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">⚡</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Draft-First Philosophy</h3>
+        <p class="text-gray-500 text-sm">DataUnchain never creates confirmed records in your ERP. Every adapter writes data as a draft — a draft invoice, a draft journal entry, a draft contact. Your existing approval workflows remain intact. The human operator reviews the AI output before confirmation. This design eliminates the risk of AI errors propagating into your financial records unchecked.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">🔒</div>
+        <h3 class="text-lg font-bold mb-3 font-display">GDPR by Design</h3>
+        <p class="text-gray-500 text-sm">No data processor agreements needed for AI extraction because there is no external data processor. DataUnchain operates as an on-premise tool under your direct control. Personal data in documents (employee names, bank details, health information) never leaves your perimeter. Audit logs are stored locally. Data retention policies are configurable per document type.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">🔧</div>
+        <h3 class="text-lg font-bold mb-3 font-display">No Lock-In</h3>
+        <p class="text-gray-500 text-sm">Every extraction result is stored as standard JSON in a PostgreSQL database you own. If you decide to stop using DataUnchain tomorrow, your data is right there — queryable, exportable, and yours. The adapter architecture means switching ERPs does not require re-processing documents; you just point the output to a different adapter.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">📈</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Measurable ROI</h3>
+        <p class="text-gray-500 text-sm">DataUnchain tracks processing statistics: documents per hour, average extraction confidence, human correction rate, and time-to-ERP-entry. These metrics give you a clear, quantifiable picture of time saved and error reduction. Most deployments show positive ROI within the first 60 days, with time savings of 70-85% on document processing tasks compared to manual entry.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- YOUR ERP NOT LISTED?                                                   -->
+<!-- ====================================================================== -->
+<section id="custom" class="py-24 px-6 reveal">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">Custom Integrations · Your ERP</span>
+    <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Your ERP Not Listed?</h2>
+    <p class="text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+      The 18 connectors listed above cover the most common scenarios, but the adapter architecture is designed for extensibility. If your ERP, management software, or internal system is not listed here, there are several paths forward.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 text-left mb-12">
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">🌐</div>
+        <h3 class="text-lg font-bold mb-3 font-display">REST API Available?</h3>
+        <p class="text-gray-500 text-sm">If your system has a REST or SOAP API, the Webhook adapter can likely connect to it immediately with minimal configuration. Define the endpoint, authentication method, and payload template — and you have a working integration within hours. No custom development required.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">📂</div>
+        <h3 class="text-lg font-bold mb-3 font-display">File Import Supported?</h3>
+        <p class="text-gray-500 text-sm">If your ERP can import CSV, Excel, or XML files, the CSV/Excel adapter generates files in exactly the format your system expects. Column mapping, date formats, encoding, and delimiter configuration are all adjustable. Set up a scheduled batch import and the data flows automatically.</p>
+      </div>
+
+      <div class="card-glow bg-brand-dark rounded-3xl p-8">
+        <div class="text-3xl mb-4">🤖</div>
+        <h3 class="text-lg font-bold mb-3 font-display">Web Interface Only?</h3>
+        <p class="text-gray-500 text-sm">If the only way to enter data is through a web browser, the RPA Playwright adapter can automate it. Our proprietary VLM identifies form fields visually, fills them with extracted data, and navigates the application. No CSS selectors, no brittle scripts. If a human can use the interface, so can DataUnchain.</p>
+      </div>
+
+    </div>
+
+    <div class="bg-brand-teal/10 border border-brand-teal/20 rounded-2xl p-8">
+      <h3 class="text-xl font-bold font-display mb-3">Custom Adapter Development</h3>
+      <p class="text-gray-300 leading-relaxed">For ERPs that require deep, native integration, we develop custom adapters. Because every adapter follows the same Python interface (receive JSON, map fields, push data, return status), a new adapter typically takes 5 to 15 business days from specification to production deployment. The adapter becomes part of your DataUnchain installation and is maintained alongside the core system. Contact us with your ERP details and we will provide a feasibility assessment within 48 hours.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- FAQ                                                                    -->
+<!-- ====================================================================== -->
+<section id="faq" class="py-24 px-6 bg-brand-surface reveal">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="text-brand-tealLight text-xs font-bold uppercase tracking-widest">FAQ · Common Questions</span>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mt-4 mb-6">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+
+      <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+          <span class="font-bold text-white">Can DataUnchain connect to multiple ERPs simultaneously?</span>
+          <span class="text-brand-tealLight text-xl font-light">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+          <p>Yes. The adapter architecture supports multiple active output targets simultaneously. A single DataUnchain installation can push invoice data to Odoo for accounting, send a summary to Slack for the operations team, append a row to Google Sheets for the CFO's dashboard, and archive the raw JSON via webhook to a data lake — all from the same extraction event. Each adapter runs independently, so a failure in one does not block the others. This is particularly useful for organisations transitioning between ERP systems, where you need parallel writes to both the old and new system during the migration period.</p>
+        </div>
+      </details>
+
+      <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+          <span class="font-bold text-white">What happens if the ERP is temporarily unavailable?</span>
+          <span class="text-brand-tealLight text-xl font-light">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+          <p>DataUnchain implements a robust retry and queue mechanism. When an adapter fails to push data to the target system (due to downtime, network issues, or authentication errors), the record is placed in a retry queue with exponential backoff. The system will retry up to a configurable number of times (default: 5 retries over 24 hours). If all retries fail, the record is flagged as "delivery failed" and an alert is sent to the configured notification channel. The extraction data is preserved in full — nothing is lost. When the ERP comes back online, failed records can be re-dispatched with a single command. The extraction pipeline continues processing new documents regardless of adapter failures.</p>
+        </div>
+      </details>
+
+      <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+          <span class="font-bold text-white">Does DataUnchain require administrator access to my ERP?</span>
+          <span class="text-brand-tealLight text-xl font-light">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+          <p>It depends on the ERP, but in most cases, DataUnchain requires a dedicated service account with limited write permissions — not full administrator access. For Odoo, a user with "Invoicing / Billing" and "Contacts / Creation" permissions is sufficient. For SAP Business One, a Service Layer user with rights to create A/P invoices and business partners is enough. For Fatture in Cloud, a standard API key with document creation scope covers all requirements. We follow the principle of least privilege: the adapter should have exactly the permissions it needs and nothing more. During onboarding, we provide a detailed permission matrix specific to your ERP so your IT team knows exactly what access to grant.</p>
+        </div>
+      </details>
+
+      <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+          <span class="font-bold text-white">How long does it take to set up an ERP integration?</span>
+          <span class="text-brand-tealLight text-xl font-light">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+          <p>For ERPs with existing adapters (Odoo, SAP B1, Fatture in Cloud, TeamSystem, etc.), setup typically takes 1 to 3 business days. This includes installing the DataUnchain appliance, configuring the ERP adapter with connection credentials and field mappings, running a test batch of 20-50 documents, reviewing results with your team, and going live. For the Webhook and CSV adapters, setup can be completed in under a day since no ERP-specific configuration is needed. Custom adapter development for unlisted ERPs takes 5 to 15 business days depending on the complexity of the target system's API.</p>
+        </div>
+      </details>
+
+      <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+          <span class="font-bold text-white">Can I use DataUnchain without any ERP, just for data extraction?</span>
+          <span class="text-brand-tealLight text-xl font-light">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+          <p>Absolutely. DataUnchain's extraction engine and adapter layer are completely independent. You can run the system purely for document data extraction, storing results in its internal PostgreSQL database and exporting via CSV, Google Sheets, or the REST API. Many early adopters start this way — using DataUnchain to digitise and structure their document archives — and add ERP integration later when they are confident in extraction quality. The system is equally valuable as a standalone document intelligence platform and as an ERP integration tool.</p>
+        </div>
+      </details>
+
+      <details class="bg-brand-surface rounded-2xl border border-white/5 overflow-hidden">
+        <summary class="flex items-center justify-between p-6 cursor-pointer hover:bg-white/2 transition-colors">
+          <span class="font-bold text-white">What document types can be extracted and pushed to ERP?</span>
+          <span class="text-brand-tealLight text-xl font-light">+</span>
+        </summary>
+        <div class="px-6 pb-6 text-gray-300 leading-relaxed">
+          <p>DataUnchain is schema-configurable, meaning it can extract structured data from virtually any document type. Out of the box, the system ships with optimised extraction prompts for: supplier invoices, credit notes, purchase orders, delivery notes (DDTs), receipts, contracts, bank statements, and customs declarations. Each document type maps to a different extraction schema and can be routed to a different ERP adapter or target system. Adding a new document type is a configuration change — you define the extraction schema (which fields to look for) and the adapter mapping (which ERP fields to write to). No code changes, no redeployment.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- FINAL CTA                                                              -->
+<!-- ====================================================================== -->
+<section class="py-24 px-6 reveal">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="card-glow bg-brand-dark rounded-3xl p-12">
+      <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+        Get Started
+      </div>
+      <h2 class="text-3xl lg:text-4xl font-black font-display mb-6">
+        Check Compatibility<br>
+        <span class="gradient-text">With Your ERP</span>
+      </h2>
+      <p class="text-gray-400 max-w-xl mx-auto mb-10 leading-relaxed">
+        Send us the name of your ERP, management software, or internal system. We will respond within 48 hours with a feasibility assessment, integration timeline, and estimated setup cost. No commitment, no sales pitch — just a clear technical answer.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="mailto:info@dataunchain.com?subject=ERP Compatibility Check — DataUnchain" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald text-white font-bold hover:scale-105 transition-transform">
+          Check Your ERP Compatibility →
+        </a>
+        <a href="/en/early-access" class="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-brand-surface border border-brand-teal/30 text-brand-tealLight font-bold hover:border-brand-teal/60 transition-all">
+          Request Early Access
+        </a>
+      </div>
+      <p class="text-gray-600 text-xs mt-6">18 connectors. On-premise AI. Your data stays yours.</p>
+    </div>
+  </div>
+</section>

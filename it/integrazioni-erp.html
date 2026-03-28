@@ -1,0 +1,711 @@
+---
+layout: default
+title: "Integrazioni ERP & Gestionali Italiani — DataUnchain"
+lang: it
+locale: it_IT
+description: "DataUnchain si integra nativamente con Fatture in Cloud, TeamSystem, Zucchetti, Mexal/Passepartout, Odoo, SAP, Salesforce e altri 18 connettori. Automazione fatture per il tuo gestionale."
+---
+
+<!-- =========  HERO  ========= -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 left-1/3 w-[500px] h-[500px] bg-brand-teal/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-brand-emerald/10 rounded-full blur-[120px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            🔗 18 Connettori Pronti
+        </div>
+        <h1 class="text-5xl lg:text-6xl font-black font-display mb-6">
+            18 Connettori. Un solo sistema.<br>
+            <span class="gradient-text">Il tuo gestionale.</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+            DataUnchain si collega nativamente ai gestionali italiani piu diffusi — Fatture in Cloud, TeamSystem, Zucchetti, Mexal — e agli ERP internazionali come SAP e Odoo. Nessuna configurazione lato cliente. Nessun dato nel cloud. Tutto on-premise, tutto automatico.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="mailto:info@dataunchain.com?subject=Verifica%20compatibilit%C3%A0%20gestionale"
+               class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform text-center">
+                Verifica compatibilita
+            </a>
+            <a href="/it/how-it-works.html"
+               class="px-8 py-4 rounded-2xl border border-white/10 hover:border-white/30 font-bold transition-colors text-center">
+                Come funziona
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- =========  COME FUNZIONA L'INTEGRAZIONE  ========= -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-3xl font-black font-display mb-4 text-center">Come funziona l'integrazione</h2>
+        <p class="text-gray-500 text-center mb-16 max-w-2xl mx-auto">
+            Il flusso e lineare: il documento entra, l'AI estrae i dati strutturati, un motore di validazione verifica la coerenza matematica, e un adapter dedicato scrive automaticamente nel tuo gestionale. Zero intervento manuale.
+        </p>
+
+        <div class="flex items-center justify-center gap-3 flex-wrap mb-16">
+            <div class="flex items-center gap-2 px-5 py-3 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm font-bold text-brand-tealLight">
+                📄 Documento
+            </div>
+            <span class="text-gray-600 text-xl">→</span>
+            <div class="flex items-center gap-2 px-5 py-3 bg-brand-emerald/20 border border-brand-emerald/30 rounded-full text-sm font-bold text-brand-emeraldLight">
+                🤖 AI Extraction
+            </div>
+            <span class="text-gray-600 text-xl">→</span>
+            <div class="flex items-center gap-2 px-5 py-3 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-sm font-bold text-yellow-400">
+                ✅ Validazione
+            </div>
+            <span class="text-gray-600 text-xl">→</span>
+            <div class="flex items-center gap-2 px-5 py-3 bg-brand-teal/20 border border-brand-teal/30 rounded-full text-sm font-bold text-brand-tealLight">
+                🏢 Push al Gestionale
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📥</div>
+                <h3 class="text-xl font-bold mb-3 font-display">1. Ingresso documento</h3>
+                <p class="text-gray-500 text-sm">
+                    Il documento arriva tramite uno dei 5 canali di input: cartella monitorata, API REST, bot Telegram, casella email IMAP o PEC/SDI. Qualsiasi formato e accettato — PDF, immagine JPEG/PNG, XML FatturaPA, persino foto da smartphone. Il sistema rileva automaticamente il tipo di file e lo instrada alla pipeline corretta senza alcun intervento umano. La cartella monitorata utilizza un watcher basato su filesystem events che reagisce in millisecondi al drop di un nuovo file, mentre l'endpoint API REST accetta upload multipart con autenticazione bearer token. Se il documento arriva via email, il monitor IMAP verifica la casella ogni 30 secondi e scarica allegati e corpo HTML per i documenti inline.
+                </p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🧠</div>
+                <h3 class="text-xl font-bold mb-3 font-display">2. Estrazione AI</h3>
+                <p class="text-gray-500 text-sm">
+                    Il nostro VLM proprietario analizza visivamente ogni pagina del documento, proprio come farebbe un operatore umano. Non si tratta di OCR tradizionale: il modello "vede" il layout, le tabelle, i timbri, la scrittura a mano e le scansioni ruotate. L'output e un JSON strutturato conforme allo schema configurato — tipicamente con campi come numero fattura, data, partita IVA fornitore, righe articolo con quantita, prezzo unitario, aliquota IVA e totale. Lo schema e completamente personalizzabile tramite un file YAML: basta modificare i campi desiderati e il VLM adatta l'estrazione di conseguenza. Ogni estrazione genera anche un punteggio di confidenza per singolo campo, cosi il sistema sa esattamente dove concentrare l'eventuale revisione umana.
+                </p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🧮</div>
+                <h3 class="text-xl font-bold mb-3 font-display">3. Validazione automatica</h3>
+                <p class="text-gray-500 text-sm">
+                    Un motore di regole Python verifica la coerenza matematica e fiscale di ogni estrazione. Imponibile + IVA = Totale? La partita IVA e formalmente valida? Il codice SDI e nel formato corretto? Le righe sommano al totale documento? Se qualcosa non torna, il documento viene segnalato per revisione con un report dettagliato delle incongruenze trovate. Il sistema supporta anche regole custom — ad esempio verificare che il codice CIG/CUP sia presente per fatture PA, oppure che l'importo non superi una soglia definita dall'azienda. La validazione avviene in meno di 200 millisecondi ed e completamente deterministica: nessuna AI in questo passaggio, solo logica pura.
+                </p>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🚀</div>
+                <h3 class="text-xl font-bold mb-3 font-display">4. Push al gestionale</h3>
+                <p class="text-gray-500 text-sm">
+                    L'adapter dedicato al tuo gestionale prende il JSON validato e lo trasforma nel formato nativo richiesto — che sia una chiamata API REST, un file XML, un record su database, o un'azione RPA su interfaccia web. Ogni adapter gestisce autonomamente l'autenticazione, il mapping dei campi, la gestione degli errori e i retry automatici. Se il push fallisce (gestionale offline, timeout, credenziali scadute), il documento resta in coda e viene riprovato con backoff esponenziale. Lo stato di ogni documento e tracciato in PostgreSQL con timestamp di ogni passaggio, cosi hai sempre una visione completa della pipeline.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  GESTIONALI ITALIANI  ========= -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                🇮🇹 Made in Italy
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">Gestionali Italiani</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                I gestionali piu diffusi nel panorama italiano sono supportati nativamente. Nessun middleware esterno, nessun connettore di terze parti — adapter scritti su misura e testati con aziende reali.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Fatture in Cloud -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">☁️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Fatture in Cloud</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Integrazione tramite API v2 nativa di Fatture in Cloud (TeamSystem). L'adapter supporta l'import automatico delle fatture passive con creazione automatica dell'anagrafica fornitore quando il soggetto non esiste ancora nel sistema. La sincronizzazione e bidirezionale: DataUnchain puo sia scrivere nuove fatture sia leggere lo stato di quelle esistenti per evitare duplicati. Il mapping dei campi copre tutte le informazioni fiscali italiane — split payment, reverse charge, ritenuta d'acconto, cassa previdenziale. L'autenticazione avviene tramite OAuth2 con refresh token automatico, senza necessita di intervento manuale alla scadenza.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">API v2</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">OAuth2</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Fatture Passive</span>
+                </div>
+            </div>
+
+            <!-- TeamSystem Digital Hub -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🏛️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">TeamSystem Digital Hub</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Il Digital Hub di TeamSystem e la piattaforma di interscambio documentale piu usata dai commercialisti italiani. DataUnchain si integra tramite API REST ufficiali per l'invio di documenti fiscali elettronici. L'adapter gestisce il ciclo completo: generazione dell'XML FatturaPA, firma digitale (quando delegata al Hub), invio al SDI tramite il canale TeamSystem, e monitoraggio delle notifiche di esito (RC, NS, MC, NE, DT). Ogni cambio di stato viene registrato in DataUnchain con il relativo codice di esito e timestamp, per una tracciabilita completa del flusso SDI.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">API REST</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">SDI</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Commercialisti</span>
+                </div>
+            </div>
+
+            <!-- TeamSystem Enterprise -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🏢</div>
+                <h3 class="text-xl font-bold mb-3 font-display">TeamSystem Enterprise</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Per le aziende strutturate che utilizzano TeamSystem Enterprise (ex Alyante), DataUnchain offre un adapter dedicato che comunica direttamente con il layer di integrazione del gestionale. Il connettore supporta la registrazione automatica delle fatture nel ciclo passivo, inclusa l'associazione agli ordini di acquisto esistenti tramite matching su numero ordine o codice articolo. E possibile configurare regole di approvazione automatica basate su importo, fornitore o centro di costo, riducendo drasticamente i tempi di contabilizzazione. L'integrazione supporta anche la gestione multi-azienda per gruppi societari che operano su un'unica istanza Enterprise.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Enterprise</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Multi-Azienda</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Ciclo Passivo</span>
+                </div>
+            </div>
+
+            <!-- Zucchetti -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">⚡</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Zucchetti Ad Hoc</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Connettore dedicato per la suite Zucchetti Ad Hoc (Revolution e Infinity). L'integrazione avviene tramite le web API del framework Zucchetti oppure, per le installazioni legacy che non espongono API, tramite import su tabelle database con stored procedure di validazione. DataUnchain genera i record nel formato esatto atteso dalle tabelle di testata e dettaglio fattura, rispettando i vincoli di integrita referenziale e i campi obbligatori specifici della configurazione Zucchetti del cliente. Il connettore supporta anche l'import dei DDT e delle note di credito, con gestione automatica dei riferimenti alla fattura originaria.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Ad Hoc</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Revolution</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Infinity</span>
+                </div>
+            </div>
+
+            <!-- Mexal/Passepartout -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">📊</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Mexal / Passepartout</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Mexal di Passepartout e il gestionale piu utilizzato dagli studi commercialisti italiani, con oltre 100.000 installazioni attive. DataUnchain si integra tramite il meccanismo di import Sprix/Collage oppure tramite le Passepartout API (MexalDB) per le versioni piu recenti. L'adapter gestisce la creazione automatica delle prime note contabili, l'associazione ai conti del piano dei conti configurato, e la registrazione IVA con codice aliquota corretto. Per gli studi che gestiscono decine di aziende, il connettore supporta il multi-ditta con switch automatico del contesto azienda in base alla partita IVA del destinatario.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Sprix</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">MexalDB</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Multi-Ditta</span>
+                </div>
+            </div>
+
+            <!-- XML FatturaPA -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📜</div>
+                <h3 class="text-xl font-bold mb-3 font-display">XML FatturaPA (SDI)</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Generazione e validazione completa del formato XML FatturaPA conforme allo schema XSD dell'Agenzia delle Entrate versione 1.2.2. DataUnchain puo sia leggere file XML FatturaPA in ingresso (fatture ricevute via SDI) sia generare XML validi a partire da dati estratti. La validazione copre tutti i controlli formali previsti dalle specifiche tecniche: formato partita IVA e codice fiscale, coerenza tra TipoDocumento e segno importi, presenza dei campi obbligatori per fatture PA (CIG, CUP, codice IPA), e verifica degli importi con tolleranza centesimale. L'output XML e pronto per la firma digitale e l'invio tramite qualsiasi canale SDI accreditato.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">XSD 1.2.2</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Validazione</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">FatturaPA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  ERP INTERNAZIONALI  ========= -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold tracking-widest uppercase mb-6">
+                🌍 Enterprise
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">ERP Internazionali</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                Per le aziende che operano con ERP internazionali, DataUnchain offre connettori nativi testati in ambienti di produzione reali.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <!-- Odoo -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🟣</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Odoo</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Integrazione nativa tramite protocollo XML-RPC di Odoo (versioni 14, 15, 16, 17 e 18). L'adapter crea automaticamente le fatture fornitore (account.move) con tutte le righe articolo, associa i prodotti esistenti tramite matching su codice articolo o descrizione, e gestisce la riconciliazione con gli ordini di acquisto. Il connettore supporta anche la creazione automatica dei partner (res.partner) quando il fornitore non esiste in anagrafica, e la gestione multi-company per installazioni Odoo con piu aziende. L'autenticazione avviene tramite API key o database credentials, con supporto per istanze Odoo.sh, on-premise e Docker.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">XML-RPC</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">v14-18</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Multi-Company</span>
+                </div>
+            </div>
+
+            <!-- SAP Business One -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🔷</div>
+                <h3 class="text-xl font-bold mb-3 font-display">SAP Business One</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Connettore per SAP Business One tramite Service Layer (OData v4). L'adapter gestisce la registrazione delle fatture di acquisto (PurchaseInvoices), la creazione dei business partner, e l'associazione agli ordini di acquisto tramite il numero documento. Il mapping dei campi fiscali italiani e completo: codice IVA SAP, condizioni di pagamento, centri di costo e dimensioni analitiche. Per le installazioni SAP HANA, il connettore sfrutta le performance del database in-memory per operazioni batch su grandi volumi di documenti. L'autenticazione avviene tramite session-based login con gestione automatica del rinnovo sessione.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Service Layer</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">OData v4</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">HANA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  CRM & COLLABORAZIONE  ========= -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+                🤝 CRM & Collaborazione
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">CRM & Strumenti di Collaborazione</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                I dati estratti non restano confinati al gestionale. DataUnchain puo alimentare il tuo CRM, notificare il team e aggiornare i fogli di lavoro condivisi — tutto in tempo reale.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <!-- Salesforce -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">💼</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Salesforce</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Integrazione completa tramite OAuth2 con Salesforce. L'adapter puo creare e aggiornare Account, Contact, Opportunity e qualsiasi oggetto custom. Quando DataUnchain elabora una fattura, puo automaticamente aggiornare il record dell'opportunita correlata in Salesforce, allegare il documento originale come ContentDocument, e aggiornare i campi importo. Il mapping dei campi e completamente configurabile tramite file YAML, permettendo di adattare l'integrazione a qualsiasi configurazione Salesforce senza scrivere codice. Il connettore supporta sia Salesforce Classic che Lightning, incluse le sandbox per il testing.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">OAuth2</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">REST API</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Custom Objects</span>
+                </div>
+            </div>
+
+            <!-- HubSpot -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🟠</div>
+                <h3 class="text-xl font-bold mb-3 font-display">HubSpot</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Connettore basato su Private App Token per HubSpot CRM. DataUnchain puo creare e aggiornare Companies, Contacts e Deals a partire dai dati estratti dai documenti. L'integrazione e particolarmente utile per i team commerciali che vogliono automatizzare la registrazione di contratti e ordini: il documento viene elaborato dall'AI, i dati chiave vengono estratti (ragione sociale, importo, date, condizioni) e un nuovo Deal viene creato in HubSpot con tutte le proprieta compilate. Il connettore supporta anche la creazione di note e task associati per il follow-up commerciale.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Private App</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">CRM API</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Deals</span>
+                </div>
+            </div>
+
+            <!-- Slack -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">💬</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Slack</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Notifiche in tempo reale tramite webhook e bot Slack. Ogni volta che DataUnchain elabora un documento, un messaggio strutturato viene inviato al canale configurato con un riepilogo dei dati estratti — fornitore, importo, stato di validazione. Se il documento richiede revisione umana (confidenza bassa o incongruenza matematica), il messaggio include pulsanti interattivi per approvare, rifiutare o richiedere una nuova elaborazione. Il bot Slack puo anche rispondere a comandi diretti per consultare lo stato della pipeline, verificare i documenti in coda e ottenere statistiche di elaborazione giornaliere.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Webhook</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Bot</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Interattivo</span>
+                </div>
+            </div>
+
+            <!-- Microsoft 365 -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📧</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Microsoft 365</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Integrazione con l'ecosistema Microsoft tramite Graph API. DataUnchain puo monitorare cartelle OneDrive o SharePoint come sorgente di documenti, inviare notifiche email tramite Outlook, e salvare i dati estratti in liste SharePoint. Per le aziende che usano Microsoft Teams, le notifiche possono essere inviate direttamente nei canali tramite connector webhook. L'autenticazione avviene tramite Azure AD con registrazione app e permessi delegati, garantendo la conformita con le policy di sicurezza aziendali. Il connettore supporta anche Power Automate per integrazioni custom senza codice.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Graph API</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">SharePoint</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Teams</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  DATABASE & EXPORT  ========= -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                📤 Output Flessibile
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">Database & Export</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                Non tutti i gestionali hanno un'API. Per questo DataUnchain offre canali di output universali che si adattano a qualsiasi infrastruttura — dal foglio Google condiviso al browser automation per gestionali web legacy.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Airtable -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📋</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Airtable</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Creazione automatica di record in Airtable tramite API REST. Ogni documento elaborato diventa una riga nella tua base Airtable con tutti i campi estratti mappati alle colonne corrispondenti. Ideale per team che usano Airtable come hub di gestione documentale collaborativo. L'adapter supporta la creazione di linked records tra tabelle diverse e l'upload di allegati.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">API REST</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Auto-Map</span>
+                </div>
+            </div>
+
+            <!-- Notion -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">📝</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Notion</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Inserimento automatico in database Notion tramite API ufficiale. Ogni fattura elaborata genera una pagina nel database configurato con proprieta tipizzate — date, numeri, select, relation. Perfetto per startup e team agili che centralizzano tutto in Notion. Supporta anche l'aggiornamento di pagine esistenti per evitare duplicati.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Database API</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Typed Props</span>
+                </div>
+            </div>
+
+            <!-- Google Sheets -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">📊</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Google Sheets</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Append automatico su Google Sheets tramite service account. Ogni documento elaborato aggiunge una riga al foglio configurato. L'adapter gestisce la formattazione automatica dei numeri e delle date secondo il locale italiano, e supporta fogli multipli per tipologia documento.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Service Account</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Auto-Format</span>
+                </div>
+            </div>
+
+            <!-- Webhook REST -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🔗</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Webhook REST</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    L'adapter universale: invia il JSON estratto a qualsiasi endpoint HTTP tramite POST con autenticazione bearer, basic o API key. Configurabile con header custom, retry e timeout. E il connettore jolly per integrare DataUnchain con qualsiasi sistema che espone un'API REST — anche quelli non ancora nella nostra lista ufficiale.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">POST</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Auth Flex</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Retry</span>
+                </div>
+            </div>
+
+            <!-- CSV/Excel -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">📁</div>
+                <h3 class="text-xl font-bold mb-3 font-display">CSV / Excel</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Export automatico in formato CSV o Excel (.xlsx). Per i gestionali che supportano l'import da file, DataUnchain genera il file nel formato esatto richiesto e lo deposita nella cartella configurata. Supporta template Excel con formattazione, formule e fogli multipli tramite openpyxl.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">CSV</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">XLSX</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">Template</span>
+                </div>
+            </div>
+
+            <!-- Email HTML -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">📧</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Email HTML</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Invio automatico di email con riepilogo dati estratti in formato HTML responsive. Configurabile con template Jinja2, allegati e destinatari multipli. Ideale per notificare la direzione o i responsabili acquisti con un report giornaliero dei documenti elaborati.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">SMTP</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Jinja2</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Allegati</span>
+                </div>
+            </div>
+
+            <!-- RPA Playwright -->
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 md:col-span-2 lg:col-span-3">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🤖</div>
+                <h3 class="text-xl font-bold mb-3 font-display">RPA Playwright — per gestionali web senza API</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Il connettore di ultima istanza per i gestionali che non espongono alcuna API. DataUnchain include un motore RPA basato su Playwright che interagisce direttamente con l'interfaccia web del gestionale: apre il browser, effettua il login, naviga ai form di inserimento, compila i campi e salva il record. Il flusso RPA e guidato dal nostro VLM proprietario che "vede" l'interfaccia e identifica i campi da compilare anche quando i selettori CSS cambiano tra le versioni del gestionale. Questo approccio vision-guided rende il connettore RPA estremamente resiliente ai cambiamenti di interfaccia. Ogni azione e loggata con screenshot per audit e debugging. Il motore supporta anche l'interazione con form multi-step, popup di conferma, e upload di allegati.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Playwright</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Vision-Guided</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Screenshot Audit</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Zero API</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  5 CANALI DI INPUT  ========= -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold tracking-widest uppercase mb-6">
+                📥 Input Multicanale
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">5 Canali di Input</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                I documenti arrivano da ovunque. DataUnchain li intercetta su 5 canali diversi, tutti configurabili e attivi contemporaneamente. Non importa come il documento entra nel sistema — la pipeline di elaborazione e sempre la stessa.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cartella monitorata -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📂</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Cartella Monitorata</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Un watcher basato su Watchdog monitora una o piu cartelle del filesystem in tempo reale. Quando un nuovo file viene depositato — manualmente, via FTP, da uno scanner di rete o da un'altra applicazione — DataUnchain lo rileva in millisecondi e lo instrada alla pipeline. Supporta sottocartelle con routing automatico basato sulla struttura directory (es. <code class="text-brand-tealLight">/input/fatture/</code> vs <code class="text-brand-tealLight">/input/ddt/</code>). I file elaborati vengono spostati automaticamente in una cartella di archivio con timestamp.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Watchdog</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Real-Time</span>
+                </div>
+            </div>
+
+            <!-- API REST -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">⚡</div>
+                <h3 class="text-xl font-bold mb-3 font-display">API REST (FastAPI)</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Endpoint HTTP/HTTPS per l'upload programmatico di documenti. Basato su FastAPI con documentazione OpenAPI automatica, autenticazione bearer token e rate limiting configurabile. L'endpoint accetta upload multipart e restituisce un job ID per il tracking asincrono. Ideale per integrare DataUnchain in workflow esistenti o in applicazioni custom che generano documenti da elaborare.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">FastAPI</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">OpenAPI</span>
+                </div>
+            </div>
+
+            <!-- Bot Telegram -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">✈️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Bot Telegram</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Un bot Telegram dedicato che riceve documenti direttamente dalla chat. Gli utenti autorizzati possono inviare foto di fatture, PDF o file di qualsiasi tipo — il bot li invia alla pipeline e risponde con i dati estratti in formato leggibile. Perfetto per agenti di commercio, tecnici sul campo o chiunque debba registrare documenti in mobilita senza accesso al gestionale.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Bot API</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Mobile</span>
+                </div>
+            </div>
+
+            <!-- Monitor Email IMAP -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">📬</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Monitor Email IMAP</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Monitoraggio continuo di una casella email IMAP per l'estrazione automatica di allegati. Il monitor verifica la casella ogni 30 secondi, scarica i nuovi messaggi, estrae gli allegati PDF/immagine e li instrada alla pipeline. Supporta filtri su mittente, oggetto e cartella IMAP per elaborare solo le email pertinenti. I messaggi elaborati vengono marcati come letti e spostati in una cartella dedicata.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">IMAP</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-teal/10 text-brand-tealLight border border-brand-teal/20">Filtri</span>
+                </div>
+            </div>
+
+            <!-- Monitor SDI/PEC -->
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🏛️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Monitor SDI / PEC</h3>
+                <p class="text-gray-500 text-sm mb-4">
+                    Monitoraggio dedicato per le caselle PEC utilizzate come canale di ricezione SDI. L'adapter gestisce le specificita del protocollo PEC — buste di trasporto, ricevute di consegna, notifiche di esito — ed estrae automaticamente i file XML FatturaPA dalle buste MIME. I file XML vengono poi elaborati dalla pipeline standard per l'estrazione dati e la registrazione nel gestionale. Supporta PEC Aruba, Legalmail, PEC Register e qualsiasi provider conforme agli standard AgID.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">PEC</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">SDI</span>
+                    <span class="text-xs px-2 py-1 rounded-lg bg-brand-emerald/10 text-brand-emeraldLight border border-brand-emerald/20">FatturaPA</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  PERCHE DATAUNCHAIN  ========= -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                💎 Vantaggi Competitivi
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">Perche DataUnchain per il tuo gestionale</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">
+                Non siamo l'ennesimo SaaS cloud che richiede mesi di setup e consulenti esterni. DataUnchain e progettato per funzionare dal giorno uno, senza toccare l'infrastruttura del cliente.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🔧</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Zero configurazione API dal cliente</h3>
+                <p class="text-gray-500 text-sm">
+                    Non chiediamo al cliente di configurare endpoint, generare token o aprire porte firewall. DataUnchain si collega al gestionale dall'interno della rete locale del cliente, utilizzando le stesse credenziali che un operatore userebbe manualmente. Questo elimina completamente la complessita di setup lato IT del cliente — spesso il principale collo di bottiglia nei progetti di integrazione. L'unico prerequisito e un server (o VM) con Docker e accesso di rete al gestionale. Il deployment avviene tramite un singolo file docker-compose.yml che il nostro team prepara su misura.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">🏠</div>
+                <h3 class="text-xl font-bold mb-3 font-display">100% On-Premise</h3>
+                <p class="text-gray-500 text-sm">
+                    Tutto gira sulla macchina del cliente — il VLM, il motore di validazione, gli adapter, il database PostgreSQL. Nessun dato esce dalla rete aziendale, mai. Questo non e solo una scelta architetturale: e un requisito fondamentale per le aziende italiane che trattano dati fiscali sensibili. Non c'e nessun server cloud da cui dipendiamo, nessuna subscription mensile che puo essere interrotta, nessun rischio di data breach su infrastruttura di terzi. Il cliente ha il pieno controllo dei propri dati, sempre.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🔒</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Nessun dato nel cloud</h3>
+                <p class="text-gray-500 text-sm">
+                    A differenza dei concorrenti SaaS che elaborano i tuoi documenti sui loro server (spesso negli USA), DataUnchain processa tutto localmente. Le fatture, i contratti, i DDT, le anagrafiche fornitori — tutto resta dentro le mura digitali dell'azienda. Questo significa conformita GDPR nativa senza necessita di DPA complessi, nessun rischio legato al trasferimento dati extra-UE, e la certezza che un domani i tuoi dati non verranno usati per addestrare modelli AI di terze parti. La privacy non e un'opzione — e l'architettura stessa del prodotto.
+                </p>
+            </div>
+
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">⏱️</div>
+                <h3 class="text-xl font-bold mb-3 font-display">Setup in 2 ore</h3>
+                <p class="text-gray-500 text-sm">
+                    Il deployment standard richiede meno di 2 ore dalla prima chiamata al primo documento elaborato. Il nostro team prepara il docker-compose.yml con la configurazione degli adapter necessari, lo schema di estrazione e le credenziali del gestionale. Il cliente esegue un singolo comando (<code class="text-brand-tealLight">docker compose up -d</code>) e DataUnchain e operativo. Non servono settimane di analisi, documenti di specifica tecnica, o cicli di UAT infiniti. Se il gestionale e nella nostra lista, il connettore e gia pronto e testato — basta configurare le credenziali.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========  IL TUO GESTIONALE NON E NELLA LISTA?  ========= -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-bold tracking-widest uppercase mb-6">
+            🛠️ Custom
+        </div>
+        <h2 class="text-3xl lg:text-4xl font-black font-display mb-6">Il tuo gestionale non e nella lista?</h2>
+        <p class="text-gray-400 text-lg max-w-3xl mx-auto mb-8">
+            Nessun problema. DataUnchain e progettato con un'architettura ad adapter modulari: sviluppare un nuovo connettore per un gestionale non ancora supportato richiede tipicamente da 1 a 5 giorni lavorativi, a seconda della complessita dell'interfaccia di integrazione disponibile.
+        </p>
+        <div class="grid md:grid-cols-3 gap-6 text-left mb-12">
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl mb-6">🔗</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Webhook REST</h3>
+                <p class="text-gray-500 text-sm">
+                    Se il tuo gestionale espone un qualsiasi endpoint HTTP, possiamo integrarlo immediatamente tramite il nostro adapter webhook generico. Basta configurare URL, metodo, header di autenticazione e mapping dei campi JSON. Nessun codice custom necessario — tutta la configurazione avviene tramite file YAML. Tempi di integrazione: meno di 1 giorno.
+                </p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl mb-6">💾</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Import Database</h3>
+                <p class="text-gray-500 text-sm">
+                    Per i gestionali basati su database (SQL Server, MySQL, Oracle, PostgreSQL), possiamo scrivere direttamente nelle tabelle di import del gestionale rispettando stored procedure e vincoli di integrita. Questo approccio funziona anche con gestionali legacy degli anni '90 che non hanno mai avuto un'API. Tempi di integrazione: 2-3 giorni.
+                </p>
+            </div>
+            <div class="card-glow bg-brand-surface rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl mb-6">🤖</div>
+                <h3 class="text-lg font-bold mb-3 font-display">RPA Vision-Guided</h3>
+                <p class="text-gray-500 text-sm">
+                    Quando non c'e ne API ne accesso database, il nostro motore RPA basato su Playwright interagisce direttamente con l'interfaccia web del gestionale. Il nostro VLM proprietario guida il browser automation "vedendo" i form e compilandoli come farebbe un operatore umano. Tempi di integrazione: 3-5 giorni.
+                </p>
+            </div>
+        </div>
+        <p class="text-gray-500 mb-8">
+            Contattaci con il nome del tuo gestionale e ti diremo in quanto tempo possiamo sviluppare il connettore dedicato. La maggior parte dei nuovi adapter viene rilasciata entro una settimana dalla richiesta.
+        </p>
+    </div>
+</section>
+
+<!-- =========  FAQ  ========= -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl lg:text-4xl font-black font-display mb-4">Domande Frequenti</h2>
+            <p class="text-gray-500">Le risposte alle domande piu comuni sulle integrazioni DataUnchain.</p>
+        </div>
+
+        <div class="space-y-4">
+            <details class="group bg-brand-surface border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Devo configurare qualcosa sul mio gestionale per far funzionare DataUnchain?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Nella maggior parte dei casi, no. DataUnchain si collega al gestionale utilizzando le credenziali di accesso esistenti (username e password di un utente con permessi di scrittura, oppure API key se disponibile). Non richiediamo configurazioni lato server del gestionale, apertura di porte firewall verso l'esterno, o installazione di componenti aggiuntivi. L'unico requisito e che DataUnchain possa raggiungere il gestionale via rete locale — cosa che avviene naturalmente essendo installato on-premise sulla stessa rete del cliente.
+                </div>
+            </details>
+
+            <details class="group bg-brand-surface border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Cosa succede se il gestionale e offline durante l'elaborazione?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    DataUnchain gestisce questa situazione in modo trasparente. Il documento viene elaborato normalmente dall'AI e validato. Quando l'adapter tenta il push al gestionale e trova il sistema non raggiungibile, il documento viene messo in coda con stato "pending_push". Un job schedulato riprova il push con backoff esponenziale (1 min, 2 min, 4 min, fino a un massimo di 1 ora). Quando il gestionale torna online, tutti i documenti in coda vengono spediti automaticamente nell'ordine corretto. Lo stato di ogni documento e sempre visibile nella dashboard DataUnchain.
+                </div>
+            </details>
+
+            <details class="group bg-brand-surface border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Posso usare piu adapter contemporaneamente?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Assolutamente si. E una delle funzionalita piu potenti di DataUnchain. Un singolo documento puo attivare piu adapter in parallelo: ad esempio, la fattura viene registrata nel gestionale (Fatture in Cloud), i dati vengono aggiunti a un foglio Google Sheets per il controllo di gestione, e una notifica viene inviata su Slack al responsabile acquisti. La configurazione degli adapter multipli avviene tramite il file YAML della pipeline, dove puoi definire catene di output condizionali basate su tipo documento, importo, fornitore o qualsiasi altro campo estratto.
+                </div>
+            </details>
+
+            <details class="group bg-brand-surface border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Come gestite l'autenticazione con i diversi gestionali?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Ogni adapter implementa il metodo di autenticazione nativo del gestionale corrispondente. Supportiamo OAuth2 con refresh token automatico (Fatture in Cloud, Salesforce), API key/Private App Token (HubSpot, Airtable), autenticazione session-based con rinnovo automatico (SAP Business One), credenziali database dirette (Zucchetti, import SQL), e XML-RPC con API key (Odoo). Le credenziali sono salvate in modo sicuro nel file di configurazione locale, cifrate con la master key dell'istanza. Nessuna credenziale viene mai trasmessa a server esterni.
+                </div>
+            </details>
+
+            <details class="group bg-brand-surface border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Quanto tempo serve per aggiungere un nuovo gestionale non ancora supportato?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Dipende dal tipo di interfaccia disponibile. Se il gestionale espone API REST documentate, il nuovo adapter richiede tipicamente 1-2 giorni lavorativi. Per integrazioni via database (import su tabelle), servono 2-3 giorni per analizzare lo schema e sviluppare il mapping. Per integrazioni RPA su interfaccia web, i tempi sono di 3-5 giorni per configurare i flussi di automazione e testarli. In tutti i casi, il nostro team gestisce lo sviluppo end-to-end — il cliente deve solo fornire le credenziali di accesso e un ambiente di test.
+                </div>
+            </details>
+
+            <details class="group bg-brand-surface border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    DataUnchain funziona anche con gestionali installati in locale (non cloud)?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Si, anzi e lo scenario ideale. Essendo DataUnchain stesso un software on-premise, l'integrazione con gestionali installati localmente e nativa e diretta — senza necessita di tunnel, VPN o proxy. DataUnchain e il gestionale operano sulla stessa rete locale, garantendo latenza minima e massima sicurezza. Questo e particolarmente rilevante per le installazioni Mexal/Passepartout, Zucchetti e TeamSystem Enterprise che nella maggior parte dei casi sono installate su server locali dello studio o dell'azienda.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- =========  CTA FINALE  ========= -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto text-center relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-teal/5 rounded-full blur-[120px]"></div>
+        <div class="relative z-10">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+                🚀 Inizia Ora
+            </div>
+            <h2 class="text-4xl lg:text-5xl font-black font-display mb-6">
+                Verifica la compatibilita<br>con il <span class="gradient-text">tuo gestionale</span>
+            </h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                Scrivici il nome del tuo gestionale e del tuo caso d'uso. Ti rispondiamo entro 24 ore con una proposta tecnica dettagliata, tempi di setup e preventivo. Nessun impegno, nessun commerciale aggressivo — solo ingegneri che parlano la tua lingua.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:info@dataunchain.com?subject=Verifica%20compatibilit%C3%A0%20gestionale&body=Gestionale%3A%20%0ACaso%20d'uso%3A%20%0AVolume%20documenti%2Fmese%3A%20"
+                   class="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold hover:scale-105 transition-transform text-center text-lg">
+                    Verifica compatibilita
+                </a>
+                <a href="/it/early-access.html"
+                   class="px-8 py-4 rounded-2xl border border-white/10 hover:border-white/30 font-bold transition-colors text-center text-lg">
+                    Early Access gratuito
+                </a>
+            </div>
+            <p class="text-gray-600 text-sm mt-6">18 connettori pronti — nuovi adapter sviluppabili su richiesta in 1-5 giorni</p>
+        </div>
+    </div>
+</section>

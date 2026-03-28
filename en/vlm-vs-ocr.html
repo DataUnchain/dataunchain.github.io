@@ -1,0 +1,403 @@
+---
+layout: default
+title: "VLM vs OCR: The New Era of Document Extraction — DataUnchain"
+lang: en
+locale: en_US
+description: "Technical comparison between Vision Language Models and traditional OCR for business document data extraction. Why templates are dead and AI vision is the future."
+---
+
+<!-- Hero -->
+<section class="pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-brand-dark"></div>
+    <div class="absolute top-0 right-1/3 w-[500px] h-[500px] bg-brand-teal/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-brand-emerald/6 rounded-full blur-[100px]"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10 reveal active">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold tracking-widest uppercase mb-6">
+            🔬 Technical Comparison
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-black font-display mb-6 leading-[0.95]">
+            OCR is Dead.<br>
+            <span class="gradient-text">Welcome to the VLM Era.</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-4">
+            For 30 years, OCR was the only way to extract data from documents. Today, Vision Language Models
+            do something OCR never could: they <strong class="text-white">understand</strong> what they read.
+        </p>
+        <p class="text-sm text-gray-500 mb-10">No templates · No manual rules · The model sees and understands</p>
+    </div>
+</section>
+
+<!-- The Old World: OCR -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">📜</span> The Old World
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">OCR + Templates: 30 Years of Limits</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                OCR (Optical Character Recognition) was born in the 1990s. It works simply: scan the document image,
+                recognize individual characters, convert them to digital text. So far, so good. The problem is the
+                next step: to extract structured data (invoice number, VAT ID, total), you need a
+                <strong class="text-white">template</strong> — a map telling the software "the invoice number is at
+                position X,Y on the page."
+            </p>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                This approach has a fundamental flaw: every supplier has a different layout. Every time a supplier
+                changes, a layout shifts, or a slightly different document arrives, the template breaks. The system
+                doesn't "understand" the document — it only knows coordinates. If the invoice is rotated 2 degrees,
+                if there's a stain on the total, if the table has an extra column: error.
+            </p>
+            <p class="text-gray-400 leading-relaxed">
+                In 30 years of development, OCR never solved this problem. It only added complexity layers:
+                image pre-processing, automatic deskew, zone recognition. But the limitation is structural:
+                OCR recognizes characters, it doesn't understand meaning.
+            </p>
+        </div>
+        <div class="relative">
+            <div class="absolute -inset-4 bg-red-500/5 rounded-3xl blur-2xl"></div>
+            <div class="relative bg-brand-dark rounded-3xl border border-red-500/20 p-6 font-mono text-sm">
+                <div class="flex items-center gap-2 mb-4 text-red-400">
+                    <div class="w-1.5 h-1.5 rounded-full bg-red-500"></div>Traditional OCR — typical error log
+                </div>
+                <div class="space-y-3 text-xs">
+                    <div class="text-gray-500">Invoice_001.pdf → Template "Supplier A" applied</div>
+                    <div class="text-yellow-400">⚠ Field "total" not found — position (412,680) out of range</div>
+                    <div class="text-gray-500">Invoice_002.pdf → Template "Supplier B" applied</div>
+                    <div class="text-red-400">✗ Error: "l" recognized as "1" — total 1,250 → l,250</div>
+                    <div class="text-gray-500">DDT_003.pdf → No matching template found</div>
+                    <div class="text-red-400">✗ Error: unrecognized document — requires manual template</div>
+                    <div class="text-gray-500">Invoice_004.pdf → Template "Supplier A" applied</div>
+                    <div class="text-yellow-400">⚠ Document rotated 3° — coordinates misaligned</div>
+                    <div class="text-red-400">✗ VAT ID extracted: "IT0238B5120" — corrupted characters</div>
+                    <div class="text-red-400 mt-4 border-t border-white/5 pt-3">Average accuracy: 72% on mixed documents</div>
+                    <div class="text-red-400">Templates needed: 1 per supplier layout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- The New World: VLM -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <div class="order-2 lg:order-1">
+            <div class="relative">
+                <div class="absolute -inset-4 bg-brand-teal/5 rounded-3xl blur-2xl"></div>
+                <div class="relative bg-brand-surface rounded-3xl border border-brand-teal/20 p-6 font-mono text-sm">
+                    <div class="flex items-center gap-2 mb-4 text-brand-tealLight">
+                        <div class="w-1.5 h-1.5 rounded-full bg-brand-teal"></div>Vision Language Model — same batch
+                    </div>
+                    <div class="space-y-3 text-xs">
+                        <div class="text-gray-500">Invoice_001.pdf → Full visual analysis</div>
+                        <div class="text-green-400">✓ Total: €1,250.00 — semantically identified ("Invoice Total" field)</div>
+                        <div class="text-gray-500">Invoice_002.pdf → Never-seen-before layout</div>
+                        <div class="text-green-400">✓ All fields extracted — model understands context</div>
+                        <div class="text-gray-500">DDT_003.pdf → Different document, no template</div>
+                        <div class="text-green-400">✓ Classified as DDT — extracted: sender, recipient, item lines</div>
+                        <div class="text-gray-500">Invoice_004.pdf → Rotated document, stain on VAT ID</div>
+                        <div class="text-green-400">✓ VAT ID: IT02385120XX — reconstructed from semantic context</div>
+                        <div class="text-green-400 mt-4 border-t border-white/5 pt-3">Accuracy: 95.5% on 219 real documents</div>
+                        <div class="text-green-400">Templates needed: 0 — zero</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="order-1 lg:order-2">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">👁️</span> The New World
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">VLM: the Model That Sees and Understands</h2>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                A Vision Language Model (VLM) is an AI model that "looks" at documents the way a human would.
+                It doesn't recognize individual characters: it understands the entire layout, relationships between
+                fields, table structures, the meaning of numbers in context.
+            </p>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+                When a VLM reads an invoice, it doesn't look for "text at coordinate X,Y." It understands that
+                the number in the bottom-right corner, below the word "Total," is the invoice total. It understands
+                this even if the document is rotated, stained, handwritten, or in a layout it has never seen before.
+            </p>
+            <p class="text-gray-400 leading-relaxed">
+                <strong class="text-white">Zero templates. Zero manual rules. Zero maintenance.</strong>
+                The model receives a prompt ("extract invoice number, VAT ID, total...") and returns structured JSON.
+                Changing document type means changing the prompt — not rewriting the software.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison table -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-black font-display mb-6">Head-to-Head Comparison</h2>
+            <p class="text-gray-400 text-lg">Traditional OCR vs Vision Language Model — feature by feature.</p>
+        </div>
+        <div class="bg-brand-dark rounded-3xl border border-white/10 overflow-hidden">
+            <div class="grid grid-cols-3 gap-0 text-sm">
+                <div class="p-5 bg-brand-surface border-b border-white/10 font-bold text-gray-400">Feature</div>
+                <div class="p-5 bg-red-500/5 border-b border-white/10 font-bold text-red-400 text-center">Traditional OCR</div>
+                <div class="p-5 bg-brand-teal/5 border-b border-white/10 font-bold text-brand-tealLight text-center">Vision LM (DataUnchain)</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Layout understanding</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Fixed coordinates</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Semantic understanding</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Skewed/rotated docs</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Frequent errors</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Handled natively</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Complex tables</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Often fails</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Understands structure</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Handwriting</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Not supported</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Supported</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">New supplier</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Requires new template</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Works immediately</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Template maintenance</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Ongoing and costly</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Zero</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Semantic understanding</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">None</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">Full</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Setup time</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">Days/weeks per supplier</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">2 hours total</div>
+
+                <div class="p-5 border-b border-white/5 text-gray-400">Typical accuracy</div>
+                <div class="p-5 border-b border-white/5 text-center text-red-400">70-85% on mixed docs</div>
+                <div class="p-5 border-b border-white/5 text-center text-green-400">95.5% certified benchmark</div>
+
+                <div class="p-5 text-gray-400">Cost per page</div>
+                <div class="p-5 text-center text-red-400">€0.01-0.10 (cloud) + templates</div>
+                <div class="p-5 text-center text-green-400">€0 — flat license, no per-page cost</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Real benchmarks -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">📊</span> Certified Benchmark
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">Real Numbers, Real Documents</h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">Our proprietary VLM tested on 219 authentic Italian business documents — invoices, delivery notes, credit notes, receipts, payslips, contracts.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 text-center">
+                <div class="text-brand-tealLight font-black text-4xl font-display mb-2">95.5%</div>
+                <div class="text-gray-500 text-sm">Overall accuracy</div>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 text-center">
+                <div class="text-brand-tealLight font-black text-4xl font-display mb-2">100%</div>
+                <div class="text-gray-500 text-sm">Math validation</div>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 text-center">
+                <div class="text-brand-tealLight font-black text-4xl font-display mb-2">219</div>
+                <div class="text-gray-500 text-sm">Documents tested</div>
+            </div>
+            <div class="bg-brand-surface rounded-2xl p-6 border border-white/5 text-center">
+                <div class="text-brand-tealLight font-black text-4xl font-display mb-2">~30s</div>
+                <div class="text-gray-500 text-sm">Per document (GPU)</div>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-red-500/5 border border-red-500/20 rounded-3xl p-8">
+                <div class="text-red-400 font-bold text-xs uppercase tracking-widest mb-4">Traditional OCR — same documents</div>
+                <div class="text-red-400 font-black text-5xl font-display mb-2">70-85%</div>
+                <p class="text-gray-500 text-sm">Estimated accuracy on documents with mixed layouts, smartphone scans, stained delivery notes, and non-standard invoices. Error rate rises dramatically on "imperfect" documents.</p>
+            </div>
+            <div class="bg-green-500/5 border border-green-500/20 rounded-3xl p-8">
+                <div class="text-green-400 font-bold text-xs uppercase tracking-widest mb-4">DataUnchain VLM — same documents</div>
+                <div class="text-green-400 font-black text-5xl font-display mb-2">95.5%</div>
+                <p class="text-gray-500 text-sm">Certified accuracy across all 219 real documents, including smartphone scans, non-standard layouts, complex tables, and multilingual documents. With auto-learning, targeting 99%+.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5 scenarios where OCR fails -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">⚠️</span> Where OCR Fails
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">5 Real Scenarios, 5 OCR Failures</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">📄</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Non-Standard Invoice Layout</h3>
+                <p class="text-gray-400 text-sm mb-3">A new supplier sends an invoice with a layout different from all previous ones. OCR has no template: it doesn't know where to find fields. Result: null or severely erroneous extraction.</p>
+                <div class="text-xs"><span class="text-red-400">OCR:</span> ✗ Requires manual template<br><span class="text-green-400">VLM:</span> ✓ Extracts everything on first try</div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">📦</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Stained or Folded Delivery Note</h3>
+                <p class="text-gray-400 text-sm mb-3">A warehouse delivery note with oil stains, folds, stamps overlapping text. OCR recognizes corrupted characters. The VLM "sees" the document like a human and reconstructs information from context.</p>
+                <div class="text-xs"><span class="text-red-400">OCR:</span> ✗ Illegible characters, corrupted data<br><span class="text-green-400">VLM:</span> ✓ Semantic reconstruction from context</div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">📊</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Merged Table Rows</h3>
+                <p class="text-gray-400 text-sm mb-3">An invoice with a complex table: rows spanning two lines, merged columns, intermediate subtotals. OCR loses the tabular structure. The VLM understands cell relationships.</p>
+                <div class="text-xs"><span class="text-red-400">OCR:</span> ✗ Table structure lost<br><span class="text-green-400">VLM:</span> ✓ Table extracted correctly</div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">🌍</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Multilingual Documents</h3>
+                <p class="text-gray-400 text-sm mb-3">An invoice from a foreign supplier: German header, Italian line items, European number format. OCR needs language-specific configuration. The VLM understands any language natively.</p>
+                <div class="text-xs"><span class="text-red-400">OCR:</span> ✗ Requires per-language config<br><span class="text-green-400">VLM:</span> ✓ Natively multilingual</div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8">
+                <div class="w-12 h-12 rounded-2xl bg-red-500/20 flex items-center justify-center text-2xl mb-6">📱</div>
+                <h3 class="text-lg font-bold mb-3 font-display">Smartphone Photo</h3>
+                <p class="text-gray-400 text-sm mb-3">An operator photographs a receipt from their phone: imperfect angle, shadows, partial blur. OCR can't segment the text. The VLM interprets the image with human-like visual capability.</p>
+                <div class="text-xs"><span class="text-red-400">OCR:</span> ✗ Insufficient deskew, multiple errors<br><span class="text-green-400">VLM:</span> ✓ Correct extraction even from angled photos</div>
+            </div>
+            <div class="card-glow bg-brand-dark rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+                <div class="text-5xl mb-6">🏆</div>
+                <h3 class="text-xl font-bold mb-3 font-display">The Bottom Line</h3>
+                <p class="text-gray-400 text-sm">In all 5 scenarios, the VLM outperforms OCR. Not because it's a better OCR — but because it's a fundamentally different technology. <strong class="text-white">It understands, it doesn't just recognize.</strong></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How DataUnchain uses VLMs -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emeraldLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">⚙️</span> How It Works in DataUnchain
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">The VLM at the Heart of the Pipeline</h2>
+        </div>
+        <div class="space-y-6">
+            <div class="bg-brand-surface rounded-3xl p-8 border border-white/5 grid md:grid-cols-[auto_1fr] gap-6 items-center">
+                <div class="w-14 h-14 rounded-2xl bg-brand-teal/20 flex items-center justify-center text-2xl">📄</div>
+                <div>
+                    <h3 class="font-bold mb-1">1. The document arrives</h3>
+                    <p class="text-gray-400 text-sm">Via email, PEC, Telegram, REST API, or shared folder. 5 input channels, all automatically monitored.</p>
+                </div>
+            </div>
+            <div class="bg-brand-surface rounded-3xl p-8 border border-white/5 grid md:grid-cols-[auto_1fr] gap-6 items-center">
+                <div class="w-14 h-14 rounded-2xl bg-brand-emerald/20 flex items-center justify-center text-2xl">👁️</div>
+                <div>
+                    <h3 class="font-bold mb-1">2. Our proprietary VLM analyzes it</h3>
+                    <p class="text-gray-400 text-sm">Our proprietary Vision AI model "sees" the document, understands layout and content, extracts all required fields into structured JSON. Runs 100% locally via Ollama — no data goes to the cloud.</p>
+                </div>
+            </div>
+            <div class="bg-brand-surface rounded-3xl p-8 border border-white/5 grid md:grid-cols-[auto_1fr] gap-6 items-center">
+                <div class="w-14 h-14 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl">🧮</div>
+                <div>
+                    <h3 class="font-bold mb-1">3. Scientific validation</h3>
+                    <p class="text-gray-400 text-sm">Python verifies every field: net + VAT = total, valid VAT ID (11 digits), tax code (homocodia-aware), date formats. Low-confidence fields are flagged for human review.</p>
+                </div>
+            </div>
+            <div class="bg-brand-surface rounded-3xl p-8 border border-white/5 grid md:grid-cols-[auto_1fr] gap-6 items-center">
+                <div class="w-14 h-14 rounded-2xl bg-green-500/20 flex items-center justify-center text-2xl">🔌</div>
+                <div>
+                    <h3 class="font-bold mb-1">4. Automatic push to your ERP</h3>
+                    <p class="text-gray-400 text-sm">Validated data is sent to your ERP via one of 18 native connectors: Fatture in Cloud, TeamSystem, Zucchetti, Mexal, Odoo, SAP, Salesforce, HubSpot, and more. Zero client-side configuration.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 bg-brand-teal/5 border border-brand-teal/20 rounded-3xl p-8 text-center">
+            <p class="text-brand-tealLight font-bold text-lg mb-2">All local. All automatic.</p>
+            <p class="text-gray-400">No data leaves your network. No cloud APIs. No per-page costs. No templates to maintain. The VLM is the difference between software that recognizes characters and one that understands documents.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-24 px-6 bg-brand-surface reveal">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-brand-teal/10 border border-brand-teal/20 text-brand-tealLight text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="text-xl">❓</span> FAQ
+            </div>
+            <h2 class="text-4xl font-black font-display mb-6">VLM vs OCR — Common Questions</h2>
+        </div>
+        <div class="space-y-4">
+            <details class="group bg-brand-dark border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Is the VLM slower than OCR?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Per single page, raw OCR is faster (~1-2 seconds vs ~30 seconds for VLM on GPU). But OCR then requires template matching, validation, and often manual error correction. Total end-to-end time — from document arrival to correct data in ERP — is comparable or less with VLM, because there's no manual correction needed.
+                </div>
+            </details>
+            <details class="group bg-brand-dark border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    Do I need a dedicated GPU?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    For maximum speed (~30 seconds/document), yes — an NVIDIA GPU with at least 16GB VRAM. But DataUnchain also works in CPU mode: slower (~3-5 minutes/document) but perfectly functional for low volumes. With DataUnchain bundles, hardware is included and pre-configured.
+                </div>
+            </details>
+            <details class="group bg-brand-dark border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    What if the VLM makes a mistake?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    DataUnchain has multi-layer validation: math check (Net + VAT = Total), format validation (VAT ID, tax code, dates), and confidence scoring per field. Documents with low-confidence fields are routed to the dashboard for human review. The operator corrects, and the correction feeds the auto-learning system — making the model more accurate over time.
+                </div>
+            </details>
+            <details class="group bg-brand-dark border border-white/5 rounded-[2rem] p-6 hover:shadow-md transition-all cursor-pointer">
+                <summary class="flex justify-between items-center font-bold text-lg list-none select-none">
+                    How does it compare to cloud OCR services cost-wise?
+                    <span class="bg-white/10 w-8 h-8 rounded-full flex items-center justify-center group-open:rotate-180 transition-transform duration-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </span>
+                </summary>
+                <div class="mt-4 text-gray-400 leading-relaxed">
+                    Cloud OCR services (AWS Textract, Azure Form Recognizer) charge per page: €0.01-€0.10/page. For an SME with 5,000 pages/month = €600-€6,000/year in processing alone, plus template costs. DataUnchain has a flat annual license (from €1,200) with no per-page charges. At 5,000 pages/month, breakeven is month 2-3. After that, it's pure savings — forever.
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 bg-brand-dark reveal">
+    <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl lg:text-5xl font-black font-display mb-6">
+            Ready to Move Beyond OCR?
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+            Discover what our proprietary VLM can do with your documents. Request a demo or join the Early Adopter program to try it free for 6 months.
+        </p>
+        <div class="flex gap-4 justify-center flex-wrap">
+            <a href="mailto:info@dataunchain.com?subject=Demo%20Request%20—%20DataUnchain"
+                class="px-10 py-5 rounded-2xl bg-gradient-to-r from-brand-teal to-brand-emerald font-bold text-lg hover:scale-105 transition-transform">
+                Request a Demo
+            </a>
+            <a href="/en/early-access/"
+                class="px-10 py-5 rounded-2xl border border-white/10 font-bold text-lg hover:bg-white/5 transition-colors">
+                Early Adopter Program →
+            </a>
+        </div>
+    </div>
+</section>
