@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataUnchain — Animation v2 Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0D0D0F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: system-ui, sans-serif;
+    gap: 32px;
+    padding: 60px 40px;
+  }
+  .label {
+    color: #5EEAD4;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .wrapper {
+    width: 100%;
+    max-width: 860px;
+  }
+  .wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .note {
+    color: #71717A;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.7;
+  }
+  code {
+    background: #18181B;
+    color: #5EEAD4;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+  /* Also show inline SVG version for full animation support */
+  .wrapper-inline {
+    width: 100%;
+    max-width: 860px;
+  }
+</style>
+</head>
+<body>
+  <span class="label">DataUnchain — Pipeline Animation v2</span>
+
+  <!-- Inline SVG for full CSS animation support in all browsers -->
+  <div class="wrapper-inline">
+    <object type="image/svg+xml" data="pipeline-animation-v2.svg" style="width:100%;height:auto;display:block;"></object>
+  </div>
+
+  <p class="note">
+    Embed nel sito: <code>&lt;object type="image/svg+xml" data="/assets/animations/pipeline-animation-v2.svg"&gt;&lt;/object&gt;</code><br>
+    oppure inline con <code>&lt;img&gt;</code> (le animazioni CSS funzionano anche con img tag in Chrome/Firefox/Safari)
+  </p>
+</body>
+</html>

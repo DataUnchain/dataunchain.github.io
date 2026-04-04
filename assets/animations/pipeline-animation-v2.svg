@@ -1,0 +1,319 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" width="860" height="400" role="img" aria-label="DataUnchain: da documento PDF a dati strutturati, 100% in locale">
+<defs>
+  <style>
+    @keyframes scanMove {
+      0%   { transform: translateY(0px);   opacity: 0; }
+      8%   { opacity: 0.9; }
+      88%  { transform: translateY(148px); opacity: 0.9; }
+      96%  { opacity: 0; }
+      100% { transform: translateY(148px); opacity: 0; }
+    }
+    @keyframes fadeInRow {
+      0%   { opacity: 0; transform: translateX(-6px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes checkIn {
+      0%   { opacity: 0; stroke-dashoffset: 30; }
+      100% { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.12); }
+    }
+    @keyframes dotFlow {
+      0%   { offset-distance: 0%;   opacity: 0; }
+      8%   { opacity: 1; }
+      85%  { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; }
+    }
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.15; }
+      50%       { opacity: 0.35; }
+    }
+    @keyframes badgeFade {
+      0%, 70% { opacity: 0; }
+      80%      { opacity: 1; }
+      100%     { opacity: 1; }
+    }
+    @keyframes lineGrow {
+      0%   { stroke-dashoffset: 200; opacity: 0; }
+      15%  { opacity: 1; }
+      100% { stroke-dashoffset: 0;   opacity: 1; }
+    }
+    @keyframes docAppear {
+      0%   { opacity: 0; transform: translateX(-16px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    .scan-line { animation: scanMove 5s ease-in-out infinite; }
+    .doc-group { animation: docAppear 0.7s cubic-bezier(0.2,0,0,1) both; }
+
+    .row-1 { animation: fadeInRow 0.4s cubic-bezier(0.2,0,0,1) 2.0s both; }
+    .row-2 { animation: fadeInRow 0.4s cubic-bezier(0.2,0,0,1) 2.5s both; }
+    .row-3 { animation: fadeInRow 0.4s cubic-bezier(0.2,0,0,1) 3.0s both; }
+    .row-4 { animation: fadeInRow 0.4s cubic-bezier(0.2,0,0,1) 3.5s both; }
+    .row-5 { animation: fadeInRow 0.4s cubic-bezier(0.2,0,0,1) 4.0s both; }
+    .row-check { animation: fadeInRow 0.5s cubic-bezier(0.2,0,0,1) 4.6s both; }
+
+    .ai-dot { animation: pulse 2s ease-in-out infinite; }
+    .ai-glow { animation: glowPulse 2s ease-in-out infinite; }
+    .line-left  { animation: lineGrow 1.2s cubic-bezier(0.4,0,0.2,1) 0.8s both; stroke-dasharray: 200; }
+    .line-right { animation: lineGrow 1.2s cubic-bezier(0.4,0,0.2,1) 1.8s both; stroke-dasharray: 200; }
+    .badge { animation: badgeFade 5s ease-in-out infinite; }
+
+    /* Dot flowing along path */
+    .dot-1 {
+      offset-path: path('M 306 200 L 426 200');
+      animation: dotFlow 5s ease-in-out 1.0s infinite;
+    }
+    .dot-2 {
+      offset-path: path('M 306 200 L 426 200');
+      animation: dotFlow 5s ease-in-out 1.6s infinite;
+    }
+    .dot-3 {
+      offset-path: path('M 434 200 L 554 200');
+      animation: dotFlow 5s ease-in-out 1.8s infinite;
+    }
+    .dot-4 {
+      offset-path: path('M 434 200 L 554 200');
+      animation: dotFlow 5s ease-in-out 2.4s infinite;
+    }
+  </style>
+
+  <!-- Scan gradient -->
+  <linearGradient id="scanGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#5EEAD4" stop-opacity="0"/>
+    <stop offset="40%"  stop-color="#5EEAD4" stop-opacity="0.7"/>
+    <stop offset="60%"  stop-color="#5EEAD4" stop-opacity="0.7"/>
+    <stop offset="100%" stop-color="#5EEAD4" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- Doc header gradient -->
+  <linearGradient id="docHeader" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%"  stop-color="#0D9488"/>
+    <stop offset="100%" stop-color="#10B981"/>
+  </linearGradient>
+
+  <!-- Output card gradient border -->
+  <linearGradient id="cardBorder" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#5EEAD4" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#10B981" stop-opacity="0.1"/>
+  </linearGradient>
+
+  <!-- Clip for scan line -->
+  <clipPath id="docClip">
+    <rect x="62" y="88" width="216" height="224" rx="0"/>
+  </clipPath>
+
+  <!-- Glow filter -->
+  <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="softglow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="12" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+<!-- ── Background ── -->
+<rect width="860" height="400" fill="#0D0D0F"/>
+
+<!-- Ambient blob left -->
+<ellipse cx="170" cy="200" rx="140" ry="120" fill="#0D9488" opacity="0.04" class="ai-glow"/>
+<!-- Ambient blob right -->
+<ellipse cx="690" cy="200" rx="160" ry="120" fill="#10B981" opacity="0.04" class="ai-glow"/>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- LEFT: DOCUMENT (Invoice PDF)               -->
+<!-- ═══════════════════════════════════════════ -->
+<g class="doc-group">
+  <!-- Shadow -->
+  <rect x="66" y="94" width="216" height="224" rx="12" fill="#000000" opacity="0.4"/>
+  <!-- Card -->
+  <rect x="62" y="88" width="216" height="224" rx="12" fill="#18181B" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.08"/>
+
+  <!-- Invoice header bar -->
+  <rect x="62" y="88" width="216" height="40" rx="12" fill="url(#docHeader)"/>
+  <rect x="62" y="108" width="216" height="20" fill="url(#docHeader)"/>
+  <!-- Header text -->
+  <text x="82" y="110" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="white" opacity="0.9">FATTURA N. 2024/0847</text>
+  <text x="82" y="122" font-family="system-ui, sans-serif" font-size="8.5" fill="white" opacity="0.65">Acme Industries Srl  ·  P.IVA 01234567890</text>
+
+  <!-- Divider -->
+  <line x1="78" y1="142" x2="262" y2="142" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.08"/>
+
+  <!-- Document body — fake text lines (gray, messy) -->
+  <rect x="78" y="150" width="55" height="7" rx="3.5" fill="#71717A" opacity="0.25"/>
+  <rect x="140" y="150" width="100" height="7" rx="3.5" fill="#71717A" opacity="0.18"/>
+
+  <rect x="78" y="165" width="45" height="7" rx="3.5" fill="#71717A" opacity="0.25"/>
+  <rect x="140" y="165" width="80" height="7" rx="3.5" fill="#71717A" opacity="0.18"/>
+
+  <!-- Table header -->
+  <rect x="78" y="182" width="184" height="1" fill="#ffffff" opacity="0.06"/>
+  <rect x="78" y="184" width="60" height="6" rx="3" fill="#71717A" opacity="0.3"/>
+  <rect x="175" y="184" width="40" height="6" rx="3" fill="#71717A" opacity="0.3"/>
+  <rect x="222" y="184" width="40" height="6" rx="3" fill="#71717A" opacity="0.3"/>
+  <rect x="78" y="193" width="184" height="1" fill="#ffffff" opacity="0.06"/>
+
+  <!-- Table rows -->
+  <rect x="78" y="200" width="80" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+  <rect x="175" y="200" width="30" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+  <rect x="225" y="200" width="35" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+
+  <rect x="78" y="212" width="70" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+  <rect x="175" y="212" width="30" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+  <rect x="225" y="212" width="35" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+
+  <rect x="78" y="224" width="90" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+  <rect x="175" y="224" width="30" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+  <rect x="225" y="224" width="35" height="5" rx="2.5" fill="#71717A" opacity="0.2"/>
+
+  <!-- Totals section -->
+  <rect x="78" y="240" width="184" height="1" fill="#ffffff" opacity="0.08"/>
+  <rect x="155" y="248" width="50" height="6" rx="3" fill="#71717A" opacity="0.25"/>
+  <rect x="215" y="248" width="47" height="6" rx="3" fill="#5EEAD4" opacity="0.25"/>
+
+  <rect x="155" y="260" width="50" height="6" rx="3" fill="#71717A" opacity="0.25"/>
+  <rect x="215" y="260" width="47" height="6" rx="3" fill="#5EEAD4" opacity="0.25"/>
+
+  <rect x="155" y="275" width="50" height="8" rx="4" fill="#71717A" opacity="0.3"/>
+  <rect x="213" y="273" width="51" height="10" rx="5" fill="#0D9488" opacity="0.35"/>
+
+  <!-- Scan line overlay -->
+  <g clip-path="url(#docClip)" class="scan-line">
+    <rect x="62" y="88" width="216" height="10" fill="url(#scanGrad)" opacity="0.9"/>
+  </g>
+</g>
+
+<!-- Label under doc -->
+<text x="170" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#71717A" letter-spacing="1">PDF · PEC · EDI · Scanner</text>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- CENTER: AI NODE                            -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- Connection line left -->
+<line x1="306" y1="200" x2="426" y2="200" stroke="#5EEAD4" stroke-width="1" stroke-opacity="0.2" class="line-left"/>
+
+<!-- Connection line right -->
+<line x1="434" y1="200" x2="554" y2="200" stroke="#5EEAD4" stroke-width="1" stroke-opacity="0.2" class="line-right"/>
+
+<!-- Flowing dots left → AI -->
+<circle class="dot-1" r="3" fill="#5EEAD4" filter="url(#glow)" style="offset-path: path('M 306 200 L 426 200');"/>
+<circle class="dot-2" r="2" fill="#5EEAD4" opacity="0.6" style="offset-path: path('M 306 200 L 426 200');"/>
+
+<!-- Flowing dots AI → output -->
+<circle class="dot-3" r="3" fill="#6EE7B7" filter="url(#glow)" style="offset-path: path('M 434 200 L 554 200');"/>
+<circle class="dot-4" r="2" fill="#6EE7B7" opacity="0.6" style="offset-path: path('M 434 200 L 554 200');"/>
+
+<!-- AI glow halo -->
+<circle cx="430" cy="200" r="36" fill="#0D9488" class="ai-glow" filter="url(#softglow)"/>
+
+<!-- AI outer ring -->
+<circle cx="430" cy="200" r="28" fill="none" stroke="#5EEAD4" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="4 3">
+  <animateTransform attributeName="transform" type="rotate" from="0 430 200" to="360 430 200" dur="12s" repeatCount="indefinite"/>
+</circle>
+
+<!-- AI core circle -->
+<circle cx="430" cy="200" r="20" fill="#18181B" stroke="#5EEAD4" stroke-width="1.5" stroke-opacity="0.6" class="ai-dot"/>
+
+<!-- AI icon — eye / vision -->
+<g transform="translate(419, 194)">
+  <!-- Eye outline -->
+  <path d="M 0 6 Q 11 -2 22 6 Q 11 14 0 6 Z" fill="none" stroke="#5EEAD4" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Pupil -->
+  <circle cx="11" cy="6" r="3.5" fill="#5EEAD4" opacity="0.9">
+    <animate attributeName="r" values="3;4;3" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Iris -->
+  <circle cx="11" cy="6" r="5.5" fill="none" stroke="#5EEAD4" stroke-width="0.8" opacity="0.4"/>
+</g>
+
+<!-- AI label -->
+<text x="430" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" fill="#5EEAD4" opacity="0.6">AI</text>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- RIGHT: STRUCTURED DATA OUTPUT             -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- Card background -->
+<rect x="554" y="88" width="248" height="224" rx="12" fill="#18181B" stroke="url(#cardBorder)" stroke-width="1"/>
+
+<!-- Card header -->
+<rect x="554" y="88" width="248" height="36" rx="12" fill="#ffffff" fill-opacity="0.03"/>
+<rect x="554" y="108" width="248" height="16" fill="#ffffff" fill-opacity="0.03"/>
+<text x="572" y="110" font-family="system-ui, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#5EEAD4" opacity="0.7">DATI ESTRATTI</text>
+
+<!-- Divider -->
+<line x1="572" y1="132" x2="786" y2="132" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.06"/>
+
+<!-- Row 1 — Fornitore -->
+<g class="row-1">
+  <text x="572" y="152" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">Fornitore</text>
+  <text x="680" y="152" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#ffffff">Acme Industries Srl</text>
+</g>
+
+<!-- Row 2 — N. Fattura -->
+<g class="row-2">
+  <text x="572" y="171" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">N. Fattura</text>
+  <text x="680" y="171" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#ffffff">2024/0847</text>
+</g>
+
+<!-- Row 3 — Data -->
+<g class="row-3">
+  <text x="572" y="190" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">Data</text>
+  <text x="680" y="190" font-family="system-ui, sans-serif" font-size="9" font-weight="600" fill="#ffffff">15 Marzo 2024</text>
+</g>
+
+<!-- Row 4 — Imponibile -->
+<g class="row-4">
+  <text x="572" y="209" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">Imponibile</text>
+  <text x="680" y="209" font-family="monospace, monospace" font-size="9" font-weight="600" fill="#ffffff">€ 4.200,00</text>
+</g>
+
+<!-- Row 5 — IVA -->
+<g class="row-5">
+  <text x="572" y="228" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">IVA 22%</text>
+  <text x="680" y="228" font-family="monospace, monospace" font-size="9" font-weight="600" fill="#ffffff">€ 924,00</text>
+</g>
+
+<!-- Divider before total -->
+<g class="row-check">
+  <line x1="572" y1="240" x2="786" y2="240" stroke="#ffffff" stroke-width="0.5" stroke-opacity="0.08"/>
+</g>
+
+<!-- Row total + check -->
+<g class="row-check">
+  <!-- Checkmark circle -->
+  <circle cx="585" cy="261" r="9" fill="#10B981" opacity="0.15"/>
+  <path d="M 580 261 L 584 265 L 591 257" fill="none" stroke="#6EE7B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="20" stroke-dashoffset="0">
+    <animate attributeName="stroke-dashoffset" values="20;0" dur="0.4s" begin="4.8s" fill="freeze"/>
+  </path>
+
+  <text x="602" y="265" font-family="system-ui, sans-serif" font-size="9" fill="#71717A">Totale</text>
+  <text x="680" y="265" font-family="monospace, monospace" font-size="11" font-weight="700" fill="#6EE7B7">€ 5.124,00</text>
+
+  <!-- Pushed to ERP badge -->
+  <rect x="572" y="278" width="210" height="20" rx="10" fill="#10B981" fill-opacity="0.08" stroke="#10B981" stroke-width="0.5" stroke-opacity="0.3"/>
+  <text x="677" y="292" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="600" letter-spacing="1" fill="#6EE7B7" opacity="0.8">INVIATO AL GESTIONALE  ✓</text>
+</g>
+
+<!-- Label under output -->
+<text x="678" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#71717A" letter-spacing="1">TeamSystem · Zucchetti · SAP · +15</text>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- BOTTOM BADGE — on-premise guarantee       -->
+<!-- ═══════════════════════════════════════════ -->
+<g class="badge">
+  <!-- Lock icon -->
+  <g transform="translate(371, 356)">
+    <rect x="0" y="5" width="10" height="8" rx="2" fill="none" stroke="#5EEAD4" stroke-width="1.2" opacity="0.5"/>
+    <path d="M1.5 5 V3 A3.5 3.5 0 0 1 8.5 3 V5" fill="none" stroke="#5EEAD4" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="5" cy="9" r="1.2" fill="#5EEAD4" opacity="0.5"/>
+  </g>
+  <text x="430" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9.5" fill="#5EEAD4" opacity="0.45" letter-spacing="0.5">Nessun dato ha lasciato la tua rete</text>
+</g>
+
+</svg>
