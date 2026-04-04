@@ -307,13 +307,13 @@
 <!-- BOTTOM BADGE — on-premise guarantee       -->
 <!-- ═══════════════════════════════════════════ -->
 <g class="badge">
-  <!-- Lock icon -->
-  <g transform="translate(371, 356)">
+  <!-- Lock icon + text centered as a unit (lock at x=326, text starts at x=344, pair centers ~430) -->
+  <g transform="translate(326, 356)">
     <rect x="0" y="5" width="10" height="8" rx="2" fill="none" stroke="#5EEAD4" stroke-width="1.2" opacity="0.5"/>
     <path d="M1.5 5 V3 A3.5 3.5 0 0 1 8.5 3 V5" fill="none" stroke="#5EEAD4" stroke-width="1.2" opacity="0.5"/>
     <circle cx="5" cy="9" r="1.2" fill="#5EEAD4" opacity="0.5"/>
   </g>
-  <text x="430" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9.5" fill="#5EEAD4" opacity="0.45" letter-spacing="0.5">Nessun dato ha lasciato la tua rete</text>
+  <text x="344" y="367" text-anchor="start" font-family="system-ui, sans-serif" font-size="9.5" fill="#5EEAD4" opacity="0.45" letter-spacing="0.5">Nessun dato ha lasciato la tua rete</text>
 </g>
 
 </svg>
