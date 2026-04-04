@@ -31,9 +31,9 @@
       50%       { opacity: 0.35; }
     }
     @keyframes badgeFade {
-      0%, 70% { opacity: 0; }
-      80%      { opacity: 1; }
-      100%     { opacity: 1; }
+      0%, 40% { opacity: 0; }
+      55%     { opacity: 1; }
+      100%    { opacity: 1; }
     }
     @keyframes lineGrow {
       0%   { stroke-dashoffset: 200; opacity: 0; }
@@ -59,7 +59,7 @@
     .ai-glow { animation: glowPulse 2s ease-in-out infinite; }
     .line-left  { animation: lineGrow 1.2s cubic-bezier(0.4,0,0.2,1) 0.8s both; stroke-dasharray: 200; }
     .line-right { animation: lineGrow 1.2s cubic-bezier(0.4,0,0.2,1) 1.8s both; stroke-dasharray: 200; }
-    .badge { animation: badgeFade 5s ease-in-out infinite; }
+    .badge { animation: badgeFade 8s ease-in-out infinite; }
 
     /* Dot flowing along path */
     .dot-1 {
@@ -231,8 +231,9 @@
   <circle cx="11" cy="6" r="5.5" fill="none" stroke="#5EEAD4" stroke-width="0.8" opacity="0.4"/>
 </g>
 
-<!-- AI label -->
-<text x="430" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8.5" font-weight="600" letter-spacing="1.5" fill="#5EEAD4" opacity="0.6">AI</text>
+<!-- Center label -->
+<text x="430" y="234" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="700" letter-spacing="2" fill="#5EEAD4" opacity="0.5">100%</text>
+<text x="430" y="245" text-anchor="middle" font-family="system-ui, sans-serif" font-size="8" font-weight="700" letter-spacing="2" fill="#5EEAD4" opacity="0.5">LOCALE</text>
 
 <!-- ═══════════════════════════════════════════ -->
 <!-- RIGHT: STRUCTURED DATA OUTPUT             -->
