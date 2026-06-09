@@ -1,0 +1,28 @@
+# DataUnchain
+
+> DataUnchain is an on-premise AI document data extraction system that eliminates manual data entry from invoices, delivery notes, and contracts. The AI runs entirely on your hardware — no cloud, no external servers, no data ever leaving your network. 95.5% field-level accuracy tested on 219 real Italian business documents. 18 ERP connectors ready.
+
+DataUnchain is built for small and medium businesses, accounting firms, and logistics companies that process high volumes of business documents. It connects directly to the ERP or accounting software already in use, without requiring migration or cloud subscriptions. The product is developed and maintained by Antonio Trento, an Italian developer based in Italy.
+
+## Key pages
+
+- [Home (EN)](https://dataunchain.com/en/): Product overview, value proposition, Early Adopter Program
+- [Home (IT)](https://dataunchain.com/it/): Panoramica del prodotto, programma Early Adopter
+- [How it Works](https://dataunchain.com/en/how-it-works/): Four-phase pipeline — Ingestion, AI Vision, Validation, ERP Push
+- [Features](https://dataunchain.com/en/features/): Multimodal AI Vision, Mathematical Validation, Progressive Learning, REST API, Webhooks
+- [ERP Integrations](https://dataunchain.com/en/erp-integrations/): 18 connectors including Odoo, SAP Business One, TeamSystem, Fatture in Cloud, Zucchetti, Salesforce, HubSpot, Microsoft 365
+- [Pricing](https://dataunchain.com/en/pricing/): Mini (€3,000–4,000 hardware + €900–1,500/yr), Pro (€6,000–9,000), Server tier
+- [Architecture & Privacy](https://dataunchain.com/en/architecture-privacy/): On-premise deployment, GDPR compliance, air-gapped environments
+- [About Us](https://dataunchain.com/en/about-us/): Founder story, mission, benchmark methodology, product status
+- [Use Cases](https://dataunchain.com/en/use-cases/): Accounting firms, SME administration, logistics & distribution
+- [VLM vs OCR](https://dataunchain.com/en/vlm-vs-ocr/): Why Vision Language Models outperform traditional OCR for documents
+- [Benchmark](https://dataunchain.com/en/llm-document-extraction-benchmark/): Published accuracy results vs AWS Textract, Google Document AI, Azure Form Recognizer
+- [Roadmap](https://dataunchain.com/en/roadmap/): Development roadmap and upcoming features
+- [Early Access](https://dataunchain.com/en/early-access/): 6-month free trial for early adopters (5 spots)
+- [Blog (EN)](https://dataunchain.com/en/blog/): Articles on AI document processing, local LLMs, automation
+- [Blog (IT)](https://dataunchain.com/it/blog/): Articoli su AI per documenti, LLM locali, automazione
+- [Docs](https://dataunchain.com/en/docs/): Technical documentation
+
+## Optional
+
+- [llms-full.txt](https://dataunchain.com/llms-full.txt): Complete site content for AI indexing

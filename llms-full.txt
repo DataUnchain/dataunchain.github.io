@@ -1,0 +1,230 @@
+# DataUnchain — Complete Content for AI Indexing
+
+> DataUnchain is a 100% on-premise AI document data extraction system for small and medium businesses. It eliminates manual data entry by reading invoices, delivery notes, contracts, and other business documents, extracting structured data, and pushing it directly into the company's ERP or accounting software — with zero cloud involvement. Built by Antonio Trento (Italy). Version 2.1.
+
+---
+
+## What is DataUnchain
+
+DataUnchain is an AI-powered document ingestion pipeline that runs entirely on your hardware, inside your network. It reads invoices, delivery notes, purchase orders, receipts, contracts, and other structured business documents. It extracts every relevant field — supplier name, VAT number, line items, totals, due dates — with accuracy matching or exceeding human operators. It then pushes that data directly into the existing software through a growing library of ERP connectors.
+
+The core value proposition: a document processing workflow that used to take 8–15 minutes per invoice now completes in ~30 seconds, at 95.5% field-level accuracy, with no human intervention, and with zero data leaving the company network.
+
+---
+
+## The Problem
+
+- Manual data entry costs the average European SME over €10,000/year in salaries, errors, and opportunity cost
+- Cloud OCR services (AWS Textract, Google Document AI, Azure Form Recognizer) send sensitive business documents to foreign servers, violating GDPR and NDA obligations
+- Enterprise solutions (ABBYY, Kofax, Hyperscience) cost €50,000+/year and require months of implementation
+- No affordable, private, on-premise solution existed for the SME market
+
+---
+
+## The Solution
+
+DataUnchain fills the gap between expensive enterprise tools and cloud services that violate privacy:
+
+- Runs entirely on the customer's hardware — no bytes sent externally
+- Priced for SMEs (Mini: €3,000–4,000 hardware + €900–1,500/yr license)
+- Installs in 2–4 hours, operational within 3 weeks
+- 18 ready connectors for ERP and accounting software
+- 95.5% field-level accuracy on real-world Italian business documents
+
+---
+
+## How It Works — The Four-Phase Pipeline
+
+**Phase 1 — Ingestion**
+Documents arrive via five channels:
+- Email monitoring (IMAP/POP3)
+- FTP/SFTP drop folders
+- REST API calls
+- Local watched directories (folder watch)
+- Direct web upload
+
+Supported formats: PDF, JPG, PNG, TIFF. Supported document types: invoices, credit notes, delivery notes (DDT), purchase orders, receipts, pro-forma invoices, self-invoices.
+
+**Phase 2 — AI Vision Extraction**
+A proprietary Vision Language Model (VLM) processes each document visually — not with traditional OCR. The model "sees" the document as a human would: understanding tables, handwriting, stamps, rotated scans, and irregular layouts. It extracts fields into structured JSON according to a configurable schema. Different schemas handle different document types without retraining.
+
+**Phase 3 — Mathematical Validation**
+A Python validation layer checks every extraction:
+- Recalculates: net amount + VAT = total on every invoice
+- Assigns confidence scores to every extracted field
+- Double-check mode: processes the same document with two models and flags divergences
+- Low-confidence documents go to the human review queue, never automatically to the ERP
+
+**Phase 4 — ERP Integration**
+Validated structured data flows via one of 18 connectors to the target system:
+- Fatture in Cloud, TeamSystem, Danea Easyfatt, Zucchetti (Italy-specific ERP/accounting)
+- Odoo, SAP Business One
+- Salesforce, HubSpot
+- Airtable, Notion, Google Sheets
+- Microsoft 365, Slack
+- Custom ODBC connections
+- Webhook, CSV export, REST API, RPA
+
+---
+
+## Key Features
+
+**Multimodal AI Vision**: The model reads documents natively without OCR. Handles tables, handwriting, stamps, and rotated scans.
+
+**Mathematical Validation**: Python layer verifies net + VAT = total on every invoice. Discrepancies trigger human review.
+
+**Multi-Schema Extraction**: Process invoices, delivery notes, contracts with different extraction templates via configuration — no retraining needed.
+
+**Progressive Learning**: Every correction made in the review dashboard is saved to improve accuracy on specific suppliers. After 500–1,000 documents, accuracy exceeds 99% on recurring layouts.
+
+**Appliance Deployment**: Complete containerized system via Docker Compose. AI model, processors, PostgreSQL database — fully isolated on enterprise hardware.
+
+**REST API and Webhooks**: FastAPI exposes endpoints to query results, trigger processing, and dispatch data to external systems.
+
+**Air-Gapped & Privacy**: Works with no internet connection after initial installation. Suitable for classified environments, hospitals, industrial facilities.
+
+**Double-Check Mode**: Same document processed by two AI models. Diverging results flag for human review.
+
+**Confidence Scoring**: Every extracted field receives a confidence percentage. Low-confidence fields are highlighted.
+
+**Human-in-the-Loop**: The AI processes 100 documents in 2 minutes. Humans verify only the 3–4 flagged ones. ~90% time saved, near-zero error rate.
+
+---
+
+## Performance Benchmarks
+
+Tested on 219 real-world Italian business documents — including invoices with irregular layouts, handwritten annotations, multi-page structures, and poor scan quality.
+
+- **95.5% field-level extraction accuracy** (DataUnchain)
+- Tested against: Google Document AI, AWS Textract, Azure Form Recognizer on the same dataset
+- Average processing time: ~30 seconds per document (GPU mode)
+- CPU mode: 3–5 minutes per document (for low volumes, no GPU required)
+- GPU requirement for maximum speed: NVIDIA GPU with 16GB+ VRAM (RTX 3090, 4090 recommended)
+
+Published benchmark: https://dataunchain.com/en/llm-document-extraction-benchmark/
+
+---
+
+## Privacy and Security Architecture
+
+DataUnchain's privacy is architectural, not policy-based:
+
+- The AI model runs on the customer's machine, inside their network
+- No document, field, log, or telemetry data is ever sent to an external server
+- Works fully offline after initial setup download
+- Structural GDPR compliance: zero cloud sub-processors, zero remote logs
+- NIS2 compliance: eliminates third-party risk in IT supply chain
+- Suitable for law firms, accountants, healthcare organizations with strict confidentiality requirements
+- Works in air-gapped environments with no internet connection
+
+---
+
+## Pricing
+
+DataUnchain is sold as a physical AI Appliance (hardware + software) with an annual license. No per-page costs. No cloud bills.
+
+**DataUnchain Mini** — Studios and micro SMBs
+- Hardware: Dedicated Mini PC
+- Setup cost: €3,000 – €4,000
+- Annual license: €900 – €1,500/year
+- Capacity: up to ~200 documents/month
+- Mode: CPU (no GPU required)
+
+**DataUnchain Pro** — Mid-sized businesses (5–50 employees)
+- Hardware: Compact workstation with GPU (RTX 4070/4080)
+- Setup cost: €6,000 – €9,000
+- Annual license: ~€2,400/year (most popular)
+- Capacity: up to ~1,000 documents/month
+- ROI positive from year one at 200+ docs/month
+
+**DataUnchain Server** — Large businesses, accounting firms
+- Hardware: Server with RTX 4090
+- Setup cost: higher tier
+- Annual license: ~€3,600/year
+- Capacity: unlimited volumes
+- ROI in months
+
+---
+
+## Target Customers
+
+**Accounting Firms (Studi Commercialisti)**
+Process documents for dozens of clients. DataUnchain automates the entire intake flow. One hour of setup eliminates months of work. 1:50+ leverage effect.
+
+**SME Administration**
+Companies receiving supplier invoices daily. Native integration with Odoo, SAP, or any major ERP already in place. ROI = invoices × minutes saved × hourly cost.
+
+**Logistics & Distribution**
+Reconciling delivery notes with orders. DataUnchain extracts SKUs, quantities, and supplier data and pushes them to the warehouse system without any internet connection.
+
+---
+
+## Early Adopter Program
+
+DataUnchain is currently in an Early Adopter Program with 5 spots available:
+- 6 months completely free (full product, no feature restrictions)
+- Installation and configuration by the founder (2–4 hours)
+- Testing on the customer's actual documents (20–50 in week 2)
+- Direct support channel with Antonio Trento
+- Locked early-adopter price forever after the 6 months
+- No obligation: full uninstallation at zero cost if unsatisfied
+
+Ideal candidate: company receiving 50+ documents/month using a digital ERP.
+
+Program page: https://dataunchain.com/en/early-access/
+
+---
+
+## Company and Founder
+
+**Antonio Trento** — Founder, DataUnchain
+- Italian developer based in Italy
+- Background: full-stack web development, data engineering, AI integration
+- Built the entire DataUnchain stack solo: Python backend, VLM fine-tuning, multi-channel intake, connector framework, validation layer
+- Personal portfolio: https://antoniotrento.net
+
+**DataUnchain** was built because no affordable, private, on-premise document extraction solution existed for the SME market. The founding insight: every small business wastes hours copying numbers from documents into software, and the only available solutions were either unaffordably expensive enterprise tools or cloud services that violated privacy.
+
+**Product status**: Version 2.1, fully functional, available for installation today.
+
+**Funding**: Applied for Smart&Start Italia grant (Invitalia) — €680,000 in subsidized financing (zero-interest loan + 30% non-repayable grant). Currently in progress.
+
+**Growth target**: 25 paying customers within 18 months of commercial launch (~€60,000 ARR).
+
+**Long-term vision**: Italian market first (mandatory e-invoicing since 2019 creates high document volumes and strong privacy awareness), then European expansion. Architecture is language-agnostic — scaling to German, French, Spanish, Portuguese invoices requires only field-mapping configuration.
+
+---
+
+## Open Source
+
+The core extraction engine is open source and auditable:
+- GitHub: https://github.com/dataunchain/dataunchain
+- Enterprise features, connectors, and management dashboard available under commercial license
+- Anyone can verify that no data is sent externally by reading the source code
+
+---
+
+## Blog Topics
+
+DataUnchain publishes educational content on:
+- AI document processing vs traditional OCR
+- Local LLMs for enterprise document workflows
+- VLM (Vision Language Model) technology explained
+- How to import documents into CRM/ERP systems with AI
+- Document automation architecture for enterprises
+- Benchmark comparisons: DataUnchain vs cloud services
+- Why document automation projects fail
+- Future of document AI
+- AI for Italian business documents (fatture, DDT, ordini)
+
+Blog (EN): https://dataunchain.com/en/blog/
+Blog (IT): https://dataunchain.com/it/blog/
+
+---
+
+## Contact
+
+- Email: info@dataunchain.com
+- Early access form: https://forms.gle/tYPTaRX1UdsLwaGM6
+- Website: https://dataunchain.com
+- GitHub: https://github.com/dataunchain/dataunchain
